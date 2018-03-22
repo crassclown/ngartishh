@@ -13,9 +13,27 @@ class M_users extends CI_Model
 	{
 		$this->db->insert('users', $data);
 	}
-	
+
 	function cek_login($table,$where)
 	{		
 		return $this->db->get_where($table,$where);
-    }
+	}
+	
+	public function getAllusers()
+	{
+		$result = $this->db->get('users');
+		return $result->result();
+	}
+
+	public function get_users($id)
+	{
+		$result = $this->db->where('id', $id)->get('users')->result();
+		return $result;
+	}
+
+	public function get_usercontent($id)
+	{
+		$result = $this->db->where('user_id', $id)->get('content')->result();
+		return $result;
+	}
 }
