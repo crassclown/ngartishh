@@ -7,7 +7,7 @@ class C_registerusers extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('m_register');
+        $this->load->model('m_users');
     }
 	
 	public function index()
@@ -22,7 +22,7 @@ class C_registerusers extends CI_Controller {
             'password' => md5($this->input->post('txtpassword')),
         );
         if(isset($data)){
-            $insert = $this->m_register->m_registerusers($data);
+            $insert = $this->m_users->m_registerusers($data);
             // echo json_encode(array("status" => TRUE));
         }else{
             echo "Failed insert into database";

@@ -7,7 +7,7 @@ class C_loginusers extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
-		$this->load->model('m_login');
+		$this->load->model('m_users');
 		$this->load->database();		
 	}
 	
@@ -23,7 +23,7 @@ class C_loginusers extends CI_Controller {
             'email' => $email,
             'password' => md5($password)
             );
-        $cek = $this->m_login->cek_login("users",$where)->num_rows();
+        $cek = $this->m_users->cek_login("users",$where)->num_rows();
         if($cek > 0){
      
             $data_session = array(
