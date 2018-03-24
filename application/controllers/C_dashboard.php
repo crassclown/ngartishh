@@ -22,6 +22,7 @@ class C_dashboard extends CI_Controller {
 	public function m_getContents(){
 		// get data
 		$data = $this->m_dashboard->m_getRecords();
+		
 		echo json_encode($data);
 	}
 
