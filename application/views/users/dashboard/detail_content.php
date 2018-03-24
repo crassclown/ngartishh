@@ -30,9 +30,72 @@
                     }
                 ?>
             </tr>
+            <tr>
+                <td>Like</td>
+                <td>:</td>
+                <td>
+                    <form action="" method="POST">
+                        <input type="hidden" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
+                        <input type="hidden" id="user_id" name="user_id" value="<?=$vau->user_id;?>" />
+                        <input type="button" id="like" name="like" value="Like" />
+                    </form>
+                </td>
+            </tr>
+            <tr>
+                <td>Bookmark</td>
+                <td>:</td>
+                <td>
+                    <form action="" method="POST">
+                        <input type="hidden" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
+                        <input type="hidden" id="user_id" name="user_id" value="<?=$vau->user_id;?>" />
+                        <input type="button" id="bookmark" name="bookmark" value="Bookmark" />
+                    </form>
+                </td>
+            </tr>
             </table>
             <?php
         }
     ?>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">  
+            	//insert book 
+            $("#like").click(function(){
+                
+                    var content_id = $("#content_id").val();
+                    var user_id = $("#user_id").val();
+                    // var txtpassword = $("#txtpassword").val();
+                
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+                        type: 'post',
+                        data: { "content_id": content_id, "user_id": user_id},
+                        success: function(response) 
+                        { 
+                            console.log("Like");
+                        }
+                
+                    });
+            });
+    </script>
+    <script type="text/javascript">  
+            	//insert book 
+            $("#bookmark").click(function(){
+                
+                    var content_id = $("#content_id").val();
+                    var user_id = $("#user_id").val();
+                    // var txtpassword = $("#txtpassword").val();
+                
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>" + "c_dashboard/m_bookmarked/",
+                        type: 'post',
+                        data: { "content_id": content_id, "user_id": user_id},
+                        success: function(response) 
+                        { 
+                            console.log("Bookmark");
+                        }
+                
+                    });
+            });
+    </script>
 </body>
 </html>

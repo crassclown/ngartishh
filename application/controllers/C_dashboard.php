@@ -40,12 +40,26 @@ class C_dashboard extends CI_Controller {
 			'content_id' => $this->input->post('content_id'),
 			'user_id' => $this->input->post('user_id')
 		);
-		$insert = $this->m_users->m_bookmark($data);
-		echo json_encode(array("status" => TRUE));
-		// if(isset($data)){
-		// 	$insert = $this->m_users->m_bookmark($data);
-		// }else{
-		// 	echo json_encode($data);
-		// }
+		// $insert = $this->m_users->m_bookmark($data);
+		// echo json_encode(array("status" => TRUE));
+		if(isset($data)){
+			$insert = $this->m_users->m_bookmark($data);
+		}else{
+			echo "Failed insert into database";
+		}
+	}
+
+	public function m_like(){
+        $data = array(
+            'content_id' => $this->input->post('content_id'),
+            'user_id' => $this->input->post('user_id')
+        );
+        if(isset($data)){
+            $insert = $this->m_users->m_liked($data);
+            // echo json_encode(array("status" => TRUE));
+        }else{
+            echo "Failed insert into database";
+        }
+        
 	}
 }

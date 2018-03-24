@@ -42,4 +42,9 @@ class M_users extends CI_Model
 		
 		$this->db->insert('bookmark', $data);
 	}
+
+	public function m_liked($data)
+	{
+		$this->db->insert('likes', $data);
+	}
 }

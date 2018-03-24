@@ -62,7 +62,7 @@
     $(document).ready(function(){
         tampil_data_barang();   //pemanggilan fungsi tampil barang.
          
-        $('#mydata').dataTable();
+        // $('#mydata').dataTable();
           
         //fungsi tampil barang
         function tampil_data_barang(){
@@ -84,7 +84,7 @@
                                 '<td>'+data[i].namalengkap+'</td>'+
                                 '<td>'+data[i].tgl_posting+'</td>'+
                                 '<td><a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>Detil</td>'+
-                                '<td><form id="bookmark" method="POST"><input type="text" id="content_id" value='+data[i].idcontent+'><input type="text" id="user_id" value='+data[i].iduser+'><input type="button" value="Bookmark"></form></td>'+
+                                // '<td><form id="bookmark" action="" method="POST"><input type="text" id="content_id" value='+data[i].idcontent+'><input type="text" id="user_id" value='+data[i].iduser+'><input type="button" value="Bookmark"></form></td>'+
                                 '</tr>';
                     }
                     $('#show_data').html(html);
