@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Log In</title>
     <link href='https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400italic,300italic,300|Raleway:300,400,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="<? echo base_url('assets/css/font-awesome.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="<? echo base_url('assets/css/bootstrap.min.css')?>">
     <link rel="stylesheet" type="text/css" href="<? echo base_url('assets/css/animate.css')?>">
     <link rel="stylesheet" type="text/css" href="<? echo base_url('assets/css/style.css')?>">
@@ -144,6 +144,5 @@
     <script src="<? echo base_url('assets/js/jquery.countdown.min.js')?>"></script>
     <script src="<? echo base_url('assets/js/wow.js')?>"></script>
     <script src="<? echo base_url('assets/js/custom.js')?>"></script>
-    <script src="<? echo base_url('assets/contactform/contactform.js')?>"></script>
   </body>
 </html>
