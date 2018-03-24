@@ -185,8 +185,8 @@ table {
 }
 
 .contact-submit {
-    background-color: #24B7A4;
-    border: 2px solid #24B7A4;
+    background-color: transparent;
+    border: 2px solid #fff;
     color: #FFFFFF;
     width: 100%;
     display: block;
@@ -295,7 +295,7 @@ Tambahan
     background-color: transparent;
     border: 1px solid #ccc;
     border-radius: 4px;
-    margin:15px;
+    top:-40px;
 }
 
 .register:hover{

@@ -45,7 +45,6 @@
                     <div class="validation"></div>
                   </div>
 
-<<<<<<< HEAD
                   <div class="form-group">
                     <input type="password" name="txtpassword" class="form-control" id="password" placeholder="Your Password" data-rule="password" data-msg="Please enter Your Password" />
                     <div class="validation"></div>
@@ -148,7 +147,3 @@
     <script src="<? echo base_url('assets/contactform/contactform.js')?>"></script>
   </body>
 </html>
-=======
-</body>
-</html>
->>>>>>> 5bc2cc88a55cff920af52b58dd411a5b4187d8cc
