@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Log In</title>
     <link href='https://fonts.googleapis.com/css?family=Lobster|Open+Sans:400,400italic,300italic,300|Raleway:300,400,600' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="<? echo base_url('assets/css/font-awesome.min.css')?>">
-    <link rel="stylesheet" type="text/css" href="<? echo base_url('assets/css/bootstrap.min.css')?>">
-    <link rel="stylesheet" type="text/css" href="<? echo base_url('assets/css/animate.css')?>">
-    <link rel="stylesheet" type="text/css" href="<? echo base_url('assets/css/style.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/font-awesome.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/bootstrap.min.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/animate.css')?>">
+    <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/style.css')?>">
 
   </head>
   <body>
@@ -18,7 +18,7 @@
       <div class="container wow fadeInDown delay-03s">
         <div class="row">
           <div class="logo text-center">
-            <img src="img/logo.png" alt="logo" width="150">
+            <img src="<?=base_url('assets/img/logo.png');?>" alt="logo" width="150">
             <h2>Login</h2>
           </div>
         </div>
@@ -139,11 +139,11 @@
       </div>
     </footer>
   
-    <script src="<? echo base_url('assets/js/jquery.min.js')?>"></script>
-    <script src="<? echo base_url('assets/js/bootstrap.min.js')?>"></script>
-    <script src="<? echo base_url('assets/js/jquery.countdown.min.js')?>"></script>
-    <script src="<? echo base_url('assets/js/wow.js')?>"></script>
-    <script src="<? echo base_url('assets/js/custom.js')?>"></script>
-    <script src="<? echo base_url('assets/contactform/contactform.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/jquery.countdown.min.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/wow.js')?>"></script>
+    <script src="<?php echo base_url('assets/js/custom.js')?>"></script>
+    <!-- <script src="<?php echo base_url('assets/contactform/contactform.js')?>"></script> -->
   </body>
 </html>
