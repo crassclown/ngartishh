@@ -8,7 +8,7 @@ class C_loginusers extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
 		$this->load->model('m_users');
-		$this->load->database();		
+        $this->load->database();		
 	}
 	
 	public function index()
