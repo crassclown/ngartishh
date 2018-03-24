@@ -37,7 +37,7 @@
                     var txtpassword = $("#txtpassword").val();
                 
                     $.ajax({
-                        url: "<?php echo base_url(); ?>" + "C_RegisterUsers/m_register/",
+                        url: "<?php echo base_url(); ?>" + "C_uegisterusers/m_register/",
                         type: 'post',
                         data: { "txtemail": txtemail, "txtfullname": txtfullname, "txtpassword" : txtpassword},
                         success: function(response) 

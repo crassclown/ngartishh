@@ -18,18 +18,22 @@
         <table border='1' style='border-collapse: collapse;'>
         <thead>
         <tr>
-            <th>Username</th>
-            <th>Name</th>
-            <th>Gender</th>
-            <th>Email</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Total Like</th>
+            <th>Total Comment</th>
+            <th>Author</th>
+            <th>Created At</th>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat='user in users'>
-        <td>{{ user.title }}</td>
+        <td><a href="<?=base_url('c_dashboard/m_detailContent/{{user.idcontent}}/{{user.user_id}}');?>">{{ user.title }}</a></td>
         <td>{{ user.desc }}</td>
-        <td>{{ user.gender }}</td>
-        <td>{{ user.email }}</td>
+        <td>{{ user.total_like }}</td>
+        <td>{{ user.total_comment }}</td>
+        <td>{{ user.namalengkap}}</td>
+        <td>{{ user.tgl_posting }}</td>
         </tr>
         </tbody>
     </table>

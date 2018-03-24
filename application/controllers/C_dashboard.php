@@ -23,4 +23,13 @@ class C_dashboard extends CI_Controller {
 		$data = $this->m_dashboard->m_getRecords();
 		echo json_encode($data);
 	}
+
+	public function m_detailContent($content_id, $user_id){
+		$where = array(
+            'Id' => $content_id,
+            'user_id' => $user_id
+        );
+		$data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
+		$this->load->view('users/dashboard/detail_content',$data);
+	}
 }
