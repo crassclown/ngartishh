@@ -8,7 +8,8 @@ class M_users extends CI_Model
 		parent::__construct();
 	}
 	var $table = 'users';
-
+	var $table_bookmark = 'bookmark';
+	
 	public function m_registerusers($data)
 	{
 		$this->db->insert('users', $data);
@@ -35,5 +36,10 @@ class M_users extends CI_Model
 	{
 		$result = $this->db->where('user_id', $id)->get('content')->result();
 		return $result;
+	}
+	
+	public function m_bookmark($data){
+		
+		$this->db->insert('bookmark', $data);
 	}
 }

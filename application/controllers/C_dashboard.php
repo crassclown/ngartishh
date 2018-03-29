@@ -6,7 +6,8 @@ class C_dashboard extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('m_dashboard');
+		$this->load->model('m_dashboard');
+		$this->load->model('m_users');
         if($this->session->userdata('status') != "login"){
 			redirect(base_url("c_loginusers/"));
 		}
@@ -31,5 +32,19 @@ class C_dashboard extends CI_Controller {
         );
 		$data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
 		$this->load->view('users/dashboard/detail_content',$data);
+	}
+
+	public function m_bookmarked(){
+		$data = array(
+			'content_id' => $this->input->post('content_id'),
+			'user_id' => $this->input->post('user_id')
+		);
+		$insert = $this->m_users->m_bookmark($data);
+		echo json_encode(array("status" => TRUE));
+		// if(isset($data)){
+		// 	$insert = $this->m_users->m_bookmark($data);
+		// }else{
+		// 	echo json_encode($data);
+		// }
 	}
 }
