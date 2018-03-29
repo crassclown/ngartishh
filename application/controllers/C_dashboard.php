@@ -62,4 +62,41 @@ class C_dashboard extends CI_Controller {
         }
         
 	}
+
+	public function get_request_post(){
+        $data = array(
+            'name' => $_POST['name'],
+            'status' => $_POST['status'],
+            'date_status'=> date('Y-m-d H:i:s')
+            );
+        $this->mm->save_status($data);
+ 
+    }
+    public function load_status(){
+        $namabulan = array(
+                1=>"Januari",
+                2=>"Februari",
+                3=>"Maret",
+                4=>"April",
+                5=>"Mei",
+                6=>"Juni",
+                7=>"Juli",
+                8=>"Agustus",
+                9=>"September",
+                10=>"Oktober",
+                11=>"November",
+                12=>"Desember"
+            );
+        $data = $this->mm->load_status();
+        foreach ($data as $records) {
+            $explode=explode(" ",$records->date_status);
+ 
+            $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
+            $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
+ 
+            echo $indate.' - '.$explode[1]."<br/>";
+            echo "Nama :".$records->name."<br/>";
+            echo "Status :".$records->status."<hr/>";
+        }
+    }
 }

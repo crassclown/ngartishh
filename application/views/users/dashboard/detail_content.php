@@ -52,7 +52,28 @@
                     </form>
                 </td>
             </tr>
+            
             </table>
+
+            <table>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td><input type="text" name="name" id="name"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td><textarea name="status" id="status" cols="25" rows="5"></textarea></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td>&nbsp;</td>
+                    <td align="right"><input type="button" id="submit_status" value="Posting Status"></td>
+                </tr>
+            </table>
+        <hr/>
+        <div id="list_status"></div>
             <?php
         }
     ?>
