@@ -24,19 +24,26 @@ class C_loginusers extends CI_Controller {
             'password' => md5($password)
             );
         $cek = $this->m_users->cek_login("users",$where)->num_rows();
-        if($cek > 0){
+        $query = $this->db->query("SELECT Id FROM users WHERE email='".$email."'");
+        foreach($query->result_array() as $sqlnih){
+            $iduser = $sqlnih['Id'];
+
+            if($cek > 0){
      
-            $data_session = array(
-                'email' => $email,
-                'status' => "login"
-                );
-     
-            $session_save = $this->session->set_userdata($data_session);
-     
-			redirect(base_url("c_dashboard/"));
-        }else{
-            echo "Email or Password is wrong";
+                $data_session = array(
+                    'email' => $email,
+                    'Id' => $iduser,
+                    'status' => "login"
+                    );
+         
+                $session_save = $this->session->set_userdata($data_session);
+         
+                redirect(base_url("c_dashboard/"));
+            }else{
+                echo "Email or Password is wrong";
+            }
         }
+        
 	}
 
 	//Log Out Process

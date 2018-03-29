@@ -35,7 +35,7 @@
                 <td>:</td>
                 <td>
                     <form action="" method="POST">
-                        <input type="hidden" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
+                        <input type="text" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
                         <input type="hidden" id="user_id" name="user_id" value="<?=$vau->user_id;?>" />
                         <input type="button" id="like" name="like" value="Like" />
                     </form>
@@ -46,7 +46,7 @@
                 <td>:</td>
                 <td>
                     <form action="" method="POST">
-                        <input type="hidden" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
+                        <input type="text" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
                         <input type="hidden" id="user_id" name="user_id" value="<?=$vau->user_id;?>" />
                         <input type="button" id="bookmark" name="bookmark" value="Bookmark" />
                     </form>
@@ -57,9 +57,10 @@
 
             <table>
                 <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td><input type="text" name="name" id="name"></td>
+                    <td><input type="hidden" name="content_id" id="content_id" value="<?=$vau->Id;?>"></td>
+                </tr>
+                <tr>
+                    <td><input type="hidden" name="user_id" id="user_id" value="<?=$vau->Id;?>"></td>
                 </tr>
                 <tr>
                     <td>&nbsp;</td>

@@ -63,16 +63,17 @@ class C_dashboard extends CI_Controller {
         
 	}
 
-	public function get_request_post(){
+	public function m_added_comments(){
         $data = array(
-            'name' => $_POST['name'],
-            'status' => $_POST['status'],
-            'date_status'=> date('Y-m-d H:i:s')
-            );
-        $this->mm->save_status($data);
- 
-    }
-    public function load_status(){
+			'user_id' => $_POST['txtuser_id'],
+			'content_id' => $_POST['txtcontent_id'],
+            'desc' => $_POST['txtcomment'],
+            'created_at'=> date('Y-m-d H:i:s')
+        );
+        $this->m_users->m_added_comments($data);
+	}
+	
+    public function m_load_status(){
         $namabulan = array(
                 1=>"Januari",
                 2=>"Februari",
@@ -87,7 +88,7 @@ class C_dashboard extends CI_Controller {
                 11=>"November",
                 12=>"Desember"
             );
-        $data = $this->mm->load_status();
+        $data = $this->m_users->m_load_status();
         foreach ($data as $records) {
             $explode=explode(" ",$records->date_status);
  
