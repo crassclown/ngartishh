@@ -23,29 +23,29 @@ class C_loginusers extends CI_Controller {
 	public function m_auth(){
 		$email 		= $this->input->post('txtemail');
         $password 	= $this->input->post('txtpassword');
-        $where = array(
-            'email' => $email,
-            'password' => md5($password)
-            );
-        $cek = $this->m_users->cek_login("users",$where)->num_rows();
-        $query = $this->db->query("SELECT Id FROM users WHERE email='".$email."'");
-        foreach($query->result_array() as $sqlnih){
-            $iduser = $sqlnih['Id'];
-
-            if($cek > 0){
+        $where      = array(
+            'email'     => $email,
+            'password'  => md5($password)
+        );
+        $cek        = $this->m_users->cek_login("users",$where)->num_rows();
+        
+        if($cek > 0){
+            $query      = $this->db->query("SELECT Id FROM users WHERE email='".$email."' LIMIT 1");
+            foreach($query->result_array() as $sqlnih){
+                $iduser = $sqlnih['Id'];
                 $data_session = array(
-                    'email' => $email,
-                    'Id' => $iduser,
-                    'status' => "login"
+                    'email'     => $email,
+                    'Id'        => $iduser,
+                    'status'    => "login"
                 );
-         
+        
                 $session_save = $this->session->set_userdata($data_session);
-         
+        
                 redirect(base_url("c_dashboard/"));
-            }else{
-                $this->session->set_flashdata('error','Your password is wrong');
-                redirect(base_url("c_loginusers/"));
             }
+        }else{
+            $this->session->set_flashdata('error','Your email or password is wrong');
+            redirect(base_url("c_loginusers/"));
         }
 	}
 
