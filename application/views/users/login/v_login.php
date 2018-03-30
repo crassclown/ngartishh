@@ -57,17 +57,17 @@
               </script>
             <?php endif; ?>
             <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-              <input class="input100" type="email" name="txtemail" placeholder="Email" autofocus>
+              <input class="input100" type="email" name="txtemail" id="txtemail" placeholder="Email" autofocus>
               <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
-              <input class="input100" type="password" name="txtpassword" placeholder="Password" maxlength="20" pattern=".{8,20}" title="8 to 20 characters">
+              <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Password" maxlength="20" pattern=".{8,20}" title="8 to 20 characters">
               <span class="focus-input100"></span>
             </div>
             <div class="container-login100-form-btn">
             
-              <button class="login100-form-btn" name="btnlogin">
+              <button class="login100-form-btn" name="btnlogin" id="btnlogin">
                 Login
               </button>
             </div>
@@ -114,6 +114,30 @@
 	</script>
 <!--===============================================================================================-->
 	<script src="<?php echo base_url('assets/js/main.js')?>"></script>
-
+  <script>
+    $(document).ready(function(){
+        $('#btnlogin').click(function(){
+            var txtemail      = $('#txtemail').val();
+            // var txtfullname   = $('#txtfullname').val();
+            var txtpassword   = $('#txtpassword').val();
+            // var quantity     = $('#' + produk_id).val();
+            if(txtemail == ''){
+              swal({
+                type: 'error',
+                title: 'Email is required',
+                animation: true,
+                customClass: 'animated tada'
+              })
+            }else if(txtpassword == ''){
+              swal({
+                type: 'error',
+                title: 'Password is required',
+                animation: true,
+                customClass: 'animated tada'
+              })
+            }
+        });
+    });
+  </script>
 </body>
 </html>
