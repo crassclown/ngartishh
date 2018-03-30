@@ -6,43 +6,51 @@ class C_loginusers extends CI_Controller {
 	public function __construct()
     {
         parent::__construct();
+        $this->load->library('form_validation');
+        $this->load->library('session');
         $this->load->helper('url');
 		$this->load->model('m_users');
-		$this->load->database();		
+        $this->load->database();		
 	}
-	
+    
+    //Index Login
 	public function index()
 	{
 		$this->load->view('users/login/v_login');
 	}
 
+    //Proses Login
 	public function m_auth(){
 		$email 		= $this->input->post('txtemail');
         $password 	= $this->input->post('txtpassword');
-        $where = array(
-            'email' => $email,
-            'password' => md5($password)
-            );
-        $cek = $this->m_users->cek_login("users",$where)->num_rows();
+        $where      = array(
+            'email'     => $email,
+            'password'  => md5($password)
+        );
+        $cek        = $this->m_users->cek_login("users",$where)->num_rows();
+        
         if($cek > 0){
-     
-            $data_session = array(
-                'email' => $email,
-                'status' => "login"
+            $query      = $this->db->query("SELECT Id FROM users WHERE email='".$email."' LIMIT 1");
+            foreach($query->result_array() as $sqlnih){
+                $iduser = $sqlnih['Id'];
+                $data_session = array(
+                    'email'     => $email,
+                    'Id'        => $iduser,
+                    'status'    => "login"
                 );
-     
-            $session_save = $this->session->set_userdata($data_session);
-     
-			redirect(base_url("c_dashboard/"));
+        
+                $session_save = $this->session->set_userdata($data_session);
+        
+                redirect(base_url("c_dashboard/"));
+            }
         }else{
-            echo "Email or Password is wrong";
+            $this->session->set_flashdata('error','Your email or password is wrong');
+            redirect(base_url("c_loginusers/"));
         }
 	}
 
 	//Log Out Process
     public function m_logout(){
-		//$this->session->unset_userdata('email');
-
         $this->session->sess_destroy();
         redirect('c_loginusers/');
     }
