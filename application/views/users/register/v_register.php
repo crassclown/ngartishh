@@ -1,52 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Register</title>
+	<title>Register - Ngartish</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Ngartish.png')?>"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css')?>">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css')?>">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/vendor/animate/animate.css')?>">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/vendor/css-hamburgers/hamburgers.min.css')?>">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/vendor/select2/select2.min.css')?>">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/util.css')?>">
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/main.css')?>">
+<!--===============================================================================================--> 
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Rammetto+One" rel="stylesheet">
+<!--===============================================================================================-->
 </head>
 <body>
-    <div id="ajax_registration">
-    <!-- method="POST" -->
-        <form id="form">
-            <input type="email" name="txtemail" id="txtemail" placeholder="Your Email" value="<?php echo set_value('txtemail');?>" />
-            <div class="errorMessage"><?php echo form_error('txtemail'); ?></div>
+	
+	<div class="limiter">
+		<div class="container-login100 wow fadeIn delay-1s">
+			<div class="wrap-login100 wow fadeIn delay-1s">
+        <div class="row"> 
+          <div class="login100-pic js-tilt col-lg-6 wow fadeIn delay-1s" data-tilt>
+            <img src="<?php echo base_url('assets/images/1.png')?>" alt="IMG">
+          </div>
+
+          <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s" method="post">
+            <span class="login100-form-title">
+              Register Account
+            </span>
+            <span class="login100-form-description">
+                Please complete to create your account
+            </span>
+            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+              <input class="input100" type="text" name="txtemail" placeholder="Email">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="container-login100-form-btn">
+
+            <div class="wrap-input100 validate-input" data-validate = "fullname is required">
+              <input class="input100" type="text" name="txtfullname" placeholder="Fullname">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="container-login100-form-btn">
+
+            <div class="wrap-input100 validate-input" data-validate = "Password is required">
+              <input class="input100" type="password" name="txtpassword" placeholder="Password">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="container-login100-form-btn">
             
-            <input type="text" name="txttxtfullname" id="txtfullname" placeholder="Your Fullname" value="<?php echo set_value('txtfullname');?>" />
-            <div class="errorMessage"><?php echo form_error('txtfullname'); ?></div>
+              <button class="login100-form-btn" name="btnlogin" href=""<?=base_url('c_loginusers/m_auth');?>"">
+                Login
+              </button>
+            </div>
 
-            <input type="password" name="txtpassword" id="txtpassword" placeholder="Your Password" value="<?php echo set_value('txtpassword');?>" />
-            <div class="errorMessage"><?php echo form_error('txtpassword'); ?></div>
+            <div class="text-center p-t-12">
+              <a class="txt2" href="<?=base_url('c_loginusers/m_moveregister');?>">
+                Already have account
+                <i class="m-l-5" aria-hidden="true"></i>
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+		</div>
+	</div>
+	
+	
 
-            <input type="button" id="btn_insert"  value="Register"/>
-        </form>
-    </div>
+	
+<!--===============================================================================================-->	
+	<script src="<?php echo base_url('assets/vendor/jquery/jquery-3.2.1.min.js')?>"></script>
+<!--===============================================================================================-->
+	<script src="<?php echo base_url('assets/vendor/bootstrap/js/popper.js')?>"></script>
+	<script src="<?php echo base_url('assets/vendor/bootstrap/js/bootstrap.min.js')?>"></script>
+<!--===============================================================================================-->
+	<script src="<?php echo base_url('assets/vendor/select2/select2.min.js')?>"></script>
+<!--===============================================================================================-->
+	<script src="<?php echo base_url('assets/vendor/tilt/tilt.jquery.min.js')?>"></script>
+	<script src="<?php echo base_url('assets/js/wow.js')?>"></script>
+  <script src="<?php echo base_url('assets/js/custom.js')?>"></script>
+  <script >
+		$('.js-tilt').tilt({
+			scale: 1.1
+		})
+	</script>
+<!--===============================================================================================-->
+	<script src="<?php echo base_url('assets/js/main.js')?>"></script>
 
-        <a href="<?=base_url('C_loginusers/');?>">Log In?</a>
-
-    <div id="divresult"></div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">  
-            	//insert book 
-            $("#btn_insert").click(function(){
-                
-                    var txtemail = $("#txtemail").val();
-                    var txtfullname = $("#txtfullname").val();
-                    var txtpassword = $("#txtpassword").val();
-                
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>" + "C_RegisterUsers/m_register/",
-                        type: 'post',
-                        data: { "txtemail": txtemail, "txtfullname": txtfullname, "txtpassword" : txtpassword},
-                        success: function(response) 
-                        { 
-                            console.log("OK");
-                        }
-                
-                    });
-            });
-    </script>
 </body>
 </html>
