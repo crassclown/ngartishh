@@ -42,7 +42,7 @@ class C_profile extends CI_Controller {
 		if ($result){
 			redirect('C_profile/m_users/'.$id.'');
 		}else{
-			redirect('C_profile/m_users/"'.$id.'"');
+			redirect('C_profile/m_users/'.$id.'');
 		}
 	}
 
