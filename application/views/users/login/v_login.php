@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V1</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -20,6 +20,10 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/util.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/main.css')?>">
 <!--===============================================================================================-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+<!--===============================================================================================-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+<!--===============================================================================================-->
 </head>
 <body>
 	
@@ -30,16 +34,28 @@
           <div class="login100-pic js-tilt col-lg-6" data-tilt>
             <img src="<?php echo base_url('assets/images/1.png')?>" alt="IMG">
           </div>
-
-          <form class="login100-form validate-form col-lg-6" method="post">
+          
+          <form class="login100-form validate-form col-lg-6" method="post" action="<?=base_url('c_loginusers/m_auth');?>">
             <span class="login100-form-title">
               Member Login
             </span>
             <span class="login100-form-description">
               Bergabung bersama kami, bersiap untuk explorasi dan sharing berbagai macam karya seni!
             </span>
+            <?php 
+            if ($this->session->flashdata('error')): ?>
+              <script>
+                swal({
+                  title: "Failed",
+                  text: "<?php echo $this->session->flashdata('error'); ?>",
+                  timer: 2000,
+                  showConfirmButton: false,
+                  type: 'error'
+                });
+              </script>
+            <?php endif; ?>
             <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-              <input class="input100" type="text" name="txtemail" placeholder="Email">
+              <input class="input100" type="email" name="txtemail" placeholder="Email">
               <span class="focus-input100"></span>
             </div>
 
@@ -49,7 +65,7 @@
             </div>
             <div class="container-login100-form-btn">
             
-              <button class="login100-form-btn" name="btnlogin" href=""<?=base_url('c_loginusers/m_auth');?>"">
+              <button class="login100-form-btn" name="btnlogin">
                 Login
               </button>
             </div>
