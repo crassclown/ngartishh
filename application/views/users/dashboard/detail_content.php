@@ -138,25 +138,29 @@
                     "desc":desc
                 },
                 success:function(html){
-                    alert('Posting Berhasil');
+                    // alert('Posting Berhasil');
                     // document.getElementById("content_id").reset();
-                    $('#desc').val('');
-                    m_load_comments();
                     
+                    m_load_comments();
+                    $('#desc').val('');
                 }
             });
         });
     });
     m_load_comments();
     function m_load_comments(){
+        var content_id = $('#content_id').val();
         $.ajax({
             type:"POST",
             url :"<?php echo base_url(); ?>" + "c_dashboard/m_load_comments",
-            data:'',
+            data:{
+                "content_id":content_id
+            },
             success:function(html){
                 $('#list_status').html(html);
             }
         });
+        return false;
     }
 </script>
 </body>

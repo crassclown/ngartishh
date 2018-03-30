@@ -74,6 +74,11 @@ class C_dashboard extends CI_Controller {
 	}
 	
     public function m_load_comments(){
+        // $test = array(
+        //     'Id'=>$content_id  
+        // );
+
+        $kode=$this->input->post('content_id');
         
         $namabulan = array(
                 1=>"Januari",
@@ -89,16 +94,18 @@ class C_dashboard extends CI_Controller {
                 11=>"November",
                 12=>"Desember"
             );
-        $data = $this->m_users->m_load_comments();
-        foreach ($data as $records) {
-            $explode=explode(" ",$records->tgl_comments);
- 
-            $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
-            $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
- 
-            echo $indate.' - '.$explode[1]."<br/>";
-            // echo "Nama :".$records->name."<br/>";
-            echo "Status :".$records->komentarusers."<hr/>";
+        $data = $this->m_users->m_load_comments($kode);
+        if(is_array($data)){
+            foreach ($data as $records) {
+                $explode=explode(" ",$records->tgl_comments);
+     
+                $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
+                $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
+     
+                echo $indate.' - '.$explode[1]."<br/>";
+                // echo "Nama :".$records->name."<br/>";
+                echo $records->komentarusers."<hr/>";
+            }
         }
     }
 }
