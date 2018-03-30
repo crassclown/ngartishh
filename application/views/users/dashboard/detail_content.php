@@ -36,7 +36,7 @@
                 <td>
                     <form action="" method="POST">
                         <input type="text" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
-                        <input type="hidden" id="user_id" name="user_id" value="<?=$vau->user_id;?>" />
+                        <input type="hidden" id="user_id" name="user_id" value="<?php echo $this->session->userdata("Id"); ?>" />
                         <input type="button" id="like" name="like" value="Like" />
                     </form>
                 </td>
@@ -47,31 +47,34 @@
                 <td>
                     <form action="" method="POST">
                         <input type="text" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
-                        <input type="hidden" id="user_id" name="user_id" value="<?=$vau->user_id;?>" />
+                        <input type="hidden" id="user_id" name="user_id" value="<?php echo $this->session->userdata("Id"); ?>" />
                         <input type="button" id="bookmark" name="bookmark" value="Bookmark" />
                     </form>
                 </td>
             </tr>
             
             </table>
-
+            
             <table>
-                <tr>
-                    <td><input type="hidden" name="content_id" id="content_id" value="<?=$vau->Id;?>"></td>
-                </tr>
-                <tr>
-                    <td><input type="hidden" name="user_id" id="user_id" value="<?=$vau->Id;?>"></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td><textarea name="status" id="status" cols="25" rows="5"></textarea></td>
-                </tr>
-                <tr>
-                    <td>&nbsp;</td>
-                    <td>&nbsp;</td>
-                    <td align="right"><input type="button" id="submit_status" value="Posting Status"></td>
-                </tr>
+                Comments :
+                <form action="">
+                    <tr>
+                        <td><input type="text" name="content_id" id="content_id" value="<?=$vau->Id;?>"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="text" name="user_id" id="user_id" value="<?php echo $this->session->userdata("Id"); ?>"></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td><textarea name="desc" id="desc" cols="25" rows="5"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td align="right"><input type="button" id="submit_status" value="Comments"></td>
+                    </tr>
+                </form>
             </table>
         <hr/>
         <div id="list_status"></div>
@@ -119,5 +122,42 @@
                     });
             });
     </script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $("#submit_status").click(function(){
+            var content_id  = $('#content_id').val();
+            var user_id     = $('#user_id').val();
+            var desc        = $('#desc').val();
+            // var name     = $('#name').val();
+            $.ajax({
+                type:"POST",
+                url :"<?php echo base_url(); ?>" + "c_dashboard/m_added_comments",
+                data:{
+                    "content_id":content_id,
+                    "user_id":user_id,
+                    "desc":desc
+                },
+                success:function(html){
+                    alert('Posting Berhasil');
+                    // document.getElementById("content_id").reset();
+                    $('#desc').val('');
+                    m_load_comments();
+                    
+                }
+            });
+        });
+    });
+    m_load_comments();
+    function m_load_comments(){
+        $.ajax({
+            type:"POST",
+            url :"<?php echo base_url(); ?>" + "c_dashboard/m_load_comments",
+            data:'',
+            success:function(html){
+                $('#list_status').html(html);
+            }
+        });
+    }
+</script>
 </body>
 </html>

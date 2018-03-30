@@ -65,15 +65,16 @@ class C_dashboard extends CI_Controller {
 
 	public function m_added_comments(){
         $data = array(
-			'user_id' => $_POST['txtuser_id'],
-			'content_id' => $_POST['txtcontent_id'],
-            'desc' => $_POST['txtcomment'],
+			'user_id' => $this->input->post('user_id'),
+			'content_id' => $this->input->post('content_id'),
+            'desc' => $this->input->post('desc'),
             'created_at'=> date('Y-m-d H:i:s')
         );
         $this->m_users->m_added_comments($data);
 	}
 	
-    public function m_load_status(){
+    public function m_load_comments(){
+        
         $namabulan = array(
                 1=>"Januari",
                 2=>"Februari",
@@ -88,16 +89,16 @@ class C_dashboard extends CI_Controller {
                 11=>"November",
                 12=>"Desember"
             );
-        $data = $this->m_users->m_load_status();
+        $data = $this->m_users->m_load_comments();
         foreach ($data as $records) {
-            $explode=explode(" ",$records->date_status);
+            $explode=explode(" ",$records->tgl_comments);
  
             $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
             $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
  
             echo $indate.' - '.$explode[1]."<br/>";
-            echo "Nama :".$records->name."<br/>";
-            echo "Status :".$records->status."<hr/>";
+            // echo "Nama :".$records->name."<br/>";
+            echo "Status :".$records->komentarusers."<hr/>";
         }
     }
 }
