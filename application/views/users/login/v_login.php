@@ -56,7 +56,7 @@
             <?php endif; ?>
             <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
               <input class="input100" type="email" name="txtemail" placeholder="Email">
-              <span class="focus-input100"></span>
+              <span class="focus-input100"></span>asd
             </div>
 
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
