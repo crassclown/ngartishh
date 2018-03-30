@@ -19,19 +19,21 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/util.css')?>">
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/css/main.css')?>">
+<!--===============================================================================================--> 
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300|Rammetto+One" rel="stylesheet">
 <!--===============================================================================================-->
 </head>
 <body>
 	
 	<div class="limiter">
-		<div class="container-login100">
-			<div class="wrap-login100">
+		<div class="container-login100 wow fadeIn delay-1s">
+			<div class="wrap-login100 wow fadeIn delay-1s">
         <div class="row"> 
-          <div class="login100-pic js-tilt col-lg-6" data-tilt>
+          <div class="login100-pic js-tilt col-lg-6 wow fadeIn delay-1s" data-tilt>
             <img src="<?php echo base_url('assets/images/1.png')?>" alt="IMG">
           </div>
 
-          <form class="login100-form validate-form col-lg-6" method="post">
+          <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s" method="post">
             <span class="login100-form-title">
               Member Login
             </span>
@@ -87,7 +89,9 @@
 	<script src="<?php echo base_url('assets/vendor/select2/select2.min.js')?>"></script>
 <!--===============================================================================================-->
 	<script src="<?php echo base_url('assets/vendor/tilt/tilt.jquery.min.js')?>"></script>
-	<script >
+	<script src="<?php echo base_url('assets/js/wow.js')?>"></script>
+  <script src="<?php echo base_url('assets/js/custom.js')?>"></script>
+  <script >
 		$('.js-tilt').tilt({
 			scale: 1.1
 		})

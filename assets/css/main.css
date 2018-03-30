@@ -208,11 +208,10 @@ iframe {
 }
 
 .login100-form-title {
-  font-family: Poppins-Bold;
-  font-size: 24px;
+  font-family: 'Rammetto One', cursive;
+  font-size: 41px;
   color: #333333;
-  line-height: 1.2;
-  text-align: center;
+  text-align: left;
 
   width: 100%;
   display: block;
@@ -220,11 +219,11 @@ iframe {
 }
 
 .login100-form-description {
-  font-family: Poppins-Bold;
+  font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   color: #333333;
   line-height: 1.2;
-  text-align: center;
+  text-align: left;
 
   width: 100%;
   display: block;
@@ -364,6 +363,9 @@ iframe {
   .login100-form {
     width: 50%;
   }
+  .login100-form-title {
+    font-size: 36px;
+  }
 }
 
 @media (max-width: 880px) {
@@ -384,7 +386,7 @@ iframe {
 
 @media (max-width: 768px) {
   .wrap-login100 {
-    padding: 20px 80px 33px 80px;
+    padding: 0px 15px 33px 15px;
   }
 
   .login100-pic {
