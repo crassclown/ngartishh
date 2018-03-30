@@ -17,13 +17,14 @@ class C_registerusers extends CI_Controller {
 
 	public function m_register(){
         $data = array(
-            'email' => $this->input->post('txtemail'),
-            'fullname' => $this->input->post('txtfullname'),
-            'password' => md5($this->input->post('txtpassword')),
+            'email' => trim($this->input->post('txtemail')),
+            'fullname' => trim($this->input->post('txtfullname')),
+            'password' => md5(trim($this->input->post('txtpassword')))
         );
         if(isset($data)){
             $insert = $this->m_users->m_registerusers($data);
             // echo json_encode(array("status" => TRUE));
+            $this->session->set_flashdata('success','You have successfully joined');
         }else{
             echo "Failed insert into database";
         }
