@@ -13,7 +13,7 @@
 <h1>Login berhasil !</h1>
 	<h2>Hai, <?php echo $this->session->userdata("email"); ?>
     <?php echo $this->session->userdata("Id"); ?></h2>
-	<a href="<?php echo base_url('c_profile/index/'.$this->session->userdata('Id').''); ?>"></a>
+	<a href="<?php echo base_url('c_profile/m_users/'.$this->session->userdata('Id').''); ?>">Profile</a><br>
 	<a href="<?php echo base_url('c_loginusers/m_logout'); ?>">Logout</a>
     <!-- ng-controller='userCtrl' -->
     <div>
