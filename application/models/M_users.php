@@ -68,4 +68,19 @@ class M_users extends CI_Model
             return $data;
         }
 	}
+
+	public function m_check_email($email){
+		//Select content records
+		$q = $this->db->query("SELECT email FROM users WHERE email='".$email."'");
+       
+        if($q->num_rows() > 0)
+        {
+            // we will store the results in the form of class methods by using $q->result()
+            // if you want to store them as an array you can use $q->result_array()
+			return true;
+        }else{
+			return false;
+		}
+
+	}
 }

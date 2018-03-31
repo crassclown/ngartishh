@@ -21,11 +21,11 @@ class C_loginusers extends CI_Controller {
 
     //Proses Login
 	public function m_auth(){
-		$email 		= $this->input->post('txtemail');
+		$email 		= strtolower(trim($this->input->post('txtemail')));
         $password 	= $this->input->post('txtpassword');
         $where      = array(
             'email'     => $email,
-            'password'  => md5($password)
+            'password'  => md5(trim($password))
         );
         $cek        = $this->m_users->cek_login("users",$where)->num_rows();
         

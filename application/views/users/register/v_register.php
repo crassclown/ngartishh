@@ -60,6 +60,31 @@
                   </script>
                 <?php
               }
+              else if($this->session->flashdata('email_err')){
+                ?>
+                  <script>
+                    swal({
+                      title: "Error",
+                      text: "<?php echo $this->session->flashdata('email_err'); ?>",
+                      timer: 2000,
+                      showConfirmButton: false,
+                      type: 'error'
+                    });
+                  </script>
+                <?php
+              }else if($this->session->flashdata('exists_email')){
+                ?>
+                  <script>
+                    swal({
+                      title: "Error",
+                      text: "<?php echo $this->session->flashdata('exists_email'); ?>",
+                      timer: 2000,
+                      showConfirmButton: false,
+                      type: 'error'
+                    });
+                  </script>
+                <?php
+              }
             ?>
             <div class="wrap-input100 validate-input" data-validate = "Valid Email is required: ex@abc.xyz">
               <input class="input100" type="email" name="txtemail" id="txtemail" placeholder="Email" autofocus>
@@ -148,7 +173,7 @@
             }else if(txtpassword.length < 8){
               swal({
                 type: 'error',
-                title: 'Too Short',
+                title: 'Too Short : min. 8 character',
                 animation: true,
                 customClass: 'animated tada'
               });
