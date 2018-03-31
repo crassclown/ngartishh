@@ -44,13 +44,17 @@
               <input class="input100" type="text" name="txtemail" placeholder="Email">
               <span class="focus-input100"></span>
             </div>
-            <div class="container-login100-form-btn">
 
             <div class="wrap-input100 validate-input" data-validate = "fullname is required">
               <input class="input100" type="text" name="txtfullname" placeholder="Fullname">
               <span class="focus-input100"></span>
             </div>
-            <div class="container-login100-form-btn">
+
+            <div class="wrap-input100 validate-input" data-validate = "Phone is requires">
+              <input class="input100" type="number" name="txtphone" placeholder="Number phone">
+              <span class="focus-input100"></span>
+            </div>
+
 
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
               <input class="input100" type="password" name="txtpassword" placeholder="Password">
@@ -64,7 +68,7 @@
             </div>
 
             <div class="text-center p-t-12">
-              <a class="txt2" href="<?=base_url('c_loginusers/m_moveregister');?>">
+              <a class="txt2" href="<?=base_url('c_loginusers/');?>">
                 Already have account
                 <i class="m-l-5" aria-hidden="true"></i>
               </a>

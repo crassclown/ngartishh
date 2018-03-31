@@ -1,95 +1,143 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
+  <section id="section-works" class="section appear clearfix">
+    <div class="container">
 
-    <title>Home</title>
-</head>
-<body ng-app='myapp'>
-<h1>Login berhasil !</h1>
-	<h2>Hai, <?php echo $this->session->userdata("email"); ?></h2>
-	<a href="<?php echo base_url('c_loginusers/m_logout'); ?>">Logout</a>
+      <div class="row mar-bot40">
+        <div class="col-md-offset-3 col-md-6">
+          <div class="section-header">
+            <h2 class="section-heading animated" data-animation="bounceInUp">Portfolio</h2>
+            <p>Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet consectetur, adipisci velit, sed quia non numquam.</p>
+          </div>
+        </div>
+      </div>
 
-    <div ng-controller='userCtrl'>
-        <!-- User Records -->
-        <table border='1' style='border-collapse: collapse;'>
-        <thead>
-        <tr>
-            <th>Title</th>
-            <th>Description</th>
-            <th>Total Like</th>
-            <th>Total Comment</th>
-            <th>Author</th>
-            <th>Created At</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat='user in users'>
-        <td><a href="<?=base_url('c_dashboard/m_detailContent/{{user.idcontent}}/{{user.user_id}}');?>">{{ user.title }}</a></td>
-        <td>{{ user.desc }}</td>
-        <td>{{ user.total_like }}</td>
-        <td>{{ user.total_comment }}</td>
-        <td>{{ user.namalengkap}}</td>
-        <td>{{ user.tgl_posting }}</td>
-        <td>
-            <form id="form">
-                <input type="text" name="content_id" id="content_id" value="{{ user.idcontent }}" />
+      <div class="row">
+        <nav id="filter" class="col-md-12 text-center">
+          <ul>
+            <li><a href="#" class="current btn-theme btn-small" data-filter="*">All</a></li>
+            <li><a href="#" class="btn-theme btn-small" data-filter=".webdesign">Web Design</a></li>
+            <li><a href="#" class="btn-theme btn-small" data-filter=".photography">Photography</a></li>
+            <li><a href="#" class="btn-theme btn-small" data-filter=".print">Print</a></li>
+          </ul>
+        </nav>
+        <div class="col-md-12">
+          <div class="row">
+            <div class="portfolio-items isotopeWrapper clearfix" id="3">
 
-                <input type="text" name="user_id" id="user_id" value="{{ user.user_id }}" />
+              <article class="col-md-4 isotopeItem webdesign">
+                <div class="portfolio-item">
+                  <img src="img/portfolio/img1.jpg" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="<?php echo base_url('assets/img/portfolio/img1.jpg')?>" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
 
-                <input type="button" value="Bookmark" name="bookmark" id="btn_bookmark" />
-            </form>
-        </td>
-        </tr>
-        </tbody>
-    </table>
+              <article class="col-md-4 isotopeItem photography">
+                <div class="portfolio-item">
+                  <img src="<?php echo base_url('assets/img/portfolio/img2.jpg')?>" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="img/portfolio/img2.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+
+              <article class="col-md-4 isotopeItem photography">
+                <div class="portfolio-item">
+                  <img src="<?php echo base_url('assets/img/portfolio/img3.jpg')?>" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="img/portfolio/img3.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="col-md-4 isotopeItem print">
+                <div class="portfolio-item">
+                  <img src="<?php echo base_url('assets/img/portfolio/img4.jpg')?>" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="img/portfolio/img4.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="col-md-4 isotopeItem photography">
+                <div class="portfolio-item">
+                  <img src="<?php echo base_url('assets/img/portfolio/img5.jpg')?>" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="img/portfolio/img5.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="col-md-4 isotopeItem webdesign">
+                <div class="portfolio-item">
+                  <img src="<?php echo base_url('assets/img/portfolio/img6.jpg')?>" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="img/portfolio/img6.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="col-md-4 isotopeItem print">
+                <div class="portfolio-item">
+                  <img src="<?php echo base_url('assets/img/portfolio/img7.jpg')?>" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="img/portfolio/img7.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="col-md-4 isotopeItem photography">
+                <div class="portfolio-item">
+                  <img src="<?php echo base_url('assets/img/portfolio/img8.jpg')?>" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="img/portfolio/img8.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <article class="col-md-4 isotopeItem print">
+                <div class="portfolio-item">
+                  <img src="<?php echo base_url('assets/img/portfolio/img9.jpg')?>" alt="" />
+                  <div class="portfolio-desc align-center">
+                    <div class="folio-info">
+                      <h5><a href="#">Portfolio name</a></h5>
+                      <a href="img/portfolio/img9.jpg" class="fancybox"><i class="fa fa-plus fa-2x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
     </div>
-    <!-- Script -->
-    <script>
-    var fetch = angular.module('myapp', []);
-
-    fetch.controller('userCtrl', ['$scope', '$http', function ($scope, $http) {
-    
-    $scope.getUsers = function(){
-        $http({
-        method: 'get',
-        url: '<?= base_url() ?>c_dashboard/m_getContents/'
-        }).then(function successCallback(response) {
-            // Assign response to users object
-            $scope.users = response.data;
-        }); 
-    }
-    $scope.getUsers();
-    }]);
-
-    </script>
-    <script>  
-            	//insert book 
-            $("#btn_bookmark").click(function(){
-                
-                    var content_id  = $("#content_id").val();
-                    var user_id     = $("#user_id").val();
-                    // var txtpassword = $("#txtpassword").val();
-                    console.log(content_id);
-                    console.log(user_id);
-                    $.ajax({
-                        url: "<?=base_url('c_dashboard/m_bookmarked');?>",
-                        type: 'post',
-                        data: { "content_id": content_id, "user_id": user_id},
-                        success: function(response) 
-                        { 
-                            console.log(response.status);
-                        }
-                
-                    });
-            });
-    </script>
-</body>
-</html>
+  </section>

@@ -8,14 +8,13 @@ class C_dashboard extends CI_Controller {
         $this->load->helper('url');
 		$this->load->model('m_dashboard');
 		$this->load->model('m_users');
-        if($this->session->userdata('status') != "login"){
-			redirect(base_url("c_loginusers/"));
-		}
 	}
 	
 	public function index()
 	{
+		$this->load->view('users/layout/header');
 		$this->load->view('users/dashboard/index');
+		$this->load->view('users/layout/footer');
 	}
 
 	// Call this method from AngularJS $http request
