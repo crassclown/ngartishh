@@ -20,42 +20,65 @@
 </head>
 <body>
   <header>
-    <div class="main-menu">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3">
-            <img class="navbar-brand" src="<?php echo base_url('assets/images/icons/Ngartish.png') ?>"></img>
-          </div>
-          <div class="col-md-4 ">
-            <div class="widget">
-              <div class="form-search">
-                <input class="form-control" type="text" placeholder="Search..">
-                    <i class="fa fa-search search-button"></i>
+    <nav class="navbar navbar-inverse">
+      <div class="main-menu">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-3">
+              <img class="navbar-brand" src="<?php echo base_url('assets/images/icons/Ngartish.png') ?>"></img>
+            </div>
+            <div class="col-md-3 ">
+              <div class="widget">
+                <div class="form-search">
+                  <input class="form-control" type="text" placeholder="Search..">
+                      <i class="fa fa-search search-button"></i>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="row">
-              <div class="col-md-2 col-md-offset-2">
-                <i class="material-icons nav-icon-gambar">panorama</i>
-              </div>
-              <div class="col-md-2">
-                <i class="fas fa-th nav-icon"></i>
-              </div>
-              <div class="col-md-2">
-                <i class="fas fa-bell nav-icon"></i>
-              </div>
-              <div class="row profil">
-                <div class="col-md-1">
-                  <div class="nav-label">Hilmi</div>
+            <div class="col-md-6">
+              <ul class="nav navbar-nav row navbar-left">
+                <li class="col-md-2 col-md-offset-1">
+                  <i class="material-icons nav-icon-gambar">panorama</i>
+                </li>
+                <div class="col-md-2">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-th nav-icon"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Page 1-1</a></li>
+                      <li><a href="#">Page 1-2</a></li>
+                      <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                  </li>
                 </div>
-                <div class="col-md-2 col-md-offset-1">
-                  <img class="nav-icon-profile" alt="foto"></img>
+                <div class="col-md-2">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-bell nav-icon"></i></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Page 1-1</a></li>
+                      <li><a href="#">Page 1-2</a></li>
+                      <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                  </li>
                 </div>
-              </div>
+                <div class="col-md-3">
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                      <div class="nav-label">
+                        <span>Hilmi</span> 
+                        <img src="<?php echo base_url('assets/images/icons/profil.png') ?>" class="nav-icon-profile" alt="foto"></img>
+                      </div>
+                    </a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#">Page 1-1</a></li>
+                      <li><a href="#">Page 1-2</a></li>
+                      <li><a href="#">Page 1-3</a></li>
+                    </ul>
+                  </li>
+                </div>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </nav>
   </header>

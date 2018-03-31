@@ -49,6 +49,7 @@ p {
 	padding-top: 25px;
 	position: fixed;
 	z-index: 999;
+	display: inline-block;
 }
 
 .dropdown ul.nav li a {
@@ -110,18 +111,15 @@ ul.nav-pills  {
 
 .nav-label{
 	font-size: 20px;
-}
-
-.profil{
-	padding-top:10px;
+	width: 200px;
 }
 
 .nav-icon-profile{
-	padding: 22px;
 	border:1px solid #dddddd;
 	background:#dddddd;
 	border-radius: 50%;
-	margin-top: 10px;
+	top:-25px;
+	width:50px;	
 }
 
 .slider {
@@ -798,6 +796,79 @@ aside .widgetheading {
 }
 
 /* ===================================
+Tambahan
+==================================== */
+
+.cog
+{
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 5px;
+	margin-top: 5px;
+	margin-right: 6px;
+	border: none;
+	color: #888888;
+	font-size: 20px;
+}
+
+.menu a
+{
+	display: block;
+	background: #F8F8F8;
+	width: 240px;
+	height: 40px;
+	padding: 0 0 0 10px;
+	font: bold 13px Helvetica, sans-serif;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #000000;
+	line-height: 40px;
+	color: rgba( 0, 0, 0, 0.4 );
+	box-shadow: 0 1px 1px rgba( 0, 0, 0, 0.2 );
+}
+
+.menu a:nth-child( 2 )
+{
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+
+.menu a:last-child
+{
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.menu a:hover { color: #555555; }
+
+.menu a:hover > .octicon { color: #555555; }
+
+.icon
+{
+	float: right;
+	margin-top: 10px;
+	font-size: 20px;
+	color: #000000;
+	color: rgba( 0, 0, 0, 0.4 );
+	opacity: 0.8;
+}
+
+.octicon-person { margin-right: 16px; }
+.octicon-graph { margin-right: 11px; }
+.octicon-cloud-upload { margin-right: 11px; }
+.octicon-pencil { margin-right: 13px; }
+
+.arrow
+{
+	width: 0;
+	height: 0;
+	margin-left: 15px;
+	border-left: 7px solid transparent;
+	border-right: 7px solid transparent;
+	border-bottom: 9px solid #F8F8F8;
+}
+/* ===================================
 Responsive media
 ==================================== */
 
@@ -877,4 +948,13 @@ a.scrollup{
 a.scrollup:hover{
 	opacity:1;
 	color:#fff;
+}
+a{
+	color:#aaaaaa;
+}
+a:hover{
+	color:#777777;
+}
+a:focus{
+	color:#777777;
 }
