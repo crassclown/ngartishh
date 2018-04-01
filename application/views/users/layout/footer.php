@@ -12,7 +12,11 @@
   <script type="text/javascript">
     new WOW().init();
   </script>
-
+  <script>
+  $(document).ready(function(){
+      $('[data-toggle="tooltip"]').tooltip();   
+  });
+  </script>
 </body>
 
 </html>

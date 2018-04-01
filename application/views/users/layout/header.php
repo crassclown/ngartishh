@@ -39,14 +39,14 @@
             <div class="col-md-6">
               <ul class="nav navbar-nav row navbar-left">
                 <li class="col-md-2 col-md-offset-1">
-                  <i class="fa fa-balance-scale nav-icon"></i>
+                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
                 </li>
                 <li class="col-md-2">
-                  <i class="material-icons nav-icon-gambar">panorama</i>
+                  <a href="#" class="nav-icon-gambar" data-toggle="tooltip" data-placement="bottom" title="My Gallery"><i class="material-icons nav-icon-gambar">panorama</i></a>
                 </li>
                 <div class="col-md-2">
                   <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-th nav-icon"></i></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Category" href="#"><i class="fas fa-th nav-icon"></i></a>
                     <ul class="dropdown-menu">
                       <li><a href="#">Page 1-1</a></li>
                       <li><a href="#">Page 1-2</a></li>
@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-md-2">
                   <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fas fa-bell nav-icon"></i></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i></a>
                     <ul class="dropdown-menu">
                       <li><a href="#">Page 1-1</a></li>
                       <li><a href="#">Page 1-2</a></li>
@@ -66,7 +66,7 @@
                 </div>
                 <div class="col-md-3">
                   <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
                       <div class="nav-label">
                         <span>Hilmi</span> 
                         <img src="<?php echo base_url('assets/images/icons/profil.png') ?>" class="nav-icon-profile" alt="foto"></img>

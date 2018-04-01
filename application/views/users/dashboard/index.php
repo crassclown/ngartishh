@@ -2,11 +2,11 @@
     <div class="container">
       <div class="col-md-12">
         <div class="row">
-          <div class="portfolio-items isotopeWrapper clearfix" id="3">
+          <div class="portfolio-items isotopeWrapper clearfix" id="4">
 
-            <article class="col-md-4 isotopeItem webdesign">
+            <article class="col-md-3 isotopeItem webdesign">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img1.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/1.jpg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
@@ -16,9 +16,9 @@
               </div>
             </article>
 
-            <article class="col-md-4 isotopeItem photography">
+            <article class="col-md-3 isotopeItem photography">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img2.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/2.jpg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
@@ -29,9 +29,9 @@
             </article>
 
 
-            <article class="col-md-4 isotopeItem photography">
+            <article class="col-md-3 isotopeItem photography">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img3.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/3.jpg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
@@ -41,9 +41,9 @@
               </div>
             </article>
 
-            <article class="col-md-4 isotopeItem print">
+            <article class="col-md-3 isotopeItem print">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img4.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/4.jpg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
@@ -53,9 +53,9 @@
               </div>
             </article>
 
-            <article class="col-md-4 isotopeItem photography">
+            <article class="col-md-3 isotopeItem photography">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img5.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/5.jpg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
@@ -65,9 +65,9 @@
               </div>
             </article>
 
-            <article class="col-md-4 isotopeItem webdesign">
+            <article class="col-md-3 isotopeItem webdesign">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img6.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/6.jpg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
@@ -77,9 +77,9 @@
               </div>
             </article>
 
-            <article class="col-md-4 isotopeItem print">
+            <article class="col-md-3 isotopeItem print">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img7.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/7.jpg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
@@ -89,9 +89,9 @@
               </div>
             </article>
 
-            <article class="col-md-4 isotopeItem photography">
+            <article class="col-md-3 isotopeItem photography">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img8.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/index.jpeg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
@@ -101,9 +101,9 @@
               </div>
             </article>
 
-            <article class="col-md-4 isotopeItem print">
+            <article class="col-md-3 isotopeItem print">
               <div class="portfolio-item">
-                <img src="<?php echo base_url('assets/img/portfolio/img9.jpg')?>" alt="" />
+                <img src="<?php echo base_url('assets/images/content/index1.jpeg')?>" alt="" />
                 <div class="portfolio-desc align-center">
                   <div class="folio-info">
                     <h5><a href="#">Portfolio name</a></h5>
