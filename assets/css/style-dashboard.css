@@ -36,6 +36,7 @@ p {
 	line-height:1.1em;
 	color:#333;
 	margin-bottom: 20px;
+	margin-top:0px;
 }
 
 a:link{
@@ -153,7 +154,6 @@ ul.nav-pills  {
 /* --- section box --- */
 .align-center {
 	text-align: center;	
-	margin-top:10px;	
 }
 
 #main-content {
@@ -220,7 +220,14 @@ nav#filter a:hover, nav#filter a.current {
 }
 
 .isotopeWrapper article{
-    margin-bottom: 30px;
+	margin-bottom: 30px;
+	padding-left:0px;
+	padding-right:0px;
+}
+
+.space{
+	padding-right:15px;
+	padding-left:15px;
 }
 
 #portfolio img  {
@@ -267,55 +274,15 @@ nav#filter ul {
 }
 .portfolio-item .portfolio-desc {
     display: block;
-    opacity: 0;
-    position: absolute;
+    position: inherit;
     width: 100%;
 	left: 0;
 	top: 0;
 	color: rgba(220, 220, 220);
-}
-
-.portfolio-item:hover .portfolio-desc {
-	padding-top: 20%;
 	height: 100%;
-    transition: all 200ms ease-in-out 0s;
 	opacity: 1;
-}
-
-.portfolio-item .portfolio-desc a {
-	color: #fff;	
-}
-.portfolio-item .portfolio-desc a:hover {
-	/*text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.7);*/
-	text-decoration: none;	
-}
-.portfolio-item .portfolio-desc i:hover {
-	color:#fff;	
-}
-.portfolio-item .portfolio-desc .folio-info {
-	top:-20px;
-	padding: 30px;
-	height: 0;
-    opacity: 0;
-    position: relative;
-}
-
-.portfolio-item:hover .folio-info{
-	height: 100%;
-    opacity: 1;
-    transition: all 500ms ease-in-out 0s;
-	top:5px;
-	background-color: #428bca ;
-	text-align:center;
-}
-
-.portfolio-item .portfolio-desc .folio-info h5 {
-	text-transform: uppercase;
-	text-align:center;
-}
-.portfolio-item .portfolio-desc .folio-info p {
-	color: #ffffff;
-	font-size: 12px;
+	background: #bbbbbb;
+	border: 1px solid #999999;
 }
 
 /* --- Map --- */
