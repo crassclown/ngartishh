@@ -4,6 +4,7 @@
                 <div class="col-md-12 border-content">
                       <div class="portfolio-items isotopeWrapper clearfix " id="4">
                           <div class="row">
+
                             <article class="col-md-3 isotopeItem webdesign">
                                 <div class="space">
                                     <div class="portfolio-item">
@@ -14,7 +15,7 @@
                                                     <div class="col-md-4 ">
                                                         <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                    <div class="col-md-4 border-icons">
                                                         <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
@@ -34,14 +35,14 @@
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
                                                 <div class="row image-icons">
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-thumbs-up"></i>
+                                                    <div class="col-md-4 ">
+                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-comment"></i>
+                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-share-alt"></i>
+                                                        <a href="#"><i class="fa fa-share-alt"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -57,14 +58,14 @@
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
                                                 <div class="row image-icons">
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-thumbs-up"></i>
+                                                    <div class="col-md-4 ">
+                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-comment"></i>
+                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-share-alt"></i>
+                                                        <a href="#"><i class="fa fa-share-alt"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -80,14 +81,14 @@
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
                                                 <div class="row image-icons">
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-thumbs-up"></i>
+                                                    <div class="col-md-4 ">
+                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-comment"></i>
+                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-share-alt"></i>
+                                                        <a href="#"><i class="fa fa-share-alt"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -98,19 +99,19 @@
 
                             <article class="col-md-3 isotopeItem webdesign">
                                 <div class="space">
-                                    <div class="portfolio-item ">
+                                    <div class="portfolio-item">
                                         <img src="<?php echo base_url('assets/images/content/5.jpg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
                                                 <div class="row image-icons">
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-thumbs-up"></i>
+                                                    <div class="col-md-4 ">
+                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-comment"></i>
+                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-share-alt"></i>
+                                                        <a href="#"><i class="fa fa-share-alt"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -126,14 +127,14 @@
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
                                                 <div class="row image-icons">
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-thumbs-up"></i>
+                                                    <div class="col-md-4 ">
+                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-comment"></i>
+                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-share-alt"></i>
+                                                        <a href="#"><i class="fa fa-share-alt"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,14 +150,14 @@
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
                                                 <div class="row image-icons">
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-thumbs-up"></i>
+                                                    <div class="col-md-4 ">
+                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-comment"></i>
+                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-share-alt"></i>
+                                                        <a href="#"><i class="fa fa-share-alt"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -172,14 +173,14 @@
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
                                                 <div class="row image-icons">
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-thumbs-up"></i>
+                                                    <div class="col-md-4 ">
+                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-comment"></i>
+                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
                                                     </div>
                                                     <div class="col-md-4">
-                                                        <i class="fa fa-share-alt"></i>
+                                                        <a href="#"><i class="fa fa-share-alt"></i>
                                                     </div>
                                                 </div>
                                             </div>
@@ -188,28 +189,6 @@
                                 </div>
                             </article>
 
-                            <article class="col-md-3 isotopeItem webdesign">
-                                <div class="space">
-                                    <div class="portfolio-item">
-                                        <img src="<?php echo base_url('assets/images/content/index1.jpeg')?>" alt="gambar" />                              
-                                        <div class="portfolio-desc align-center">
-                                            <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-thumbs-up"></i>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-comment"></i>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <i class="fa fa-share-alt"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>  
-                                    </div>
-                                </div>
-                            </article>
 
                         </div>
 

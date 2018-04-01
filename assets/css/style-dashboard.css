@@ -293,6 +293,11 @@ nav#filter ul {
 	padding-top: 25px;
 	background: #fff;
 }
+.border-icons{
+	border{
+		border:1px solid #dddddd;
+	}
+}
 
 /* --- Map --- */
 .map{
