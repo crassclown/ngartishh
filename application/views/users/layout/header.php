@@ -21,7 +21,7 @@
 </head>
 <body>
   <header>
-    <nav class="navbar navbar-inverse">
+    <nav class="navbar">
       <div class="main-menu">
         <div class="container">
           <div class="row">
