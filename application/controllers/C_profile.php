@@ -24,4 +24,26 @@ class C_profile extends CI_Controller {
 		$this->load->view('users/profile/content', $data);
 	}
 
+	public function m_editusers()
+	{
+		$varNama = $this->input->post('nama');
+		$varPhone = $this->input->post('phone');
+		$varBio = $this->input->post('bio');
+		$id = $this->input->post('id');
+
+		$data = array(
+			'fullname'=>$varNama,
+			'phone'=>$varPhone,
+			'bio'=>$varBio
+		);
+
+		$result = $this->m_users->UpdateUsers($id,$data);
+
+		if ($result){
+			redirect('C_profile/m_users/'.$id.'');
+		}else{
+			redirect('C_profile/m_users/'.$id.'');
+		}
+	}
+
 }

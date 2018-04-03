@@ -37,6 +37,37 @@ class M_users extends CI_Model
 		$result = $this->db->where('user_id', $id)->get('content')->result();
 		return $result;
 	}
+
+	public function UpdateUsers($id,$data){
+		$checkupdate = false;
+		
+		try{
+			$this->db->where('Id',$id);
+			$this->db->update('users',$data);
+			$checkupdate = true;
+		}catch (Exception $ex) {
+			
+			$checkupdate = false;
+		}
+		
+		return $checkupdate; 
+		
+	}
+	
+	public function DeleteUsers($id){
+		$checkupdate = false;
+		
+		try{
+			$this->db->where('Id',$id);
+			$this->db->delete('users');
+			$checkupdate = true;
+		}catch (Exception $ex) {
+			
+			$checkupdate = false;
+		}
+		
+		return $checkupdate; 
+	}
 	
 	public function m_bookmark($data){
 		
