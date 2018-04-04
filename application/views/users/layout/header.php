@@ -113,7 +113,17 @@
                     <ul class="dropdown-menu">
                       <div class="border-45-profil">
                       </div>
-                      <li class="option text-center"><b>Status </b>: online</li>
+                      <li class="option text-center">
+                        <b>Status </b>: 
+                        <script>
+                          if (navigator.onLine) {
+                            // console.log('online');
+                            document.write('Online');
+                          } else {
+                            document.write('Offline');
+                          }
+                        </script>
+                      </li>
                       <a class="text-center" href="#"><li class="option">Pengaturan Akun</li></a>
                       <a class="text-center" href="#"><li class="option">Feedback</li></a>
                       <a class="text-center" href="<?php echo base_url('c_loginusers/m_logout'); ?>"><li class="option">Log Out</li></a>
