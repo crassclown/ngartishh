@@ -16,10 +16,10 @@
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash">
     style="font-family: 'Berkshire Swash', cursive;" -->
 
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/default.css')?>"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/js/fancybox/jquery.fancybox.css')?>" type="text/css" media="screen" />
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/isotope.css')?>" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>">
 
     <title>Home</title>
@@ -53,19 +53,51 @@
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Category" href="#"><i class="fas fa-th nav-icon"></i></a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Page 1-1</a></li>
-                      <li><a href="#">Page 1-2</a></li>
-                      <li><a href="#">Page 1-3</a></li>
+                      <div class="border-45">
+                      </div>
+                      <a href="#"><li class="option border-warna1">Ilustrasi</li></a>
+                      <a href="#"><li class="option border-warna2">Surealism</li></a>
+                      <a href="#"><li class="option border-warna3">Improsionisme</li></a>
+                      <a href="#"><li class="option border-warna4">Mural</li></a>
+                      <a href="#"><li class="option border-warna5">Neo-Improsionisme</li></a>
+                      <a href="#"><li class="text-center ">More</li></a>
                     </ul>
                   </li>
                 </div>
                 <div class="col-md-2">
                   <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i></a>
-                    <ul class="dropdown-menu">
-                      <li><a href="#">Page 1-1</a></li>
-                      <li><a href="#">Page 1-2</a></li>
-                      <li><a href="#">Page 1-3</a></li>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i><div class="count text-center">4</div></a>
+                    <ul class="dropdown-menu notifikasi">
+                      <div class="border-45">
+                      </div>
+                      <li class="option"><div class="text-center">Notifikasi</div></li>
+                      <a class="" href="#">
+                        <li class="option">
+                            <span><b>Hilmi</b></span></br>
+                            <div>isiiiiiiiiiiiiii</div>
+                        </li>
+                      </a>
+                      <a class="" href="#">
+                        <li class="option">
+                            <span><b>Hilmi</b></span></br>
+                            <div>isiiiiiiiiiiiiii</div>
+                        </li>
+                      </a>
+                      <a class="" href="#">
+                        <li class="option">
+                            <span><b>Hilmi</b></span></br>
+                            <div>isiiiiiiiiiiiiii</div>
+                        </li>
+                      </a>
+                      <a class="" href="#">
+                        <li class="option">
+                            <span><b>Hilmi</b></span></br>
+                            <div>isiiiiiiiiiiiiii</div>
+                        </li>
+                      </a>
+                      <a class="" href="#">
+                        <li class="text-center"> Read More</li>
+                      </a>
                     </ul>
                   </li>
                 </div>
@@ -78,9 +110,12 @@
                       </div>
                     </a>
                     <ul class="dropdown-menu">
-                      <li><a href="#">Page 1-1</a></li>
-                      <li><a href="#">Page 1-2</a></li>
-                      <li><a href="#">Page 1-3</a></li>
+                      <div class="border-45-profil">
+                      </div>
+                      <li class="option text-center"><b>Status </b>: online</li>
+                      <a class="text-center" href="#"><li class="option">Pengaturan Akun</li></a>
+                      <a class="text-center" href="#"><li class="option">Feedback</li></a>
+                      <a class="text-center" href="#"><li class="option">Log Out</li></a>
                     </ul>
                   </li>
                 </div>
