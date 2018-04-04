@@ -30,10 +30,10 @@ class C_loginusers extends CI_Controller {
         $cek        = $this->m_users->cek_login("users",$where)->num_rows();
         
         if($cek > 0){
-            $query      = $this->db->query("SELECT Id FROM users WHERE email='".$email."' LIMIT 1");
+            $query          = $this->db->query("SELECT Id FROM users WHERE email='".$email."' LIMIT 1");
             foreach($query->result_array() as $sqlnih){
-                $iduser = $sqlnih['Id'];
-                $data_session = array(
+                $iduser         = $sqlnih['Id'];
+                $data_session   = array(
                     'email'     => $email,
                     'Id'        => $iduser,
                     'status'    => "login"
