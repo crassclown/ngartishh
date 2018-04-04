@@ -119,9 +119,6 @@
                                 '</div>'+
                             '</div>'+
                         '</article>';
-
-                                                    
-
                         
                         // '<tr>'+
                         //         '<td>'+data[i].idcontent+'</td>'+
