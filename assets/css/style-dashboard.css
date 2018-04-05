@@ -1053,3 +1053,7 @@ a:hover{
 a:focus{
 	color:#777777;
 }
+
+.font-pp{
+	font-family:'Rammetto One' !important, cursive;
+}
