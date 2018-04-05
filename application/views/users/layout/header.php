@@ -29,11 +29,11 @@
     <nav class="navbar">
       <div class="main-menu">
         <div class="container">
-          <div class="row">
-            <div class="col-md-3">
+          <div class="row ">
+            <div class="col-md-3 respon-sm-nav">
               <img class="navbar-brand" src="<?php echo base_url('assets/images/icons/Ngartish.png') ?>"></img>
             </div>
-            <div class="col-md-3 ">
+            <div class="col-md-3 respon-sm-nav">
               <div class="widget">
                 <div class="form-search">
                   <input class="form-control" type="text" placeholder="Search..">
@@ -41,15 +41,16 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <ul class="nav navbar-nav row navbar-left">
-                <li class="col-md-2 col-md-offset-1">
+            <div class="col-md-6 col-md-6 col-xs-6">
+            
+              <ul class="nav navbar-nav row navbar-top">
+                <li class="col-xs-2 col-md-2 col-md-offset-1 col-xs-offset-0">
                   <a href="#" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
                 </li>
-                <li class="col-md-2">
+                <li class="col-md-2 col-xs-2 margin-sm-nav">
                   <a href="#" class="nav-icon-gambar" data-toggle="tooltip" data-placement="bottom" title="My Gallery"><i class="material-icons nav-icon-gambar">panorama</i></a>
                 </li>
-                <div class="col-md-2">
+                <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Category" href="#"><i class="fas fa-th nav-icon"></i></a>
                     <ul class="dropdown-menu">
@@ -64,7 +65,7 @@
                     </ul>
                   </li>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i><div class="count text-center">4</div></a>
                     <ul class="dropdown-menu notifikasi">
@@ -101,7 +102,7 @@
                     </ul>
                   </li>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3 col-xs-3">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
                       <div class="nav-label">
