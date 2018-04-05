@@ -46,4 +46,15 @@ class C_profile extends CI_Controller {
 		}
 	}
 
+	public function m_follows()
+	{
+		$varUserid = $this->post->input('userid');
+		$varFollowedid = $this->post->input('followedid');
+
+		$result = $this->m_users->cekFollowing($varUserid, $varFollowedid);
+		if(isset($result))
+		{
+			
+		}
+	}
 }

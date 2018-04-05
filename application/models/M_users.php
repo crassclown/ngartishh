@@ -53,7 +53,23 @@ class M_users extends CI_Model
 		return $checkupdate; 
 		
 	}
+
+	public function cekFollowing($userid, $followedid)
+	{
+		$result = $this->db->where('user_id', $userid)->where('followed_id',$followedid)->limit(1)->get('following');
+		return $result->row();
+	}
 	
+	public function userFollow($userid, $followedid)
+	{
+		
+	}
+
+	public function userUnfollow($userid, $followedid)
+	{
+
+	}
+
 	public function DeleteUsers($id){
 		$checkupdate = false;
 		

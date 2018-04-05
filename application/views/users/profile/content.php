@@ -9,18 +9,24 @@
 </head>
 
 <body>
+	<?php if($this->uri->segment(3) == $this->session->userdata('Id')) { ?>
 	<button type="button" id="editbtn" name="editform">Edit Profile</button>
 	<div id="editform">
 		<form action="<?=base_url("c_profile/m_editusers")?>" method="post">
 		<?php foreach($profile as $p) { ?>
-			Nama Lengkap<input type="text" name="nama" id="" style="text-transform:capitalize" value="<?php echo $p->fullname; ?>"><br>
-			Nomor Telfon<input type="number" name="phone" id="" style="text-transform:capitalize" value="<?php echo $p->phone; ?>"><br>
-			Bio <textarea name="bio" id="" cols="30" rows="10"><?php echo $p->bio; ?></textarea>
-			<input type="hidden" name="id" value="<?php echo $p->Id; ?>">
-			<input type="submit" name="simpanbtn" value="Simpan">
+			Nama Lengkap<input type="text" name="nama" id="varNama" style="text-transform:capitalize" value="<?php echo $p->fullname; ?>"><br>
+			Nomor Telfon<input type="number" name="phone" id="varPhone" style="text-transform:capitalize" value="<?php echo $p->phone; ?>"><br>
+			Bio <textarea name="bio" id="varBio" cols="30" rows="10"><?php echo $p->bio; ?></textarea>
+			<input type="hidden" id="varId" name="id" value="<?php echo $p->Id; ?>">
+			<input type="button" id="editprofile" name="editprofile" value="Edit">
 		<?php } ?>
 		</form>
 	</div>
+	<?php }elseif(!empty($this->session->userdata('status'))){ ?>
+	<input type="button" id="follow" name="follow" value="Follow">
+	<?php } ?>
+	<input type="hidden" name="user_id" id="user_id" value="<?php $userid = $this->session->userdata('Id'); ?>">
+	<input type="hidden" name="followed_id" id="followed_id" value="<?php $followedid = $this->uri->segment(3); ?>">
 	<table border=1>
 		<tr>
 			<th>Nama</th>
@@ -28,8 +34,8 @@
 		</tr>
 		<?php 
 		foreach($profile as $p)
-		{
-	?>
+			{
+		?>
 		<tr>
 			<td>
 				<?php echo $p->fullname; ?>
@@ -50,8 +56,8 @@
 		</tr>
 		<?php 
 		foreach($content as $c)
-		{
-	?>
+			{
+		?>
 		<tr>
 			<td>
 				<?php echo $c->Id; ?>
@@ -72,6 +78,28 @@
 			$("#editform").hide();
 			$("#editbtn").click(function () {
 				$("#editform").toggle();
+			});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#editprofile").click(function(){
+				var varId  = $('#varId').val();
+				var varNama  = $('#varNama').val();
+				var varPhone     = $('#varPhone').val();
+				var varBio        = $('#varBio').val();
+				// var name     = $('#name').val();
+				$.ajax({
+					type:"POST",
+					url :"<?php echo base_url(); ?>" + "C_profile/m_editusers",
+					data:
+					{
+						"id":varId,
+						"nama":varNama,
+						"phone":varPhone,
+						"bio":varBio
+					}
+				});
 			});
 		});
 	</script>
