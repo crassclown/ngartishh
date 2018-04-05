@@ -10,7 +10,7 @@ class C_dashboard extends CI_Controller {
         $this->load->model('m_users');
         if($this->session->userdata('status') != "login"){
 			redirect(base_url("c_loginusers/"));
-		}
+        }
 	}
 	
 	public function index()
@@ -24,8 +24,8 @@ class C_dashboard extends CI_Controller {
 	public function m_getContents(){
 		// get data
 		$data = $this->m_dashboard->m_getRecords();
-		
-		echo json_encode($data);
+
+        echo json_encode($data);
 	}
 
 	public function m_detailContent($content_id, $user_id){

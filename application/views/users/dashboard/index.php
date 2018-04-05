@@ -17,8 +17,6 @@
                     <div class="portfolio-items isotopeWrapper clearfix " id="4">
                         <div class="row">
                             <div id="show_data"></div>
-
-                            <div id="check_id"></div>
                         </div>
                     </div>
                 </div>
@@ -78,18 +76,6 @@
                             '</div>'+
                         '</article>'
                         '</a>';
-                        
-                        // '<tr>'+
-                        //         '<td>'+data[i].idcontent+'</td>'+
-                        //         '<td>'+data[i].title+'</td>'+
-                        //         '<td>'+data[i].desc+'</td>'+
-                        //         '<td>'+data[i].total_like+'</td>'+
-                        //         '<td>'+data[i].total_comment+'</td>'+
-                        //         '<td>'+data[i].namalengkap+'</td>'+
-                        //         '<td>'+data[i].tgl_posting+'</td>'+
-                        //         '<td><a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>Detil</td>'+
-                        //         // '<td><form id="bookmark" action="" method="POST"><input type="text" id="content_id" value='+data[i].idcontent+'><input type="text" id="user_id" value='+data[i].iduser+'><input type="button" value="Bookmark"></form></td>'+
-                        //         '</tr>';
                     }
                     $('#show_data').html(html);
                 }
