@@ -57,7 +57,9 @@
                                         '<div class="folio-info">'+
                                             '<div class="row image-icons">'+
                                                 '<div class="col-md-4 ">'+
-                                                    '<a href="#"><i class="fa fa-thumbs-up "></i><span>'+data[i].total_like+'</span></a>'+
+                                                    '<input type="hidden" id="content_id" name="content_id" value="'+data[i].idcontent+'" />'+
+                                                    '<input type="hidden" id="user_id" name="user_id" value="<?php echo $this->session->userdata("Id"); ?>" />'+
+                                                    '<a href="#" id="like" class="like"><i class="fa fa-thumbs-up"></i><span>'+data[i].total_like+'</span></a>'+
                                                 '</div>'+
                                                 '<div class="col-md-4 border-icons">'+
                                                     '<a href="#"><i class="fa fa-comment"></i><span>'+data[i].total_comment+'</span></a>'+
@@ -92,5 +94,28 @@
     });
  
 </script>
+
 </body>
 </html>
+
+<script>
+    $(document).ready(function() {
+        $('#like').click(function() {
+            alert("clicked");
+                    var content_id = $("#content_id").val();
+                    var user_id = $("#user_id").val();
+                    // var txtpassword = $("#txtpassword").val();
+                
+                    $.ajax({
+                        url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+                        type: 'post',
+                        data: { "content_id": content_id, "user_id": user_id},
+                        success: function(response) 
+                        { 
+                            console.log("Like");
+                        }
+                
+                    });
+        });
+    });
+</script>
