@@ -57,11 +57,7 @@
                                         '<div class="folio-info">'+
                                             '<div class="row image-icons">'+
                                                 '<div class="col-md-4 ">'+
-                                                    '<form>'+
-                                                        '<input type="hidden" id="content_id" name="content_id" value="'+data[i].idcontent+'" />'+
-                                                        '<input type="hidden" id="user_id" name="user_id" value="<?php echo $this->session->userdata("Id"); ?>" />'+
-                                                        '<a href="#" id="like" class="like"><i class="fa fa-thumbs-up"></i><span>'+data[i].total_like+'</span></a>'+
-                                                    '</form>'+
+                                                        '<a href="#" id="like" class="like" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up"></i><span>'+data[i].total_like+'</span></a>'+
                                                 '</div>'+
                                                 '<div class="col-md-4 border-icons">'+
                                                     '<a href="#"><i class="fa fa-comment"></i><span>'+data[i].total_comment+'</span></a>'+
@@ -81,23 +77,6 @@
                 }
             });
         }
-
-        // $('#like').click(function() {
-        //     var content_id = $("#content_id").val();
-        //     var user_id = $("#user_id").val();
-            
-        //     $.ajax({
-        //         url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-        //         type: 'post',
-        //         data: { "content_id": content_id, "user_id": user_id},
-        //         // success: function(response) 
-        //         // {
-        //         //     location.reload();
-        //         //     tampil_data_barang();
-        //         // }
-        //     });
-            
-        // });
     });
  
 </script>
@@ -108,21 +87,21 @@
 <script>
     $(document).ready(function() {
         $('#like').click(function() {
-                    var content_id = $("#content_id").val();
-                    var user_id = $("#user_id").val();
-                    // var txtpassword = $("#txtpassword").val();
-                
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-                        type: 'post',
-                        data: { "content_id": content_id, "user_id": user_id},
-                        success: function(response) 
-                        { 
-                            location.reload();
-                            // console.log("Liked");
-                            // tampil_data_barang();
-                        }
-                    });
+            // var content_id = $("#content_id").val();
+            // var user_id = $("#user_id").val();
+            // var txtpassword = $("#txtpassword").val();
+            var content_id = $(this).attr("data-contentid");
+            var user_id = $(this).attr("data-sessionuserid");
+            // alert(content_id);
+            $.ajax({
+                url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+                type: 'post',
+                data: { "content_id": content_id, "user_id": user_id},
+                success: function(response) 
+                { 
+                    location.reload();
+                }
+            });
         });
     });
 </script>
