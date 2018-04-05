@@ -54,7 +54,9 @@ class C_profile extends CI_Controller {
 		$result = $this->m_users->cekFollowing($varUserid, $varFollowedid);
 		if(isset($result))
 		{
-			
+			$this->m_users->userFollow($varUserid, $varFollowedid);
+		}else {
+			$this->m_users->userUnfollow($varUserid, $varFollowedid);
 		}
 	}
 }
