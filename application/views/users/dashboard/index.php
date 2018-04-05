@@ -82,22 +82,22 @@
             });
         }
 
-        $('#like').click(function() {
-            var content_id = $("#content_id").val();
-            var user_id = $("#user_id").val();
+        // $('#like').click(function() {
+        //     var content_id = $("#content_id").val();
+        //     var user_id = $("#user_id").val();
             
-            $.ajax({
-                url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-                type: 'post',
-                data: { "content_id": content_id, "user_id": user_id},
-                success: function(response) 
-                {
-                    location.reload();
-                    tampil_data_barang();
-                }
-            });
+        //     $.ajax({
+        //         url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+        //         type: 'post',
+        //         data: { "content_id": content_id, "user_id": user_id},
+        //         // success: function(response) 
+        //         // {
+        //         //     location.reload();
+        //         //     tampil_data_barang();
+        //         // }
+        //     });
             
-        });
+        // });
     });
  
 </script>
@@ -105,7 +105,7 @@
 </body>
 </html>
 
-<!-- <script>
+<script>
     $(document).ready(function() {
         $('#like').click(function() {
                     var content_id = $("#content_id").val();
@@ -118,10 +118,11 @@
                         data: { "content_id": content_id, "user_id": user_id},
                         success: function(response) 
                         { 
+                            location.reload();
                             // console.log("Liked");
-                            tampil_data_barang();
+                            // tampil_data_barang();
                         }
                     });
         });
     });
-</script> -->
+</script>

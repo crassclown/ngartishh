@@ -52,16 +52,27 @@ class C_dashboard extends CI_Controller {
 	}
 
 	public function m_like(){
-        $data = array(
-            'content_id' => $this->input->post('content_id'),
-            'user_id' => $this->input->post('user_id')
-        );
-        if(isset($data)){
-            $insert = $this->m_users->m_liked($data);
-            // echo json_encode(array("status" => TRUE));
-        }else{
-            echo "Failed insert into database";
-        }
+        // $data = array(
+        //     'content_id' => $this->input->post('content_id'),
+        //     'user_id' => $this->input->post('user_id')
+        // );
+        // if(isset($data)){
+        //     $insert = $this->m_users->m_liked($data);
+        //     // echo json_encode(array("status" => TRUE));
+        // }else{
+        //     echo "Failed insert into database";
+        // }
+
+        $varUserid      = $this->input->post('user_id');
+		$varContentid   = $this->input->post('content_id');
+
+		$result = $this->m_users->cekLiked($varUserid, $varContentid);
+		if(!isset($result))
+		{
+			$this->m_users->userLikes($varUserid, $varContentid);
+		}else {
+			$this->m_users->userUnlikes($varUserid, $varContentid);
+		}
         
 	}
 

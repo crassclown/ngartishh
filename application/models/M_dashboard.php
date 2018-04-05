@@ -23,6 +23,4 @@ class M_dashboard extends CI_Model
     function m_detailcontent($where,$table){		
         return $this->db->get_where($table,$where);
     }
-
-    
 }

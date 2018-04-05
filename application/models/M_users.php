@@ -37,15 +37,88 @@ class M_users extends CI_Model
 		$result = $this->db->where('user_id', $id)->get('content')->result();
 		return $result;
 	}
+
+	public function UpdateUsers($id,$data){
+		$checkupdate = false;
+		
+		try{
+			$this->db->where('Id',$id);
+			$this->db->update('users',$data);
+			$checkupdate = true;
+		}catch (Exception $ex) {
+			
+			$checkupdate = false;
+		}
+		
+		return $checkupdate; 
+		
+	}
+
+	public function cekFollowing($userid, $followedid)
+	{
+		$result = $this->db->where('user_id', $userid)->where('followed_id',$followedid)->limit(1)->get('following');
+		return $result->row();
+	}
+	
+	public function userFollow($userid, $followedid)
+	{
+		$data = array(
+			'Id' => null,
+			'user_id' => $userid,
+			'followed_id' => $followedid
+		);
+		$this->db->insert('following', $data);
+	}
+
+	public function userUnfollow($userid, $followedid)
+	{
+		$this->db->where('user_id', $userid)->where('followed_id', $followedid);
+		$this->db->delete('following');
+	}
+
+	public function DeleteUsers($id){
+		$checkupdate = false;
+		
+		try{
+			$this->db->where('Id',$id);
+			$this->db->delete('users');
+			$checkupdate = true;
+		}catch (Exception $ex) {
+			
+			$checkupdate = false;
+		}
+		
+		return $checkupdate; 
+	}
 	
 	public function m_bookmark($data){
 		
 		$this->db->insert('bookmark', $data);
 	}
 
-	public function m_liked($data)
-	{
+	// public function m_liked($data)
+	// {
+	// 	$this->db->insert('likes', $data);
+	// }
+
+	public function cekLiked($userid, $contentid){
+		$result = $this->db->where('user_id', $userid)->where('content_id',$contentid)->limit(1)->get('likes');
+		return $result->row();
+	}
+
+	public function userLikes($userid, $contentid){
+		$data = array(
+			'Id' => null,
+			'user_id' => $userid,
+			'content_id' => $contentid
+		);
 		$this->db->insert('likes', $data);
+	}
+
+	public function userUnlikes($userid, $contentid)
+	{
+		$this->db->where('user_id', $userid)->where('content_id', $contentid);
+		$this->db->delete('likes');
 	}
 
 	public function m_added_comments($data){
