@@ -23,10 +23,10 @@
 		</form>
 	</div>
 	<?php }elseif(!empty($this->session->userdata('status'))){ ?>
-	<input type="button" id="follow" name="follow" value="Follow">
+	<input type="button" id="followbtn" name="followbtn" value="Follow">
 	<?php } ?>
-	<input type="hidden" name="user_id" id="user_id" value="<?php $userid = $this->session->userdata('Id'); ?>">
-	<input type="hidden" name="followed_id" id="followed_id" value="<?php $followedid = $this->uri->segment(3); ?>">
+	<input type="hidden" name="user_id" id="user_id" value="<?php echo $this->session->userdata('Id'); ?>">
+	<input type="hidden" name="followed_id" id="followed_id" value="<?php echo $this->uri->segment(3); ?>">
 	<table border=1>
 		<tr>
 			<th>Nama</th>
@@ -73,6 +73,7 @@
 	</table>
 	<a href="<?php echo base_url('c_dashboard/index');?>">back</a>
 	<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+	<!-- Edit toggle -->
 	<script>
 		$(function () {
 			$("#editform").hide();
@@ -81,6 +82,9 @@
 			});
 		});
 	</script>
+	<!-- End Edit toggle -->
+
+	<!-- Edit Profile AJAX -->
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#editprofile").click(function(){
@@ -103,6 +107,27 @@
 			});
 		});
 	</script>
+	<!-- END Edit Profile AJAX -->
+
+	<!-- Follow Profile AJAX -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#followbtn").click(function(){
+				var varUserid  = $('#user_id').val();
+				var varFollowedid  = $('#followed_id').val();
+				$.ajax({
+					type:"POST",
+					url :"<?php echo base_url(); ?>" + "C_profile/m_follows",
+					data:
+					{
+						"userid":varUserid,
+						"followedid":varFollowedid
+					}
+				});
+			});
+		});
+	</script>
+	<!-- END Follow Profile AJAX -->
 </body>
 
 </html>

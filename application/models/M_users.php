@@ -62,12 +62,18 @@ class M_users extends CI_Model
 	
 	public function userFollow($userid, $followedid)
 	{
-		
+		$data = array(
+			'Id' => null,
+			'user_id' => $userid,
+			'followed_id' => $followedid
+		);
+		$this->db->insert('following', $data);
 	}
 
 	public function userUnfollow($userid, $followedid)
 	{
-
+		$this->db->where('user_id', $userid)->where('followed_id', $followedid);
+		$this->db->delete('following');
 	}
 
 	public function DeleteUsers($id){
