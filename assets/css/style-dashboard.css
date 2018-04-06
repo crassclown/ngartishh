@@ -305,6 +305,26 @@ nav#filter ul {
 .border-content{
 	padding-top: 25px;
 }
+
+.border-content-profil{
+	padding-top: 25px;
+	background:#fff;
+}
+
+.button-tab{
+	width: 60px;
+	height:40px;
+	background:#fff;
+	margin-left:40px;
+	border:1px solid #f5f5f5;
+	border-bottom:0px;
+	font:#f5f5f5;
+	padding:15px;
+}
+
+.button-tab:hover{
+	font:#578adb;
+}
 /* .border-icons{
 	border:1px solid #dddddd;
 }	 */
@@ -1066,11 +1086,43 @@ a:focus{
 	color:#777777;
 }
 
+.modal-right{
+	width:100%;
+	height:250px;
+	border-radius: 0px;
+	background:#c5c5c5;
+	border:1px solid #f0f0f0;
+	font-size: 36px;
+	transition:1s; 
+}
+
+.modal-right:hover{
+	background:#fff;
+	border:1px solid #fff;
+	color:#c5c5c5;
+}
+.modal-right:focus{
+	background:#fff;
+	border:1px solid #fff;
+	color:#c5c5c5;
+}
+
+.icons-upload{
+	font:60px;
+}
+
+.a:active{
+	background:none;
+}
+
 /* ===================================
 Resposive 1200px
 ==================================== */
 @media (min-width: 1200px) {
 	.container{
 		width:1330px;
+	}
+	.container-profil{
+		width:990px;
 	}
 }
