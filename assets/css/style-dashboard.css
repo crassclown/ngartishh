@@ -314,7 +314,7 @@ nav#filter ul {
 .button-tab{
 	width: 60px;
 	height:40px;
-	background:#fff;
+	background:#f5f5f5;
 	margin-left:40px;
 	border:1px solid #f5f5f5;
 	border-bottom:0px;
@@ -805,6 +805,15 @@ box-shadow:inset 1px 0 0 0 rgba(0,0,0,.01);
 	margin-top:10px;
 }
 
+.modal-body input[type="text"], .modal textarea{
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #EDEDED;
+    margin-bottom: 30px;
+    font-size: 13px;
+    outline: none;
+    color: #bbb;
+}
 aside .widget {
 	margin-bottom:40px;
 }
@@ -1086,6 +1095,10 @@ a:focus{
 	color:#777777;
 }
 
+.modal-dialog{
+	width:900px;
+}
+
 .modal-right{
 	width:100%;
 	height:250px;
@@ -1107,6 +1120,43 @@ a:focus{
 	color:#c5c5c5;
 }
 
+.modal-new-post-dashboard{
+	background:#e5e5e5;
+	border:1px solid #fff;
+	width:70px;
+	height:70px;
+	color:#757575;
+	box-shadow: 0 10px 15px 0px rgba(0,0,0,0.3);
+	position:fixed;
+	float:right;
+	right:5%;
+	top:85%;
+	border-radius:50%;
+}
+
+.modal-new-post-dashboard:focus{
+	background:#757575;
+	border:1px solid #c5c5c5;
+	color:#fff;
+	box-shadow: 0 10px 15px 0px rgba(0,0,0,0.3);
+}
+
+.modal-new-post-dashboard:hover{
+	background:#757575;
+	border:1px solid #c5c5c5;
+	color:#fff;
+	box-shadow: 0 10px 15px 0px rgba(0,0,0,0.3);
+}
+
+.modal-new-post-dashboard:active{
+	background:#757575;
+	border:1px solid #c5c5c5;
+	color:#fff;
+	box-shadow: 0 10px 15px 0px rgba(0,0,0,0.3);
+}
+.padding-modal-body{
+	padding:35px;
+}
 .icons-upload{
 	font:60px;
 }
@@ -1115,6 +1165,51 @@ a:focus{
 	background:none;
 }
 
+.modal-open .container{
+	filter:blur(1px);
+}
+
+.modal-body{
+	padding:0;
+}
+
+/* ===================================
+Tambahan Upload
+==================================== */
+#drop-area {
+	width: 100%;
+	background: #f5f5f5;
+	min-height:500px;
+	border-left:1px solid #a5a5a5;
+	padding: 15px;
+
+  }
+  p {
+	margin-top: 0;
+  }
+  #gallery {
+	margin-top: 10px;
+  }
+  #gallery img {
+	width: 100px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	vertical-align: middle;
+  }
+  .button {
+	display: inline-block;
+	padding: 10px;
+	background: #ccc;
+	cursor: pointer;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+  }
+  .button:hover {
+	background: #ddd;
+  }
+  #fileElem {
+	display: none;
+  }
 /* ===================================
 Resposive 1200px
 ==================================== */
