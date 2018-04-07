@@ -1181,7 +1181,9 @@ Tambahan Upload
 	background: #f5f5f5;
 	min-height:500px;
 	border-left:1px solid #a5a5a5;
-	padding: 15px;
+	padding: 25px;
+	padding-top:50px;
+	justify-content: center;
 
   }
   p {
@@ -1197,18 +1199,20 @@ Tambahan Upload
 	vertical-align: middle;
   }
   .button {
-	display: inline-block;
-	padding: 10px;
-	background: #ccc;
+	background: none;
+	width: 100%;
+	font-size:60px;
 	cursor: pointer;
-	border-radius: 5px;
-	border: 1px solid #ccc;
   }
   .button:hover {
-	background: #ddd;
+	/* background: #ddd; */
   }
   #fileElem {
 	display: none;
+  }
+  #progress-bar{
+	  position: inherit;
+	  width:100%;
   }
 /* ===================================
 Resposive 1200px

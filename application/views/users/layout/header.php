@@ -30,8 +30,8 @@
 </head>
 <body>
   <header>
-    <nav class="navbar">
-      <div class="main-menu">
+    <nav class="navbar ">
+      <div class="main-menu ">
         <div class="container">
           <div class="row ">
             <div class="col-md-3 respon-sm-nav">
