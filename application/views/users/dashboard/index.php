@@ -10,7 +10,7 @@
 </head>
 <body>
     <?php $this->session->userdata("Id"); ?>
-    <section id="section-works" class="section appear clearfix">
+    <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 border-content">
@@ -129,7 +129,7 @@
         tampil_data_barang();   //pemanggilan fungsi tampil barang.
          
         // $('#mydata').dataTable();
-          
+        // fa fa-share-alt
         //fungsi tampil barang
         function tampil_data_barang(){
             $.ajax({
@@ -157,7 +157,10 @@
                                                     '<a href="#"><i class="fa fa-comment"></i><span>'+data[i].total_comment+'</span></a>'+
                                                 '</div>'+
                                                 '<div class="col-md-4">'+
-                                                    '<a href="#"><i class="fa fa-share-alt"></i>'+
+                                                    // '<a href="#"><i class="fa fa-share-alt"></i>'+
+                                                    // '<div class="dropdown">'+
+                                                        '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
+                                                    // '</div>'+
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+
@@ -165,7 +168,7 @@
                                 '</div>'+
                             '</div>'+
                         '</article>'
-                        '</a>';
+                        '</button>';
                     }
                     $('#show_data').html(html);
                 }
@@ -199,3 +202,11 @@
         });
     });
 </script>
+<!-- AddToAny BEGIN -->
+<script>
+var a2a_config = a2a_config || {};
+a2a_config.linkurl = "http://[::1]/Kuliah/PBF/Ngartish/ngartish/c_dashboard/";
+a2a_config.onclick = 1;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
