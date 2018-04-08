@@ -264,7 +264,7 @@
         </a>
         <!-- end Button Scroll Up -->
  
-        <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard " data-toggle="modal" title="Notification" data-target="#myModal"><i class="material-icons " style="font-size:40px;">file_upload</i></button>
+        <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard " data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons " style="font-size:40px;">file_upload</i></button>
  
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
