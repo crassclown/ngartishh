@@ -30,7 +30,7 @@
         <!-- Button Scroll Up -->
     </section>
  
-        <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard " data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons " style="font-size:40px;">file_upload</i></button>
+        <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard " data-backdrop="static" data-keyboard="false" data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons " style="font-size:40px;">file_upload</i></button>
  
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -39,7 +39,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">New Posting</h4>
+                    <h4 class="modal-title">What do you have today?</h4>
                     </div>
                     <div class="modal-body ">
                         <div class="row">
@@ -47,19 +47,22 @@
                                 <div class="padding-modal-body">
                                     <form action="#" method="POST" enctype="multipart/form-data">
                                         <table>
-                                            <tr>
-                                                    Judul :                                       
+                                            <tr>                                      
                                                     <div class="wrap-input100">
-                                                    <input class="input100" type="text" name="txtemail" placeholder="Judul Post">
+                                                    <div class="input-group stylish-input-group">
+                                                    <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require>
+                                                    <span class="input-group-addon">
+                                                        <span class="fa fa-search"></span>  
+                                                    </span>
                                                     <span class="focus-input100"></span>
+                                                    </div>
                                                     </div>
                                             </tr>
                                             <tr>
-                                                    Description :
-                                                    <textarea name="Deskripsi" rows="3" cols="30" placeholder="Descrption"></textarea>
+                                                    <textarea name="description" rows="3" cols="30" placeholder="Descrption" class="form-control" id="txtdesc"></textarea>
                                             </tr>
                                             <tr>
-                                                    Kategori
+                                                    Categories
                                                 </td>
                                                 <td>
                                                     <div class="row">
@@ -111,9 +114,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="submit" class="btn btn-default">Submit</button>
-                        <button type="reset" class="btn btn-default">Reset</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-default">Post</button>
                         </form>
                      </div>
                 </div>
@@ -200,6 +201,11 @@
                 }
             });
         });
+    });
+</script>
+<script>
+    $(document).ready(function(){
+
     });
 </script>
 <!-- AddToAny BEGIN -->
