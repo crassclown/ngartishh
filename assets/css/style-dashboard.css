@@ -203,9 +203,11 @@ ul.nav-pills  {
 }
 
 #section-works {
-	margin-top:0px;
-	margin-bottom:0px;
-	padding-top:50px;
+	padding-top:30px;
+	background: #f5f5f5;	
+}
+
+#section-works-profil {
 	background: #f5f5f5;	
 }
 
@@ -228,6 +230,21 @@ nav#filter a:hover, nav#filter a.current {
 .space{
 	padding-right:15px;
 	padding-left:15px;
+}
+
+.gantungan{
+	width:100%;
+	height:50px;
+	background: #fff;
+	padding-top: 5px;
+}
+
+.pin{
+	width:40px;
+	height:40px;
+	background:#d5d5d5;
+	border-radius: 50%;
+	margin-left: 43%;
 }
 
 #portfolio img  {
@@ -289,9 +306,55 @@ nav#filter ul {
 	color :#ffffff;
 	font-size:20px;
 }
+
+.head-profil{
+	width:100%;
+	background:#fff;
+	padding:10px;
+	margin-bottom:20px;
+}
+.foto-profil{
+	width:70px;
+	height: 70px;
+	background: #ddd;
+	border-radius: 50%;
+
+}
+.nama-foto-profil{
+	font-family: 'Montserrat', sans-serif;
+	font-size:15px;
+	position: absolute;
+	left :100px;
+	top: 35px;
+}
+
+.padding-button-follow{
+	padding:25px;
+}
+.baris-foto-profil{
+}
 .border-content{
 	padding-top: 25px;
-	background: #f5f5f5;
+}
+
+.border-content-profil{
+	padding-top: 25px;
+	background:#fff;
+}
+
+.button-tab{
+	width: 60px;
+	height:40px;
+	background:#f5f5f5;
+	margin-left:40px;
+	border:1px solid #f5f5f5;
+	border-bottom:0px;
+	font:#f5f5f5;
+	padding:15px;
+}
+
+.button-tab:hover{
+	font:#578adb;
 }
 /* .border-icons{
 	border:1px solid #dddddd;
@@ -773,6 +836,15 @@ box-shadow:inset 1px 0 0 0 rgba(0,0,0,.01);
 	margin-top:10px;
 }
 
+.modal-body input[type="text"], .modal textarea{
+    width: 100%;
+    background: #ffffff;
+    border: 1px solid #EDEDED;
+    margin-bottom: 30px;
+    font-size: 13px;
+    outline: none;
+    color: #bbb;
+}
 aside .widget {
 	margin-bottom:40px;
 }
@@ -1054,6 +1126,173 @@ a:focus{
 	color:#777777;
 }
 
-.font-pp{
-	font-family:'Rammetto One' !important, cursive;
+.modal-dialog{
+	width:900px;
+}
+
+.modal-right{
+	width:100%;
+	height:250px;
+	border-radius: 0px;
+	background:#c5c5c5;
+	border:1px solid #f0f0f0;
+	font-size: 36px;
+	transition:1s; 
+}
+
+.modal-right:hover{
+	background:#fff;
+	border:1px solid #fff;
+	color:#c5c5c5;
+}
+.modal-right:focus{
+	background:#fff;
+	border:1px solid #fff;
+	color:#c5c5c5;
+}
+
+.modal-new-post-dashboard{
+	background:#e5e5e5;
+	border:1px solid #fff;
+	width:70px;
+	height:70px;
+	color:#757575;
+	box-shadow: 0 10px 15px 0px rgba(0,0,0,0.3);
+	position:fixed;
+	float:right;
+	right:5%;
+	top:85%;
+	border-radius:50%;
+}
+
+.modal-new-post-dashboard:focus{
+	background:#757575;
+	border:1px solid #c5c5c5;
+	color:#fff;
+	box-shadow: 0 10px 15px 0px rgba(0,0,0,0.3);
+}
+
+.modal-new-post-dashboard:hover{
+	background:#757575;
+	border:1px solid #c5c5c5;
+	color:#fff;
+	box-shadow: 0 10px 15px 0px rgba(0,0,0,0.3);
+}
+
+.modal-new-post-dashboard:active{
+	background:#757575;
+	border:1px solid #c5c5c5;
+	color:#fff;
+	box-shadow: 0 10px 15px 0px rgba(0,0,0,0.3);
+}
+.padding-modal-body{
+	padding:35px;
+}
+
+.modal-body-follow{
+	width:480px;
+}
+
+.content-modal-follow{
+	padding:5px;
+	border: 1px solid #d5d5d5;
+	height:80px;
+	width:100%;
+	display: inline-flex;
+}
+
+.foto-profil-modal-follow{
+	background:#ddd;
+	border-radius: 50%;
+	width:40px;
+	height: 40px;
+	margin:5px;
+	border:1px solid #aaa;
+}
+
+.icons-upload{
+	font:60px;
+}
+
+.a:active{
+	background:none;
+}
+
+.modal-open .container{
+	filter:blur(1px);
+}
+
+.modal-body{
+	padding:0;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+	max-height: 480px;
+	overflow-x: auto;
+}
+.modal-nama{
+	margin-left: 15px;
+}
+
+.button-modal-follow{
+	position: absolute;
+	width:100px;
+	right:10px;
+	margin:10px;
+	padding: 7px;
+	border-radius: 6px;
+
+
+}
+
+/* ===================================
+Tambahan Upload
+==================================== */
+#drop-area {
+	width: 100%;
+	background: #f5f5f5;
+	min-height:500px;
+	border-left:1px solid #a5a5a5;
+	padding: 25px;
+	padding-top:50px;
+	justify-content: center;
+
+  }
+  p {
+	margin-top: 0;
+  }
+  #gallery {
+	margin-top: 10px;
+  }
+  #gallery img {
+	width: 100px;
+	margin-bottom: 10px;
+	margin-right: 10px;
+	vertical-align: middle;
+  }
+  .button {
+	background: none;
+	width: 100%;
+	font-size:60px;
+	cursor: pointer;
+  }
+  .button:hover {
+	/* background: #ddd; */
+  }
+  #fileElem {
+	display: none;
+  }
+  #progress-bar{
+	  position: inherit;
+	  width:100%;
+  }
+/* ===================================
+Resposive 1200px
+==================================== */
+@media (min-width: 1200px) {
+	.container{
+		width:1330px;
+	}
+	.container-profil{
+		width:990px;
+	}
 }

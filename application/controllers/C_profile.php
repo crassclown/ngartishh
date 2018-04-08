@@ -15,8 +15,10 @@ class C_profile extends CI_Controller {
 	
 	public function index()
 	{
-		$data['users'] = $this->m_users->getAllusers();
-		$this->load->view('users/profile/content', $data);
+		$this->load->view('users/layout/header');
+		$this->load->view('users/profile/content');
+		$this->load->view('users/layout/footer');
+
 	}
 
 	public function m_users($id)
