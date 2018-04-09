@@ -128,14 +128,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
-        tampil_data_barang();   //pemanggilan fungsi tampil barang.
-         
-        // $('#mydata').dataTable();
-        // fa fa-share-alt
-        //fungsi tampil barang
-        <?php 
-        // echo substr(trim(ucfirst($this->session->userdata("name"))),0,1); 
-        ?>
+        tampil_data_barang();   //pemanggilan fungsi tampil gambar.
         
         function tampil_data_barang(){
             $.ajax({
@@ -168,10 +161,7 @@
                                                     '<a href="#"><i class="fa fa-comment"></i><span>'+data[i].total_comment+'</span></a>'+
                                                 '</div>'+
                                                 '<div class="col-md-4">'+
-                                                    // '<a href="#"><i class="fa fa-share-alt"></i>'+
-                                                    // '<div class="dropdown">'+
                                                         '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
-                                                    // '</div>'+
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+
@@ -194,13 +184,8 @@
 <script>
     $(document).ready(function() {
         $('.like').click(function() {
-            // var content_id = $("#content_id").val();
-            // var user_id = $("#user_id").val();
-            // var txtpassword = $("#txtpassword").val();
-
             var content_id = $(this).attr("data-contentid");
             var user_id = $(this).attr("data-sessionuserid");
-            // alert(content_id);
             $.ajax({
                 url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
                 type: 'post',
@@ -262,9 +247,9 @@
 </script>
 <!-- AddToAny BEGIN -->
 <script>
-var a2a_config = a2a_config || {};
-a2a_config.linkurl = "http://[::1]/Kuliah/PBF/Ngartish/ngartish/c_dashboard/";
-a2a_config.onclick = 1;
+    var a2a_config = a2a_config || {};
+    a2a_config.linkurl = "http://[::1]/Kuliah/PBF/Ngartish/ngartish/c_dashboard/";
+    a2a_config.onclick = 1;
 </script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
