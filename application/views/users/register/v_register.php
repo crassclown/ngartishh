@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Ngartish.png')?>"/>
+  <!-- <link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Ngartish.png')?>"/> -->
+  <link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css')?>">
 <!--===============================================================================================-->
@@ -86,31 +87,32 @@
                 <?php
               }
             ?>
-            <div class="wrap-input100 validate-input" data-validate = "Valid Email is required: ex@abc.xyz">
-              <input class="input100" type="email" name="txtemail" id="txtemail" placeholder="Email" autofocus>
-              <span class="focus-input100"></span>
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate = "fullname is required">
-              <input class="input100" type="text" name="txtfullname" placeholder="Fullname">
-              <span class="focus-input100"></span>
-            </div>
-
-            <div class="wrap-input100 validate-input" data-validate = "Phone is requires">
-              <input class="input100" type="number" name="txtphone" placeholder="Number phone">
-              <span class="focus-input100"></span>
-            </div>
-
-
-            <div class="wrap-input100 validate-input" data-validate = "Password is required">
-              <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Password" pattern=".{8,20}" title="8 to 20 characters" maxlength="20">
-              <span class="focus-input100"></span>
-            </div>
-            <div class="container-login100-form-btn">
             
-              <button class="login100-form-btn" name="btnlogin" id="btnregister" onclick="checkPwd()">
-                Register
-              </button>
+            <div class="container-login100-form-btn">
+              <div class="wrap-input100 validate-input" data-validate = "Valid Email is required: ex@abc.xyz">
+                <input class="input100" type="email" name="txtemail" id="txtemail" placeholder="Email" autofocus>
+                <span class="focus-input100"></span>
+              </div>
+              <div class="wrap-input100 validate-input" data-validate = "Fullname is required">
+                <input class="input100" type="text" name="txtfullname" id="txtfullname" placeholder="Fullname">
+                <span class="focus-input100"></span>
+              </div>
+
+              <div class="wrap-input100 validate-input" data-validate = "Phone is requires">
+                <input class="input100" type="text" name="txtphone" id="txtphone" placeholder="Number phone">
+                <span class="focus-input100"></span>
+              </div>
+
+
+              <div class="wrap-input100 validate-input" data-validate = "Password is required">
+                <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Password" pattern=".{8,20}" title="8 to 20 characters" maxlength="20">
+                <span class="focus-input100"></span>
+              </div>
+              <div class="container-login100-form-btn">
+              
+                <button class="login100-form-btn" name="btnlogin" id="btnregister" onclick="checkPwd()">
+                  Register
+                </button>
             </div>
 
             <div class="text-center p-t-12">
@@ -152,7 +154,7 @@
             var txtemail      = $('#txtemail').val();
             var txtfullname   = $('#txtfullname').val();
             var txtpassword   = $('#txtpassword').val();
-            // var quantity     = $('#' + produk_id).val();
+            var txtphone      = $('#txtphone').val();
             if(txtemail == ''){
               swal({
                 type: 'error',
@@ -164,6 +166,13 @@
               swal({
                 type: 'error',
                 title: 'Fullname is required',
+                animation: true,
+                customClass: 'animated tada'
+              })
+            }else if(txtphone == ''){
+              swal({
+                type: 'error',
+                title: 'Phone Number is required',
                 animation: true,
                 customClass: 'animated tada'
               })
@@ -221,7 +230,7 @@
               $.ajax({
                 url : "<?php echo base_url();?>C_RegisterUsers/m_register",
                 method : "POST",
-                data : {txtemail: txtemail, txtfullname: txtfullname, txtpassword: txtpassword}
+                data : {txtemail: txtemail, txtfullname: txtfullname, txtpassword: txtpassword, txtphone:txtphone}
               });
             }
         });

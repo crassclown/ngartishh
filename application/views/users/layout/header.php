@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/default.css')?>"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/js/fancybox/jquery.fancybox.css')?>" type="text/css" media="screen" />
+    <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/isotope.css')?>" type="text/css" media="screen" /> -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>">
 
     <title>Home</title>
@@ -51,8 +52,8 @@
                 <li class="col-xs-2 col-md-2 col-md-offset-1 col-xs-offset-0">
                   <a href="#" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
                 </li>
-                <li class="col-md-2 col-xs-2 margin-sm-nav">
-                  <a href="#" class="nav-icon-gambar" data-toggle="tooltip" data-placement="bottom" title="My Gallery"><i class="material-icons nav-icon-gambar">panorama</i></a>
+                <li class="col-md-2">
+                  <a href="<?=base_url('c_profile/m_users/'.$this->session->userdata('Id'));?>" class="nav-icon-gambar" data-toggle="tooltip" data-placement="bottom" title="My Gallery"><i class="material-icons nav-icon-gambar">panorama</i></a>
                 </li>
                 <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
@@ -110,17 +111,27 @@
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
                       <div class="nav-label">
-                        <span>Hilmi</span> 
+                        <span class="font-pp"><b><?php echo substr(trim(ucfirst($this->session->userdata("name"))),0,1); ?></b></span> 
                         <img src="<?php echo base_url('assets/images/icons/profil.png') ?>" class="nav-icon-profile" alt="foto"></img>
                       </div>
                     </a>
                     <ul class="dropdown-menu">
                       <div class="border-45-profil">
                       </div>
-                      <li class="option text-center"><b>Status </b>: online</li>
+                      <li class="option text-center">
+                        <b>Status </b>: 
+                        <script>
+                          if (navigator.onLine) {
+                            // console.log('online');
+                            document.write('Online');
+                          } else {
+                            document.write('Offline');
+                          }
+                        </script>
+                      </li>
                       <a class="text-center" href="#"><li class="option">Pengaturan Akun</li></a>
                       <a class="text-center" href="#"><li class="option">Feedback</li></a>
-                      <a class="text-center" href="#"><li class="option">Log Out</li></a>
+                      <a class="text-center" href="<?php echo base_url('c_loginusers/m_logout'); ?>"><li class="option">Log Out</li></a>
                     </ul>
                   </li>
                 </div>

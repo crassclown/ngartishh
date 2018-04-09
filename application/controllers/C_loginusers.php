@@ -30,17 +30,20 @@ class C_loginusers extends CI_Controller {
         $cek        = $this->m_users->cek_login("users",$where)->num_rows();
         
         if($cek > 0){
-            $query      = $this->db->query("SELECT Id FROM users WHERE email='".$email."' LIMIT 1");
+            $query          = $this->db->query("SELECT Id, fullname FROM users WHERE email='".$email."' LIMIT 1");
             foreach($query->result_array() as $sqlnih){
-                $iduser = $sqlnih['Id'];
-                $data_session = array(
+                $iduser         = $sqlnih['Id'];
+                $fullname       = $sqlnih['fullname'];
+                $data_session   = array(
                     'email'     => $email,
+                    'name'      => $fullname,
                     'Id'        => $iduser,
                     'status'    => "login"
                 );
         
-                $session_save = $this->session->set_userdata($data_session);
-        
+                $session_save   = $this->session->set_userdata($data_session);
+                
+                // $sess_name      = $this->session->set_userdata($fullname);
                 redirect(base_url("c_dashboard/"));
             }
         }else{

@@ -67,7 +67,7 @@
             </div>
             <div class="container-login100-form-btn">
             
-              <button class="login100-form-btn" name="btnlogin" href="<?=base_url('c_loginusers/m_auth');?>">
+              <button class="login100-form-btn" name="btnlogin" id="btnlogin">
                 Login
               </button>
             </div>

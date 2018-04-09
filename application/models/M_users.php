@@ -96,9 +96,29 @@ class M_users extends CI_Model
 		$this->db->insert('bookmark', $data);
 	}
 
-	public function m_liked($data)
-	{
+	// public function m_liked($data)
+	// {
+	// 	$this->db->insert('likes', $data);
+	// }
+
+	public function cekLiked($userid, $contentid){
+		$result = $this->db->where('user_id', $userid)->where('content_id',$contentid)->limit(1)->get('likes');
+		return $result->row();
+	}
+
+	public function userLikes($userid, $contentid){
+		$data = array(
+			'Id' => null,
+			'user_id' => $userid,
+			'content_id' => $contentid
+		);
 		$this->db->insert('likes', $data);
+	}
+
+	public function userUnlikes($userid, $contentid)
+	{
+		$this->db->where('user_id', $userid)->where('content_id', $contentid);
+		$this->db->delete('likes');
 	}
 
 	public function m_added_comments($data){
@@ -136,4 +156,13 @@ class M_users extends CI_Model
 		}
 
 	}
+
+	public function m_categories() {
+        $query = $this->db->get( 'category' );
+        if( $query->num_rows() > 0 ) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
 }

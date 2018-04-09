@@ -7,13 +7,17 @@ class C_dashboard extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
 		$this->load->model('m_dashboard');
-		$this->load->model('m_users');
+        $this->load->model('m_users');
+        if($this->session->userdata('status') != "login"){
+			redirect(base_url("c_loginusers/"));
+        }
 	}
 	
 	public function index()
 	{
+        $data['categories'] = $this->m_users->m_categories();
 		$this->load->view('users/layout/header');
-		$this->load->view('users/dashboard/index');
+		$this->load->view('users/dashboard/index', $data);
 		$this->load->view('users/layout/footer');
 	}
 
@@ -21,8 +25,8 @@ class C_dashboard extends CI_Controller {
 	public function m_getContents(){
 		// get data
 		$data = $this->m_dashboard->m_getRecords();
-		
-		echo json_encode($data);
+
+        echo json_encode($data);
 	}
 
 	public function m_detailContent(){
@@ -51,16 +55,27 @@ class C_dashboard extends CI_Controller {
 	}
 
 	public function m_like(){
-        $data = array(
-            'content_id' => $this->input->post('content_id'),
-            'user_id' => $this->input->post('user_id')
-        );
-        if(isset($data)){
-            $insert = $this->m_users->m_liked($data);
-            // echo json_encode(array("status" => TRUE));
-        }else{
-            echo "Failed insert into database";
-        }
+        // $data = array(
+        //     'content_id' => $this->input->post('content_id'),
+        //     'user_id' => $this->input->post('user_id')
+        // );
+        // if(isset($data)){
+        //     $insert = $this->m_users->m_liked($data);
+        //     // echo json_encode(array("status" => TRUE));
+        // }else{
+        //     echo "Failed insert into database";
+        // }
+
+        $varUserid      = $this->input->post('user_id');
+		$varContentid   = $this->input->post('content_id');
+
+		$result = $this->m_users->cekLiked($varUserid, $varContentid);
+		if(!isset($result))
+		{
+			$this->m_users->userLikes($varUserid, $varContentid);
+		}else {
+			$this->m_users->userUnlikes($varUserid, $varContentid);
+		}
         
 	}
 
