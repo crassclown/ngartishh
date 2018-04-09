@@ -76,6 +76,28 @@ class M_users extends CI_Model
 		$this->db->delete('following');
 	}
 
+	public function get_userfollowing($id)
+	{
+		$this->db->select('users.Id, fullname, phone');
+		$this->db->from('users');
+		$this->db->join('following', 'following.followed_id = users.Id');
+		$this->db->where('following.user_id', $id);
+		$result = $this->db->get()->result();
+
+		return $result;
+	}
+
+	public function get_userfollower($id)
+	{
+		$this->db->select('users.Id, fullname, phone');
+		$this->db->from('users');
+		$this->db->join('following', 'following.user_id = users.Id');
+		$this->db->where('following.followed_id', $id);
+		$result = $this->db->get()->result();
+
+		return $result;
+	}
+
 	public function DeleteUsers($id){
 		$checkupdate = false;
 		

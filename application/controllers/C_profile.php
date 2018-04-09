@@ -25,8 +25,14 @@ class C_profile extends CI_Controller {
 	{
 		$data['profile'] = $this->m_users->get_users($id);
 		$data['content'] = $this->m_users->get_usercontent($id);
+		$data['following'] = $this->m_users->get_userfollowing($id);
+		$data['follower'] = $this->m_users->get_userfollower($id);
+		$data['totalfollowing'] = count($this->m_users->get_userfollowing($id));
+		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
 		
+		$this->load->view('users/layout/header');
 		$this->load->view('users/profile/content', $data);
+		$this->load->view('users/layout/footer');
 	}
 
 	public function m_editusers()

@@ -129,7 +129,7 @@
                           }
                         </script>
                       </li>
-                      <a class="text-center" href="#"><li class="option">Pengaturan Akun</li></a>
+                      <a class="text-center" href="<?php echo base_url('c_profile/m_users/'.$this->session->userdata('Id').'') ?>"><li class="option">Pengaturan Akun</li></a>
                       <a class="text-center" href="#"><li class="option">Feedback</li></a>
                       <a class="text-center" href="<?php echo base_url('c_loginusers/m_logout'); ?>"><li class="option">Log Out</li></a>
                     </ul>
