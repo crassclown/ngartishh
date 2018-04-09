@@ -173,5 +173,5 @@ class M_users extends CI_Model
         } else {
             return array();
         }
-    }
+	}
 }
