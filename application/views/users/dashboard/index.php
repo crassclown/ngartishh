@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+    <!-- <link rel="stylesheet" href="<?=base_url('assets/css/checkbox-style.css');?>"> -->
     <title>Home</title>
 </head>
 <body style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>') no-repeat center center fixed;-webkit-background-size: 100% 100%;
@@ -68,7 +69,17 @@
                                                     <div class="row">
                                                         <div class="col-md-3">
                                                             <!-- <input type="checkbox" id="txtcheckbox" name="txtcheckbox" value=""/> -->
-                                                            <div id="show_categories"></div>
+                                                            <?php
+                                                                foreach($categories as $category){
+                                                                    ?>
+                                                                        <div class="form-check">
+                                                                            <label>
+                                                                                <input type="checkbox" name="txtcategories" id="txtcategories" value="<?=$category->Id;?>" /> <?=$category->name;?>
+                                                                            </label>
+                                                                        </div>
+                                                                    <?php
+                                                                }
+                                                            ?>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -99,6 +110,7 @@
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
         tampil_data_barang();   //pemanggilan fungsi tampil barang.
@@ -120,6 +132,10 @@
                         '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+                         
                         '<article class="col-md-3 isotopeItem webdesign">'+
                             '<div class="space">'+
+                                '<div class="gantungan">'+
+                                    '<div class="pin text-center">'+
+                                    '</div>'+
+                                '</div> '+
                                 '<div class="portfolio-item">'+
                                     '<img src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '<div class="portfolio-desc align-center">'+
@@ -150,7 +166,6 @@
             });
         }
     });
- 
 </script>
 
 </body>
