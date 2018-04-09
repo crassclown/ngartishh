@@ -8,9 +8,12 @@
     
     <title>Home</title>
 </head>
-<body>
+<body style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>') no-repeat center center fixed;-webkit-background-size: 100% 100%;
+                -moz-background-size: 100% 100%;
+                -o-background-size: 100% 100%;
+                background-size: 100% 100%;height:100%;">
     <?php $this->session->userdata("Id"); ?>
-    <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
+    <section  class="section appear clearfix">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 border-content">
@@ -45,21 +48,18 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="padding-modal-body">
-                                    <form action="#" method="POST" enctype="multipart/form-data">
+                                    <form method="POST" enctype="multipart/form-data">
                                         <table>
                                             <tr>                                      
                                                     <div class="wrap-input100">
-                                                    <div class="input-group stylish-input-group">
-                                                    <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require>
-                                                    <span class="input-group-addon">
-                                                        <span class="fa fa-search"></span>  
-                                                    </span>
-                                                    <span class="focus-input100"></span>
-                                                    </div>
+                                                        <div class="input-group stylish-input-group">
+                                                            <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require>
+                                                            <span class="focus-input100"></span>
+                                                        </div>
                                                     </div>
                                             </tr>
                                             <tr>
-                                                    <textarea name="description" rows="3" cols="30" placeholder="Descrption" class="form-control" id="txtdesc"></textarea>
+                                                    <textarea name="description" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require></textarea>
                                             </tr>
                                             <tr>
                                                     Categories
@@ -67,34 +67,8 @@
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-3">
-                                                            <p>
-                                                                <input type="checkbox" id="test1" />
-                                                                <label for="test1">Red</label>
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <p>
-                                                                <input type="checkbox" id="test1" />
-                                                                <label for="test1">Red</label>
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <p>
-                                                                <input type="checkbox" id="test1" />
-                                                                <label for="test1">Red</label>
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <p>
-                                                                <input type="checkbox" id="test1" />
-                                                                <label for="test1">Red</label>
-                                                            </p>
-                                                        </div>
-                                                        <div class="col-md-3">
-                                                            <p>
-                                                                <input type="checkbox" id="test1" />
-                                                                <label for="test1">Red</label>
-                                                            </p>
+                                                            <!-- <input type="checkbox" id="txtcheckbox" name="txtcheckbox" value=""/> -->
+                                                            <div id="show_categories"></div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -114,7 +88,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-default">Post</button>
+                        <button type="button" class="btn btn-default" id="btnpost">Post</button>
                         </form>
                      </div>
                 </div>
@@ -184,10 +158,11 @@
 
 <script>
     $(document).ready(function() {
-        $('#like').click(function() {
+        $('.like').click(function() {
             // var content_id = $("#content_id").val();
             // var user_id = $("#user_id").val();
             // var txtpassword = $("#txtpassword").val();
+
             var content_id = $(this).attr("data-contentid");
             var user_id = $(this).attr("data-sessionuserid");
             // alert(content_id);
@@ -203,9 +178,13 @@
         });
     });
 </script>
+
 <script>
     $(document).ready(function(){
-
+        $('#btnpost').click(function(){
+            var varTitle    = $('#txttitle').val();
+            var varDesc     = $('#txtdesc').val();
+        });
     });
 </script>
 <!-- AddToAny BEGIN -->

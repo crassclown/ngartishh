@@ -121,4 +121,8 @@ class C_dashboard extends CI_Controller {
             }
         }
     }
+
+    public function m_categories() {
+		echo json_encode( $this->m_users->m_categories() );
+	}
 }

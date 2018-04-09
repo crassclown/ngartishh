@@ -156,4 +156,13 @@ class M_users extends CI_Model
 		}
 
 	}
+
+	public function m_categories() {
+        $query = $this->db->get( 'category' );
+        if( $query->num_rows() > 0 ) {
+            return $query->result();
+        } else {
+            return array();
+        }
+    }
 }
