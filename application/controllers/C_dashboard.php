@@ -88,12 +88,7 @@ class C_dashboard extends CI_Controller {
 	}
 	
     public function m_load_comments(){
-        // $test = array(
-        //     'Id'=>$content_id  
-        // );
-
         $kode=$this->input->post('content_id');
-        
         $namabulan = array(
                 1=>"Januari",
                 2=>"Februari",
@@ -121,5 +116,14 @@ class C_dashboard extends CI_Controller {
                 echo $records->komentarusers."<hr/>";
             }
         }
+    }
+
+    public function m_post(){
+        $varTitle   = $this->input->post('varTitle');
+        $varDesc    = $this->input->post('varDesc');
+        $varCat     = $this->input->post('varCat');
+        $varPic     = $this->input->post('varPic');
+
+        
     }
 }

@@ -7,6 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
     <!-- <link rel="stylesheet" href="<?=base_url('assets/css/checkbox-style.css');?>"> -->
+
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <!--===============================================================================================-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <!--===============================================================================================-->
     <title>Home</title>
 </head>
 <body style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>') no-repeat center center fixed;-webkit-background-size: 100% 100%;
@@ -52,15 +59,23 @@
                                     <form method="POST" enctype="multipart/form-data">
                                         <table>
                                             <tr>                                      
+                                                <div class="wrap-input100">
+                                                    <div class="input-group stylish-input-group">
+                                                        <input class="input100 form-control" type="hidden" name="txtsession" id="txtsession" value="<?=$this->session->userdata('Id');?>" style="width:30em;" readOnly />
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </div>
+                                            </tr>
+                                            <tr>                                      
                                                     <div class="wrap-input100">
                                                         <div class="input-group stylish-input-group">
-                                                            <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require>
+                                                            <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require style="width:30em;">
                                                             <span class="focus-input100"></span>
                                                         </div>
                                                     </div>
                                             </tr>
                                             <tr>
-                                                    <textarea name="description" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require></textarea>
+                                                    <textarea name="description" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;"></textarea>
                                             </tr>
                                             <tr>
                                                     Categories
@@ -74,7 +89,7 @@
                                                                     ?>
                                                                         <div class="form-check">
                                                                             <label>
-                                                                                <input type="checkbox" name="txtcategories" id="txtcategories" value="<?=$category->Id;?>" /> <?=$category->name;?>
+                                                                                <input type="radio" name="txtcategories" id="txtcategories" value="<?=$category->Id;?>" /> <?=$category->name;?>
                                                                             </label>
                                                                         </div>
                                                                     <?php
@@ -118,6 +133,10 @@
         // $('#mydata').dataTable();
         // fa fa-share-alt
         //fungsi tampil barang
+        <?php 
+        // echo substr(trim(ucfirst($this->session->userdata("name"))),0,1); 
+        ?>
+        
         function tampil_data_barang(){
             $.ajax({
                 type  : 'ajax',
@@ -128,14 +147,15 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-                        html +=
-                        '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+                         
+                        html +=                         
                         '<article class="col-md-3 isotopeItem webdesign">'+
                             '<div class="space">'+
                                 '<div class="gantungan">'+
                                     '<div class="pin text-center">'+
+                                    '<b>'+data[i].namalengkap.trim().substr(0,1).toUpperCase()+'</b>'+
                                     '</div>'+
                                 '</div> '+
+                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
                                 '<div class="portfolio-item">'+
                                     '<img src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '<div class="portfolio-desc align-center">'+
@@ -157,9 +177,9 @@
                                         '</div>'+
                                     '</div>'+  
                                 '</div>'+
+                                '</a>'+
                             '</div>'+
-                        '</article>'
-                        '</button>';
+                        '</article>';
                     }
                     $('#show_data').html(html);
                 }
@@ -199,6 +219,44 @@
         $('#btnpost').click(function(){
             var varTitle    = $('#txttitle').val();
             var varDesc     = $('#txtdesc').val();
+            var varCat      = $('#txtcategories').val();
+            var varPic      = $('#fileElem').val();
+            var varSession  = $('#txtsession').val();
+            if(varTitle == ''){
+              swal({
+                type: 'error',
+                title: 'The title is required',
+                animation: true,
+                customClass: 'animated tada'
+              })
+            }else if(varDesc == ''){
+              swal({
+                type: 'error',
+                title: 'The description is required',
+                animation: true,
+                customClass: 'animated tada'
+              })
+            }else if(varCat == ''){
+              swal({
+                type: 'error',
+                title: 'The category is required',
+                animation: true,
+                customClass: 'animated tada'
+              })
+            }else if(varPic == ''){
+                swal({
+                type: 'error',
+                title: 'Picture is required',
+                animation: true,
+                customClass: 'animated tada'
+              })
+            }else{
+                $.ajax({
+                url : "<?php echo base_url();?>c_dashboard/m_post",
+                method : "POST",
+                data : {'varTitle': varTitle, 'varDesc': varDesc, 'varCat': varCat, 'varPic':varPic, 'varSession':varSession}
+              });
+            }
         });
     });
 </script>
