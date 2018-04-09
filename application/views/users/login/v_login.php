@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Ngartish.png')?>"/>
+	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/vendor/bootstrap/css/bootstrap.min.css')?>">
 <!--===============================================================================================-->
@@ -67,7 +67,7 @@
             </div>
             <div class="container-login100-form-btn">
             
-              <button class="login100-form-btn" name="btnlogin" id="btnlogin">
+              <button class="login100-form-btn" name="btnlogin" href="<?=base_url('c_loginusers/m_auth');?>">
                 Login
               </button>
             </div>

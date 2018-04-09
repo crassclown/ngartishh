@@ -90,13 +90,17 @@
               <input class="input100" type="email" name="txtemail" id="txtemail" placeholder="Email" autofocus>
               <span class="focus-input100"></span>
             </div>
-            <div class="container-login100-form-btn">
-            
-            <div class="wrap-input100 validate-input" data-validate = "Fullname is required">
-              <input class="input100" type="text" name="txtfullname" id="txtfullname" placeholder="Fullname">
+
+            <div class="wrap-input100 validate-input" data-validate = "fullname is required">
+              <input class="input100" type="text" name="txtfullname" placeholder="Fullname">
               <span class="focus-input100"></span>
             </div>
-            <div class="container-login100-form-btn">
+
+            <div class="wrap-input100 validate-input" data-validate = "Phone is requires">
+              <input class="input100" type="number" name="txtphone" placeholder="Number phone">
+              <span class="focus-input100"></span>
+            </div>
+
 
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
               <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Password" pattern=".{8,20}" title="8 to 20 characters" maxlength="20">
