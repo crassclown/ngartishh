@@ -132,6 +132,10 @@
                         '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+                         
                         '<article class="col-md-3 isotopeItem webdesign">'+
                             '<div class="space">'+
+                                '<div class="gantungan">'+
+                                    '<div class="pin text-center">'+
+                                    '</div>'+
+                                '</div> '+
                                 '<div class="portfolio-item">'+
                                     '<img src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '<div class="portfolio-desc align-center">'+
