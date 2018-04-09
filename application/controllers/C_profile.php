@@ -7,13 +7,18 @@ class C_profile extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
-        $this->load->model('m_users');
+		$this->load->model('m_users');
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("c_loginusers/"));
+        }
     }
 	
 	public function index()
 	{
-		$data['users'] = $this->m_users->getAllusers();
-		$this->load->view('users/profile/content', $data);
+		$this->load->view('users/layout/header');
+		$this->load->view('users/profile/content');
+		$this->load->view('users/layout/footer');
+
 	}
 
 	public function m_users($id)
@@ -24,4 +29,39 @@ class C_profile extends CI_Controller {
 		$this->load->view('users/profile/content', $data);
 	}
 
+	public function m_editusers()
+	{
+		$varNama = $this->input->post('nama');
+		$varPhone = $this->input->post('phone');
+		$varBio = $this->input->post('bio');
+		$id = $this->input->post('id');
+
+		$data = array(
+			'fullname'=>$varNama,
+			'phone'=>$varPhone,
+			'bio'=>$varBio
+		);
+
+		$result = $this->m_users->UpdateUsers($id,$data);
+
+		if ($result){
+			redirect('C_profile/m_users/'.$id.'');
+		}else{
+			redirect('C_profile/m_users/'.$id.'');
+		}
+	}
+
+	public function m_follows()
+	{
+		$varUserid = $this->input->post('userid');
+		$varFollowedid = $this->input->post('followedid');
+
+		$result = $this->m_users->cekFollowing($varUserid, $varFollowedid);
+		if(!isset($result))
+		{
+			$this->m_users->userFollow($varUserid, $varFollowedid);
+		}else {
+			$this->m_users->userUnfollow($varUserid, $varFollowedid);
+		}
+	}
 }

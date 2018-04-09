@@ -169,6 +169,13 @@
                 animation: true,
                 customClass: 'animated tada'
               })
+            }else if(txtphone == ''){
+              swal({
+                type: 'error',
+                title: 'Phone Number is required',
+                animation: true,
+                customClass: 'animated tada'
+              })
             }else if(txtpassword == ''){
               swal({
                 type: 'error',
