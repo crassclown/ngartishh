@@ -9,7 +9,7 @@ class M_users extends CI_Model
 	}
 	var $table = 'users';
 	var $table_bookmark = 'bookmark';
-	
+	protected $table_content = 'content';
 	//Regristration
 	public function m_registerusers($data)
 	{
@@ -174,4 +174,13 @@ class M_users extends CI_Model
             return array();
         }
 	}
+
+	public function insert($data)
+    {
+    	$this->db->insert($this->table_content, $data);
+
+
+    	return $this->db->insert_id();
+    }
+
 }

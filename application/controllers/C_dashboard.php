@@ -53,17 +53,6 @@ class C_dashboard extends CI_Controller {
 	}
 
 	public function m_like(){
-        // $data = array(
-        //     'content_id' => $this->input->post('content_id'),
-        //     'user_id' => $this->input->post('user_id')
-        // );
-        // if(isset($data)){
-        //     $insert = $this->m_users->m_liked($data);
-        //     // echo json_encode(array("status" => TRUE));
-        // }else{
-        //     echo "Failed insert into database";
-        // }
-
         $varUserid      = $this->input->post('user_id');
 		$varContentid   = $this->input->post('content_id');
 
@@ -118,12 +107,43 @@ class C_dashboard extends CI_Controller {
         }
     }
 
-    public function m_post(){
-        $varTitle   = $this->input->post('varTitle');
-        $varDesc    = $this->input->post('varDesc');
-        $varCat     = $this->input->post('varCat');
-        $varPic     = $this->input->post('varPic');
+    public function do_upload()
+    {
+        $config['upload_path']   = './assets/images/content/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size']      = 20000;
+        $config['max_width']     = 1024;
+        $config['max_height']    = 768;
 
-        
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('fileElem')) {
+            $error = $this->upload->display_errors();
+            // var_dump($error);
+            echo json_encode(array('status' => false, 'error' => $error));
+        } else {
+            $this->load->model('m_users');
+            $upload = $this->upload->data();
+            $varTL  = '0';
+            $varTC  = '0';
+            $datas = array(
+                'name'          => $this->input->post('txtdesc'),
+                'user_id'       => $this->input->post('txtsession')
+            );
+            $data = array(
+                'total_like'    => $varTL,
+                'total_comment' => $varTC,
+                'title'         => $this->input->post('txttitle'),
+                'desc'          => $this->input->post('txtdesc'),
+                'user_id'       => $this->input->post('txtsession'),
+                'photos'        => $upload['file_name'],
+                'created_at'    => date("Y-m-d H:i:s"),
+            );
+
+            $id = $this->m_users->insert($data);
+            $datacategory = $this->m_users->insert($datas);
+            // header("Refresh:0");
+            // redirect(base_url("c_dashboard/"));
+        }
     }
 }

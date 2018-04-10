@@ -56,7 +56,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="padding-modal-body">
-                                    <form method="POST" enctype="multipart/form-data">
+                                    <form method="POST" enctype="multipart/form-data" id="form-upload" autocomplete="off" action="<?php echo site_url('c_dashboard/do_upload');?>">
                                         <table>
                                             <tr>                                      
                                                 <div class="wrap-input100">
@@ -75,7 +75,7 @@
                                                     </div>
                                             </tr>
                                             <tr>
-                                                    <textarea name="description" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;"></textarea>
+                                                    <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;"></textarea>
                                             </tr>
                                             <tr>
                                                     Categories
@@ -105,17 +105,22 @@
                                 <div class="col-md-6 ">
                                     <div id="drop-area">
                                         <p class="text-center">Upload files by click or drag files to this area</p>
-                                        <input type="file" id="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                                        <input type="file" id="fileElem" name="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
                                         <label class="button text-center" for="fileElem"><i class="material-icons " style="font-size:60px;">file_upload</i></label>
                                     <progress id="progress-bar" max=100 value=0></progress>
                                     <div id="gallery" /></div>
                                     </div>
+
+                                    <p class="error">
+			
+                                    </p>
                                 </div>
                             </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="button" class="btn btn-default" id="btnpost">Post</button>
+                        <button type="submit" class="btn btn-default" id="btnpost">Post</button>
                         </form>
+                        <div id="uploaded_image"></div>
                      </div>
                 </div>
                 
@@ -199,9 +204,10 @@
     });
 </script>
 
-<script>
+<!-- <script>
     $(document).ready(function(){
-        $('#btnpost').click(function(){
+        $('#upload_form').on('submit',function(e){
+
             var varTitle    = $('#txttitle').val();
             var varDesc     = $('#txtdesc').val();
             var varCat      = $('#txtcategories').val();
@@ -239,12 +245,86 @@
                 $.ajax({
                 url : "<?php echo base_url();?>c_dashboard/m_post",
                 method : "POST",
-                data : {'varTitle': varTitle, 'varDesc': varDesc, 'varCat': varCat, 'varPic':varPic, 'varSession':varSession}
+                data : new FormData(this),
+                contentType: false,
+                cache: false,
+                processData:false
               });
             }
         });
     });
-</script>
+</script> -->
+
+    <script>
+		$(document).ready(function(){
+
+			$('#form-upload').submit(function(e) {
+				e.preventDefault();
+				var formData = new FormData($(this)[0]);
+                
+                var varTitle    = $('#txttitle').val();
+                var varDesc     = $('#txtdesc').val();
+                var varCat      = $('#txtcategories').val();
+                var varPic      = $('#fileElem').val();
+                if(varTitle == ''){
+                    swal({
+                        type: 'error',
+                        title: 'The title is required',
+                        animation: true,
+                        customClass: 'animated tada'
+                    })
+                }else if(varDesc == ''){
+                swal({
+                    type: 'error',
+                    title: 'The description is required',
+                    animation: true,
+                    customClass: 'animated tada'
+                })
+                }else if(varCat == ''){
+                swal({
+                    type: 'error',
+                    title: 'The category is required',
+                    animation: true,
+                    customClass: 'animated tada'
+                })
+                }else if(varPic == ''){
+                    swal({
+                    type: 'error',
+                    title: 'Picture is required',
+                    animation: true,
+                    customClass: 'animated tada'
+                })
+                }else{
+                    //reset error messsage
+                    $('.error').html('');
+                    $.ajax({
+                        url: $(this).attr("action"),
+                        type: 'POST',
+                        dataType: 'json',
+                        data: formData,
+                        async: true,
+                        beforeSend: function() {
+                            $('#btnpost').prop('disabled', true);
+                        },
+                        success: function(response) {
+                            if(!response.status) {
+                                $('.error').html(response.error);
+                            }
+                        },
+                        complete: function() {
+                            $('#btnpost').prop('disabled', false);
+                            location.reload();
+                        },
+                        cache: false,
+                        contentType: false,
+                        processData: false
+                    });
+                }
+			});
+		});
+	</script>
+
+
 <!-- AddToAny BEGIN -->
 <script>
     var a2a_config = a2a_config || {};
