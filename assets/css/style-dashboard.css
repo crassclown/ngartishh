@@ -1338,6 +1338,55 @@ a:focus{
 .no-padding-detail-content{
 	padding:0 0 0 0px;
 }
+
+.portfolio-item:hover .hover-image-kategori{
+	opacity:0;
+	position: absolute;
+	background:#fff;
+	color:#aaa;
+	width:100%;
+	height:60%;
+	transition: 2s;
+	cursor: pointer;
+}
+
+.hover-image-kategori:hover{
+	opacity:1;
+	top:100px;
+}
+
+.checkbox-like{
+	width:100%;
+	height:100%;
+	position: absolute;
+	border:none;
+	opacity:0.5;
+	float: left;
+}
+
+.icon-like{
+	color:#000 ;
+	cursor: pointer;
+}
+
+#icon-like{
+	color:#000 ;
+	cursor: pointer;
+
+}
+
+.checkbox-like:checked .icon-like{
+	color:#00f !important;
+	background: #000;
+}
+
+.checkbox-like:checked #icon-like{
+	color:#00f !important;
+	background: #000;
+}
+
+
+
 /* ===================================
 Tambahan Upload
 ==================================== */

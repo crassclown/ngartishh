@@ -35,6 +35,12 @@ class C_dashboard extends CI_Controller {
 		$this->load->view('users/layout/footer');
 	}
 
+	public function kategori_Content(){
+		$this->load->view('users/layout/header');
+		$this->load->view('users/layout/kategori');
+		$this->load->view('users/layout/footer');
+	}
+
 	public function m_bookmarked(){
 		$data = array(
 			'content_id' => $this->input->post('content_id'),
