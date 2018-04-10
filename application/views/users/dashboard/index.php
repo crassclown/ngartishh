@@ -118,7 +118,7 @@
                             </div>
                         </div>
                         <div class="modal-footer">
-                        <button type="submit" class="btn btn-default" id="btnpost">Post</button>
+                        <button type="submit" class="btn btn-primary" id="btnpost"><i class="fa fa-paper-plane" aria-hidden="true"></i> Post</button>
                         </form>
                         <div id="uploaded_image"></div>
                      </div>
