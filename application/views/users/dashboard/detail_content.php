@@ -13,17 +13,15 @@
                                     <span class="nama-detail-content">Hilmi Nico Putra</span>
                                 </div>
                                 <div class="deskripsi-singkat-detail-content">
-                                    <b class="judul"><?=$vau->title;?></b>
-                                    asdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwnd
-                                    asdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwnd
-                                    asdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwnd
+                                    <h5><b class="judul"><?=$vau->title;?></b></h5>
+                                    <p><?=$vau->desc;?></p>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
                                         <button class="button-detail-content">follow</button>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="#"><i class="fa fa-thumbs-up icon-detail-content"></i><span>1234</span></a>
+                                        <a href="#" class="like" data-contentid="<?=$vau->Id;?>" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><span><?=$vau->total_like;?></span></a>
                                     </div>
                                     <div class="col-md-2">
                                         <a href="#"><i class="fa fa-share-alt icon-detail-content"></i></a>
@@ -208,25 +206,22 @@
         }
     ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">  
-            	//insert book 
-            $("#like").click(function(){
-                
-                    var content_id = $("#content_id").val();
-                    var user_id = $("#user_id").val();
-                    // var txtpassword = $("#txtpassword").val();
-                
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-                        type: 'post',
-                        data: { "content_id": content_id, "user_id": user_id},
-                        success: function(response) 
-                        { 
-                            console.log("Like");
-                        }
-                
-                    });
+    <script>
+        $(document).ready(function() {
+            $('.like').click(function() {
+                var content_id = $(this).attr("data-contentid");
+                var user_id = $(this).attr("data-sessionuserid");
+                $.ajax({
+                    url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+                    type: 'post',
+                    data: { "content_id": content_id, "user_id": user_id},
+                    success: function(response) 
+                    { 
+                        location.reload();
+                    }
+                });
             });
+        });
     </script>
     <script type="text/javascript">  
             	//insert book 
