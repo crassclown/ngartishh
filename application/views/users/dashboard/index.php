@@ -15,6 +15,12 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
     <!--===============================================================================================-->
     <title>Home</title>
+    <style>
+        .img-content:hover {
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+    </style>    
 </head>
 <body style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>') no-repeat center center fixed;-webkit-background-size: 100% 100%;
                 -moz-background-size: 100% 100%;
@@ -155,7 +161,7 @@
                                 '</div> '+
                                 '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
                                 '<div class="portfolio-item">'+
-                                    '<img src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
+                                    '<img class="img-content" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
                                             '<div class="row image-icons">'+

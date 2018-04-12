@@ -29,13 +29,21 @@ class C_dashboard extends CI_Controller {
         echo json_encode($data);
 	}
 
-	public function m_detailContent($content_id, $user_id){
+	public function m_detailContent($content_id,$user_id){
 		$where = array(
             'Id' => $content_id,
             'user_id' => $user_id
         );
 		$data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
-		$this->load->view('users/dashboard/detail_content',$data);
+		$this->load->view('users/layout/header');
+		$this->load->view('users/dashboard/detail_content', $data);
+		$this->load->view('users/layout/footer');
+	}
+
+	public function kategori_Content(){
+		$this->load->view('users/layout/header');
+		$this->load->view('users/layout/kategori');
+		$this->load->view('users/layout/footer');
 	}
 
 	public function m_bookmarked(){

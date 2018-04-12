@@ -6,6 +6,10 @@
   <script src="<?php echo base_url('assets/js/wow.js')?>"></script>
   <!-- <script src="<?php echo base_url('assets/js/functions.js')?>"></script> -->
   <script src="<?php echo base_url('assets/js/upload.js')?>"></script>
+  <script src="<?php echo base_url('assets/js/like.js')?>"></script>
+  <script src="<?php echo base_url('assets/vendor/Animocons/js/mo.min.js')?>"></script>
+	<script src="<?php echo base_url('assets/vendor/Animocons/js/demo.js')?>"></script>
+
   <script type="text/javascript">
     new WOW().init();
   </script>

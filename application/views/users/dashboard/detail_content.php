@@ -1,34 +1,160 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Detail Content</title>
-</head>
 <body>
     <?php
         foreach($varambilusers as $vau){
-            $sql = $this->db->query("SELECT category.Id as IdC, category.name as nameCat, category.desc as descCat FROM content_cat_detail LEFT JOIN category ON content_cat_detail.category_id = category.Id LEFT JOIN content ON content.Id = content_cat_detail.content_Id WHERE content.Id = '".$vau->Id."'");
             ?>
+            <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="wrap-detail-content">
+                                <div class="wrap-nama-foto-profil">
+                                    <div class="foto-profil-detail-content">
+                                    </div>
+                                    <span class="nama-detail-content">Hilmi Nico Putra</span>
+                                </div>
+                                <div class="deskripsi-singkat-detail-content">
+                                    <b class="judul"><?=$vau->title;?></b>
+                                    asdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwnd
+                                    asdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwnd
+                                    asdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwndasdqowdkqwdiqwdwiqdijwidjiwdjijwdijiqdiqwdniwndiwnd
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button class="button-detail-content">follow</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#"><i class="fa fa-thumbs-up icon-detail-content"></i><span>1234</span></a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a href="#"><i class="fa fa-share-alt icon-detail-content"></i></a>
+                                    </div>
+                                    <div class="col-md-3">
+                                    <button class="button-detail-content" data-toggle="tooltip" data-placement="bottom" title="Akan dilelang 12-12-1212">Status</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wrap-detail-content">
+                                <h4 class="text-center margin-top-judul"><b><?=$vau->title;?></b></h4>
+                                    <img class="img-detail-content"src="<?php echo base_url('assets/images/1.png')?>"></img>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wrap-detail-content">
+                                <form method="post" action="#">
+                                    <div class="no-padding-detail-content">
+                                        <input class="komentar-detail-content"type="text" rows="1"name="komentar" placeholder="Isi komentar disini"/>
+                                    </div>
+                                </form>
+                                <div class="section-komentar">
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                    <div class="colom-komentar">
+                                        <a href="#" class="nama-orang-komentar">
+                                            nama orang
+                                        </a>
+                                        <div class="isi-komentar">
+                                            ini isi nya
+                                        </div>
+                                    </div>
+                                <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <table>
             <tr>
                 <td>Title</td>
                 <td>:</td>
-                <td><?php echo $vau->title;?></td>
-            </tr>
-            <tr>
-                <td>Category Name</td>
-                <td>:</td>
-                
-                <?php
-                    foreach($sql->result_array() as $cat){
-                        
-                        ?>
-                            <td><?php echo $cat['nameCat'];?></td>
-                        <?php        
-                    }
-                ?>
+                <td></td>
             </tr>
             <tr>
                 <td>Like</td>

@@ -24,9 +24,9 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/default.css')?>"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/js/fancybox/jquery.fancybox.css')?>" type="text/css" media="screen" />
-    <!-- <link rel="stylesheet" href="<?php echo base_url('assets/css/isotope.css')?>" type="text/css" media="screen" /> -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/demo.css')?>" type="text/css"  />
+		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/icons.css')?>" type="text/css"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>">
-
     <title>Home</title>
 </head>
 <body>
