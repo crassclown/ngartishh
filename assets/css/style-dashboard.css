@@ -1243,6 +1243,149 @@ a:focus{
 
 
 }
+.wrap-detail-content{
+	padding:0px 0 35px 0;
+	width:100%;
+	height:500px;
+	background: rgba( 255, 255, 255, 0.7 );
+	border-radius:6px;
+	margin :18px;
+	margin-bottom:60px;
+}
+.foto-profil-detail-content{
+	width:80px;
+	height:80px;
+	background:#ddd;
+	border-radius: 50%;
+	border:1px solid #ddd;
+	margin:15px;
+}
+
+.deskripsi-singkat-detail-content{
+	padding:15px;
+	width:100%;
+	word-wrap: break-word;
+	min-height: 280px;
+	max-height: 280px;
+	overflow-y:auto;
+	margin-bottom:20px;
+}
+
+.icon-detail-content{
+	font-size: 28px;
+	color:#aaa;
+	margin:10px;
+}
+
+.margin-top-judul{
+	padding-top:10px;
+}
+
+.nama-detail-content{
+	padding:40px 20px 40px 10px;
+	font-size: 15px;
+}
+
+.img-detail-content{
+	width:100%;
+	height:95%;
+	padding: 10px;
+	border-bottom-left-radius: 6px;
+	border-bottom-right-radius: 6px;
+
+}
+.wrap-nama-foto-profil{
+	padding:15px;
+	display:flex;
+}
+
+.colom-komentar{
+	display: flex;
+	width:100%;
+	padding:10px;
+
+	border-bottom:1px solid #ccc;
+}
+
+.section-komentar{
+	border-top:2px solid #aaa;
+	width:100%;
+	height:98%;
+	padding:10px 0 10px 0 ;
+	overflow-y: auto;
+}
+
+.button-detail-content{
+	background:rgb(70,40,40);
+	border-radius:0;
+	width:80%;
+	padding:10px;
+	margin:10px;
+	color:#fff;
+	border:1px solid #fff;
+}
+
+.komentar-detail-content{
+	width:100%;
+	border:1px solid #aaa;
+	background: #fff;
+	padding:10px;	
+	border-top-left-radius: 6px;
+	opacity: 0.8;
+	text-decoration-style: none;
+}
+
+.no-padding-detail-content{
+	padding:0 0 0 0px;
+}
+
+.portfolio-item:hover .hover-image-kategori{
+	opacity:0;
+	position: absolute;
+	background:#fff;
+	color:#aaa;
+	width:100%;
+	height:60%;
+	transition: 2s;
+	cursor: pointer;
+}
+
+.hover-image-kategori:hover{
+	opacity:1;
+	top:100px;
+}
+
+.checkbox-like{
+	width:100%;
+	height:100%;
+	position: absolute;
+	border:none;
+	opacity:0.5;
+	float: left;
+}
+
+.icon-like{
+	color:#000 ;
+	cursor: pointer;
+}
+
+#icon-like{
+	color:#000 ;
+	cursor: pointer;
+
+}
+
+.checkbox-like:checked .icon-like{
+	color:#00f !important;
+	background: #000;
+}
+
+.checkbox-like:checked #icon-like{
+	color:#00f !important;
+	background: #000;
+}
+
+
 
 /* ===================================
 Tambahan Upload
