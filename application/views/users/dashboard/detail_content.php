@@ -33,9 +33,9 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="wrap-detail-content">
-                                <h4 class="text-center margin-top-judul"><b><?=$vau->title;?></b></h4>
-                                    <img class="img-detail-content" src="<?php echo base_url('assets/images/content/'.$vau->photos)?>" alt="<?=$vau->photos;?>"></img>
+                            <div class="wrap-detail-content page-content-perbesar content-zoom">
+                                    <img class="img-detail-content" id="perbesar" src="<?php echo base_url('assets/images/content/'.$vau->photos)?>" alt="<?=$vau->photos;?>"></img>
+                                    <h4 class="text-center margin-top-judul"><b><?=$vau->title;?></b></h4>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -163,5 +163,18 @@
     document.getElementById("icard").innerHTML = x.value;
 }
 </script>
+<script src="<?=base_url('assets/js/zoom.js');?>"></script>
+		<script>
+			document.querySelector( '.content-zoom' ).addEventListener( 'click', function( event ) {
+				event.preventDefault();
+				zoom.to({ element: event.target });
+			} );
+		</script>
+
+        <script>
+            /* Initiate Magnify Function
+            with the id of the image, and the strength of the magnifier glass:*/
+            magnify("perbesar", 5);
+        </script>
 </body>
 </html>
