@@ -107,10 +107,18 @@ class C_dashboard extends CI_Controller {
      
                 $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
                 $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
-     
-                echo $indate.' - '.$explode[1]."<br/>";
+                
+                echo '<div class="colom-komentar">
+                        <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
+                            <label class="label label-primary">'.$records->namaygcomment.'</label>
+                        </a>
+                        <div class="isi-komentar">
+                            &nbsp'.$records->komentarusers.'
+                        </div>
+                      </div>';
+                // echo $indate.' - '.$explode[1]."<br/>";
                 // echo "Nama :".$records->name."<br/>";
-                echo $records->komentarusers."<hr/>";
+                // echo $records->komentarusers."<hr/>";
             }
         }
     }

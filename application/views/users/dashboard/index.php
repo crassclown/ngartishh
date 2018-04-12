@@ -161,7 +161,7 @@
                                 '</div> '+
                                 '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
                                 '<div class="portfolio-item">'+
-                                    '<img class="img-content" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
+                                    '<img class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
                                             '<div class="row image-icons">'+

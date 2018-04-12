@@ -138,7 +138,7 @@ class M_users extends CI_Model
 	//Load Comments on Detail Page
 	public function m_load_comments($kode){
 		//Select content records
-		$q = $this->db->query("SELECT comments.content_id as idcontentcomment, comments.user_id as idusercomment, comments.created_at as tgl_comments, comments.Id as idcomments, comments.desc as komentarusers FROM comments, users, content WHERE comments.content_id = content.Id AND comments.user_id = users.Id AND content.Id='".$kode."' ORDER BY comments.Id DESC");
+		$q = $this->db->query("SELECT users.Id as userid, users.fullname as namaygcomment, comments.content_id as idcontentcomment, comments.user_id as idusercomment, comments.created_at as tgl_comments, comments.Id as idcomments, comments.desc as komentarusers FROM comments, users, content WHERE comments.content_id = content.Id AND comments.user_id = users.Id AND content.Id='".$kode."' ORDER BY comments.Id DESC");
        
         if($q->num_rows() > 0)
         {
