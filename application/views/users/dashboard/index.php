@@ -166,7 +166,11 @@
                                         '<div class="folio-info">'+
                                             '<div class="row image-icons">'+
                                                 '<div class="col-md-4 ">'+
-                                                        '<a href="#" id="like" class="like" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up"></i><span>'+data[i].total_like+'</span></a>'+
+                                                    '<ol class="grid">'+
+                                                        '<li class="grid__item">'+
+                                                            '<a href="#" id="like" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up"></i><span>'+data[i].total_like+'</span></a>'+
+                                                        '</li>'+
+                                                    '</ol>'+
                                                 '</div>'+
                                                 '<div class="col-md-4 border-icons">'+
                                                     '<a href="#"><i class="fa fa-comment"></i><span>'+data[i].total_comment+'</span></a>'+
