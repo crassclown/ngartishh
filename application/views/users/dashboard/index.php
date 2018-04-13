@@ -136,7 +136,7 @@
                                                 '<div class="col-md-4 col-lg-4">'+
                                                     '<ol class="grid">'+
                                                         '<li class="grid__item">'+
-                                                            '<button class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></button>'+data[i].total_like+'</span>'+
+                                                            '<a class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a>'+data[i].total_like+
                                                         '</li>'+
                                                     '</ol>'+
                                                 '</div>'+
@@ -156,13 +156,10 @@
                     }
                     $('#show_data').html(html);
                 }
+                
+                
             });
         }
-    });
-  </script>
-
-  <script>
-    $(document).ready(function() {
         $('.like').click(function() {
             var content_id = $(this).attr("data-contentid");
             var user_id = $(this).attr("data-sessionuserid");
@@ -172,11 +169,32 @@
                 data: { "content_id": content_id, "user_id": user_id},
                 success: function(response) 
                 { 
-                    location.reload();
+                    tampil_data_barang();
+                    setTimeout(function(){
+                        location.reload();
+                    },1000);
                 }
             });
         });
     });
+  </script>
+
+  <script>
+    // $(document).ready(function() {
+    //     $('.like').click(function() {
+    //         var content_id = $(this).attr("data-contentid");
+    //         var user_id = $(this).attr("data-sessionuserid");
+    //         $.ajax({
+    //             url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+    //             type: 'post',
+    //             data: { "content_id": content_id, "user_id": user_id},
+    //             success: function(response) 
+    //             { 
+    //                 location.reload();
+    //             }
+    //         });
+    //     });
+    // });
   </script>
 
   <script>

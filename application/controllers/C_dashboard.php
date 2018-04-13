@@ -27,7 +27,7 @@ class C_dashboard extends CI_Controller {
 		$data = $this->m_dashboard->m_getRecords();
 
         echo json_encode($data);
-	}
+    }
 
 	public function m_detailContent($content_id,$user_id){
 		$where = array(
@@ -107,16 +107,49 @@ class C_dashboard extends CI_Controller {
      
                 $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
                 $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
+                $time = strtotime($records->tgl_comments);
+                // echo $time;
+
+                $time = time() - $time; // to get the time since that moment
+
+                $tokens = array (
+                    31536000 => 'year',
+                    2592000 => 'month',
+                    604800 => 'week',
+                    86400 => 'day',
+                    3600 => 'hour',
+                    60 => 'minute',
+                    1 => 'second'
+                );
+
+                $result = '';
+                $counter = 1;
+                foreach ($tokens as $unit => $text) {
+                    if ($time < $unit) continue;
+                    if ($counter > 2) break;
+
+                    $numberOfUnits = floor($time / $unit);
+                    $result .= "$numberOfUnits $text ";
+                    $time -= $numberOfUnits * $unit;
+                    ++$counter;
+                }
+
+                // echo "{$result}ago";
+                echo '
                 
-                echo '<div class="colom-komentar">
+                <div class="colom-komentar">
+                        
                         <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
                             <label class="label label-primary">'.$records->namaygcomment.'</label>
                         </a>
+                        <div class=""><span class="badge align-right">'."{$result}ago".'</span></div>
+                        
                         <div class="isi-komentar">
                             &nbsp'.$records->komentarusers.'
                         </div>
                       </div>';
-                // echo $indate.' - '.$explode[1]."<br/>";
+                
+                // echo $indate.' - '.$explode[1];
                 // echo "Nama :".$records->name."<br/>";
                 // echo $records->komentarusers."<hr/>";
             }

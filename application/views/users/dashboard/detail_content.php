@@ -41,10 +41,11 @@
                         <div class="col-md-4">
                             <div class="wrap-detail-content">
                                 <form method="post" action="#" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">
+                                <!-- onkeyup="getVal()" onclick="this.value = &#39;&#39;;" onkeydown="this.style.color = &#39;#000000&#39; " -->
                                     <div class="no-padding-detail-content">
-                                        <input class="komentar-detail-content comment" autocomplete="off" onkeyup="getVal()" onclick="this.value = &#39;&#39;;" onkeydown="this.style.color = &#39;#000000&#39; " type="text" rows="1" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>" name="txtcomment" placeholder="Write a comment..." id="txtcomment"/>
-                                        <!-- <button class="btn btn-primary" id="comments" type="button" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">Comment</button> -->
-                                        <div id="icard" class="drag"></div>
+                                        <input class="komentar-detail-content comment" autocomplete="off" type="text" rows="1" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>" name="txtcomment" placeholder="Write a comment..." id="txtcomment"/>
+                                        <button class="btn btn-primary" id="comments" type="button" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">Comment</button>
+                                        <!-- <div id="icard" class="drag"></div> -->
                                         <input type="hidden" name="content_id" id="content_id" value="<?=$vau->Id;?>">
                                     </div>
                                 </form>
@@ -75,6 +76,15 @@
         }
     ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // $('.comment').bind('keypress', function(e)
+        // {
+        //     if(e.keyCode == 13)
+        //     {
+        //         return false;
+        //     }
+        // });
+    </script>
     <script>
         $(document).ready(function() {
             $('.like').click(function() {
@@ -114,23 +124,54 @@
     </script>
     <script type="text/javascript">
     $(document).ready(function(){
-        $("form").on('submit',function(){
+        // $('.comment').bind('keypress', function(e)
+        // {
+        //     if(e.keyCode == 13)
+        //     {
+        //         return false;
+        //     }
+        // });
+
+        $('.comment').keypress(function(e) {
+            if (e.which == 13) {
+                $(this).next('#comments').focus();
+                e.preventDefault();
+            }
+        });
+    
+        $('.comment').change(function(e) {
+            $('#comments').focus();
+        });
+        $("#comments").click(function(){
             var content_id  = $(this).attr("data-contentidc");
             var user_id     = $(this).attr("data-sessionuseridc");
-            var desc        = $("input#txtcomment").val(); 
-            $.ajax({
-                type:"POST",
-                url :"<?php echo base_url(); ?>" + "c_dashboard/m_added_comments",
-                data:{
-                    "content_id":content_id,
-                    "user_id":user_id,
-                    "desc":desc
-                },
-                success:function(html){
-                    m_load_comments();
-                    $('#desc').val('');
-                }
-            });
+            var desc        = $("input#txtcomment").val();
+            
+            if(desc != ''){
+
+                $.ajax({
+                    type:"POST",
+                    url :"<?php echo base_url(); ?>" + "c_dashboard/m_added_comments",
+                    data:{
+                        "content_id":content_id,
+                        "user_id":user_id,
+                        "desc":desc
+                    },
+                    success:function(html){
+                        m_load_comments();
+                        
+                        $('#desc').val('');
+                    }
+                });
+            }else{
+                $('#comments').bind('keypress', function(e)
+                {
+                    if(e.keyCode == 13)
+                    {
+                        return false;
+                    }
+                });
+            }
         });
     });
     m_load_comments();
@@ -158,10 +199,10 @@
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 <!-- AddToAny END -->
 <script>
-    function getVal() {
-    var x = document.getElementById("txtcomment");
-    document.getElementById("icard").innerHTML = x.value;
-}
+//     function getVal() {
+//     var x = document.getElementById("txtcomment");
+//     document.getElementById("icard").innerHTML = x.value;
+// }
 </script>
 <script src="<?=base_url('assets/js/zoom.js');?>"></script>
 		<script>
