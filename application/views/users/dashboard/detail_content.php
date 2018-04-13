@@ -1,46 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Detail Content</title>
-</head>
 <body>
     <?php
         foreach($varambilusers as $vau){
-            $sql = $this->db->query("SELECT category.Id as IdC, category.name as nameCat, category.desc as descCat FROM content_cat_detail LEFT JOIN category ON content_cat_detail.category_id = category.Id LEFT JOIN content ON content.Id = content_cat_detail.content_Id WHERE content.Id = '".$vau->Id."'");
             ?>
-            <table>
-            <tr>
-                <td>Title</td>
-                <td>:</td>
-                <td><?php echo $vau->title;?></td>
-            </tr>
-            <tr>
-                <td>Category Name</td>
-                <td>:</td>
-                
-                <?php
-                    foreach($sql->result_array() as $cat){
-                        
-                        ?>
-                            <td><?php echo $cat['nameCat'];?></td>
-                        <?php        
-                    }
-                ?>
-            </tr>
-            <tr>
-                <td>Like</td>
-                <td>:</td>
-                <td>
-                    <form action="" method="POST">
-                        <input type="text" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
-                        <input type="hidden" id="user_id" name="user_id" value="<?php echo $this->session->userdata("Id"); ?>" />
-                        <input type="button" id="like" name="like" value="Like" />
-                    </form>
-                </td>
-            </tr>
+            <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="wrap-detail-content">
+                                <div class="wrap-nama-foto-profil">
+                                    <div class="foto-profil-detail-content">
+                                    </div>
+                                    <span class="nama-detail-content">Hilmi Nico Putra</span>
+                                </div>
+                                <div class="deskripsi-singkat-detail-content">
+                                    <h5><b class="judul"><?=$vau->title;?></b></h5>
+                                    <p><?=$vau->desc;?></p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <button class="button-detail-content">follow</button>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <a href="#" class="like" data-contentid="<?=$vau->Id;?>" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><span><?=$vau->total_like;?></span></a>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt icon-detail-content"></i></a>
+                                    </div>
+                                    <div class="col-md-3">
+                                    <button class="button-detail-content" data-toggle="tooltip" data-placement="bottom" title="Akan dilelang 12-12-1212">Status</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wrap-detail-content page-content-perbesar content-zoom">
+                                    <img class="img-detail-content" id="perbesar" src="<?php echo base_url('assets/images/content/'.$vau->photos)?>" alt="<?=$vau->photos;?>"></img>
+                                    <h4 class="text-center margin-top-judul"><b><?=$vau->title;?></b></h4>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="wrap-detail-content">
+                                <form method="post" action="#" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">
+                                    <div class="no-padding-detail-content">
+                                        <input class="komentar-detail-content comment" autocomplete="off" onkeyup="getVal()" onclick="this.value = &#39;&#39;;" onkeydown="this.style.color = &#39;#000000&#39; " type="text" rows="1" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>" name="txtcomment" placeholder="Write a comment..." id="txtcomment"/>
+                                        <!-- <button class="btn btn-primary" id="comments" type="button" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">Comment</button> -->
+                                        <div id="icard" class="drag"></div>
+                                        <input type="hidden" name="content_id" id="content_id" value="<?=$vau->Id;?>">
+                                    </div>
+                                </form>
+                                <div class="section-komentar">
+                                    <div id="list_status"></div>
+                                <div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- <table>
             <tr>
                 <td>Bookmark</td>
                 <td>:</td>
@@ -54,81 +70,54 @@
             </tr>
             
             </table>
-            
-            <table>
-                Comments :
-                <form action="">
-                    <tr>
-                        <td><input type="text" name="content_id" id="content_id" value="<?=$vau->Id;?>"></td>
-                    </tr>
-                    <tr>
-                        <td><input type="text" name="user_id" id="user_id" value="<?php echo $this->session->userdata("Id"); ?>"></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td><textarea name="desc" id="desc" cols="25" rows="5"></textarea></td>
-                    </tr>
-                    <tr>
-                        <td>&nbsp;</td>
-                        <td>&nbsp;</td>
-                        <td align="right"><input type="button" id="submit_status" value="Comments"></td>
-                    </tr>
-                </form>
-            </table>
-        <hr/>
-        <div id="list_status"></div>
+             -->
             <?php
         }
     ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">  
-            	//insert book 
-            $("#like").click(function(){
-                
-                    var content_id = $("#content_id").val();
-                    var user_id = $("#user_id").val();
-                    // var txtpassword = $("#txtpassword").val();
-                
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-                        type: 'post',
-                        data: { "content_id": content_id, "user_id": user_id},
-                        success: function(response) 
-                        { 
-                            console.log("Like");
-                        }
-                
-                    });
+    <script>
+        $(document).ready(function() {
+            $('.like').click(function() {
+                var content_id = $(this).attr("data-contentid");
+                var user_id = $(this).attr("data-sessionuserid");
+                $.ajax({
+                    url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+                    type: 'post',
+                    data: { "content_id": content_id, "user_id": user_id},
+                    success: function(response) 
+                    { 
+                        location.reload();
+                    }
+                });
             });
+        });
     </script>
     <script type="text/javascript">  
             	//insert book 
-            $("#bookmark").click(function(){
+            // $("#bookmark").click(function(){
                 
-                    var content_id = $("#content_id").val();
-                    var user_id = $("#user_id").val();
-                    // var txtpassword = $("#txtpassword").val();
+            //         var content_id = $("#content_id").val();
+            //         var user_id = $("#user_id").val();
+            //         // var txtpassword = $("#txtpassword").val();
                 
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>" + "c_dashboard/m_bookmarked/",
-                        type: 'post',
-                        data: { "content_id": content_id, "user_id": user_id},
-                        success: function(response) 
-                        { 
-                            console.log("Bookmark");
-                        }
+            //         $.ajax({
+            //             url: "<?php echo base_url(); ?>" + "c_dashboard/m_bookmarked/",
+            //             type: 'post',
+            //             data: { "content_id": content_id, "user_id": user_id},
+            //             success: function(response) 
+            //             { 
+            //                 console.log("Bookmark");
+            //             }
                 
-                    });
-            });
+            //         });
+            // });
     </script>
     <script type="text/javascript">
     $(document).ready(function(){
-        $("#submit_status").click(function(){
-            var content_id  = $('#content_id').val();
-            var user_id     = $('#user_id').val();
-            var desc        = $('#desc').val();
-            // var name     = $('#name').val();
+        $("form").on('submit',function(){
+            var content_id  = $(this).attr("data-contentidc");
+            var user_id     = $(this).attr("data-sessionuseridc");
+            var desc        = $("input#txtcomment").val(); 
             $.ajax({
                 type:"POST",
                 url :"<?php echo base_url(); ?>" + "c_dashboard/m_added_comments",
@@ -138,9 +127,6 @@
                     "desc":desc
                 },
                 success:function(html){
-                    // alert('Posting Berhasil');
-                    // document.getElementById("content_id").reset();
-                    
                     m_load_comments();
                     $('#desc').val('');
                 }
@@ -163,5 +149,32 @@
         return false;
     }
 </script>
+<!-- AddToAny BEGIN -->
+<script>
+    var a2a_config = a2a_config || {};
+    a2a_config.linkurl = "http://[::1]/Kuliah/PBF/Ngartish/ngartish/c_dashboard/<?=$vau->Id;?>/<?=$vau->user_id;?>";
+    a2a_config.onclick = 1;
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+<!-- AddToAny END -->
+<script>
+    function getVal() {
+    var x = document.getElementById("txtcomment");
+    document.getElementById("icard").innerHTML = x.value;
+}
+</script>
+<script src="<?=base_url('assets/js/zoom.js');?>"></script>
+		<script>
+			document.querySelector( '.content-zoom' ).addEventListener( 'click', function( event ) {
+				event.preventDefault();
+				zoom.to({ element: event.target });
+			} );
+		</script>
+
+        <script>
+            /* Initiate Magnify Function
+            with the id of the image, and the strength of the magnifier glass:*/
+            magnify("perbesar", 5);
+        </script>
 </body>
 </html>
