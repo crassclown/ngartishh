@@ -46,11 +46,22 @@
                     </form>
                     <div class="section-komentar">
                         <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
+                            <div class="wrap-komentar">
+                                <div class="wrap-nama-orang-komentar">
+                                    <a href="#" class="nama-orang-komentar">
+                                        @namaorang
+                                    </a>
+                                </div>
+                                <div class="isi-komentar">
+                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                </div>
+                            </div>
+                            <div class="wrap-waktu-komentar">
+                                <div class="waktu-komentar">
+                                1 day 24 hours 24 minutes ago
+                                </div>
                             </div>
                         </div>
                         <div class="colom-komentar">

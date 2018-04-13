@@ -143,7 +143,7 @@ ul.nav-pills  {
 
 .profil-name{
 	position: absolute;
-	left:16px;
+	left:42px;
 	top:14px;
 }
 
@@ -522,7 +522,7 @@ form#commentform textarea {
 	z-index: 999;
 	position: absolute;
 	top:-10px;
-	left:120px;
+	left: 140px;
 	opacity: 50%;
 	transform: rotate(45deg);
 	border-top: 1px solid rgba(0,0,0,.15);
@@ -1303,15 +1303,36 @@ a:focus{
 }
 .wrap-nama-foto-profil{
 	padding:15px;
-	display:flex;
+	display: inline-flex;
+}
+.wrap-nama-orang-komentar{
+	padding :10px;
+}
+
+.nama-orang-komentar{
+	background:rgba(40,40,140,0.3);
+	color:#fff;
+	max-width: 100px;
+	padding:4px;
+	border-radius: 10px;
+
+}
+
+.isi-komentar{
+	float:right;
+	color:#555;
 }
 
 .colom-komentar{
-	display: flex;
 	width:100%;
 	padding:10px;
-
+	position: relative;
 	border-bottom:1px solid #ccc;
+}
+
+.wrap-komentar{
+	display: flex;
+	margin-bottom: 25px;
 }
 
 .section-komentar{
@@ -1320,6 +1341,20 @@ a:focus{
 	height:98%;
 	padding:10px 0 10px 0 ;
 	overflow-y: auto;
+}
+.wrap-waktu-komentar{
+	display:inline;
+	width: auto;
+	position: absolute;
+	bottom:10px;
+	margin-left:10px;
+}
+
+.waktu-komentar{
+	background :#666;
+	color:#fff;
+	border-radius: 10px;
+	padding:0 5px 0 5px;
 }
 
 .button-detail-content{
