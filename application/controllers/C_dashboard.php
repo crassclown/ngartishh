@@ -34,7 +34,8 @@ class C_dashboard extends CI_Controller {
             'Id' => $content_id,
             'user_id' => $user_id
         );
-		$data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
+        $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
+        $data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
 		$this->load->view('users/layout/header');
 		$this->load->view('users/dashboard/detail_content', $data);
 		$this->load->view('users/layout/footer');

@@ -10,7 +10,14 @@
                                 <div class="wrap-nama-foto-profil">
                                     <div class="foto-profil-detail-content">
                                     </div>
-                                    <span class="nama-detail-content">Hilmi Nico Putra</span>
+                                    <?php
+                                        foreach($varambilnama as $van){
+                                            ?>
+                                                <span class="nama-detail-content"><?=$van->namalengkap;?></span>
+                                            <?php
+                                        }
+                                    ?>
+                                    
                                 </div>
                                 <div class="deskripsi-singkat-detail-content">
                                     <h5><b class="judul"><?=$vau->title;?></b></h5>
