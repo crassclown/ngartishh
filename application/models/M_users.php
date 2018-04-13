@@ -55,9 +55,7 @@ class M_users extends CI_Model
 			
 			$checkupdate = false;
 		}
-		
 		return $checkupdate; 
-		
 	}
 
 	//Cek Follow Button
