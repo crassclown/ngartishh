@@ -40,8 +40,15 @@
             <div class="col-md-4">
                 <div class="wrap-detail-content">
                     <form method="post" action="#">
-                        <div class="no-padding-detail-content">
-                            <input class="komentar-detail-content"type="text" rows="1"name="komentar" placeholder="Isi komentar disini"/>
+                        <div class="row">
+                            <div class="col-md-9 no-right-padding">
+                                <div class="no-padding-detail-content">
+                                    <input class="komentar-detail-content"type="text" rows="1"name="komentar" placeholder="Isi komentar disini"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-left-padding">
+                                <button name="submit" class="submit-komentar">Comment</button>
+                            </div>
                         </div>
                     </form>
                     <div class="section-komentar">
