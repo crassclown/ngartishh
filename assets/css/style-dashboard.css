@@ -339,8 +339,8 @@ nav#filter ul {
 .padding-button-follow{
 	padding:25px;
 }
-.baris-foto-profil{
-}
+/* .baris-foto-profil{
+} */
 .border-content{
 	padding-top: 25px;
 }
@@ -843,7 +843,7 @@ box-shadow:inset 1px 0 0 0 rgba(0,0,0,.01);
 	margin-top:10px;
 }
 
-.modal-body input[type="text"], .modal textarea{
+.modal-body input[type="text"],input[type="number"], .modal textarea{
     width: 100%;
     background: #ffffff;
     border: 1px solid #EDEDED;
@@ -1354,7 +1354,6 @@ a:focus{
 }
 .wrap-waktu-komentar{
 	display:inline;
-	width: auto;
 	position: absolute;
 	bottom:10px;
 	margin-left:10px;
@@ -1480,9 +1479,8 @@ Tambahan Upload
 	font-size:60px;
 	cursor: pointer;
   }
-  .button:hover {
-	/* background: #ddd; */
-  }
+  /* .button:hover {
+  } */
   #fileElem {
 	display: none;
   }
