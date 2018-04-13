@@ -145,6 +145,7 @@ class C_dashboard extends CI_Controller {
                         <div class=""><span class="badge align-right">'."{$result}ago".'</span></div>
                         
                         <div class="isi-komentar">
+                        <br/>
                             &nbsp'.$records->komentarusers.'
                         </div>
                       </div>';
