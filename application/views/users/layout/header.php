@@ -17,9 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
 
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Berkshire+Swash">
-    style="font-family: 'Berkshire Swash', cursive;" -->
-  
     <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/default.css')?>"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css')?>" />
@@ -27,6 +24,26 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/demo.css')?>" type="text/css"  />
 		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/icons.css')?>" type="text/css"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>">
+
+    <!--===================================== Back end Pandhu ===================================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+    <!-- <link rel="stylesheet" href="<?=base_url('assets/css/checkbox-style.css');?>"> -->
+
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <!--===============================================================================================-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+      <!--==================================== End Back end pandhu ===========================================-->
+
+    <style>
+        .img-content:hover {
+            -webkit-transform: scaleX(-1);
+            transform: scaleX(-1);
+        }
+    </style>
     <style>
 * {box-sizing: border-box;}
 .page-content-perbesar {

@@ -175,6 +175,7 @@ class M_users extends CI_Model
         }
 	}
 
+	//Insert Postingan
 	public function insert($data)
     {
     	$this->db->insert($this->table_content, $data);
