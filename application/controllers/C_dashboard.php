@@ -27,16 +27,23 @@ class C_dashboard extends CI_Controller {
 		$data = $this->m_dashboard->m_getRecords();
 
         echo json_encode($data);
+    }
+
+	public function m_detailContent($content_id,$user_id){
+		$where = array(
+            'Id' => $content_id,
+            'user_id' => $user_id
+        );
+        $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
+        $data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
+		$this->load->view('users/layout/header');
+		$this->load->view('users/dashboard/detail_content', $data);
+		$this->load->view('users/layout/footer');
 	}
 
-	public function m_detailContent(){
-		// $where = array(
-        //     'Id' => $content_id,
-        //     'user_id' => $user_id
-        // );
-		// $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
+	public function kategori_Content(){
 		$this->load->view('users/layout/header');
-		$this->load->view('users/dashboard/detail_content');
+		$this->load->view('users/layout/kategori');
 		$this->load->view('users/layout/footer');
 	}
 
@@ -55,17 +62,6 @@ class C_dashboard extends CI_Controller {
 	}
 
 	public function m_like(){
-        // $data = array(
-        //     'content_id' => $this->input->post('content_id'),
-        //     'user_id' => $this->input->post('user_id')
-        // );
-        // if(isset($data)){
-        //     $insert = $this->m_users->m_liked($data);
-        //     // echo json_encode(array("status" => TRUE));
-        // }else{
-        //     echo "Failed insert into database";
-        // }
-
         $varUserid      = $this->input->post('user_id');
 		$varContentid   = $this->input->post('content_id');
 
@@ -90,12 +86,7 @@ class C_dashboard extends CI_Controller {
 	}
 	
     public function m_load_comments(){
-        // $test = array(
-        //     'Id'=>$content_id  
-        // );
-
         $kode=$this->input->post('content_id');
-        
         $namabulan = array(
                 1=>"Januari",
                 2=>"Februari",
@@ -117,11 +108,95 @@ class C_dashboard extends CI_Controller {
      
                 $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
                 $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
-     
-                echo $indate.' - '.$explode[1]."<br/>";
+                $time = strtotime($records->tgl_comments);
+                // echo $time;
+
+                $time = time() - $time; // to get the time since that moment
+
+                $tokens = array (
+                    31536000 => 'year',
+                    2592000 => 'month',
+                    604800 => 'week',
+                    86400 => 'day',
+                    3600 => 'hour',
+                    60 => 'minute',
+                    1 => 'second'
+                );
+
+                $result = '';
+                $counter = 1;
+                foreach ($tokens as $unit => $text) {
+                    if ($time < $unit) continue;
+                    if ($counter > 2) break;
+
+                    $numberOfUnits = floor($time / $unit);
+                    $result .= "$numberOfUnits $text ";
+                    $time -= $numberOfUnits * $unit;
+                    ++$counter;
+                }
+
+                echo '<div class="colom-komentar">
+                    <div class="wrap-komentar">
+                        <div class="wrap-nama-orang-komentar">
+                            <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
+                                <b>'.$records->namaygcomment.'</b>
+                            </a>
+                        </div>
+                        <div class="isi-komentar">
+                        <p>'.$records->komentarusers.'</p>
+                            
+                        </div>
+                    </div>
+                    <div class="wrap-waktu-komentar">
+                        '."{$result}ago".'
+                            
+                    </div>
+                </div>';
+                
+                // echo $indate.' - '.$explode[1];
                 // echo "Nama :".$records->name."<br/>";
-                echo $records->komentarusers."<hr/>";
+                // echo $records->komentarusers."<hr/>";
             }
+        }
+    }
+
+    public function do_upload()
+    {
+        $config['upload_path']   = './assets/images/content/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size']      = 20000;
+        $config['max_width']     = 1024;
+        $config['max_height']    = 768;
+
+        $this->load->library('upload', $config);
+
+        if (!$this->upload->do_upload('fileElem')) {
+            $error = $this->upload->display_errors();
+            // var_dump($error);
+            echo json_encode(array('status' => false, 'error' => $error));
+        } else {
+            $this->load->model('m_users');
+            $upload = $this->upload->data();
+            $varTL  = '0';
+            $varTC  = '0';
+            $datas = array(
+                'name'          => $this->input->post('txtdesc'),
+                'user_id'       => $this->input->post('txtsession')
+            );
+            $data = array(
+                'total_like'    => $varTL,
+                'total_comment' => $varTC,
+                'title'         => $this->input->post('txttitle'),
+                'desc'          => $this->input->post('txtdesc'),
+                'user_id'       => $this->input->post('txtsession'),
+                'photos'        => $upload['file_name'],
+                'created_at'    => date("Y-m-d H:i:s"),
+            );
+
+            $id = $this->m_users->insert($data);
+            $datacategory = $this->m_users->insert($datas);
+            // header("Refresh:0");
+            // redirect(base_url("c_dashboard/"));
         }
     }
 }
