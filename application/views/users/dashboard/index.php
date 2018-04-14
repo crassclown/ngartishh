@@ -46,32 +46,30 @@
                                             <tr>                                      
                                                     <div class="wrap-input100">
                                                         <div class="input-group stylish-input-group">
-                                                            <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require style="width:30em;">
+                                                            <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require style="width:30em;" required="required">
                                                             <span class="focus-input100"></span>
                                                         </div>
                                                     </div>
                                             </tr>
                                             <tr>
-                                                    <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;"></textarea>
+                                                    <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;" required="required"></textarea>
                                             </tr>
                                             <tr>
                                                     Categories
                                                 </td>
                                                 <td>
                                                     <div class="row">
-                                                        <div class="col-md-3">
-                                                            <!-- <input type="checkbox" id="txtcheckbox" name="txtcheckbox" value=""/> -->
-                                                            <?php
-                                                                foreach($categories as $category){
-                                                                    ?>
-                                                                        <div class="form-check">
-                                                                            <label>
-                                                                                <input type="radio" name="txtcategories" id="txtcategories" value="<?=$category->Id;?>" /> <?=$category->name;?>
-                                                                            </label>
-                                                                        </div>
-                                                                    <?php
-                                                                }
-                                                            ?>
+                                                        <div class="col-md-3">                                                            
+                                                            <div class="form-check">
+                                                                <select name="txtcategories" id="txtcategories" style="width:1500%;" required="required">
+                                                                    <option value=""></option>
+                                                                    <option value="Ilustrasi">Ilustrasi</option>
+                                                                    <option value="Surealism">Surealism</option>
+                                                                    <option value="Mural">Mural</option>
+                                                                    <option value="Impresionisme">Impresionisme</option>
+                                                                    <option value="Neo-Impresionisme">Neo-Impresionisme</option>
+                                                                </select>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </td>
@@ -325,4 +323,74 @@
         });
     });
 </script> -->
+<script>
+    $(document).ready(function () {
+        $("#txtcategories").select2({
+            placeholder: "Please select the category"
+        });
+    });
+</script>
+<script>
+    /**
+    * @author ComFreek
+    * @license MIT (c) 2013-2015 ComFreek <http://stackoverflow.com/users/603003/comfreek>
+    * Please retain this author and license notice!
+    */
+    (function (exports) {
+        function valOrFunction(val, ctx, args) {
+            if (typeof val == "function") {
+                return val.apply(ctx, args);
+            } else {
+                return val;
+            }
+        }
 
+        function InvalidInputHelper(input, options) {
+            input.setCustomValidity(valOrFunction(options.defaultText, window, [input]));
+
+            function changeOrInput() {
+                if (input.value == "") {
+                    input.setCustomValidity(valOrFunction(options.emptyText, window, [input]));
+                } else {
+                    input.setCustomValidity("");
+                }
+            }
+
+            function invalid() {
+                if (input.value == "") {
+                    input.setCustomValidity(valOrFunction(options.emptyText, window, [input]));
+                } else {
+                input.setCustomValidity(valOrFunction(options.invalidText, window, [input]));
+                }
+            }
+
+            input.addEventListener("change", changeOrInput);
+            input.addEventListener("input", changeOrInput);
+            input.addEventListener("invalid", invalid);
+        }
+        exports.InvalidInputHelper = InvalidInputHelper;
+    })(window);
+
+
+
+    InvalidInputHelper(document.getElementById("txtcategories"), {
+        defaultText: "Please enter an category!",
+        emptyText: "Please enter an category!"
+    });
+    InvalidInputHelper(document.getElementById("txttitle"), {
+        defaultText: "Please enter an title!",
+        emptyText: "Please enter an title!"
+    });
+    InvalidInputHelper(document.getElementById("txtdesc"), {
+        defaultText: "Please enter an descriptiona!",
+        emptyText: "Please enter an description!"
+    });
+    InvalidInputHelper(document.getElementById("txtdesc"), {
+        defaultText: "Please enter an description!",
+        emptyText: "Please enter an description!"
+    });
+    InvalidInputHelper(document.getElementById("fileElem"), {
+        defaultText: "Please enter picture!",
+        emptyText: "Please enter picture!"
+    });
+</script>

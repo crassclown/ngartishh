@@ -33,7 +33,7 @@
                                         <button class="button-detail-content">Follow</button>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="#" class="like" data-contentid="<?=$vau->Id;?>" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><span><?=$vau->total_like;?></span></a>
+                                        <a href="#" class="like" data-contentid="<?=$vau->Id;?>" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><sup class="badge"><?=$vau->total_like;?></sup></a>
                                     </div>
                                     <div class="col-md-2">
                                         <a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt icon-detail-content"></i></a>
