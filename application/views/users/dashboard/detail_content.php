@@ -7,26 +7,30 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="wrap-detail-content">
-                                <div class="wrap-nama-foto-profil">
                                 <?php
-                                        foreach($varambilnama as $van){
-                                            ?>
-                                    <div class="foto-profil-detail-content">
-                                        <b><?php echo substr(trim(ucfirst($van->namalengkap)),0,1); ?></b>
-                                    </div>
-                                            <span class="nama-detail-content"><?=$van->namalengkap;?></span>
-                                    <?php
-                                        }
-                                    ?>
-                                    
-                                </div>
+                                    foreach($varambilnama as $van){
+                                ?>
+                                        <a href="<?=base_url('c_profile/m_users/'.$van->Iduser);?>">
+                                            <div class="wrap-nama-foto-profil">
+                                                <div class="foto-profil-detail-content">
+                                                    <center style="font-size:32px;margin-top:30px;"><b><?php echo substr(trim(ucfirst($van->namalengkap)),0,1); ?></b></center>
+                                                </div>
+                                                
+                                                <span class="nama-detail-content"><?=$van->namalengkap;?></span>
+
+                                            </div>
+                                        </a>
+                                <?php
+                                    }
+                                ?>
+                                
                                 <div class="deskripsi-singkat-detail-content">
                                     <h5><b class="judul"><?=$vau->title;?></b></h5>
                                     <p><?=$vau->desc;?></p>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-3">
-                                        <button class="button-detail-content">follow</button>
+                                        <button class="button-detail-content">Follow</button>
                                     </div>
                                     <div class="col-md-3">
                                         <a href="#" class="like" data-contentid="<?=$vau->Id;?>" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><span><?=$vau->total_like;?></span></a>
@@ -34,9 +38,9 @@
                                     <div class="col-md-2">
                                         <a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt icon-detail-content"></i></a>
                                     </div>
-                                    <div class="col-md-3">
+                                    <!-- <div class="col-md-3">
                                     <button class="button-detail-content" data-toggle="tooltip" data-placement="bottom" title="Akan dilelang 12-12-1212">Status</button>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

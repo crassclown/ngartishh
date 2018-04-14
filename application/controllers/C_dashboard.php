@@ -135,43 +135,21 @@ class C_dashboard extends CI_Controller {
                     ++$counter;
                 }
 
-                // echo "{$result}ago";
-                // echo '
-                
-                // <div class="colom-komentar">
-                //     <div class="wrap-komentar">
-                //         <div class="wrap-nama-orang-komentar">
-                //             <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
-                //                 '.$records->namaygcomment.'
-                //             </a>
-                //         </div>
-                //             <div class="isi-komentar">
-                //                 '.$records->komentarusers.'
-                //             </div>
-                //         </div>
-                //         <div class="wrap-waktu-komentar">
-                //             <div class="waktu-komentar">
-                //                 '."{$result}ago".'
-                //             </div>
-                //         </div>
-                //       </div>
-                // </div>';
-
                 echo '<div class="colom-komentar">
                     <div class="wrap-komentar">
                         <div class="wrap-nama-orang-komentar">
                             <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
-                                '.$records->namaygcomment.'
+                                <b>'.$records->namaygcomment.'</b>
                             </a>
                         </div>
                         <div class="isi-komentar">
-                            '.$records->komentarusers.'
+                        <p>'.$records->komentarusers.'</p>
+                            
                         </div>
                     </div>
                     <div class="wrap-waktu-komentar">
-                        <div class="waktu-komentar">
-                            '."{$result}ago".'
-                        </div>
+                        '."{$result}ago".'
+                            
                     </div>
                 </div>';
                 

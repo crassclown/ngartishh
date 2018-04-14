@@ -243,8 +243,7 @@
 	<!-- end modal following -->
 </section>
 
-<<<<<<< HEAD
-<a href="<?php echo base_url('c_dashboard/');?>">back</a>
+<!-- <a href="<?php echo base_url('c_dashboard/');?>">back</a> -->
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <!-- Edit toggle -->
 <script>
@@ -302,7 +301,6 @@
 
 </script>
 <!-- END Follow Profile AJAX -->
-=======
         <!-- modal following -->
         <div class="modal fade" id="modal-edit-profil" role="dialog">
             <div class="modal-dialog modal-body-follow">
@@ -422,4 +420,3 @@
         </div>        
         <!-- end modal edit profile -->
     </section>
->>>>>>> hilmi
