@@ -136,25 +136,43 @@ class C_dashboard extends CI_Controller {
                 }
 
                 // echo "{$result}ago";
-                echo '
+                // echo '
                 
-                <div class="colom-komentar">
+                // <div class="colom-komentar">
+                //     <div class="wrap-komentar">
+                //         <div class="wrap-nama-orang-komentar">
+                //             <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
+                //                 '.$records->namaygcomment.'
+                //             </a>
+                //         </div>
+                //             <div class="isi-komentar">
+                //                 '.$records->komentarusers.'
+                //             </div>
+                //         </div>
+                //         <div class="wrap-waktu-komentar">
+                //             <div class="waktu-komentar">
+                //                 '."{$result}ago".'
+                //             </div>
+                //         </div>
+                //       </div>
+                // </div>';
+
+                echo '<div class="colom-komentar">
                     <div class="wrap-komentar">
                         <div class="wrap-nama-orang-komentar">
                             <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
                                 '.$records->namaygcomment.'
                             </a>
                         </div>
-                            <div class="isi-komentar">
-                                '.$records->komentarusers.'
-                            </div>
+                        <div class="isi-komentar">
+                            '.$records->komentarusers.'
                         </div>
-                        <div class="wrap-waktu-komentar">
-                            <div class="waktu-komentar">
-                                '."{$result}ago".'
-                            </div>
+                    </div>
+                    <div class="wrap-waktu-komentar">
+                        <div class="waktu-komentar">
+                            '."{$result}ago".'
                         </div>
-                      </div>
+                    </div>
                 </div>';
                 
                 // echo $indate.' - '.$explode[1];
