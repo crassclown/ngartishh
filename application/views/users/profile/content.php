@@ -84,6 +84,161 @@
 						</div>
 					</article>
 
+					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
+						<div class="space">
+							<div class="portfolio-item">
+								<img src="<?php echo base_url('assets/images/content/1.jpg')?>" alt="gambar" />
+								<div class="portfolio-desc align-center">
+									<div class="folio-info">
+										<div class="row image-icons">
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-thumbs-up "></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-comment"></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-share-alt"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
+						<div class="space">
+							<div class="portfolio-item">
+								<img src="<?php echo base_url('assets/images/content/1.jpg')?>" alt="gambar" />
+								<div class="portfolio-desc align-center">
+									<div class="folio-info">
+										<div class="row image-icons">
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-thumbs-up "></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-comment"></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-share-alt"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
+						<div class="space">
+							<div class="portfolio-item">
+								<img src="<?php echo base_url('assets/images/content/1.jpg')?>" alt="gambar" />
+								<div class="portfolio-desc align-center">
+									<div class="folio-info">
+										<div class="row image-icons">
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-thumbs-up "></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-comment"></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-share-alt"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
+						<div class="space">
+							<div class="portfolio-item">
+								<img src="<?php echo base_url('assets/images/content/1.jpg')?>" alt="gambar" />
+								<div class="portfolio-desc align-center">
+									<div class="folio-info">
+										<div class="row image-icons">
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-thumbs-up "></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-comment"></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-share-alt"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+
+					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
+						<div class="space">
+							<div class="portfolio-item">
+								<img src="<?php echo base_url('assets/images/content/1.jpg')?>" alt="gambar" />
+								<div class="portfolio-desc align-center">
+									<div class="folio-info">
+										<div class="row image-icons">
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-thumbs-up "></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-comment"></i>
+													<span>123</span>
+												</a>
+											</div>
+											<div class="col-md-4 col-lg-4">
+												<a href="#">
+													<i class="fa fa-share-alt"></i>
+												</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</article>
+
 				</div>
 			</div>
 		</div>
