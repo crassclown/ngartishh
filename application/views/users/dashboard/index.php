@@ -9,6 +9,7 @@
                                 <div class="space">
                                     <div class="gantungan">
                                         <div class="pin text-center">
+                                            H
                                         </div>
                                     </div> 
                                     <div class="portfolio-item">

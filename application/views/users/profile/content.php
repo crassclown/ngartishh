@@ -497,13 +497,16 @@
             
             <!-- Modal content-->
             <div class="modal-content">
-                    <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">New Posting</h4>
+                    <div class="modal-header text-center header-edit-profil">
+                    <button type="button" class="close close-left" data-dismiss="modal">&larr;</button>
+                    <h4 class="modal-title">Pengaturan Akun</h4>
                     </div>
                     <div class="modal-body ">
                         <div class="padding-modal-body">
                                 <form action="#" method="POST" enctype="multipart/form-data">
+								<div class="border-edit-profil">
+									<input type="file" name="foto-profil" class"input-foto-edit-profil"/>		
+								</div>
                                 <table>
                                     <tr>
                                         Username :                                       
@@ -526,11 +529,11 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                        <button type="submit" class="btn btn-default">Submit</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </form>
-                     </div>
+                        <div class="modal-footer footer-edit-profil">
+                        <button type="submit" class="btn btn-default submit-edit-profil">Submit</button>
+						</div>
+					 </form>
+
                 </div>
                 
             </div>
