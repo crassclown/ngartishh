@@ -63,11 +63,13 @@
                                                             <div class="form-check">
                                                                 <select name="txtcategories" id="txtcategories">
                                                                     <option value=""></option>
-                                                                    <option value="Ilustrasi">Ilustrasi</option>
-                                                                    <option value="Surealism">Surealism</option>
-                                                                    <option value="Mural">Mural</option>
-                                                                    <option value="Impresionisme">Impresionisme</option>
-                                                                    <option value="Neo-Impresionisme">Neo-Impresionisme</option>
+                                                                    <?php
+                                                                        foreach($categories as $cat){
+                                                                            ?>
+                                                                                <option value="<?=$cat->Id;?>"><?=$cat->name;?></option>
+                                                                            <?php
+                                                                        }
+                                                                    ?>
                                                                 </select>
                                                             </div>
                                                         </div>

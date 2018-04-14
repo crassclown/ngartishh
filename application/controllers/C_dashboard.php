@@ -36,6 +36,13 @@ class C_dashboard extends CI_Controller {
         echo json_encode($data);
     }
 
+    public function m_getDetailContentComment(){
+        // get data
+        $data = $this->m_dashboard->m_getDetailContentComment();
+
+        echo json_encode($data);
+    }
+
 	public function m_detailContent($content_id,$user_id){
 		$where = array(
             'Id' => $content_id,
@@ -198,6 +205,7 @@ class C_dashboard extends CI_Controller {
                 'user_id'       => $this->input->post('txtsession'),
                 'photos'        => $upload['file_name'],
                 'created_at'    => date("Y-m-d H:i:s"),
+                'category_id'   => $this->input->post('txtcategories'),
             );
 
             $id = $this->m_users->insert($data);

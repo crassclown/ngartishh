@@ -19,13 +19,9 @@
                                                 <span class="nama-detail-content"><?=$van->namalengkap;?></span>
 
                                             </div>
-                                        </a>
-                                <?php
-                                    }
-                                ?>
-                                
+                                        </a>                                    
                                 <div class="deskripsi-singkat-detail-content">
-                                    <h5><b class="judul"><?=$vau->title;?></b></h5>
+                                    <h5><b class="judul"><?=$vau->title;?></b> - <small class="label label-info"><?=$van->namakat;?></small></h5>
                                     <p><?=$vau->desc;?></p>
                                 </div>
                                 <div class="row">
@@ -42,6 +38,9 @@
                                     <button class="button-detail-content" data-toggle="tooltip" data-placement="bottom" title="Akan dilelang 12-12-1212">Status</button>
                                     </div> -->
                                 </div>
+                                <?php
+                                    }
+                                ?>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -81,7 +80,7 @@
                     </div>
                 </div>
             </section>
-            <input type="text" name="user_id" id="user_id" value="<?=$vau->user_id;?>">
+            <input type="hidden" name="user_id" id="user_id" value="<?=$vau->user_id;?>">
             <!-- <table>
             <tr>
                 <td>Bookmark</td>
@@ -111,22 +110,6 @@
         // });
     </script>
     <script>
-        // $(document).ready(function() {
-        //     $(document).on("click",".like",function() {
-        //         var content_id = $(this).attr("data-contentid");
-        //         var user_id = $(this).attr("data-sessionuserid");
-        //         $.ajax({
-        //             url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-        //             type: 'post',
-        //             data: { "content_id": content_id, "user_id": user_id},
-        //             success: function(response) 
-        //             { 
-        //                 location.reload();
-        //             }
-        //         });
-        //     });
-        // });
-
         $(document).ready(function(){
         tampil_data_barang();   //pemanggilan fungsi tampil gambar.
         
@@ -147,10 +130,7 @@
                         '<a class="like" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><sup class="badge">'+data[i].total_like+'</sup>';
                     }
                     $('#show_data').html(html);
-                    // console.log(data);
                 }
-                
-                
             });
         }
         $(document).on("click",".like",function() {
