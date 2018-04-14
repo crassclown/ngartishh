@@ -243,10 +243,6 @@
 	<!-- end modal following -->
 </section>
 
-<<<<<<< HEAD
-=======
-<!-- <a href="<?php echo base_url('c_dashboard/');?>">back</a> -->
->>>>>>> pandhu
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <!-- Edit toggle -->
 <script>

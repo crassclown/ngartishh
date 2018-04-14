@@ -63,11 +63,11 @@
                                                             <div class="form-check">
                                                                 <select name="txtcategories" id="txtcategories" style="width:1500%;" required="required">
                                                                     <option value=""></option>
-                                                                    <option value="Ilustrasi">Ilustrasi</option>
-                                                                    <option value="Surealism">Surealism</option>
-                                                                    <option value="Mural">Mural</option>
-                                                                    <option value="Impresionisme">Impresionisme</option>
-                                                                    <option value="Neo-Impresionisme">Neo-Impresionisme</option>
+                                                                    <option value="1">Ilustrasi</option>
+                                                                    <option value="2">Surealism</option>
+                                                                    <option value="3">Mural</option>
+                                                                    <option value="4">Impresionisme</option>
+                                                                    <option value="5">Neo-Impresionisme</option>
                                                                 </select>
                                                             </div>
                                                         </div>
