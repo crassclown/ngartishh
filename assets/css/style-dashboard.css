@@ -129,6 +129,7 @@ ul.nav-pills  {
 .nav-label{
 	font-size: 20px;
 	width: 200px;
+	padding-left:25px;
 }
 
 .nav-icon-profile{
@@ -136,7 +137,14 @@ ul.nav-pills  {
 	background:#dddddd;
 	border-radius: 50%;
 	top:-25px;
-	width:50px;	
+	height:50px;
+	width: 50px;
+}
+
+.profil-name{
+	position: absolute;
+	left:42px;
+	top:14px;
 }
 
 .slider {
@@ -331,8 +339,8 @@ nav#filter ul {
 .padding-button-follow{
 	padding:25px;
 }
-.baris-foto-profil{
-}
+/* .baris-foto-profil{
+} */
 .border-content{
 	padding-top: 25px;
 }
@@ -507,7 +515,6 @@ form#commentform textarea {
 	display: inline-block;
 }
 
-
 .border-45-profil{
 	background: #fff;
 	width: 20px;
@@ -515,7 +522,7 @@ form#commentform textarea {
 	z-index: 999;
 	position: absolute;
 	top:-10px;
-	left:160px;
+	left: 140px;
 	opacity: 50%;
 	transform: rotate(45deg);
 	border-top: 1px solid rgba(0,0,0,.15);
@@ -836,7 +843,7 @@ box-shadow:inset 1px 0 0 0 rgba(0,0,0,.01);
 	margin-top:10px;
 }
 
-.modal-body input[type="text"], .modal textarea{
+.modal-body input[type="text"],input[type="number"], .modal textarea{
     width: 100%;
     background: #ffffff;
     border: 1px solid #EDEDED;
@@ -1296,15 +1303,46 @@ a:focus{
 }
 .wrap-nama-foto-profil{
 	padding:15px;
-	display:flex;
+	display: inline-flex;
+}
+.submit-komentar{
+	background: rgb(70,40,40);
+	border:1px solid rgb(70,40,40);
+	color:#fff;
+	box-sizing: border-box;
+	height: 100%;
+	width: 100%;
+	padding:10px;
+}
+
+.wrap-nama-orang-komentar{
+	padding :10px;
+}
+
+.nama-orang-komentar{
+	background:rgba(40,40,140,0.3);
+	color:#fff;
+	max-width: 100px;
+	padding:4px;
+	border-radius: 10px;
+
+}
+
+.isi-komentar{
+	float:right;
+	color:#555;
 }
 
 .colom-komentar{
-	display: flex;
 	width:100%;
 	padding:10px;
-
+	position: relative;
 	border-bottom:1px solid #ccc;
+}
+
+.wrap-komentar{
+	display: flex;
+	margin-bottom: 25px;
 }
 
 .section-komentar{
@@ -1313,6 +1351,19 @@ a:focus{
 	height:98%;
 	padding:10px 0 10px 0 ;
 	overflow-y: auto;
+}
+.wrap-waktu-komentar{
+	display:inline;
+	position: absolute;
+	bottom:10px;
+	margin-left:10px;
+}
+
+.waktu-komentar{
+	background :#666;
+	color:#fff;
+	border-radius: 10px;
+	padding:0 5px 0 5px;
 }
 
 .button-detail-content{
@@ -1331,12 +1382,22 @@ a:focus{
 	background: #fff;
 	padding:10px;	
 	border-top-left-radius: 6px;
+	border:1px solid #ccc;
 	opacity: 0.8;
 	text-decoration-style: none;
+	box-sizing: border-box;
+
 }
 
 .no-padding-detail-content{
 	padding:0 0 0 0px;
+}
+
+.no-left-padding{
+	padding-left:0px;
+}
+.no-right-padding{
+	padding-right:0px;
 }
 
 .portfolio-item:hover .hover-image-kategori{
@@ -1418,9 +1479,8 @@ Tambahan Upload
 	font-size:60px;
 	cursor: pointer;
   }
-  .button:hover {
-	/* background: #ddd; */
-  }
+  /* .button:hover {
+  } */
   #fileElem {
 	display: none;
   }

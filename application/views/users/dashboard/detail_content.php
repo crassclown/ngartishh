@@ -40,107 +40,109 @@
             <div class="col-md-4">
                 <div class="wrap-detail-content">
                     <form method="post" action="#">
-                        <div class="no-padding-detail-content">
-                            <input class="komentar-detail-content"type="text" rows="1"name="komentar" placeholder="Isi komentar disini"/>
+                        <div class="row">
+                            <div class="col-md-9 no-right-padding">
+                                <div class="no-padding-detail-content">
+                                    <input class="komentar-detail-content"type="text" rows="1"name="komentar" placeholder="Isi komentar disini"/>
+                                </div>
+                            </div>
+                            <div class="col-md-3 no-left-padding">
+                                <button name="submit" class="submit-komentar">Comment</button>
+                            </div>
                         </div>
                     </form>
                     <div class="section-komentar">
                         <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
+                            <div class="wrap-komentar">
+                                <div class="wrap-nama-orang-komentar">
+                                    <a href="#" class="nama-orang-komentar">
+                                        @namaorang
+                                    </a>
+                                </div>
+                                <div class="isi-komentar">
+                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                </div>
+                            </div>
+                            <div class="wrap-waktu-komentar">
+                                <div class="waktu-komentar">
+                                1 day 24 hours 24 minutes ago
+                                </div>
+                            </div>
+                        </div>
+
+                                                <div class="colom-komentar">
+                            <div class="wrap-komentar">
+                                <div class="wrap-nama-orang-komentar">
+                                    <a href="#" class="nama-orang-komentar">
+                                        @namaorang
+                                    </a>
+                                </div>
+                                <div class="isi-komentar">
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                </div>
+                            </div>
+                            <div class="wrap-waktu-komentar">
+                                <div class="waktu-komentar">
+                                1 day 24 hours 24 minutes ago
+                                </div>
                             </div>
                         </div>
                         <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
+                            <div class="wrap-komentar">
+                                <div class="wrap-nama-orang-komentar">
+                                    <a href="#" class="nama-orang-komentar">
+                                        @namaorang
+                                    </a>
+                                </div>
+                                <div class="isi-komentar">
+                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                </div>
+                            </div>
+                            <div class="wrap-waktu-komentar">
+                                <div class="waktu-komentar">
+                                1 day 24 hours 24 minutes ago
+                                </div>
                             </div>
                         </div>
                         <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
+                            <div class="wrap-komentar">
+                                <div class="wrap-nama-orang-komentar">
+                                    <a href="#" class="nama-orang-komentar">
+                                        @namaorang
+                                    </a>
+                                </div>
+                                <div class="isi-komentar">
+                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                </div>
+                            </div>
+                            <div class="wrap-waktu-komentar">
+                                <div class="waktu-komentar">
+                                1 day 24 hours 24 minutes ago
+                                </div>
                             </div>
                         </div>
                         <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
+                            <div class="wrap-komentar">
+                                <div class="wrap-nama-orang-komentar">
+                                    <a href="#" class="nama-orang-komentar">
+                                        @namaorang
+                                    </a>
+                                </div>
+                                <div class="isi-komentar">
+                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                </div>
+                            </div>
+                            <div class="wrap-waktu-komentar">
+                                <div class="waktu-komentar">
+                                1 day 24 hours 24 minutes ago
+                                </div>
                             </div>
                         </div>
-                        <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
-                            </div>
-                        </div>
-                        <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
-                            </div>
-                        </div>
-                        <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
-                            </div>
-                        </div>
-                        <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
-                            </div>
-                        </div>
-                        <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
-                            </div>
-                        </div>
-                        <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
-                            </div>
-                        </div>
-                        <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
-                            </div>
-                        </div>
-                        <div class="colom-komentar">
-                            <a href="#" class="nama-orang-komentar">
-                                nama orang
-                            </a>
-                            <div class="isi-komentar">
-                                ini isi nya
-                            </div>
-                        </div>
+
                     <div>
                 </div>
             </div>
