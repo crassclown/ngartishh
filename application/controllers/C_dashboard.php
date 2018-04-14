@@ -27,14 +27,15 @@ class C_dashboard extends CI_Controller {
 		$data = $this->m_dashboard->m_getRecords();
 
         echo json_encode($data);
-	}
+    }
 
 	public function m_detailContent($content_id,$user_id){
 		$where = array(
             'Id' => $content_id,
             'user_id' => $user_id
         );
-		$data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
+        $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
+        $data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
 		$this->load->view('users/layout/header');
 		$this->load->view('users/dashboard/detail_content', $data);
 		$this->load->view('users/layout/footer');
@@ -107,16 +108,52 @@ class C_dashboard extends CI_Controller {
      
                 $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
                 $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
-                
+                $time = strtotime($records->tgl_comments);
+                // echo $time;
+
+                $time = time() - $time; // to get the time since that moment
+
+                $tokens = array (
+                    31536000 => 'year',
+                    2592000 => 'month',
+                    604800 => 'week',
+                    86400 => 'day',
+                    3600 => 'hour',
+                    60 => 'minute',
+                    1 => 'second'
+                );
+
+                $result = '';
+                $counter = 1;
+                foreach ($tokens as $unit => $text) {
+                    if ($time < $unit) continue;
+                    if ($counter > 2) break;
+
+                    $numberOfUnits = floor($time / $unit);
+                    $result .= "$numberOfUnits $text ";
+                    $time -= $numberOfUnits * $unit;
+                    ++$counter;
+                }
+
                 echo '<div class="colom-komentar">
-                        <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
-                            <label class="label label-primary">'.$records->namaygcomment.'</label>
-                        </a>
-                        <div class="isi-komentar">
-                            &nbsp'.$records->komentarusers.'
+                    <div class="wrap-komentar">
+                        <div class="wrap-nama-orang-komentar">
+                            <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
+                                <b>'.$records->namaygcomment.'</b>
+                            </a>
                         </div>
-                      </div>';
-                // echo $indate.' - '.$explode[1]."<br/>";
+                        <div class="isi-komentar">
+                        <p>'.$records->komentarusers.'</p>
+                            
+                        </div>
+                    </div>
+                    <div class="wrap-waktu-komentar">
+                        '."{$result}ago".'
+                            
+                    </div>
+                </div>';
+                
+                // echo $indate.' - '.$explode[1];
                 // echo "Nama :".$records->name."<br/>";
                 // echo $records->komentarusers."<hr/>";
             }
