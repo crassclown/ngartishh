@@ -8,13 +8,14 @@
                         <div class="col-md-4">
                             <div class="wrap-detail-content">
                                 <div class="wrap-nama-foto-profil">
-                                    <div class="foto-profil-detail-content">
-                                    </div>
-                                    <?php
+                                <?php
                                         foreach($varambilnama as $van){
                                             ?>
-                                                <span class="nama-detail-content"><?=$van->namalengkap;?></span>
-                                            <?php
+                                    <div class="foto-profil-detail-content">
+                                        <b><?php echo substr(trim(ucfirst($van->namalengkap)),0,1); ?></b>
+                                    </div>
+                                            <span class="nama-detail-content"><?=$van->namalengkap;?></span>
+                                    <?php
                                         }
                                     ?>
                                     
