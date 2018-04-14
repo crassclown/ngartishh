@@ -35,6 +35,13 @@ class C_profile extends CI_Controller {
 		$this->load->view('users/layout/footer');
 	}
 
+	public function m_getContentsUser($id){
+		// get data
+        $data = $this->m_users->m_getRecordsUser($id);
+
+        echo json_encode($data);
+    }
+
 	public function m_editusers()
 	{
 		$varNama = $this->input->post('nama');
