@@ -49,11 +49,23 @@
                             <div class="wrap-detail-content">
                                 <form method="post" action="#" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">
                                 <!-- onkeyup="getVal()" onclick="this.value = &#39;&#39;;" onkeydown="this.style.color = &#39;#000000&#39; " -->
-                                    <div class="no-padding-detail-content">
+                                    <!-- <div class="no-padding-detail-content">
                                         <input class="komentar-detail-content comment" autocomplete="off" type="text" rows="1" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>" name="txtcomment" placeholder="Write a comment..." id="txtcomment"/>
                                         <button class="btn btn-primary" id="comments" type="button" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">Comment</button>
                                         <!-- <div id="icard" class="drag"></div> -->
-                                        <input type="hidden" name="content_id" id="content_id" value="<?=$vau->Id;?>">
+                                        <!-- <input type="hidden" name="content_id" id="content_id" value="<?=$vau->Id;?>"> -->
+                                    <!-- </div> -->
+                                    <div class="row">
+                                        <div class="col-md-9 no-right-padding">
+                                            <div class="no-padding-detail-content">
+                                                <input class="komentar-detail-content comment" autocomplete="off" type="text" rows="1" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>" name="txtcomment" placeholder="Write a comment..." id="txtcomment"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 no-left-padding">
+                                            <button class="btn btn-primary submit-komentar" id="comments" type="button" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">Comment</button>
+                                            <!-- <div id="icard" class="drag"></div> -->
+                                            <input type="hidden" name="content_id" id="content_id" value="<?=$vau->Id;?>">
+                                        </div>
                                     </div>
                                 </form>
                                 <div class="section-komentar">
@@ -146,9 +158,9 @@
             }
         });
     
-        $('.comment').change(function(e) {
-            $('#comments').focus();
-        });
+        // $('.comment').change(function(e) {
+        //     $('#comments').focus();
+        // });
         $("#comments").click(function(){
             var content_id  = $(this).attr("data-contentidc");
             var user_id     = $(this).attr("data-sessionuseridc");

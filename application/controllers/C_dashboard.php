@@ -139,17 +139,23 @@ class C_dashboard extends CI_Controller {
                 echo '
                 
                 <div class="colom-komentar">
-                        
-                        <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
-                            <label class="label label-primary">'.$records->namaygcomment.'</label>
-                        </a>
-                        <div class=""><span class="badge align-right">'."{$result}ago".'</span></div>
-                        
-                        <div class="isi-komentar">
-                        <br/>
-                            &nbsp'.$records->komentarusers.'
+                    <div class="wrap-komentar">
+                        <div class="wrap-nama-orang-komentar">
+                            <a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
+                                '.$records->namaygcomment.'
+                            </a>
                         </div>
-                      </div>';
+                            <div class="isi-komentar">
+                                '.$records->komentarusers.'
+                            </div>
+                        </div>
+                        <div class="wrap-waktu-komentar">
+                            <div class="waktu-komentar">
+                                '."{$result}ago".'
+                            </div>
+                        </div>
+                      </div>
+                </div>';
                 
                 // echo $indate.' - '.$explode[1];
                 // echo "Nama :".$records->name."<br/>";

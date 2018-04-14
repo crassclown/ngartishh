@@ -243,6 +243,7 @@
 	<!-- end modal following -->
 </section>
 
+<<<<<<< HEAD
 <a href="<?php echo base_url('c_dashboard/');?>">back</a>
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <!-- Edit toggle -->
@@ -301,3 +302,124 @@
 
 </script>
 <!-- END Follow Profile AJAX -->
+=======
+        <!-- modal following -->
+        <div class="modal fade" id="modal-edit-profil" role="dialog">
+            <div class="modal-dialog modal-body-follow">
+            
+            <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Following</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> follow</button>
+                        </div>
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> unfollow</button>
+                        </div>
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> follow</button>
+                        </div>
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> unfollow</button>
+                        </div>
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> unfollow</button>
+                        </div>
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> follow</button>
+                        </div>
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> follow</button>
+                        </div>
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> follow</button>
+                        </div>
+                        <div class="content-modal-follow">
+                            <div class="foto-profil-modal-follow">
+                            </div>
+                            <span class="modal-nama"><p><b>Nama Lengkap</b></p>Username</span>
+                            <button class="button-modal-follow btn-info"> follow</button>
+                        </div>
+
+                    </div>
+                </div>
+                
+            </div>
+        </div>        
+        <!-- end modal following -->
+
+        <!-- modal edit profile -->
+            <div class="modal fade" id="modal-edit-profile" role="dialog">
+            <div class="modal-dialog modal-body-follow">
+            
+            <!-- Modal content-->
+            <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">New Posting</h4>
+                    </div>
+                    <div class="modal-body ">
+                        <div class="padding-modal-body">
+                                <form action="#" method="POST" enctype="multipart/form-data">
+                                <table>
+                                    <tr>
+                                        Username :                                       
+                                            <div class="wrap-input100">
+                                            <input class="input100" type="text" name="txtusername" placeholder="Username">
+                                            <span class="focus-input100"></span>
+                                            </div>
+                                    </tr>
+                                    <tr>
+                                        No Telp :                                       
+                                            <div class="wrap-input100">
+                                            <input class="input100" type="number" name="txtnotelp" placeholder="No Telpon">
+                                            <span class="focus-input100"></span>
+                                            </div>
+                                    </tr>
+                                    <tr>
+                                       Bio :
+                                                    <textarea name="txtbio" rows="3" cols="30" placeholder="Descrption"></textarea>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="submit" class="btn btn-default">Submit</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </form>
+                     </div>
+                </div>
+                
+            </div>
+        </div>        
+        <!-- end modal edit profile -->
+    </section>
+>>>>>>> hilmi
