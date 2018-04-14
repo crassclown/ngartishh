@@ -46,13 +46,13 @@
                                             <tr>                                      
                                                     <div class="wrap-input100">
                                                         <div class="input-group stylish-input-group">
-                                                            <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require style="width:30em;" required="required">
+                                                            <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require style="width:30em;">
                                                             <span class="focus-input100"></span>
                                                         </div>
                                                     </div>
                                             </tr>
                                             <tr>
-                                                    <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;" required="required"></textarea>
+                                                    <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;"></textarea>
                                             </tr>
                                             <tr>
                                                     Categories
@@ -63,11 +63,13 @@
                                                             <div class="form-check">
                                                                 <select name="txtcategories" id="txtcategories">
                                                                     <option value=""></option>
-                                                                    <option value="Ilustrasi">Ilustrasi</option>
-                                                                    <option value="Surealism">Surealism</option>
-                                                                    <option value="Mural">Mural</option>
-                                                                    <option value="Impresionisme">Impresionisme</option>
-                                                                    <option value="Neo-Impresionisme">Neo-Impresionisme</option>
+                                                                    <?php
+                                                                        foreach($categories as $cat){
+                                                                            ?>
+                                                                                <option value="<?=$cat->Id;?>"><?=$cat->name;?></option>
+                                                                            <?php
+                                                                        }
+                                                                    ?>
                                                                 </select>
                                                             </div>
                                                         </div>
