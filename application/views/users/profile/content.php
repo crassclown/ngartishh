@@ -111,15 +111,17 @@
 												<div class="row">
 													<div class="col-md-3">
 														<div class="form-check">
-															<select name="txtcategories" id="txtcategories">
-																<option value=""></option>
-																<option value="1">Ilustrasi</option>
-																<option value="2">Surealism</option>
-																<option value="3">Mural</option>
-																<option value="4">Impresionisme</option>
-																<option value="5">Neo-Impresionisme</option>
-															</select>
-														</div>
+                                                                <select name="txtcategories" id="txtcategories">
+                                                                    <option value=""></option>
+                                                                    <?php
+                                                                        foreach($categories as $cat){
+                                                                            ?>
+                                                                                <option value="<?=$cat->Id;?>"><?=$cat->name;?></option>
+                                                                            <?php
+                                                                        }
+                                                                    ?>
+                                                                </select>
+                                                            </div>
 													</div>
 												</div>
 											</td>
@@ -179,7 +181,10 @@
 							</p>
 							<?php echo $fer->phone ?>
 						</span>
-						<button class="button-modal-follow btn-info"> follow</button>
+						<form action="<?=base_url('c_profile/m_follows')?>" method="post">
+							<input type="hidden" name="followedid" value="<?php echo $er->Id ?>">
+							<input type="hidden" name="userid" value="<?php $this->session->userdata('Id') ?>">
+						<input type="submit" class="button-modal-follow btn-info" value="Follow">
 					</div>
 					<?php } ?>
 				</div>
@@ -211,7 +216,11 @@
 							</p>
 							<?php echo $fing->phone ?>
 						</span>
-						<button class="button-modal-follow btn-info"> follow</button>
+						<form action="<?=base_url('c_profile/m_follows')?>" method="post">
+							<input type="hidden" name="followedid" value="<?php echo $fing->Id ?>">
+							<input type="hidden" name="userid" value="<?php echo $this->session->userdata('Id') ?>">
+						<input type="submit" class="button-modal-follow btn-info" value="Follow">
+						</form>
 					</div>
 					<?php } ?>
 				</div>
@@ -221,6 +230,9 @@
 	</div>
 	<!-- end modal following -->
 </section>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+
 <script type="text/javascript">
     $(document).ready(function(){
         tampil_data_barang();   //pemanggilan fungsi tampil gambar.
@@ -432,7 +444,6 @@
 
 </script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <!-- Edit toggle -->
 <script>
 	$(function () {
@@ -489,105 +500,7 @@
 
 </script>
 <!-- END Follow Profile AJAX -->
-<!-- modal following -->
-<div class="modal fade" id="modal-edit-profil" role="dialog">
-	<div class="modal-dialog modal-body-follow">
 
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">Following</h4>
-			</div>
-			<div class="modal-body">
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> follow</button>
-				</div>
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> unfollow</button>
-				</div>
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> follow</button>
-				</div>
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> unfollow</button>
-				</div>
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> unfollow</button>
-				</div>
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> follow</button>
-				</div>
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> follow</button>
-				</div>
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> follow</button>
-				</div>
-				<div class="content-modal-follow">
-					<div class="foto-profil-modal-follow">
-					</div>
-					<span class="modal-nama">
-						<p>
-							<b>Nama Lengkap</b>
-						</p>Username</span>
-					<button class="button-modal-follow btn-info"> follow</button>
-				</div>
-
-			</div>
-		</div>
-
-	</div>
-</div>
-<!-- end modal following -->
 
 <!-- modal edit profile -->
 <div class="modal fade" id="modal-edit-profile" role="dialog">

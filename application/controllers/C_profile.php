@@ -29,6 +29,7 @@ class C_profile extends CI_Controller {
 		$data['follower'] = $this->m_users->get_userfollower($id);
 		$data['totalfollowing'] = count($this->m_users->get_userfollowing($id));
 		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
+		$data['categories'] = $this->m_users->m_categories();
 		
 		$this->load->view('users/layout/header');
 		$this->load->view('users/profile/content', $data);
@@ -81,5 +82,6 @@ class C_profile extends CI_Controller {
 			//$this->load->view('users/profile/content', $data);
 			$this->m_users->userUnfollow($varUserid, $varFollowedid);	
 		}
+		redirect('c_profile/m_users/'.$varUserid.'');
 	}
 }
