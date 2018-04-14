@@ -61,7 +61,7 @@
                                                     <div class="row">
                                                         <div class="col-md-3">                                                            
                                                             <div class="form-check">
-                                                                <select name="txtcategories" id="txtcategories" style="width:1500%;" required="required">
+                                                                <select name="txtcategories" id="txtcategories">
                                                                     <option value=""></option>
                                                                     <option value="1">Ilustrasi</option>
                                                                     <option value="2">Surealism</option>
@@ -125,9 +125,10 @@
                                     '<b>'+data[i].namalengkap.trim().substr(0,1).toUpperCase()+'</b>'+
                                     '</div>'+
                                 '</div> '+
-                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
                                 '<div class="portfolio-item">'+
+                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
                                     '<img class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
+                                    '</a>'+
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
                                             '<div class="row image-icons">'+
@@ -148,7 +149,7 @@
                                         '</div>'+
                                     '</div>'+  
                                 '</div>'+
-                                '</a>'+
+                                
                             '</div>'+
                         '</article>';
                     }
@@ -158,7 +159,7 @@
                 
             });
         }
-        $('.like').click(function() {
+        $(document).on("click",".like",function() {
             var content_id = $(this).attr("data-contentid");
             var user_id = $(this).attr("data-sessionuserid");
             $.ajax({
@@ -168,33 +169,11 @@
                 success: function(response) 
                 { 
                     tampil_data_barang();
-                    setTimeout(function(){
-                        location.reload();
-                    },1000);
                 }
             });
         });
     });
   </script>
-
-  <script>
-    // $(document).ready(function() {
-    //     $('.like').click(function() {
-    //         var content_id = $(this).attr("data-contentid");
-    //         var user_id = $(this).attr("data-sessionuserid");
-    //         $.ajax({
-    //             url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-    //             type: 'post',
-    //             data: { "content_id": content_id, "user_id": user_id},
-    //             success: function(response) 
-    //             { 
-    //                 location.reload();
-    //             }
-    //         });
-    //     });
-    // });
-  </script>
-
   <script>
 		$(document).ready(function(){
 
@@ -328,69 +307,5 @@
         $("#txtcategories").select2({
             placeholder: "Please select the category"
         });
-    });
-</script>
-<script>
-    /**
-    * @author ComFreek
-    * @license MIT (c) 2013-2015 ComFreek <http://stackoverflow.com/users/603003/comfreek>
-    * Please retain this author and license notice!
-    */
-    (function (exports) {
-        function valOrFunction(val, ctx, args) {
-            if (typeof val == "function") {
-                return val.apply(ctx, args);
-            } else {
-                return val;
-            }
-        }
-
-        function InvalidInputHelper(input, options) {
-            input.setCustomValidity(valOrFunction(options.defaultText, window, [input]));
-
-            function changeOrInput() {
-                if (input.value == "") {
-                    input.setCustomValidity(valOrFunction(options.emptyText, window, [input]));
-                } else {
-                    input.setCustomValidity("");
-                }
-            }
-
-            function invalid() {
-                if (input.value == "") {
-                    input.setCustomValidity(valOrFunction(options.emptyText, window, [input]));
-                } else {
-                input.setCustomValidity(valOrFunction(options.invalidText, window, [input]));
-                }
-            }
-
-            input.addEventListener("change", changeOrInput);
-            input.addEventListener("input", changeOrInput);
-            input.addEventListener("invalid", invalid);
-        }
-        exports.InvalidInputHelper = InvalidInputHelper;
-    })(window);
-
-
-
-    InvalidInputHelper(document.getElementById("txtcategories"), {
-        defaultText: "Please enter an category!",
-        emptyText: "Please enter an category!"
-    });
-    InvalidInputHelper(document.getElementById("txttitle"), {
-        defaultText: "Please enter an title!",
-        emptyText: "Please enter an title!"
-    });
-    InvalidInputHelper(document.getElementById("txtdesc"), {
-        defaultText: "Please enter an descriptiona!",
-        emptyText: "Please enter an description!"
-    });
-    InvalidInputHelper(document.getElementById("txtdesc"), {
-        defaultText: "Please enter an description!",
-        emptyText: "Please enter an description!"
-    });
-    InvalidInputHelper(document.getElementById("fileElem"), {
-        defaultText: "Please enter picture!",
-        emptyText: "Please enter picture!"
     });
 </script>

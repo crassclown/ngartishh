@@ -24,8 +24,15 @@ class C_dashboard extends CI_Controller {
 	// Call this method from AngularJS $http request
 	public function m_getContents(){
 		// get data
-		$data = $this->m_dashboard->m_getRecords();
+        $data = $this->m_dashboard->m_getRecords();
 
+        echo json_encode($data);
+    }
+    public function m_getDetailContentLike(){
+        // get data
+        $content_id = $this->input->post('content_id');
+        $user_id    = $this->input->post('user_id');
+        $data = $this->m_dashboard->m_getRecordsAjaxLike($content_id,$user_id);
         echo json_encode($data);
     }
 

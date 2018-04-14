@@ -33,7 +33,7 @@
                                         <button class="button-detail-content">Follow</button>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="#" class="like" data-contentid="<?=$vau->Id;?>" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><sup class="badge"><?=$vau->total_like;?></sup></a>
+                                        <div id="show_data"></div>
                                     </div>
                                     <div class="col-md-2">
                                         <a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt icon-detail-content"></i></a>
@@ -81,6 +81,7 @@
                     </div>
                 </div>
             </section>
+            <input type="text" name="user_id" id="user_id" value="<?=$vau->user_id;?>">
             <!-- <table>
             <tr>
                 <td>Bookmark</td>
@@ -110,21 +111,62 @@
         // });
     </script>
     <script>
-        $(document).ready(function() {
-            $('.like').click(function() {
-                var content_id = $(this).attr("data-contentid");
-                var user_id = $(this).attr("data-sessionuserid");
-                $.ajax({
-                    url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-                    type: 'post',
-                    data: { "content_id": content_id, "user_id": user_id},
-                    success: function(response) 
-                    { 
-                        location.reload();
+        // $(document).ready(function() {
+        //     $(document).on("click",".like",function() {
+        //         var content_id = $(this).attr("data-contentid");
+        //         var user_id = $(this).attr("data-sessionuserid");
+        //         $.ajax({
+        //             url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+        //             type: 'post',
+        //             data: { "content_id": content_id, "user_id": user_id},
+        //             success: function(response) 
+        //             { 
+        //                 location.reload();
+        //             }
+        //         });
+        //     });
+        // });
+
+        $(document).ready(function(){
+        tampil_data_barang();   //pemanggilan fungsi tampil gambar.
+        
+        function tampil_data_barang(){
+            var content_id  = $('#content_id').val();
+            var user_id     = $('#user_id').val();
+            $.ajax({
+                type  : 'POST',
+                url   : '<?php echo base_url()?>c_dashboard/m_getDetailContentLike',
+                async : false,
+                data: { "content_id": content_id, "user_id": user_id},
+                dataType : 'json',
+                success : function(data){
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+                        html +=                         
+                        '<a class="like" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><sup class="badge">'+data[i].total_like+'</sup>';
                     }
-                });
+                    $('#show_data').html(html);
+                    // console.log(data);
+                }
+                
+                
+            });
+        }
+        $(document).on("click",".like",function() {
+            var content_id = $(this).attr("data-contentid");
+            var user_id = $(this).attr("data-sessionuserid");
+            $.ajax({
+                url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+                type: 'post',
+                data: { "content_id": content_id, "user_id": user_id},
+                success: function(response) 
+                { 
+                    tampil_data_barang();
+                }
             });
         });
+    });
     </script>
     <script type="text/javascript">  
             	//insert book 
