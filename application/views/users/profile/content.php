@@ -504,8 +504,11 @@
                     <div class="modal-body ">
                         <div class="padding-modal-body">
                                 <form action="#" method="POST" enctype="multipart/form-data">
-								<div class="border-edit-profil">
-									<input type="file" name="foto-profil" class"input-foto-edit-profil"/>		
+								<div id="wrap-input-foto-profil">
+                                    <img id="sebelum-blah" src="#" ></img>
+
+                                    <input type="file" id="foto-profil" onchange="readURL(this);" accept="image/jpeg, image/png">
+                                    <label class="button text-center" for="foto-profil"><i class="fa fa-camera" style="font:24px;margin:15px;"></i></label>
 								</div>
                                 <table>
                                     <tr>
