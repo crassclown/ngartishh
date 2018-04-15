@@ -19,6 +19,24 @@
       $('[data-toggle="tooltip"]').tooltip();   
   });
   </script>
+  
+  <!-- put image after selected in edit -->
+  <script>
+    function readURL(input) {
+          if (input.files && input.files[0]) {
+              var reader = new FileReader();
+
+              reader.onload = function (e) {
+                  $('#sebelum-blah')
+                      .attr('src', e.target.result)
+                      .attr('id', 'blah')
+              };
+
+              reader.readAsDataURL(input.files[0]);
+
+          }
+      }
+  </script>
 </body>
 
 </html>
