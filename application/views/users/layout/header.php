@@ -152,7 +152,7 @@ function magnify(imgID, zoom) {
                         $i=1;
                         foreach($categoriesmenu as $catmenu){
                           ?>
-                            <a href="<?=base_url('c_dashboard/'.$catmenu->idCat);?>"><li class="option border-warna<?php echo $i;?>"><?=$catmenu->namaCat;?></li></a>
+                            <a href="<?=base_url('c_dashboard/m_searchcategory/'.$catmenu->idCat);?>"><li class="option border-warna<?php echo $i;?>"><?=$catmenu->namaCat;?></li></a>
                             <?php ?>
                           <?php
                           $i = $i +1;

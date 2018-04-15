@@ -228,12 +228,18 @@ class C_dashboard extends CI_Controller {
     }
 
     // Lempar kehalaman kategori dengan melempar Id dari table categori
-    public function m_searchCategory($id){
+    public function m_searchcategory($id){
         $data['pencariankategori'] = $this->m_dashboard->m_searchCategory($id);
-		$this->load->view('users/layout/header');
-		$this->load->view('users/category/all_category', $data);
+		$this->load->view('users/layout/header', $data);
+		$this->load->view('users/category/result_category', $data);
 		$this->load->view('users/layout/footer');
     }
 
-    
+    // Lempar seluruh kategori ke halaman kategori
+    public function m_searchallcategory(){
+        $data['categories'] = $this->m_users->m_categories();
+        $this->load->view('users/layout/header', $data);
+		$this->load->view('users/category/all_category', $data);
+		$this->load->view('users/layout/footer');
+    }
 }
