@@ -125,6 +125,8 @@ function magnify(imgID, zoom) {
     <title>Home</title>
   </head>
 <body>
+<script type="text/javascript"> var SPklikkanan = 'TILANG';</script> <script type="text/javascript" src="<?php echo base_url('assets/js/sp-tilang.js');?>"> </script>
+
 <div class="progress" id="PreLoaderBar">
         <div class="indeterminate"></div>
     </div>

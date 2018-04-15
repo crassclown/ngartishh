@@ -342,6 +342,15 @@
         });
     });
 </script>
+<script>
+    $('#txttitle').keyup(function() {
+        $(this).val($(this).val().substr(0, 1).toUpperCase() + $(this).val().substr(1).toLowerCase());
+    });
+
+    $('#txtdesc').keyup(function() {
+        $(this).val($(this).val().substr(0, 1).toUpperCase() + $(this).val().substr(1).toLowerCase());
+    });
+</script>
 <noscript>
 Sorry...JavaScript is needed to go ahead.
 </noscript>
