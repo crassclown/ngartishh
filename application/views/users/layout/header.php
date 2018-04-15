@@ -148,11 +148,16 @@ function magnify(imgID, zoom) {
                     <ul class="dropdown-menu">
                       <div class="border-45">
                       </div>
-                      <a href="#"><li class="option border-warna1">Ilustrasi</li></a>
-                      <a href="#"><li class="option border-warna2">Surealism</li></a>
-                      <a href="#"><li class="option border-warna3">Improsionisme</li></a>
-                      <a href="#"><li class="option border-warna4">Mural</li></a>
-                      <a href="#"><li class="option border-warna5">Neo-Improsionisme</li></a>
+                      <?php
+                        $i=1;
+                        foreach($categoriesmenu as $catmenu){
+                          ?>
+                            <a href="<?=base_url('c_dashboard/'.$catmenu->idCat);?>"><li class="option border-warna<?php echo $i;?>"><?=$catmenu->namaCat;?></li></a>
+                            <?php ?>
+                          <?php
+                          $i = $i +1;
+                        }
+                      ?>
                       <a href="#"><li class="text-center ">More</li></a>
                     </ul>
                   </li>

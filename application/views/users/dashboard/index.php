@@ -44,24 +44,24 @@
                                                 </div>
                                             </tr>
                                             <tr>                                      
-                                                    <div class="wrap-input100">
-                                                        <div class="input-group stylish-input-group">
-                                                            <input class="input100 form-control" type="text" name="txttitle" id="txttitle" placeholder="Title" require style="width:30em;">
-                                                            <span class="focus-input100"></span>
-                                                        </div>
+                                                <div class="wrap-input100">
+                                                    <div class="input-group stylish-input-group">
+                                                        <input class="input100 form-control" type="text" autofocus name="txttitle" id="txttitle" placeholder="Title" require style="width:30em;" required title="The title is required" oninvalid="this.setCustomValidity('Sorry, The title cannot be empty')" oninput="setCustomValidity('')" />
+                                                        <span class="focus-input100"></span>
                                                     </div>
+                                                </div>
                                             </tr>
                                             <tr>
-                                                    <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;"></textarea>
+                                                <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;" required title="The description is required" oninvalid="this.setCustomValidity('Sorry, The description cannot be empty')" oninput="setCustomValidity('')"></textarea>
                                             </tr>
                                             <tr>
-                                                    Categories
+                                                Categories
                                                 </td>
                                                 <td>
                                                     <div class="row">
                                                         <div class="col-md-3">                                                            
                                                             <div class="form-check">
-                                                                <select name="txtcategories" id="txtcategories">
+                                                                <select name="txtcategories" id="txtcategories" required title="The category is required" oninvalid="this.setCustomValidity('Sorry, The Category cannot be empty')" oninput="setCustomValidity('')" />
                                                                     <option value=""></option>
                                                                     <?php
                                                                         foreach($categories as $cat){
@@ -82,7 +82,7 @@
                                 <div class="col-md-6 ">
                                     <div id="drop-area">
                                         <p class="text-center">Upload files by click or drag files to this area</p>
-                                        <input type="file" id="fileElem" name="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
+                                        <input type="file" id="fileElem" name="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)" required title="The picture/photo is required">
                                         <label class="button text-center" for="fileElem"><i class="material-icons " style="font-size:60px;">file_upload</i></label>
                                     <progress id="progress-bar" max=100 value=0></progress>
                                     <div id="gallery" /></div>
@@ -179,36 +179,34 @@
   <script>
 		$(document).ready(function(){
 
-			$('#form-upload').submit(function(e) {
-				e.preventDefault();
+			$('#btnpost').click(function() {
 				var formData = new FormData($(this)[0]);
-                
                 var varTitle    = $('#txttitle').val();
                 var varDesc     = $('#txtdesc').val();
                 var varCat      = $('#txtcategories').val();
                 var varPic      = $('#fileElem').val();
-                if(varTitle == ''){
+                if(varTitle == '' || varTitle == NULL){
                     swal({
                         type: 'error',
                         title: 'The title is required',
                         animation: true,
                         customClass: 'animated tada'
                     })
-                }else if(varDesc == ''){
+                }else if(varDesc == '' || varDesc == NULL){
                 swal({
                     type: 'error',
                     title: 'The description is required',
                     animation: true,
                     customClass: 'animated tada'
                 })
-                }else if(varCat == ''){
+                }else if(varCat == '' || varCat == NULL){
                 swal({
                     type: 'error',
                     title: 'The category is required',
                     animation: true,
                     customClass: 'animated tada'
                 })
-                }else if(varPic == ''){
+                }else if(varPic == '' || varPic == NULL){
                     swal({
                     type: 'error',
                     title: 'Picture is required',
@@ -311,3 +309,6 @@
         });
     });
 </script>
+<noscript>
+Sorry...JavaScript is needed to go ahead.
+</noscript>

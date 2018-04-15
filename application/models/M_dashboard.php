@@ -74,4 +74,21 @@ class M_dashboard extends CI_Model
             return $data;
         }
     }
+
+    function m_searchCategory($id){
+        //Select content records
+        $q = $this->db->query("SELECT *, category.name as namakat, category.desc as desckat, users.fullname as namalengkap, users.Id as Iduser FROM content LEFT JOIN users ON users.Id = content.user_id LEFT JOIN category ON content.category_id = category.Id WHERE content.category_id='$id' OR content.category_id LIKE '%$Id%'");
+        
+        
+        if($q->num_rows() > 0)
+        {
+            // we will store the results in the form of class methods by using $q->result()
+            // if you want to store them as an array you can use $q->result_array()
+            foreach ($q->result() as $row)
+            {
+            $data[] = $row;
+            }
+            return $data;
+        }
+    }
 }

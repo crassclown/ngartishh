@@ -263,5 +263,8 @@
             with the id of the image, and the strength of the magnifier glass:*/
             magnify("perbesar", 5);
         </script>
+        <noscript>
+            Sorry...JavaScript is needed to go ahead.
+        </noscript>
 </body>
 </html>
