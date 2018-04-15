@@ -153,7 +153,7 @@ function magnify(imgID, zoom) {
                       <a href="#"><li class="option border-warna3">Improsionisme</li></a>
                       <a href="#"><li class="option border-warna4">Mural</li></a>
                       <a href="#"><li class="option border-warna5">Neo-Improsionisme</li></a>
-                      <a href="#"><li class="text-center ">More</li></a>
+                      <a href="<?php echo base_url('c_category/');?>"><li class="text-center ">More</li></a>
                     </ul>
                   </li>
                 </div>

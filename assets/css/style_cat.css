@@ -1,0 +1,150 @@
+/* -------- [Master Stylesheet] --------
+:: 1.0 Base CSS
+:: 2.0 CATEGORY
+----------------------------------- */
+
+/* ***** Fonts ***** */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700|Quicksand:300,400,500,700|Shadows+Into+Light+Two');
+
+/* ***** Import CSS ***** */
+
+@import 'css/bootstrap/bootstrap4.min.css';
+@import 'css/others/animate.css';
+@import 'css/others/font-awesome.min.css';
+
+
+/* --------------------
+        Base CSS
+-------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    z-index: auto;
+}
+
+h2,
+h5
+ {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    color: #232d37;
+    line-height: 1.25;
+}
+
+p {
+    color: #51545f;
+    font-size: 16px;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+}
+
+#scrollUp {
+    bottom: 55px;
+    font-size: 14px;
+    right: 50%;
+    width: 30px;
+    background-color: #fc6c3f;
+    color: #fff;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 50%;
+    margin-right: -15px;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+    font-weight: 500;
+    outline: none;
+}
+
+
+
+
+
+
+#preloader {
+    overflow: hidden;
+    background-color: #fff;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999999;
+}
+
+
+
+
+/* --------------------
+       CATEGORY
+-------------------- */
+
+.all_cat {
+    padding: 50px 0px 0px 0px;
+}
+
+.categories_area {
+    padding: 80px 0px 50px 0px;
+}
+
+.single_catagory {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 30px;
+}
+
+.single_catagory img {
+    border-radius: 10px;
+}
+
+.catagory-title {
+    width: 250px;
+    height: 50px;
+    background-color: rgba(255,255,255,0.5);
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    border-radius: 10px;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+.single_catagory:hover .catagory-title {
+    background-color: rgba(181, 10, 164,0.7	);
+}
+
+.catagory-title a > h5 {
+    margin-bottom: 0;
+    line-height: 50px;
+    -webkit-transition-duration: 500ms;
+    transition-duration: 500ms;
+}
+
+.single_catagory:hover .catagory-title a > h5 {
+    color: #fff;
+}
