@@ -1,3 +1,16 @@
+<?php $this->session->userdata("Id"); ?>
+    <section  class="section appear clearfix" style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>')">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 border-content">
+                    <div class="portfolio-items isotopeWrapper clearfix ">
+                        <div class="row">
+                            <div id="show_data"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 <!DOCTYPE html>
 <html lang="en">
 
