@@ -114,9 +114,20 @@ function magnify(imgID, zoom) {
   }
 }
 </script>
+<script>
+  document.onreadystatechange = function () {
+      if (document.readyState === "complete") {
+          console.log(document.readyState);
+          document.getElementById("PreLoaderBar").style.display = "none";
+      }
+  }
+</script>
     <title>Home</title>
-</head>
+  </head>
 <body>
+<div class="progress" id="PreLoaderBar">
+        <div class="indeterminate"></div>
+    </div>
   <header>
     <nav class="navbar ">
       <div class="main-menu ">
