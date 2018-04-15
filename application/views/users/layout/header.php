@@ -158,7 +158,7 @@ function magnify(imgID, zoom) {
                           $i = $i +1;
                         }
                       ?>
-                      <a href="#"><li class="text-center ">More</li></a>
+                      <a href="<?=base_url('c_dashboard/m_searchallcategory/');?>"><li class="text-center ">More</li></a>
                     </ul>
                   </li>
                 </div>
