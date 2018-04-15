@@ -5,7 +5,7 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-3">
-                    <p class="baris-foto-profil"><div class="foto-profil"></div><span class="nama-foto-profil">Hilmi Nico Putra</span></p>
+                    <p class="baris-foto-profil"><div class="foto-profil">H</div><span class="nama-foto-profil">Hilmi Nico Putra</span></p>
                 </div>
                 <div class="col-md-2 padding-button-follow">
                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Followers" data-target="#modal-followers">followers <b> 1234</b></button>

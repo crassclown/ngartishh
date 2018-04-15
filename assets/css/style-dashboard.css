@@ -326,6 +326,9 @@ nav#filter ul {
 .foto-profil{
 	width:70px;
 	height: 70px;
+	padding-top:23px;
+	font-size: 30px;
+	text-align: center;
 	background: #ddd;
 	border-radius: 50%;
 
