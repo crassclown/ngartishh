@@ -54,9 +54,10 @@ class C_dashboard extends CI_Controller {
             'Id' => $content_id,
             'user_id' => $user_id
         );
+        $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
         $data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
-		$this->load->view('users/layout/header');
+		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/detail_content', $data);
 		$this->load->view('users/layout/footer');
 	}
@@ -134,7 +135,6 @@ class C_dashboard extends CI_Controller {
                 $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
                 $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;        
                 $time = strtotime($records->tgl_comments);
-                // echo $time;
 
                 $time = time() - $time; // to get the time since that moment
 
@@ -197,33 +197,44 @@ class C_dashboard extends CI_Controller {
         $this->load->library('upload', $config);
 
         if (!$this->upload->do_upload('fileElem')) {
-            $error = $this->upload->display_errors();
-            echo json_encode(array('status' => false, 'error' => $error));
-            // $this->session->set_flashdata('bigger_file','Please check your size file/photo, we provide a 2 MB image size');
-        } else {
-            $this->load->model('m_users');
-            $upload = $this->upload->data();
-            $varTL  = '0';
-            $varTC  = '0';
-            // $datas = array(
-            //     'name'          => $this->input->post('txtdesc'),
-            //     'user_id'       => $this->input->post('txtsession')
-            // );
-            $data = array(
-                'total_like'    => $varTL,
-                'total_comment' => $varTC,
-                'title'         => $this->input->post('txttitle'),
-                'desc'          => $this->input->post('txtdesc'),
-                'user_id'       => $this->input->post('txtsession'),
-                'photos'        => $upload['file_name'],
-                'created_at'    => date("Y-m-d H:i:s"),
-                'category_id'   => $this->input->post('txtcategories'),
-            );
-
-            $id = $this->m_users->insert($data);
-            // $datacategory = $this->m_users->insert($datas);
-            // header("Refresh:0");
+            // $error = $this->upload->display_errors();
+            // echo json_encode(array('status' => false));
             // redirect(base_url("c_dashboard/"));
+            echo "<script>window.history.go(-1);</script>";
+            $this->session->set_flashdata('bigger_file','Your image is so large, maximum is just 2 MB');
+        } else {
+            if($this->input->post('txttitle') == NULL || $this->input->post('txttitle') == ''){
+                redirect(base_url("c_dashboard/"));
+                $this->session->set_flashdata('titlereq','The title is required');
+            }
+            else if($this->input->post('txtdesc') == NULL || $this->input->post('txtdesc') == ''){
+                redirect(base_url("c_dashboard/"));
+                $this->session->set_flashdata('descreq','The description is required');
+            }
+            else{
+                $this->load->model('m_users');
+                $upload = $this->upload->data();
+                $varTL  = '0';
+                $varTC  = '0';
+                // $datas = array(
+                //     'name'          => $this->input->post('txtdesc'),
+                //     'user_id'       => $this->input->post('txtsession')
+                // );
+                $data = array(
+                    'total_like'    => $varTL,
+                    'total_comment' => $varTC,
+                    'title'         => $this->input->post('txttitle'),
+                    'desc'          => $this->input->post('txtdesc'),
+                    'user_id'       => $this->input->post('txtsession'),
+                    'photos'        => $upload['file_name'],
+                    'created_at'    => date("Y-m-d H:i:s"),
+                    'category_id'   => $this->input->post('txtcategories'),
+                );
+
+                $id = $this->m_users->insert($data);
+                // $datacategory = $this->m_users->insert($datas);
+                redirect(base_url("c_dashboard/"));
+            }
         }
     }
 

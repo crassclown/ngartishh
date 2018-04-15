@@ -60,7 +60,7 @@ class M_dashboard extends CI_Model
 
     function m_nameOnContent($content_id,$user_id){
         //Select content records
-        $q = $this->db->query("SELECT *, category.name as namakat, category.desc as desckat, users.fullname as namalengkap, users.fullname as namalengkap, users.Id as Iduser FROM content LEFT JOIN users ON users.Id = content.user_id LEFT JOIN category ON content.category_id = category.Id WHERE content.Id='$content_id' AND content.user_id='$user_id'");
+        $q = $this->db->query("SELECT *, category.name as namakat, category.desc as desckat, users.fullname as namalengkap, users.fullname as namalengkap, users.Id as Iduser,  content.created_at as tgl_publish FROM content LEFT JOIN users ON users.Id = content.user_id LEFT JOIN category ON content.category_id = category.Id WHERE content.Id='$content_id' AND content.user_id='$user_id'");
         
         
         if($q->num_rows() > 0)

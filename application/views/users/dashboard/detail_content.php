@@ -1,4 +1,3 @@
-<body>
     <?php
         foreach($varambilusers as $vau){
             ?>
@@ -17,27 +16,48 @@
                                                 </div>
                                                 
                                                 <span class="nama-detail-content"><?=$van->namalengkap;?></span>
-
                                             </div>
                                         </a>                                    
-                                <div class="deskripsi-singkat-detail-content">
-                                    <h5><b class="judul"><?=$vau->title;?></b> - <small class="label label-info"><?=$van->namakat;?></small></h5>
-                                    <p><?=$vau->desc;?></p>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <button class="button-detail-content">Follow</button>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <div id="show_data"></div>
-                                    </div>
-                                    <div class="col-md-2">
-                                        <a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt icon-detail-content"></i></a>
-                                    </div>
-                                    <!-- <div class="col-md-3">
-                                    <button class="button-detail-content" data-toggle="tooltip" data-placement="bottom" title="Akan dilelang 12-12-1212">Status</button>
-                                    </div> -->
-                                </div>
+                                        <div class="deskripsi-singkat-detail-content">
+                                            <?php
+                                            $namabulan = array(
+                                                1=>"Januari",
+                                                2=>"Februari",
+                                                3=>"Maret",
+                                                4=>"April",
+                                                5=>"Mei",
+                                                6=>"Juni",
+                                                7=>"Juli",
+                                                8=>"Agustus",
+                                                9=>"September",
+                                                10=>"Oktober",
+                                                11=>"November",
+                                                12=>"Desember"
+                                            );
+                                            $explode=explode(" ",$van->tgl_publish);
+
+                                            $d=list($thn,$bln,$tgl)=explode('-',$explode[0]);
+                                            $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;
+                                            $time = strtotime($van->tgl_publish);
+                                            ?>
+                                            <sub data-toggle="tooltip" title="<?php echo $indate.' . '.$explode[1];?>"><time class="timeago" datetime="<?php echo $indate.' . '.$explode[1];?>"></time></sub>
+                                            <h5><b class="judul"><?=$vau->title;?></b> - <small class="label label-info"><?=$van->namakat;?></small></h5>
+                                            <p><?=$vau->desc;?></p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <button class="button-detail-content" data-toggle="tooltip" title="Follow">Follow</button>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <div id="show_data"></div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <a class="a2a_dd" href="https://www.addtoany.com/share" data-toggle="tooltip" title="Share"><i class="fa fa-share-alt icon-detail-content"></i></a>
+                                            </div>
+                                            <!-- <div class="col-md-3">
+                                            <button class="button-detail-content" data-toggle="tooltip" data-placement="bottom" title="Akan dilelang 12-12-1212">Status</button>
+                                            </div> -->
+                                        </div>  
                                 <?php
                                     }
                                 ?>
@@ -66,7 +86,7 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3 no-left-padding">
-                                            <button class="btn btn-primary submit-komentar" id="comments" type="button" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">Comment</button>
+                                            <button class="btn btn-primary submit-komentar" id="comments" type="button" data-toggle="tooltip" title="Comments" data-contentidc="<?=$vau->Id;?>" data-sessionuseridc="<?php echo $this->session->userdata("Id");?>">Comment</button>
                                             <!-- <div id="icard" class="drag"></div> -->
                                             <input type="hidden" name="content_id" id="content_id" value="<?=$vau->Id;?>">
                                         </div>
@@ -81,34 +101,10 @@
                 </div>
             </section>
             <input type="hidden" name="user_id" id="user_id" value="<?=$vau->user_id;?>">
-            <!-- <table>
-            <tr>
-                <td>Bookmark</td>
-                <td>:</td>
-                <td>
-                    <form action="" method="POST">
-                        <input type="text" id="content_id" name="content_id" value="<?=$vau->Id;?>" />
-                        <input type="hidden" id="user_id" name="user_id" value="<?php echo $this->session->userdata("Id"); ?>" />
-                        <input type="button" id="bookmark" name="bookmark" value="Bookmark" />
-                    </form>
-                </td>
-            </tr>
-            
-            </table>
-             -->
             <?php
         }
     ?>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
-        // $('.comment').bind('keypress', function(e)
-        // {
-        //     if(e.keyCode == 13)
-        //     {
-        //         return false;
-        //     }
-        // });
-    </script>
     <script>
         $(document).ready(function(){
         tampil_data_barang();   //pemanggilan fungsi tampil gambar.
@@ -127,7 +123,7 @@
                     var i;
                     for(i=0; i<data.length; i++){
                         html +=                         
-                        '<a class="like" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><sup class="badge">'+data[i].total_like+'</sup>';
+                        '<a style="cursor: pointer;" class="like" data-toggle="tooltip" title="Like" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><i class="fa fa-thumbs-up icon-detail-content"></i><sup class="badge">'+data[i].total_like+'</sup>';
                     }
                     $('#show_data').html(html);
                 }
@@ -170,24 +166,12 @@
     </script>
     <script type="text/javascript">
     $(document).ready(function(){
-        // $('.comment').bind('keypress', function(e)
-        // {
-        //     if(e.keyCode == 13)
-        //     {
-        //         return false;
-        //     }
-        // });
-
         $('.comment').keypress(function(e) {
             if (e.which == 13) {
                 $(this).next('#comments').focus();
                 e.preventDefault();
             }
         });
-    
-        // $('.comment').change(function(e) {
-        //     $('#comments').focus();
-        // });
         $("#comments").click(function(){
             var content_id  = $(this).attr("data-contentidc");
             var user_id     = $(this).attr("data-sessionuseridc");
@@ -204,9 +188,8 @@
                         "desc":desc
                     },
                     success:function(html){
-                        m_load_comments();
-                        
                         $('#desc').val('');
+                        m_load_comments();
                     }
                 });
             }else{
@@ -251,20 +234,25 @@
 // }
 </script>
 <script src="<?=base_url('assets/js/zoom.js');?>"></script>
-		<script>
-			document.querySelector( '.content-zoom' ).addEventListener( 'click', function( event ) {
-				event.preventDefault();
-				zoom.to({ element: event.target });
-			} );
-		</script>
+<script src="<?=base_url('assets/js/jquery.timeago.js');?>" type="text/javascript"></script>
+<script>
+    document.querySelector( '.content-zoom' ).addEventListener( 'click', function( event ) {
+        event.preventDefault();
+        zoom.to({ element: event.target });
+    } );
+</script>
 
-        <script>
-            /* Initiate Magnify Function
-            with the id of the image, and the strength of the magnifier glass:*/
-            magnify("perbesar", 5);
-        </script>
-        <noscript>
-            Sorry...JavaScript is needed to go ahead.
-        </noscript>
-</body>
-</html>
+<script>
+    /* Initiate Magnify Function
+    with the id of the image, and the strength of the magnifier glass:*/
+    magnify("perbesar", 5);
+</script>
+<script>
+    jQuery(document).ready(function() {
+        jQuery("time.timeago").timeago();
+    });
+</script>
+
+<noscript>
+    Sorry...JavaScript is needed to go ahead.
+</noscript>

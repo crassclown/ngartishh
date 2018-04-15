@@ -33,6 +33,45 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="padding-modal-body">
+                                    <?php
+                                        if($this->session->flashdata('titlereq')){
+                                            ?>
+                                              <script>
+                                                swal({
+                                                  title: "Required",
+                                                  text: "<?php echo $this->session->flashdata('titlereq'); ?>",
+                                                  timer: 2000,
+                                                  showConfirmButton: false,
+                                                  type: 'error'
+                                                });
+                                              </script>
+                                            <?php
+                                        }else if($this->session->flashdata('descreq')){
+                                            ?>
+                                              <script>
+                                                swal({
+                                                  title: "Required",
+                                                  text: "<?php echo $this->session->flashdata('descreq'); ?>",
+                                                  timer: 3000,
+                                                  showConfirmButton: false,
+                                                  type: 'error'
+                                                });
+                                              </script>
+                                            <?php
+                                        }else if($this->session->flashdata('bigger_file')){
+                                            ?>
+                                              <script>
+                                                swal({
+                                                  title: "Oops",
+                                                  text: "<?php echo $this->session->flashdata('bigger_file'); ?>",
+                                                  timer: 2000,
+                                                  showConfirmButton: false,
+                                                  type: 'error'
+                                                });
+                                              </script>
+                                            <?php
+                                        }
+                                    ?>
                                     <form method="POST" enctype="multipart/form-data" id="form-upload" autocomplete="off" action="<?php echo site_url('c_dashboard/do_upload');?>">
                                         <table>
                                             <tr>                                      
@@ -46,13 +85,13 @@
                                             <tr>                                      
                                                 <div class="wrap-input100">
                                                     <div class="input-group stylish-input-group">
-                                                        <input class="input100 form-control" type="text" autofocus name="txttitle" id="txttitle" placeholder="Title" require style="width:30em;" required title="The title is required" oninvalid="this.setCustomValidity('Sorry, The title cannot be empty')" oninput="setCustomValidity('')" />
+                                                        <input class="input100 form-control" type="text" autofocus name="txttitle" id="txttitle" placeholder="Title" style="width:30em;" required title="The title is required" oninvalid="this.setCustomValidity('Sorry, The title cannot be empty')" oninput="setCustomValidity('')" />
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </div>
                                             </tr>
                                             <tr>
-                                                <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" require style="width:30em;" required title="The description is required" oninvalid="this.setCustomValidity('Sorry, The description cannot be empty')" oninput="setCustomValidity('')"></textarea>
+                                                <textarea name="txtdesc" rows="3" cols="30" placeholder="Description" class="form-control" id="txtdesc" required style="width:30em;" title="The description is required" oninvalid="this.setCustomValidity('Sorry, The description cannot be empty')" oninput="setCustomValidity('')"></textarea>
                                             </tr>
                                             <tr>
                                                 Categories
@@ -82,7 +121,7 @@
                                 <div class="col-md-6 ">
                                     <div id="drop-area">
                                         <p class="text-center">Upload files by click or drag files to this area</p>
-                                        <input type="file" id="fileElem" name="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)" required title="The picture/photo is required">
+                                        <input type="file" id="fileElem" name="fileElem" multiple accept="image/*" onchange="handleFiles(this.files)">
                                         <label class="button text-center" for="fileElem"><i class="material-icons " style="font-size:60px;">file_upload</i></label>
                                     <progress id="progress-bar" max=100 value=0></progress>
                                     <div id="gallery" /></div>
@@ -137,12 +176,12 @@
                                                 '<div class="col-md-4 col-lg-4">'+
                                                     '<ol class="grid">'+
                                                         '<li class="grid__item">'+
-                                                            '<a class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
+                                                            '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
                                                         '</li>'+
                                                     '</ol>'+
                                                 '</div>'+
                                                 '<div class="col-md-4 col-lg-4">'+
-                                                    '<a><i class="fa fa-comment"></i><sup class="badge">'+data[i].total_comment+'</sup></a>'+
+                                                    '<a style="cursor: pointer;"><i class="fa fa-comment"></i><sup class="badge">'+data[i].total_comment+'</sup></a>'+
                                                 '</div>'+
                                                 '<div class="col-md-4 col-lg-4">'+
                                                     '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
@@ -179,34 +218,34 @@
   <script>
 		$(document).ready(function(){
 
-			$('#btnpost').click(function() {
+			$('#btnpost').on('submit',function() {
 				var formData = new FormData($(this)[0]);
                 var varTitle    = $('#txttitle').val();
                 var varDesc     = $('#txtdesc').val();
                 var varCat      = $('#txtcategories').val();
                 var varPic      = $('#fileElem').val();
-                if(varTitle == '' || varTitle == NULL){
+                if(varTitle == ''){
                     swal({
                         type: 'error',
                         title: 'The title is required',
                         animation: true,
                         customClass: 'animated tada'
                     })
-                }else if(varDesc == '' || varDesc == NULL){
+                }else if(varDesc == ''){
                 swal({
                     type: 'error',
                     title: 'The description is required',
                     animation: true,
                     customClass: 'animated tada'
                 })
-                }else if(varCat == '' || varCat == NULL){
+                }else if(varCat == ''){
                 swal({
                     type: 'error',
                     title: 'The category is required',
                     animation: true,
                     customClass: 'animated tada'
                 })
-                }else if(varPic == '' || varPic == NULL){
+                }else if(varPic == ''){
                     swal({
                     type: 'error',
                     title: 'Picture is required',
@@ -215,7 +254,7 @@
                 })
                 }else{
                     //reset error messsage
-                    $('.error').html('');
+                    // $('.error').html('');
                     $.ajax({
                         url: $(this).attr("action"),
                         type: 'POST',
@@ -225,14 +264,8 @@
                         beforeSend: function() {
                             $('#btnpost').prop('disabled', true);
                         },
-                        success: function(response) {
-                            if(!response.status) {
-                                $('.error').html(response.error);
-                            }
-                        },
                         complete: function() {
                             $('#btnpost').prop('disabled', false);
-                            location.reload();
                         },
                         cache: false,
                         contentType: false,
