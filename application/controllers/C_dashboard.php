@@ -237,6 +237,8 @@ class C_dashboard extends CI_Controller {
 
     // Lempar seluruh kategori ke halaman kategori
     public function m_searchallcategory(){
+
+        $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['categories'] = $this->m_users->m_categories();
         $this->load->view('users/layout/header', $data);
 		$this->load->view('users/category/all_category', $data);

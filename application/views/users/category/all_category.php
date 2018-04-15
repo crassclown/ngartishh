@@ -41,7 +41,7 @@
                 <!-- Semua Kategori -->
                 <div class="col-12">
                     <div class="all_cat text-center" >
-                        <h2>Semua Kategory</h2>
+                        <h2>All Category</h2>
                     </div>
                 </div>
             </div>
@@ -51,93 +51,22 @@
     <section class="categories_area clearfix" id="about">
         <div class="container">
             <div class="row">
-                <div class="col-12 col-md-3 col-lg-3">
-                    <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
-                        <img src=<?php echo base_url("assets/images/catagory-img/1.jpg")?> alt="">
-                        <div class="catagory-title">
-                            <a href="#">
-                                <h5>Food</h5>
-                            </a>
+                <?php
+                foreach($categories as $categmenu){
+                    ?>
+                        <div class="col-12 col-md-3 col-lg-3">
+                            <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
+                                <img src=<?php echo base_url("assets/images/catagory-img/4.jpg")?> alt="">
+                                <div class="catagory-title">
+                                    <a href="<?=base_url('c_dashboard/m_searchcategory/'.$categmenu->Id);?>">
+                                        <h5><?=$categmenu->name;?></h5>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
-				
-				<div class="col-12 col-md-3 col-lg-3">
-                    <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
-                        <img src="<?php echo base_url("assets/images/catagory-img/2.jpg")?>" alt="">
-                        <div class="catagory-title">
-                            <a href="#">
-                                <h5>Food</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-				
-                <div class="col-12 col-md-3 col-lg-3">
-                    <div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
-                        <img src="<?php echo base_url("assets/images/catagory-img/3.jpg")?>" alt="">
-                        <div class="catagory-title">
-                            <a href="#">
-                                <h5>Cooking</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3">
-                    <div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
-                        <img src="<?php echo base_url("assets/images/catagory-img/1.jpg")?>" alt="">
-                        <div class="catagory-title">
-                            <a href="#">
-                                <h5>Life Style</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-md-3 col-lg-3">
-                    <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
-                        <img src=<?php echo base_url("assets/images/catagory-img/1.jpg")?> alt="">
-                        <div class="catagory-title">
-                            <a href="#">
-                                <h5>Food</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-				
-				<div class="col-12 col-md-3 col-lg-3">
-                    <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
-                        <img src="<?php echo base_url("assets/images/catagory-img/2.jpg")?>" alt="">
-                        <div class="catagory-title">
-                            <a href="#">
-                                <h5>Food</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-				
-                <div class="col-12 col-md-3 col-lg-3">
-                    <div class="single_catagory wow fadeInUp" data-wow-delay=".6s">
-                        <img src="<?php echo base_url("assets/images/catagory-img/3.jpg")?>" alt="">
-                        <div class="catagory-title">
-                            <a href="#">
-                                <h5>Cooking</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 col-md-3 col-lg-3">
-                    <div class="single_catagory wow fadeInUp" data-wow-delay=".9s">
-                        <img src="<?php echo base_url("assets/images/catagory-img/1.jpg")?>" alt="">
-                        <div class="catagory-title">
-                            <a href="#">
-                                <h5>Life Style</h5>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </section>

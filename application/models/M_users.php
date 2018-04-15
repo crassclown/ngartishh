@@ -198,7 +198,7 @@ class M_users extends CI_Model
 	//Menampilkan Table Category
 	public function m_categoriesmenu() {
         //Select content records
-		$q = $this->db->query("SELECT *, category.Id as idCat, category.name as namaCat, category.desc as desccat FROM category LIMIT 5");
+		$q = $this->db->query("SELECT *, category.Id as idCat, category.name as namaCat, category.desc as desccat FROM category ORDER BY Id ASC LIMIT 5");
        
         if($q->num_rows() > 0)
         {
