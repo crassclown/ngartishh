@@ -65,7 +65,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="wrap-detail-content page-content-perbesar content-zoom">
-                                    <img class="img-detail-content" id="perbesar" src="<?php echo base_url('assets/images/content/'.$vau->photos)?>" alt="<?=$vau->photos;?>"></img>
+                                    <img class="img-detail-content" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" id="perbesar" src="<?php echo base_url('assets/images/content/'.$vau->photos)?>" alt="<?=$vau->photos;?>"></img>
                                     <h4 class="text-center margin-top-judul"><b><?=$vau->title;?></b></h4>
                             </div>
                         </div>

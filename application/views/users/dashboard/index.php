@@ -1,5 +1,5 @@
 <?php $this->session->userdata("Id"); ?>
-    <section  class="section appear clearfix" style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>')">
+    <section  class="section appear clearfix" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>')">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 border-content">
@@ -45,7 +45,7 @@
                                 '</div> '+
                                 '<div class="portfolio-item">'+
                                 '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
-                                    '<img class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
+                                    '<img class="img-content img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '</a>'+
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+

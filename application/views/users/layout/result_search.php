@@ -14,7 +14,7 @@
                                         <a href="<?=base_url('c_dashboard/m_detailContent/'.$result->Idcontent.'/'.$result->Iduser);?>">
                                             <div class="line-result-search">
                                                 <div class="wrap-foto-content-search-result">
-                                                    <img class="foto-content-search-result" src="<?php echo base_url('assets/images/content/'.$result->photos)?>"></img>
+                                                    <img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="foto-content-search-result" src="<?php echo base_url('assets/images/content/'.$result->photos)?>"></img>
                                                 </div>
 
                                                 <div class="wrap-mini-foto-profil">
@@ -26,7 +26,7 @@
                                                     </div> 
                                                 </div>
                                                 <div class="judul-search-result">
-                                                    <h2><?=$result->judulcontent;?><h2>
+                                                    <h2><?=substr($result->judulcontent,0,20);?><h2>
                                                 </div> 
                                                 <div class="deskripsi-search-result">
                                                     <?=substr($result->desccontent,0,80) . '...';?>
