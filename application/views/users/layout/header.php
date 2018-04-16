@@ -114,9 +114,22 @@ function magnify(imgID, zoom) {
   }
 }
 </script>
+<script>
+  document.onreadystatechange = function () {
+      if (document.readyState === "complete") {
+          console.log(document.readyState);
+          document.getElementById("PreLoaderBar").style.display = "none";
+      }
+  }
+</script>
     <title>Home</title>
-</head>
+  </head>
 <body>
+<script type="text/javascript"> var SPklikkanan = 'TILANG';</script> <script type="text/javascript" src="<?php echo base_url('assets/js/sp-tilang.js');?>"> </script>
+
+<div class="progress" id="PreLoaderBar">
+        <div class="indeterminate"></div>
+    </div>
   <header>
     <nav class="navbar ">
       <div class="main-menu ">
@@ -148,12 +161,17 @@ function magnify(imgID, zoom) {
                     <ul class="dropdown-menu">
                       <div class="border-45">
                       </div>
-                      <a href="#"><li class="option border-warna1">Ilustrasi</li></a>
-                      <a href="#"><li class="option border-warna2">Surealism</li></a>
-                      <a href="#"><li class="option border-warna3">Improsionisme</li></a>
-                      <a href="#"><li class="option border-warna4">Mural</li></a>
-                      <a href="#"><li class="option border-warna5">Neo-Improsionisme</li></a>
-                      <a href="#"><li class="text-center ">More</li></a>
+                      <?php
+                        $i=1;
+                        foreach($categoriesmenu as $catmenu){
+                          ?>
+                            <a href="<?=base_url('c_dashboard/m_searchcategory/'.$catmenu->idCat);?>"><li class="option border-warna<?php echo $i;?>"><?=$catmenu->namaCat;?></li></a>
+                            <?php ?>
+                          <?php
+                          $i = $i +1;
+                        }
+                      ?>
+                      <a href="<?=base_url('c_dashboard/m_searchallcategory/');?>"><li class="text-center ">More</li></a>
                     </ul>
                   </li>
                 </div>
