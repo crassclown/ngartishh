@@ -7,75 +7,38 @@
                 </div>
                 <div class="col-md-10 col-lg-10">
                     <div class="wrap-border-result-search">
-                        <div class="line-result-search">
+                        <?php
+                            if(is_array($pencariankategori)){
+                                foreach($pencariankategori as $result){
+                                    ?>
+                                        <a href="<?=base_url('c_dashboard/m_detailContent/'.$result->Idcontent.'/'.$result->Iduser);?>">
+                                            <div class="line-result-search">
+                                                <div class="wrap-foto-content-search-result">
+                                                    <img class="foto-content-search-result" src="<?php echo base_url('assets/images/content/'.$result->photos)?>"></img>
+                                                </div>
 
-                            <div class="wrap-foto-content-search-result">
-                                <img class="foto-content-search-result" src="<?php echo base_url('assets/images/1.png')?>"></img>
-                            </div>
-
-                            <div class="wrap-mini-foto-profil">
-                                <div class="mini-foto-profil">
-                                    <p>H</p>
-                                </div>
-                                <div class="nama-mini-foto-profil">
-                                    Hilmi Nico Putra
-                                </div> 
-                            </div>
-                            <div class="judul-search-result">
-                                <h2>ini judul nya<h2>
-                            </div> 
-                            <div class="deskripsi-search-result">
-                                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                                bla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla bla
-                            </div> 
-                        </div>
-
-                        <div class="line-result-search">
-
-                            <div class="wrap-foto-content-search-result">
-                                <img class="foto-content-search-result" src="<?php echo base_url('assets/images/index.jpg')?>"></img>
-                            </div>
-
-                            <div class="wrap-mini-foto-profil">
-                                <div class="mini-foto-profil">
-                                    <p>H</p>
-                                </div>
-                                <div class="nama-mini-foto-profil">
-                                    Hilmi Nico Putra
-                                </div> 
-                            </div>
-                            <div class="judul-search-result">
-                                <h2>ini judul nya<h2>
-                            </div> 
-                            <div class="deskripsi-search-result">
-                                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                                bla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla bla
-                            </div> 
-                        </div>
-
-                        <div class="line-result-search">
-
-                            <div class="wrap-foto-content-search-result">
-                                <img class="foto-content-search-result" src="<?php echo base_url('assets/images/index.png')?>"></img>
-                            </div>
-
-                            <div class="wrap-mini-foto-profil">
-                                <div class="mini-foto-profil">
-                                    <p>H</p>
-                                </div>
-                                <div class="nama-mini-foto-profil">
-                                    Hilmi Nico Putra
-                                </div> 
-                            </div>
-                            <div class="judul-search-result">
-                                <h2>ini judul nya<h2>
-                            </div> 
-                            <div class="deskripsi-search-result">
-                                bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla bla
-                                bla bla bla blabla bla bla blabla bla bla blabla bla bla blabla bla bla bla
-                            </div> 
-                        </div>
-
+                                                <div class="wrap-mini-foto-profil">
+                                                    <div class="mini-foto-profil">
+                                                        <p><?php echo substr(trim(ucfirst($result->namalengkap)),0,1); ?></p>
+                                                    </div>
+                                                    <div class="nama-mini-foto-profil">
+                                                        <?=$result->namalengkap;?>
+                                                    </div> 
+                                                </div>
+                                                <div class="judul-search-result">
+                                                    <h2><?=$result->judulcontent;?><h2>
+                                                </div> 
+                                                <div class="deskripsi-search-result">
+                                                    <?=substr($result->desccontent,0,80) . '...';?>
+                                                </div> 
+                                            </div>
+                                        </a>
+                                    <?php
+                                }
+                            }else{
+                                echo "Content tidak ditemukan";
+                            }
+                        ?>
                     </div>
                 </div>
                 <div class="col-md-1 col-lg-1">

@@ -77,7 +77,7 @@ class M_dashboard extends CI_Model
 
     function m_searchCategory($id){
         //Select content records
-        $q = $this->db->query("SELECT *, category.name as namakat, category.desc as desckat, users.fullname as namalengkap, users.Id as Iduser FROM content LEFT JOIN users ON users.Id = content.user_id LEFT JOIN category ON content.category_id = category.Id WHERE content.category_id='$id' OR content.category_id LIKE '%$id%'");
+        $q = $this->db->query("SELECT *, content.title as judulcontent, category.name as namakat, category.desc as desckat, users.fullname as namalengkap, users.Id as Iduser, content.desc as desccontent, content.Id as Idcontent FROM content LEFT JOIN users ON users.Id = content.user_id LEFT JOIN category ON content.category_id = category.Id WHERE content.category_id='$id' OR content.category_id LIKE '%$id%'");
         
         
         if($q->num_rows() > 0)
