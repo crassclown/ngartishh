@@ -41,6 +41,12 @@ class C_dashboard extends CI_Controller {
 		$this->load->view('users/layout/footer');
 	}
 
+	public function result_Search(){
+		$this->load->view('users/layout/header');
+		$this->load->view('users/layout/result_search');
+		$this->load->view('users/layout/footer');
+	}
+
 	public function m_bookmarked(){
 		$data = array(
 			'content_id' => $this->input->post('content_id'),

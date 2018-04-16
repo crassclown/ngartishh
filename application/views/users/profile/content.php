@@ -5,7 +5,7 @@
                 <div class="col-md-2">
                 </div>
                 <div class="col-md-3">
-                    <p class="baris-foto-profil"><div class="foto-profil"></div><span class="nama-foto-profil">Hilmi Nico Putra</span></p>
+                    <p class="baris-foto-profil"><div class="foto-profil">H</div><span class="nama-foto-profil">Hilmi Nico Putra</span></p>
                 </div>
                 <div class="col-md-2 padding-button-follow">
                     <button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Followers" data-target="#modal-followers">followers <b> 1234</b></button>
@@ -497,13 +497,19 @@
             
             <!-- Modal content-->
             <div class="modal-content">
-                    <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">New Posting</h4>
+                    <div class="modal-header text-center header-edit-profil">
+                    <button type="button" class="close close-left" data-dismiss="modal">&larr;</button>
+                    <h4 class="modal-title">Pengaturan Akun</h4>
                     </div>
                     <div class="modal-body ">
                         <div class="padding-modal-body">
                                 <form action="#" method="POST" enctype="multipart/form-data">
+								<div id="wrap-input-foto-profil">
+                                    <img id="sebelum-blah" src="#" ></img>
+
+                                    <input type="file" id="foto-profil" onchange="readURL(this);" accept="image/jpeg, image/png">
+                                    <label class="button text-center" for="foto-profil"><i class="fa fa-camera" style="font:24px;margin:15px;"></i></label>
+								</div>
                                 <table>
                                     <tr>
                                         Username :                                       
@@ -526,11 +532,11 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="modal-footer">
-                        <button type="submit" class="btn btn-default">Submit</button>
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        </form>
-                     </div>
+                        <div class="modal-footer footer-edit-profil">
+                        <button type="submit" class="btn btn-default submit-edit-profil">Submit</button>
+						</div>
+					 </form>
+
                 </div>
                 
             </div>
