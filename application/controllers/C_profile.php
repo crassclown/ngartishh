@@ -28,8 +28,6 @@ class C_profile extends CI_Controller {
 		$data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
 		$data['profile'] = $this->m_users->get_users($id);
 		$data['content'] = $this->m_users->get_usercontent($id);
-		$data['following'] = $this->m_users->get_userfollowing($id);
-		$data['follower'] = $this->m_users->get_userfollower($id);
 		$data['totalfollowing'] = count($this->m_users->get_userfollowing($id));
 		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
 		$data['categories'] = $this->m_users->m_categories();
@@ -37,6 +35,18 @@ class C_profile extends CI_Controller {
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/profile/content', $data);
 		$this->load->view('users/layout/footer');
+	}
+
+	public function m_follower($id)
+	{
+		$data = $this->m_users->get_userfollower($id);
+		echo json_encode($data);
+	}
+
+	public function m_following($id)
+	{
+		$data = $this->m_users->get_userfollowing($id);
+		echo json_encode($data);
 	}
 
 	public function m_getContentsUser($id){
@@ -54,12 +64,7 @@ class C_profile extends CI_Controller {
 		
 		$this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('fotoprofil')) {
-            $error = $this->upload->display_errors();
-            // var_dump($error);
-            echo json_encode(array('status' => false, 'error' => $error));
-        } else {
-
+        if ($this->upload->do_upload('fotoprofil')) {
             $upload = $this->upload->data();
 			
 			$varUsername = $this->input->post('txtusername');
@@ -75,6 +80,10 @@ class C_profile extends CI_Controller {
 			);
 
 			$result = $this->m_users->UpdateUsers($id,$data);
+        } else {
+			$error = $this->upload->display_errors();
+            // var_dump($error);
+            echo json_encode(array('status' => false, 'error' => $error));
 		}
 	}
 

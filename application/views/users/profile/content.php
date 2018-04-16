@@ -7,8 +7,8 @@
 			<div class="col-md-3">
 				<p class="baris-foto-profil">
 					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
-					<div class="foto-profil">
-						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>/></img>
+					<div class="foto-profil" style="padding-top:0;">
+						<img class="img-responsive" src="<?php echo base_url('assets/images/profilepicture/'.$p->fotoprofil.'')?>"/></img>
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
@@ -21,14 +21,14 @@
 				</p>
 			</div>
 			<div class="col-md-2 padding-button-follow">
-				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Notification" data-target="#modal-followers">followers
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Notification" data-target="#modal-followers" id="btnfollower">followers
 					<b>
 						<?php echo $totalfollower ?>
 					</b>
 				</button>
 			</div>
 			<div class="col-md-2 padding-button-follow">
-				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Notification" data-target="#modal-following">following
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Notification" data-target="#modal-following" id="btnfollowing">following
 					<b>
 						<?php echo $totalfollowing ?>
 					</b>
@@ -89,24 +89,12 @@
 					<h4 class="modal-title">Followers</h4>
 				</div>
 				<div class="modal-body">
-					<?php foreach($follower as $fer){ ?>
-					<div class="content-modal-follow">
-						<div class="foto-profil-modal-follow">
-						</div>
-						<span class="modal-nama" style="text-transform:capitalize">
-							<p>
-								<b>
-									<?php echo $fer->fullname ?>
-								</b>
-							</p>
-							<?php echo $fer->phone ?>
-						</span>
-						<form action="<?=base_url('c_profile/m_follows')?>" method="post">
+					<div id="show_follower">
+						<!-- <form action="<?=base_url('c_profile/m_follows')?>" method="post">
 							<input type="hidden" name="followedid" value="<?php echo $fer->Id ?>">
 							<input type="hidden" name="userid" value="<?php $this->session->userdata('Id') ?>">
-						<input type="submit" class="button-modal-follow btn-info" value="Follow">
+						<input type="submit" class="button-modal-follow btn-info" value="Follow"> -->
 					</div>
-					<?php } ?>
 				</div>
 			</div>
 		</div>
@@ -124,25 +112,13 @@
 					<h4 class="modal-title">Following</h4>
 				</div>
 				<div class="modal-body">
-					<?php foreach($following as $fing){ ?>
-					<div class="content-modal-follow">
-						<div class="foto-profil-modal-follow">
-						</div>
-						<span class="modal-nama" style="text-transform:capitalize">
-							<p>
-								<b>
-									<?php echo $fing->fullname ?>
-								</b>
-							</p>
-							<?php echo $fing->phone ?>
-						</span>
-						<form action="<?=base_url('c_profile/m_follows')?>" method="post">
+					<div id="show_following">
+						<!-- <form action="<?=base_url('c_profile/m_follows')?>" method="post">
 							<input type="hidden" name="followedid" value="<?php echo $fing->Id ?>">
 							<input type="hidden" name="userid" value="<?php echo $this->session->userdata('Id') ?>">
 						<input type="submit" class="button-modal-follow btn-info" value="Follow">
-						</form>
+						</form> -->
 					</div>
-					<?php } ?>
 				</div>
 			</div>
 
@@ -150,7 +126,7 @@
 	</div>
 	<!-- end modal following -->
 
-	<!-- modal edit profile -->
+		<!-- modal edit profile -->
             <div class="modal fade" id="modal-edit-profile" role="dialog">
             <div class="modal-dialog modal-body-follow">
             
@@ -335,6 +311,79 @@
 
 </script>
 <!-- END Follow Profile AJAX -->
+
+<!-- Ajax tampil follower -->
+<script type="text/javascript">
+    $('#btnfollower').on('click',function () {
+		var button = $('#btnfollower') // Button that triggered the modal
+		var modal = $('#modal-followers');
+        tampil_follower();   //pemanggilan fungsi tampil gambar.
+        
+        function tampil_follower(){
+            $.ajax({
+                type  : 'ajax',
+                url   : '<?php echo base_url()?>c_profile/m_follower/' + '<?php echo $this->uri->segment(3) ?>',
+                async : false,
+				cache : false,
+				dataType : 'json',
+                success : function(data){
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+                        html += '<div class="content-modal-follow">' +
+									'<div class="foto-profil-modal-follow">' +
+										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/'+data[i].fotoprofil+'")?> />' +
+									'</div>' +
+									'<span class="modal-nama" style="text-transform:capitalize">' +
+									'<p>' +
+										'<b><a href=<?=base_url("c_profile/m_users/'+data[i].userId+'")?>>' + data[i].fullname + '</a></b>' +
+									'</p>' + data[i].phone +
+									'</span>' +
+								'</div>';
+					}
+					modal.find('#show_follower').html(html);
+				}
+			});
+		}
+	});
+</script>
+<!-- Ajax tampil follower -->
+
+<!-- Ajax tampil following -->
+<script type="text/javascript">
+    $('#btnfollowing').on('click',function () {
+		var button = $('#btnfollowing') // Button that triggered the modal
+		var modal = $('#modal-following');
+        tampil_following();   //pemanggilan fungsi tampil gambar.
+        
+        function tampil_following(){
+            $.ajax({
+                type  : 'ajax',
+                url   : '<?php echo base_url()?>c_profile/m_following/' + '<?php echo $this->uri->segment(3) ?>',
+                async : false,
+				dataType : 'json',
+                success : function(data){
+                    var html = '';
+                    var i;
+                    for(i=0; i<data.length; i++){
+                        html += '<div class="content-modal-follow">' +
+									'<div class="foto-profil-modal-follow">' +
+										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/'+data[i].fotoprofil+'")?> />' +
+									'</div>' +
+									'<span class="modal-nama" style="text-transform:capitalize">' +
+									'<p>' +
+										'<b><a href=<?=base_url("c_profile/m_users/'+data[i].userId+'")?>>' + data[i].fullname + '</a></b>' +
+									'</p>' + data[i].phone +
+									'</span>' +
+								'</div>';
+					}
+					modal.find('#show_following').html(html);
+				}
+			});
+		}
+	});
+</script>
+<!-- Ajax tampil following -->
 
 
 <!-- modal edit profile -->
