@@ -121,6 +121,23 @@ class M_users extends CI_Model
 		return $checkupdate; 
 	}
 	
+	function m_getRecordsUser($id){
+        //Select content records
+        $q = $this->db->query("SELECT *, users.fullname as namalengkap, content.Id as idcontent, content.user_id as iduser, content.created_at as tgl_posting FROM content LEFT JOIN users ON users.Id = content.user_id where content.user_id='$id'");
+        
+        
+        if($q->num_rows() > 0)
+        {
+            // we will store the results in the form of class methods by using $q->result()
+            // if you want to store them as an array you can use $q->result_array()
+            foreach ($q->result() as $row)
+            {
+            $data[] = $row;
+            }
+            return $data;
+        }
+	}
+	
 	//Bookmark
 	public function m_bookmark($data){
 		

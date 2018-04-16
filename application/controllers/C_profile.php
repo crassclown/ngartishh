@@ -29,31 +29,49 @@ class C_profile extends CI_Controller {
 		$data['follower'] = $this->m_users->get_userfollower($id);
 		$data['totalfollowing'] = count($this->m_users->get_userfollowing($id));
 		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
+		$data['categories'] = $this->m_users->m_categories();
 		
 		$this->load->view('users/layout/header');
 		$this->load->view('users/profile/content', $data);
 		$this->load->view('users/layout/footer');
 	}
 
+	public function m_getContentsUser($id){
+		// get data
+        $data = $this->m_users->m_getRecordsUser($id);
+
+        echo json_encode($data);
+    }
+
 	public function m_editusers()
 	{
-		$varNama = $this->input->post('nama');
-		$varPhone = $this->input->post('phone');
-		$varBio = $this->input->post('bio');
-		$id = $this->input->post('id');
+		$config['upload_path']   = './assets/images/profilepicture/';
+        $config['allowed_types'] = 'gif|jpg|png';
+        $config['max_size']      = 20000;
+		
+		$this->load->library('upload', $config);
 
-		$data = array(
-			'fullname'=>$varNama,
-			'phone'=>$varPhone,
-			'bio'=>$varBio
-		);
+        if (!$this->upload->do_upload('fotoprofil')) {
+            $error = $this->upload->display_errors();
+            // var_dump($error);
+            echo json_encode(array('status' => false, 'error' => $error));
+        } else {
 
-		$result = $this->m_users->UpdateUsers($id,$data);
+            $upload = $this->upload->data();
+			
+			$varUsername = $this->input->post('txtusername');
+			$varPhone = $this->input->post('txtnotelp');
+			$varBio = $this->input->post('txtbio');
+			$id = $this->input->post('txtid');
 
-		if ($result){
-			redirect('C_profile/m_users/'.$id.'');
-		}else{
-			redirect('C_profile/m_users/'.$id.'');
+			$data = array(
+				'fotoprofil'=>$upload['file_name'],
+				'username'=>$varUsername,
+				'phone'=>$varPhone,
+				'bio'=>$varBio
+			);
+
+			$result = $this->m_users->UpdateUsers($id,$data);
 		}
 	}
 
@@ -74,5 +92,6 @@ class C_profile extends CI_Controller {
 			//$this->load->view('users/profile/content', $data);
 			$this->m_users->userUnfollow($varUserid, $varFollowedid);	
 		}
+		redirect('c_profile/m_users/'.$varUserid.'');
 	}
 }

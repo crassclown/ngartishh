@@ -136,7 +136,7 @@ function magnify(imgID, zoom) {
         <div class="container">
           <div class="row ">
             <div class="col-md-3 respon-sm-nav">
-              <img class="navbar-brand" src="<?php echo base_url('assets/images/icons/Ngartish.png') ?>"></img>
+              <a href="<?=base_url('c_dashboard/index')?>"><img class="navbar-brand" src="<?php echo base_url('assets/images/icons/Ngartish.png') ?>"></img></a>
             </div>
             <div class="col-md-3 respon-sm-nav">
               <div class="widget">
