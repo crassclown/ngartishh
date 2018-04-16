@@ -8,11 +8,11 @@
 				<p class="baris-foto-profil">
 					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
 					<div class="foto-profil">
-						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>/>
+						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>/></img>
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
-						<!-- <?php echo substr(trim(ucfirst($p->fullname)),0,1); ?> -->
+						<?php echo substr(trim(ucfirst($p->fullname)),0,1); ?>
 					</div>
 					<?php } ?>
 					<span class="nama-foto-profil" style="text-transform:capitalize;">

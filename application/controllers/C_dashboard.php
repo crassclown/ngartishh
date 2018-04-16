@@ -197,8 +197,8 @@ class C_dashboard extends CI_Controller {
         $config['upload_path']   = './assets/images/content/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']      = 20000;
-        $config['max_width']     = 1024;
-        $config['max_height']    = 768;
+        $config['max_width']     = 2000;
+        $config['max_height']    = 2000;
 
         $this->load->library('upload', $config);
 
