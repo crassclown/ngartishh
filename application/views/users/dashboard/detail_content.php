@@ -32,9 +32,22 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="wrap-detail-content">
+                <div class="wrap-detail-content-foto">
                     <h4 class="text-center margin-top-judul"><b>Judul Karya Seni</b></h4>
-                    <img class="img-detail-content"src="<?php echo base_url('assets/images/1.png')?>"></img>
+                    <img class="img-detail-content" src="<?php echo base_url('assets/images/1.png')?>">
+                        <div class="wrap-pin-detail-content">
+                            <a href="#">
+                                <div class="pin-edit-content">
+                                    <img src="<?php echo base_url('assets/images/iconpng/edit.png')?>" class="img-detail-content"></img>
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="pin-delete-content">
+                                    <img src="<?php echo base_url('assets/images/iconpng/x.png')?>" class="img-detail-content"></img>                    
+                                </div>
+                            </a>
+                        </div>
+                    </img>
                 </div>
             </div>
             <div class="col-md-4">
