@@ -6,7 +6,17 @@
 			</div>
 			<div class="col-md-3">
 				<p class="baris-foto-profil">
-					<div class="foto-profil"></div>
+					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
+					<div class="foto-profil">
+						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>/>
+					</div>
+					<?php }else{ ?>
+					<div class="foto-profil">
+					<span class="profil-name">
+						<?php echo substr(trim(ucfirst($p->fullname)),0,1); ?>
+					</span>
+					</div>
+					<?php } ?>
 					<span class="nama-foto-profil" style="text-transform:capitalize;">
 						<?php echo $p->fullname ?>
 					</span>
@@ -246,37 +256,38 @@
                     </div>
                     <div class="modal-body ">
                         <div class="padding-modal-body">
-                                <form action="#" method="POST" enctype="multipart/form-data">
+                            <form enctype="multipart/form-data" id="editprofile">
 								<div id="wrap-input-foto-profil">
                                     <img id="sebelum-blah" src="#" ></img>
+									<input type="hidden" name="txtid" id="txtid" value="<?php echo $this->session->userdata('Id');?>">
 
-                                    <input type="file" id="foto-profil" onchange="readURL(this);" accept="image/jpeg, image/png">
+                                    <input type="file" id="foto-profil" onchange="readURL(this);" accept="image/jpeg, image/png" name="fotoprofil" class="fotoprofil">
                                     <label class="button text-center" for="foto-profil"><i class="fa fa-camera" style="font:24px;margin:15px;"></i></label>
 								</div>
                                 <table>
                                     <tr>
                                         Username :                                       
                                             <div class="wrap-input100">
-                                            <input class="input100" type="text" name="txtusername" placeholder="Username">
+                                            <input class="input100" type="text" name="txtusername" id="txtusername" placeholder="Username">
                                             <span class="focus-input100"></span>
                                             </div>
                                     </tr>
                                     <tr>
                                         No Telp :                                       
                                             <div class="wrap-input100">
-                                            <input class="input100" type="number" name="txtnotelp" placeholder="No Telpon">
+                                            <input class="input100" type="number" name="txtnotelp" id="txtnotelp" placeholder="No Telpon">
                                             <span class="focus-input100"></span>
                                             </div>
                                     </tr>
                                     <tr>
                                        Bio :
-                                                    <textarea name="txtbio" rows="3" cols="30" placeholder="Descrption"></textarea>
+                                                    <textarea name="txtbio" rows="3" cols="30" placeholder="Descrption" id="txtbio"></textarea>
                                     </tr>
                                 </table>
                             </div>
                         </div>
                         <div class="modal-footer footer-edit-profil">
-                        <button type="submit" class="btn btn-default submit-edit-profil">Submit</button>
+                        <input type="submit" class="btn btn-default submit-edit-profil" value="Submit">
 						</div>
 					 </form>
 
@@ -304,11 +315,6 @@
                         html +=                         
                         '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                             '<div class="space">'+
-                                '<div class="gantungan">'+
-                                    '<div class="pin text-center">'+
-                                    '<b>'+data[i].namalengkap.trim().substr(0,1).toUpperCase()+'</b>'+
-                                    '</div>'+
-                                '</div> '+
                                 '<div class="portfolio-item">'+
                                 '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
                                     '<img class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
@@ -436,57 +442,7 @@
 
 </script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
-<!-- AddToAny END -->
-<!-- <script>
-    $(document).ready(function(){
-        $('#upload_form').on('submit',function(e){
 
-            var varTitle    = $('#txttitle').val();
-            var varDesc     = $('#txtdesc').val();
-            var varCat      = $('#txtcategories').val();
-            var varPic      = $('#fileElem').val();
-            var varSession  = $('#txtsession').val();
-            if(varTitle == ''){
-              swal({
-                type: 'error',
-                title: 'The title is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else if(varDesc == ''){
-              swal({
-                type: 'error',
-                title: 'The description is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else if(varCat == ''){
-              swal({
-                type: 'error',
-                title: 'The category is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else if(varPic == ''){
-                swal({
-                type: 'error',
-                title: 'Picture is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else{
-                $.ajax({
-                url : "<?php echo base_url();?>c_dashboard/m_post",
-                method : "POST",
-                data : new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false
-              });
-            }
-        });
-    });
-</script> -->
 <script>
 	$(document).ready(function () {
 		$("#txtcategories").select2({
@@ -496,36 +452,25 @@
 
 </script>
 
-<!-- Edit toggle -->
-<script>
-	$(function () {
-		$("#editform").hide();
-		$("#editbtn").click(function () {
-			$("#editform").toggle();
-		});
-	});
-
-</script>
-<!-- End Edit toggle -->
-
 <!-- Edit Profile AJAX -->
 <script type="text/javascript">
 	$(document).ready(function () {
-		$("#editprofile").click(function () {
-			var varId = $('#varId').val();
-			var varNama = $('#varNama').val();
-			var varPhone = $('#varPhone').val();
-			var varBio = $('#varBio').val();
-			// var name     = $('#name').val();
+		$("#editprofile").submit(function(e){
+			var formData = new FormData($(this)[0]);
+			var varId = $('#txtid').val();
+			var varFotoprofil = $('.fotoprofil').val();
+			var varUsername = $('#txtusername').val();
+			var varPhone = $('#txtnotelp').val();
+			var varBio = $('#txtbio').val();
+			
 			$.ajax({
 				type: "POST",
 				url: "<?php echo base_url(); ?>" + "C_profile/m_editusers",
-				data: {
-					"id": varId,
-					"nama": varNama,
-					"phone": varPhone,
-					"bio": varBio
-				}
+				data: formData,
+				processData:false,
+                contentType:false,
+                cache:false,
+                async:true,
 			});
 		});
 	});
