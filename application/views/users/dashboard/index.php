@@ -285,56 +285,7 @@
   </script>
   <script async src="https://static.addtoany.com/menu/page.js"></script>
   <!-- AddToAny END -->
-<!-- <script>
-    $(document).ready(function(){
-        $('#upload_form').on('submit',function(e){
 
-            var varTitle    = $('#txttitle').val();
-            var varDesc     = $('#txtdesc').val();
-            var varCat      = $('#txtcategories').val();
-            var varPic      = $('#fileElem').val();
-            var varSession  = $('#txtsession').val();
-            if(varTitle == ''){
-              swal({
-                type: 'error',
-                title: 'The title is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else if(varDesc == ''){
-              swal({
-                type: 'error',
-                title: 'The description is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else if(varCat == ''){
-              swal({
-                type: 'error',
-                title: 'The category is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else if(varPic == ''){
-                swal({
-                type: 'error',
-                title: 'Picture is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else{
-                $.ajax({
-                url : "<?php echo base_url();?>c_dashboard/m_post",
-                method : "POST",
-                data : new FormData(this),
-                contentType: false,
-                cache: false,
-                processData:false
-              });
-            }
-        });
-    });
-</script> -->
 <script>
     $(document).ready(function () {
         $("#txtcategories").select2({
