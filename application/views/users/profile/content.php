@@ -12,9 +12,7 @@
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
-					<span class="profil-name">
-						<?php echo substr(trim(ucfirst($p->fullname)),0,1); ?>
-					</span>
+						<!-- <?php echo substr(trim(ucfirst($p->fullname)),0,1); ?> -->
 					</div>
 					<?php } ?>
 					<span class="nama-foto-profil" style="text-transform:capitalize;">
@@ -196,7 +194,7 @@
 							<?php echo $fer->phone ?>
 						</span>
 						<form action="<?=base_url('c_profile/m_follows')?>" method="post">
-							<input type="hidden" name="followedid" value="<?php echo $er->Id ?>">
+							<input type="hidden" name="followedid" value="<?php echo $fer->Id ?>">
 							<input type="hidden" name="userid" value="<?php $this->session->userdata('Id') ?>">
 						<input type="submit" class="button-modal-follow btn-info" value="Follow">
 					</div>
