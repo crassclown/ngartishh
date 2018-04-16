@@ -15,14 +15,17 @@ class C_profile extends CI_Controller {
 	
 	public function index()
 	{
-		$this->load->view('users/layout/header');
-		$this->load->view('users/profile/content');
+		$data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
+        $data['categories'] = $this->m_users->m_categories();
+		$this->load->view('users/layout/header', $data);
+		$this->load->view('users/profile/content', $data);
 		$this->load->view('users/layout/footer');
 
 	}
 
 	public function m_users($id)
 	{
+		$data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
 		$data['profile'] = $this->m_users->get_users($id);
 		$data['content'] = $this->m_users->get_usercontent($id);
 		$data['following'] = $this->m_users->get_userfollowing($id);
@@ -31,7 +34,7 @@ class C_profile extends CI_Controller {
 		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
 		$data['categories'] = $this->m_users->m_categories();
 		
-		$this->load->view('users/layout/header');
+		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/profile/content', $data);
 		$this->load->view('users/layout/footer');
 	}

@@ -342,7 +342,6 @@
         });
     });
 </script>
-<<<<<<< HEAD
 <script>
     $('#txttitle').keyup(function() {
         $(this).val($(this).val().substr(0, 1).toUpperCase() + $(this).val().substr(1).toLowerCase());
@@ -355,5 +354,3 @@
 <noscript>
 Sorry...JavaScript is needed to go ahead.
 </noscript>
-=======
->>>>>>> hendry
