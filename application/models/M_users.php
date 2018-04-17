@@ -68,6 +68,20 @@ class M_users extends CI_Model
             {
             	$data[] = $row;
 			}
+            return $data;
+        }
+	}
+
+	//Cek Follow Status
+	public function isFollowing($userid, $followedid)
+	{
+		$result = $this->db->where('user_id', $userid)->where('followed_id',$followedid)->limit(1)->get('following');
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
 			
             return $data;
         }

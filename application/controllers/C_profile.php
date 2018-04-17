@@ -61,16 +61,20 @@ class C_profile extends CI_Controller {
 		echo json_encode($data);
 	}
 
-	public function m_isfollowing()
+	public function m_isfollowing($userid, $followedid)
 	{
-		$userid = $this->input->post('userid');
-		$followedid = $this->input->post('followedid');
-		$data = $this->m_users->cekFollowing($userid, $followedid);
-		if(is_array($data)){
-			echo 'unfollow';
-		}else{
-			echo 'follow';
+		$data = $this->m_users->isFollowing($userid, $followedid);
+		if(!isset($data)){
+			echo '<b>follow</b>';
+		}else {
+			echo '<b>unfollow</b>';
 		}
+	}
+
+	public function m_cekfollowing($userid, $followedid)
+	{
+		$data = $this->m_users->isFollowing($userid, $followedid);
+		echo json_encode($data);
 	}
 
 	public function m_getContentsUser($id){
@@ -104,6 +108,7 @@ class C_profile extends CI_Controller {
 			);
 
 			$result = $this->m_users->UpdateUsers($id,$data);
+			redirect('c_profile/m_users/'.$id.'');
         } else {
 			$error = $this->upload->display_errors();
             // var_dump($error);

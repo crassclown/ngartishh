@@ -128,55 +128,7 @@
 	</div>
 	<!-- end modal following -->
 
-		<!-- modal edit profile -->
-            <div class="modal fade" id="modal-edit-profile" role="dialog">
-            <div class="modal-dialog modal-body-follow">
-            
-            <!-- Modal content-->
-            <div class="modal-content">
-                    <div class="modal-header text-center header-edit-profil">
-						<button type="button" class="close close-left" data-dismiss="modal">&larr;</button>
-						<h4 class="modal-title">Pengaturan Akun</h4>
-                    </div>
-                    <div class="modal-body ">
-                        <div class="padding-modal-body">
-                            <form enctype="multipart/form-data" id="editprofile">
-								<div id="wrap-input-foto-profil">
-                                    <img id="sebelum-blah" src="#" ></img>
-									<input type="hidden" name="txtid" id="txtid" value="<?php echo $this->session->userdata('Id');?>">
-
-                                    <input type="file" id="foto-profil" onchange="readURL(this);" accept="image/jpeg, image/png" name="fotoprofil" class="fotoprofil">
-                                    <label class="button text-center" for="foto-profil"><i class="fa fa-camera" style="font:24px;margin:15px;"></i></label>
-								</div>
-                                <table>
-                                    <tr>
-                                        Username :                                       
-                                            <div class="wrap-input100">
-                                            <input class="input100" type="text" name="txtusername" id="txtusername" placeholder="Username">
-                                            <span class="focus-input100"></span>
-                                            </div>
-                                    </tr>
-                                    <tr>
-                                        No Telp :                                       
-                                            <div class="wrap-input100">
-                                            <input class="input100" type="number" name="txtnotelp" id="txtnotelp" placeholder="No Telpon">
-                                            <span class="focus-input100"></span>
-                                            </div>
-                                    </tr>
-                                    <tr>
-                                       Bio :
-                                                    <textarea name="txtbio" rows="3" cols="30" placeholder="Descrption" id="txtbio"></textarea>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="modal-footer footer-edit-profil">
-                        <input type="submit" class="btn btn-default submit-edit-profil" value="Submit">
-						</div>
-					 </form>
-
-                </div>
-		<!-- modal edit profile -->
+<?php $this->load->view('users/profile/editprofile'); ?>
 </section>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
@@ -299,51 +251,6 @@
 <?php $this->load->view('users/profile/follow_module'); ?>
 <!-- Follow Module -->
 
-<!-- modal edit profile -->
-<div class="modal fade" id="modal-edit-profile" role="dialog">
-	<div class="modal-dialog modal-body-follow">
-
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-				<h4 class="modal-title">New Posting</h4>
-			</div>
-			<div class="modal-body ">
-				<div class="padding-modal-body">
-					<form action="#" method="POST" enctype="multipart/form-data">
-						<table>
-							<tr>
-								Username :
-								<div class="wrap-input100">
-									<input class="input100" type="text" name="txtusername" placeholder="Username">
-									<span class="focus-input100"></span>
-								</div>
-							</tr>
-							<tr>
-								No Telp :
-								<div class="wrap-input100">
-									<input class="input100" type="number" name="txtnotelp" placeholder="No Telpon">
-									<span class="focus-input100"></span>
-								</div>
-							</tr>
-							<tr>
-								Bio :
-								<textarea name="txtbio" rows="3" cols="30" placeholder="Descrption"></textarea>
-							</tr>
-						</table>
-				</div>
-			</div>
-			<div class="modal-footer">
-				<button type="submit" class="btn btn-default">Submit</button>
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				</form>
-			</div>
-		</div>
-
-	</div>
-</div>
-<!-- end modal edit profile -->
 </section>
 
 

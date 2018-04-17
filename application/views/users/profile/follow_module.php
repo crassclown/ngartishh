@@ -7,6 +7,7 @@
 			page_load();
 			follower_counter();
 			follow();
+			isfollowing();
 			function page_load(){
 				$.ajax({ 
 					url: '<?php echo base_url()?>c_profile/m_followercounter/' + '<?php echo $this->uri->segment(3) ?>',
@@ -54,6 +55,24 @@
 					}
 				});
 			}
+			function isfollowing(){
+				$.ajax({
+					type: "ajax",
+					url: "<?php echo base_url(); ?>" + "C_profile/m_cekfollowing/"+"<?php echo $this->session->userdata('Id')?>/" + "<?php echo $this->uri->segment(3)?>",
+					async : false,
+					dataType : 'json',
+					success : function(data){
+						var html = '';
+						if(!$.trim(data))
+						{
+							html += 'follow';
+						}else {
+							html += 'unfollow';
+						}
+						$('#statusfollow').html(html);
+					}
+				});
+			}
 		});
 	});
 
@@ -69,7 +88,7 @@
 			var followedid = $('#followed_id').val();
 			$.ajax({
 				type  : 'post',
-				url   : '<?php echo base_url()?>c_profile/m_isfollowing',
+				url   : '<?php echo base_url()?>c_profile/m_isfollowing/'+userid+'/'+followedid,
 				data:{
 					"userid": userid,
 					"followedid": followedid,
