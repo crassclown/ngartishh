@@ -1,7 +1,7 @@
 <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');min-height:600px;">
-        <div class="container">
+        <div class="container ">
             <div class="col-md-12 border-content">
-                <div class="row">
+                <div class="row ">
 
                 <div class="col-md-1 col-lg-1">
                 </div>

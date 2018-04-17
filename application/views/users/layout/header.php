@@ -41,9 +41,15 @@
             <div class="col-md-3 respon-sm-nav">
               <div class="widget">
                 <div class="form-search">
-                  <input class="form-control" type="text" placeholder="Search..">
-                      <i class="fa fa-search search-button"></i>
-                </div>
+                <form action="<?=base_url('c_dashboard/m_searcboxtype/');?>" method="POST">
+                  <input class="form-control" type="text" placeholder="Search.." autocomplete="off" id="search_data" name="search_data" onkeyup="liveSearch()">
+                  <i class="fa fa-search search-button" style="color:#aaa;"></i>
+                  <div id="suggestions">
+                    <div id="autoSuggestionsList">
+                    </div>
+                  </div>
+                </form>    
+              </div>
               </div>
             </div>
             <div class="col-md-6 col-md-6 col-xs-6">
