@@ -252,6 +252,33 @@
         jQuery("time.timeago").timeago();
     });
 </script>
+<script>
+
+function liveSearch() {
+
+    var input_data = $('#search_data').val();
+    if (input_data.length === 0) {
+        $('#suggestions').hide();
+    } else {
+
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>c_dashboard/search",
+            data: {'search_data': input_data},
+            success: function (data) {
+                // return success
+                if (data.length > 0) {
+                    $('#suggestions').show();
+                    $('#autoSuggestionsList').addClass('auto_list');
+                    $('#autoSuggestionsList').html(data);
+                }
+            }
+        });
+    }
+}
+
+</script>
 
 <noscript>
     Sorry...JavaScript is needed to go ahead.

@@ -8,7 +8,7 @@
                 <div class="col-md-10 col-lg-10">
                     <div class="wrap-border-result-search">
                         <?php
-                            if(is_array($pencariankategori)){
+                            if(is_array($pencariankategori) || is_object($pencariankategori)){
                                 foreach($pencariankategori as $result){
                                     ?>
                                         <a href="<?=base_url('c_dashboard/m_detailContent/'.$result->Idcontent.'/'.$result->Iduser);?>">
@@ -26,7 +26,7 @@
                                                     </div> 
                                                 </div>
                                                 <div class="judul-search-result">
-                                                    <h2><?=substr($result->judulcontent,0,20);?><h2>
+                                                    <h2><?=$result->judulcontent;?><h2>
                                                 </div> 
                                                 <div class="deskripsi-search-result">
                                                     <?=substr($result->desccontent,0,80) . '...';?>
@@ -35,8 +35,49 @@
                                         </a>
                                     <?php
                                 }
+                            }else if(is_array($pencarianuser) || is_object($pencarianuser)){
+                                foreach($pencarianuser as $resultuser){
+                                    ?>
+                                        <a href="<?=base_url('c_profile/m_users/'.$resultuser->userId);?>">
+                                            <div class="line-result-search">
+                                                <!-- <div class="wrap-foto-content-search-result">
+                                                    <img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="foto-content-search-result" src="<?php echo base_url('assets/images/content/'.$result->photos)?>"></img>
+                                                </div> -->
+
+                                                <div class="wrap-mini-foto-profil">
+                                                    <div class="mini-foto-profil">
+                                                        <p><?php echo substr(trim(ucfirst($resultuser->namalengkap)),0,1); ?></p>
+                                                    </div>
+                                                    <div class="nama-mini-foto-profil">
+                                                        <?=$resultuser->namalengkap;?>
+                                                    </div> 
+                                                </div>
+                                                <!-- <div class="judul-search-result">
+                                                    <h2><?=$result->judulcontent;?><h2>
+                                                </div> 
+                                                <div class="deskripsi-search-result">
+                                                    <?=substr($result->desccontent,0,80) . '...';?>
+                                                </div>  -->
+                                            </div>
+                                        </a>
+                                    <?php
+                                }
                             }else{
-                                echo "Content tidak ditemukan";
+                                if($this->session->flashdata('no_data')){
+                                    ?>
+                                    <script>
+                                        swal({
+                                                title: "Try Again",
+                                                text: "<?php echo $this->session->flashdata('no_data'); ?>",
+                                                timer: 3000,
+                                                showConfirmButton: false,
+                                                type: 'error'
+                                            }, function() {
+                                            window.location = "<?=base_url('c_dashboard/');?>";
+                                        });
+                                    </script>
+                                    <?php
+                                }
                             }
                         ?>
                     </div>
