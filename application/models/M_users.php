@@ -62,7 +62,15 @@ class M_users extends CI_Model
 	public function cekFollowing($userid, $followedid)
 	{
 		$result = $this->db->where('user_id', $userid)->where('followed_id',$followedid)->limit(1)->get('following');
-		return $result->row();
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
 	}
 	
 	//User Follow

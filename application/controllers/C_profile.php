@@ -49,6 +49,30 @@ class C_profile extends CI_Controller {
 		echo json_encode($data);
 	}
 
+	public function m_followercounter($id)
+	{
+		$data = count($this->m_users->get_userfollower($id));
+		echo json_encode($data);
+	}
+
+	public function m_followingcounter($id)
+	{
+		$data = count($this->m_users->get_userfollowing($id));
+		echo json_encode($data);
+	}
+
+	public function m_isfollowing()
+	{
+		$userid = $this->input->post('userid');
+		$followedid = $this->input->post('followedid');
+		$data = $this->m_users->cekFollowing($userid, $followedid);
+		if(is_array($data)){
+			echo 'unfollow';
+		}else{
+			echo 'follow';
+		}
+	}
+
 	public function m_getContentsUser($id){
 		// get data
         $data = $this->m_users->m_getRecordsUser($id);
