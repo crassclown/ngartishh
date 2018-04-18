@@ -1,7 +1,7 @@
 <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');min-height:600px;">
-        <div class="container">
+        <div class="container ">
             <div class="col-md-12 border-content">
-                <div class="row">
+                <div class="row ">
 
                 <div class="col-md-1 col-lg-1">
                 </div>
@@ -76,6 +76,23 @@
                             </div> 
                         </div>
 
+                            <div class="card profil text-center">
+                                <a href="#" class="a-profile-user">
+
+                                    <div class="background-profile">
+                                        <img class="img-background-profile" src="https://images.pexels.com/photos/34199/pexels-photo.jpg?w=1260&h=750&auto=compress&cs=tinysrgb"></img>
+                                        <div class="image-profil">
+                                        <img class="wrap-border-profile"src="https://images.pexels.com/photos/34199/pexels-photo.jpg?w=1260&h=750&auto=compress&cs=tinysrgb"></img>
+                                        </div>
+                                    </div>
+                                    <div class="wrapper">
+                                        <h1>Haja <strong>Randriakoto</strong></h1>
+                                        <p>Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio..</p>
+                                            <i class="fab fa-instagram"></i>
+                                        <i class="fab fa-twitter-square"></i>
+                                    </div>
+                                </a>
+                            </div>
                     </div>
                 </div>
                 <div class="col-md-1 col-lg-1">

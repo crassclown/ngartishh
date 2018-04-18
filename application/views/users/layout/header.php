@@ -11,7 +11,7 @@
 
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  type='text/css'>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
@@ -41,9 +41,15 @@
             <div class="col-md-3 respon-sm-nav">
               <div class="widget">
                 <div class="form-search">
-                  <input class="form-control" type="text" placeholder="Search..">
-                      <i class="fa fa-search search-button"></i>
-                </div>
+                <form action="<?=base_url('c_dashboard/m_searcboxtype/');?>" method="POST">
+                  <input class="form-control" type="text" placeholder="Search.." autocomplete="off" id="search_data" name="search_data" onkeyup="liveSearch()">
+                  <i class="fa fa-search search-button" style="color:#aaa;"></i>
+                  <div id="suggestions">
+                    <div id="autoSuggestionsList">
+                    </div>
+                  </div>
+                </form>    
+              </div>
               </div>
             </div>
             <div class="col-md-6 col-md-6 col-xs-6">
