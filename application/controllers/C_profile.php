@@ -28,8 +28,6 @@ class C_profile extends CI_Controller {
 		$data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
 		$data['profile'] = $this->m_users->get_users($id);
 		$data['content'] = $this->m_users->get_usercontent($id);
-		$data['totalfollowing'] = count($this->m_users->get_userfollowing($id));
-		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
 		$data['categories'] = $this->m_users->m_categories();
 		
 		$this->load->view('users/layout/header', $data);
