@@ -71,15 +71,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="badgescard"> 
-                                                <span class="fa fa-facebook"></span>
-                                                <span class="fa fa-twitter"> </span>
-                                                <span class="fa fa-google-plus"></span>
-                                                <span class="fa fa-youtube"></span>
-                                                <span class="fa fa-dribble"></span>
-                                                <span class="fa fa-google"></span>
-                                                <span class="fa fa-android"> </span>
-                                            </div>
                                         </div>
                                         <br />
                                     <?php
