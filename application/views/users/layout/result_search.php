@@ -47,13 +47,23 @@
                                                 </div>
                                             </div>
                                             <div class="wrapper">
-                                                <h1><?php echo substr(trim(ucfirst($resultuser->namalengkap)),0,1); ?></h1>
-                                                <p>Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio.Bio..</p>
-                                                    <i class="fab fa-instagram"></i>
-                                                <i class="fab fa-twitter-square"></i>
+                                                <h1><?php echo $resultuser->namalengkap; ?></h1>
+                                                <?php
+                                                    if($resultuser->biousers){
+                                                        ?>
+                                                            <p><?=$resultuser->biousers;?></p>
+                                                        <?php
+                                                    }else{
+                                                        echo "Bio masih kosong";
+                                                    }
+                                                ?>
+                                                
+                                                    <!-- <i class="fab fa-instagram"></i>
+                                                    <i class="fab fa-twitter-square"></i> -->
                                             </div>
                                         </a>
                                     </div>
+                                    <br />
                                     <?php
                                 }
                             }else{

@@ -110,7 +110,7 @@ class M_dashboard extends CI_Model
 
     function m_searchbarusers($key){
         //Select content records
-        $q = $this->db->query("SELECT DISTINCT *, users.fullname as namalengkap, users.Id as userId FROM users WHERE users.fullname LIKE '%$key%' OR users.fullname LIKE '$key%' OR users.fullname LIKE '%$key' LIMIT 10");        
+        $q = $this->db->query("SELECT DISTINCT *, users.bio as biousers, users.fullname as namalengkap, users.Id as userId FROM users WHERE users.fullname LIKE '%$key%' OR users.fullname LIKE '$key%' OR users.fullname LIKE '%$key' LIMIT 10");        
         
         if($q->num_rows() > 0)
         {

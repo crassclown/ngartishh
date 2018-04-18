@@ -38,7 +38,7 @@ class C_dashboard extends CI_Controller {
         }else if(is_array($datausers) || is_object($datausers)){
             // echo "No Data Found";
             foreach ($datausers as $rowuser):
-                echo "<li><a href='".base_url('c_profile/m_users/'.$rowuser->userId)."'>" . ucwords(trim($rowuser->namalengkap)) . "</a></li>";    
+                echo "<div class='list-suggestion-search'><a href='".base_url('c_profile/m_users/'.$rowuser->userId)."'>" . ucwords(trim($rowuser->namalengkap)) . "</a></div>";    
             endforeach;
         }else{
             echo "No Data Found";
