@@ -38,13 +38,13 @@
                             }else if(is_array($pencarianuser) || is_object($pencarianuser)){
                                 foreach($pencarianuser as $resultuser){
                                     ?>
-                                        <!-- <a href="<?=base_url('c_profile/m_users/'.$resultuser->userId);?>">
-                                            <div class="line-result-search"> -->
+                                        <a href="<?=base_url('c_profile/m_users/'.$resultuser->userId);?>">
+                                            <div class="line-result-search">
                                                 <!-- <div class="wrap-foto-content-search-result">
                                                     <img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="foto-content-search-result" src="<?php echo base_url('assets/images/content/'.$result->photos)?>"></img>
                                                 </div> -->
 
-                                                <!-- <div class="wrap-mini-foto-profil">
+                                                <div class="wrap-mini-foto-profil">
                                                     <div class="mini-foto-profil">
                                                         <p><?php echo substr(trim(ucfirst($resultuser->namalengkap)),0,1); ?></p>
                                                     </div>
@@ -52,27 +52,14 @@
                                                         <?=$resultuser->namalengkap;?>
                                                     </div> 
                                                 </div>
-                                                <!-- <div class="judul-search-result"> -->
-                                                    <!-- <h2><?=$result->judulcontent;?><h2>
+                                                <!-- <div class="judul-search-result">
+                                                    <h2><?=$result->judulcontent;?><h2>
                                                 </div> 
                                                 <div class="deskripsi-search-result">
                                                     <?=substr($result->desccontent,0,80) . '...';?>
                                                 </div>  -->
-                                            <!-- </div>
-                                        </a> -->
-
-                                        <div class="content">
-                                            <div class="card">
-                                                <div class="firstinfo"><img src="http://www.doyoubuzz.com/var/users/_/2016/11/15/18/1300826/avatar/1253797/avatar_cp_630.jpg?t=1504470047" />
-                                                    <div class="profileinfo">
-                                                        <h1>HARUN PEHLİVAN</h1>
-                                                        <h3> FOUNDER,CEO BLOGGER</h3>
-                                                        <p class="bio"> <a href="http://www.doyoubuzz.com/harun-pehlivan" target="_blank">E-CV</a> </p>
-                                                    </div>
-                                                </div>
                                             </div>
-                                        </div>
-                                        <br />
+                                        </a>
                                     <?php
                                 }
                             }else{
