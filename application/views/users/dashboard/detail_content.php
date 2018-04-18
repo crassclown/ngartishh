@@ -40,8 +40,8 @@
                                             $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;
                                             $time = strtotime($van->tgl_publish);
                                             ?>
-                                            <sub data-toggle="tooltip" title="<?php echo $indate.' . '.$explode[1];?>"><time class="timeago" datetime="<?php echo $indate.' . '.$explode[1];?>"></time></sub>
-                                            <h5><b class="judul"><?=$vau->title;?></b> - <small class="label label-info"><?=$van->namakat;?></small></h5>
+                                            <sub data-toggle="tooltip" title="<?php echo $indate.' . '.$explode[1];?>"><time class="timeago" datetime="<?php echo $indate.' . '.$explode[1];?>"></time></sub> | <small class="label label-info"><?=$van->namakat;?></small>
+                                            <h5><b class="judul"><?=$vau->title;?></b></h5>
                                             <p><?=$vau->desc;?></p>
                                         </div>
                                         <div class="row">
