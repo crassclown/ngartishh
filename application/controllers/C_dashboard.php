@@ -33,7 +33,7 @@ class C_dashboard extends CI_Controller {
         
         if(is_array($query) || is_object($query)){
             foreach ($query as $row):
-                echo "<li><a href='".base_url('c_dashboard/m_detailContent/'.$row->Idcontent.'/'.$row->Iduser)."'>" . ucwords(trim($row->judulcontent)) . "</a></li>";    
+                echo "<div class='list-suggestion-search'><a href='".base_url('c_dashboard/m_detailContent/'.$row->Idcontent.'/'.$row->Iduser)."'>" . ucwords(trim($row->judulcontent)) . "</a></div>";    
             endforeach;
         }else if(is_array($datausers) || is_object($datausers)){
             // echo "No Data Found";
