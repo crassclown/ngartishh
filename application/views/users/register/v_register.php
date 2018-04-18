@@ -99,7 +99,7 @@
               </div>
 
               <div class="wrap-input100 validate-input" data-validate = "Phone is requires">
-                <input class="input100" type="text" name="txtphone" id="txtphone" placeholder="Number phone">
+                <input class="input100" type="text" name="txtphone" maxlength="13" id="txtphone" placeholder="Phone Number">
                 <span class="focus-input100"></span>
               </div>
 
