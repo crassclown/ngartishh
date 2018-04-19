@@ -28,8 +28,6 @@
                         <div class="harga-lelang-awal text-center">
                             Rp.<?=number_format($vau->winner_price);?>
                         </div>
-
-                    </div>
                 </div>
             </div>
             <div class="col-md-4">
