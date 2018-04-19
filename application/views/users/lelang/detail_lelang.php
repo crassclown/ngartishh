@@ -37,51 +37,24 @@
                     <div class="padding-form-harga-lelang">
                         <h4> Masukkan harga untuk melelang</h4>
                         <div class="padding-form-lelang">
-                                <form action="#" method="POST">
+                                <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
                                     <div class="row wrap-input-lelang">
                                         <div class="col-md-5">
                                         <p>Masukkan Harga:</p>
                                         </div>
                                         <div class="col-md-7">
-                                            <input id="input-lelang" type="number" name="txtharga" placeholder="Harga">
-                                            <input type="hidden" id="winner_id" value="<?php echo $this->session->userdata('Id'); ?>">
+                                            <input id="input-lelang" class="comment form-control" autocomplete="off" type="number" name="txtharga" placeholder="Harga">
                                         </div>
                                     </div>
-                                <button type="submit" class="btn btn-default submit-edit-profil">Masukkan harga</button>
+                                <button id="comments" type="button" data-toggle="tooltip" title="Comments" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">Masukkan harga</button>
+                                <input type="hidden" name="lela_id" id="lela_id" value="<?=$vau->lelaid;?>">
                             </form>                
                         </div>
                     </div>
                     <div class="wrap-riwayat-input-harga-lelang">
-                        <div class="colom-komentar">
-                            <div class="wrap-komentar">
-                                <div class="wrap-nama-orang-komentar">
-                                    <a href="#" class="nama-orang-komentar">
-                                        @namaorang
-                                    </a>
-                                </div>
-                                <div class="isi-komentar">
-                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
-                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
-                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="colom-komentar">
-                            <div class="wrap-komentar">
-                                <div class="wrap-nama-orang-komentar">
-                                    <a href="#" class="nama-orang-komentar">
-                                        @namaorang
-                                    </a>
-                                </div>
-                                <div class="isi-komentar">
-                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
-                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
-                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
-                                </div>
-                            </div>
-                        </div>
-
+                        
+                        <div id="list_status"></div>
+                        
 
                     </div>
                 </div>
@@ -91,3 +64,58 @@
 <?php
     }
 ?>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.comment').keypress(function(e) {
+            if (e.which == 13) {
+                $(this).next('#comments').focus();
+                e.preventDefault();
+            }
+        });
+        $("#comments").click(function(){
+            var psharga     = $('#input-lelang').val();
+            var winner_id   = $(this).attr("data-winner_id");
+            var lelaid      = $(this).attr("data-lelaid");
+                        
+            if(psharga != ''){
+
+                $.ajax({
+                    type:"POST",
+                    url :"<?php echo base_url(); ?>" + "c_lelang/m_added_lelang",
+                    data:{
+                        "winner_price":psharga,
+                        "winner_id":winner_id,
+                        "lela_id":lelaid
+                    },
+                    success:function(html){
+                        $('#input-lelang').val('');
+                        m_load_lelang();
+                    }
+                });
+            }else{
+                $('#comments').bind('keypress', function(e)
+                {
+                    if(e.keyCode == 13)
+                    {
+                        return false;
+                    }
+                });
+            }
+        });
+    });
+    m_load_lelang();
+    function m_load_lelang(){
+        var lela_id = $('#lela_id').val();
+        $.ajax({
+            type:"POST",
+            url :"<?php echo base_url(); ?>" + "c_lelang/m_load_lelang",
+            data:{
+                "lela_id":lela_id
+            },
+            success:function(html){
+                $('#list_status').html(html);
+            }
+        });
+        return false;
+    }
+</script>
