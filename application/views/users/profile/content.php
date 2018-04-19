@@ -7,8 +7,8 @@
 			<div class="col-md-3">
 				<p class="baris-foto-profil">
 					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
-					<div class="foto-profil">
-						<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>/>
+					<div class="foto-profil" style="padding-top:0">
+						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>></img>
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
