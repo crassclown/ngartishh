@@ -1,4 +1,4 @@
-<section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
+    <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 border-content">
@@ -15,16 +15,10 @@
                                         <img src="<?php echo base_url('assets/images/content/1.jpg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 col-lg-4">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4 col-lg-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4 col-lg-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>  
@@ -42,16 +36,10 @@
                                         <img src="<?php echo base_url('assets/images/content/2.jpg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 ">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>  
@@ -69,18 +57,12 @@
                                         <img src="<?php echo base_url('assets/images/content/3.jpg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 ">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
-                                            </div>
+                                           </div>
                                         </div>  
                                     </div>
                                 </div>
@@ -96,16 +78,10 @@
                                         <img src="<?php echo base_url('assets/images/content/4.jpg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 ">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>  
@@ -123,16 +99,10 @@
                                         <img src="<?php echo base_url('assets/images/content/5.jpg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 ">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>  
@@ -150,16 +120,10 @@
                                         <img src="<?php echo base_url('assets/images/content/6.jpg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 ">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>  
@@ -177,16 +141,10 @@
                                         <img src="<?php echo base_url('assets/images/content/7.jpg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 ">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>  
@@ -204,16 +162,10 @@
                                         <img src="<?php echo base_url('assets/images/content/index.jpeg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 ">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>  
@@ -231,16 +183,10 @@
                                         <img src="<?php echo base_url('assets/images/content/index1.jpeg')?>" alt="gambar" />                              
                                         <div class="portfolio-desc align-center">
                                             <div class="folio-info">
-                                                <div class="row image-icons">
-                                                    <div class="col-md-4 ">
-                                                        <a href="#"><i class="fa fa-thumbs-up "></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-comment"></i><span>123</span></a>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <a href="#"><i class="fa fa-share-alt"></i></a>
-                                                    </div>
+                                                <div class="row info-sisa-hari-lelang">
+                                                    <span>
+                                                        sisa 5 hari lagi
+                                                    </span>
                                                 </div>
                                             </div>
                                         </div>  
