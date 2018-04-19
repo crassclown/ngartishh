@@ -222,7 +222,7 @@
 </script>
 
 <!-- Edit Profile AJAX -->
-<script type="text/javascript">
+<!-- <script type="text/javascript">
 	$(document).ready(function () {
 		$("#editprofile").submit(function(e){
 			var formData = new FormData($(this)[0]);
@@ -244,7 +244,7 @@
 		});
 	});
 
-</script>
+</script> -->
 <!-- END Edit Profile AJAX -->
 
 <!-- Follow Module -->

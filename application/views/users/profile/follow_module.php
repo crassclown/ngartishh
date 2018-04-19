@@ -118,6 +118,7 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
+						if(!$.trim(data)){
                         html += '<div class="content-modal-follow">' +
 									'<div class="foto-profil-modal-follow">' +
 										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/'+data[i].fotoprofil+'")?> />' +
@@ -128,6 +129,7 @@
 									'</p>' + data[i].phone +
 									'</span>' +
 								'</div>';
+						}
 					}
 					modal.find('#show_follower').html(html);
 				}

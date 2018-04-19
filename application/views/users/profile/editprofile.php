@@ -9,7 +9,7 @@
 			</div>
 			<div class="modal-body ">
 				<div class="padding-modal-body">
-					<form enctype="multipart/form-data" id="editprofile">
+					<form enctype="multipart/form-data" method="post" action="<?=base_url('c_profile/m_editusers')?>" id="editprofile">
 						<?php foreach($profile as $p){ ?>
 						<div id="wrap-input-foto-profil">
 							<img id="sebelum-blah" src="#"></img>
