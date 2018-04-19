@@ -62,7 +62,29 @@ class M_users extends CI_Model
 	public function cekFollowing($userid, $followedid)
 	{
 		$result = $this->db->where('user_id', $userid)->where('followed_id',$followedid)->limit(1)->get('following');
-		return $result->row();
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+            return $data;
+        }
+	}
+
+	//Cek Follow Status
+	public function isFollowing($userid, $followedid)
+	{
+		$result = $this->db->where('user_id', $userid)->where('followed_id',$followedid)->limit(1)->get('following');
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
 	}
 	
 	//User Follow
@@ -86,24 +108,40 @@ class M_users extends CI_Model
 	//Delete Users on Profile Page
 	public function get_userfollowing($id)
 	{
-		$this->db->select('users.Id, fullname, phone');
-		$this->db->from('users');
-		$this->db->join('following', 'following.followed_id = users.Id');
-		$this->db->where('following.user_id', $id);
-		$result = $this->db->get()->result();
+		$result = $this->db->select('users.Id as userId, fullname, phone');
+		$result = $this->db->from('users');
+		$result = $this->db->join('following', 'following.followed_id = users.Id');
+		$result = $this->db->where('following.user_id', $id);
+		$result = $this->db->get();
 
-		return $result;
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
 	}
 
 	public function get_userfollower($id)
 	{
-		$this->db->select('users.Id, fullname, phone');
-		$this->db->from('users');
-		$this->db->join('following', 'following.user_id = users.Id');
-		$this->db->where('following.followed_id', $id);
-		$result = $this->db->get()->result();
-
-		return $result;
+		$result = $this->db->select('users.Id as userId, fullname, phone, fotoprofil');
+		$result = $this->db->from('users');
+		$result = $this->db->join('following', 'following.user_id = users.Id');
+		$result = $this->db->where('following.followed_id', $id);
+		$result = $this->db->get();
+		
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
 	}
 
 	public function DeleteUsers($id){

@@ -10,14 +10,16 @@ class C_dashboard extends CI_Controller {
         $this->load->model('m_users');
         if($this->session->userdata('status') != "login"){
 			redirect(base_url("c_loginusers/"));
-        }
+		}
 	}
     
     // Memanggil halaman index
 	public function index()
 	{   
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
-        $data['categories'] = $this->m_users->m_categories();
+		$data['categories'] = $this->m_users->m_categories();
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/index', $data);
 		$this->load->view('users/layout/footer');
@@ -41,7 +43,7 @@ class C_dashboard extends CI_Controller {
                 echo "<div class='list-suggestion-search'><a href='".base_url('c_profile/m_users/'.$rowuser->userId)."'>" . ucwords(trim($rowuser->namalengkap)) . "</a></div>";    
             endforeach;
         }else{
-            echo "<div class='list-suggestion-search'>No Data Found</div>";    
+            echo "<div class='list-suggestion-search'>No Data Found</div>";
         }
     }
 
@@ -53,6 +55,8 @@ class C_dashboard extends CI_Controller {
         $datacontent = $data['pencariankategori'];
         $datas['pencarianuser'] = $this->m_dashboard->m_searchbarusers($key);
         $datauser = $datas['pencarianuser'];
+        $ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
         if(is_array($datacontent) || is_object($datacontent)){
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $data);
@@ -99,10 +103,16 @@ class C_dashboard extends CI_Controller {
 		$where = array(
             'Id' => $content_id,
             'user_id' => $user_id
-        );
+		);
+		$id = $this->session->userdata('Id');
+		$data['profile'] = $this->m_users->get_users($id);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
-        $data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
+		$data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
+		
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
+
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/detail_content', $data);
 		$this->load->view('users/layout/footer');
@@ -243,8 +253,8 @@ class C_dashboard extends CI_Controller {
         $config['upload_path']   = './assets/images/content/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']      = 20000;
-        $config['max_width']     = 1024;
-        $config['max_height']    = 768;
+        $config['max_width']     = 2000;
+        $config['max_height']    = 2000;
 
         $this->load->library('upload', $config);
 
@@ -294,7 +304,9 @@ class C_dashboard extends CI_Controller {
     public function m_searchcategory($id){
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['pencariankategori'] = $this->m_dashboard->m_searchCategory($id);
-        $datak = $data['pencariankategori'];
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
+		$datak = $data['pencariankategori'];
         if(is_array($datak) || is_object($datak)){
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_category', $data);
@@ -309,6 +321,8 @@ class C_dashboard extends CI_Controller {
 
     // Lempar seluruh kategori ke halaman kategori
     public function m_searchallcategory(){
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['categories'] = $this->m_users->m_categories();
         $this->load->view('users/layout/header', $data);

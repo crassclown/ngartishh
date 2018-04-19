@@ -3,6 +3,8 @@
             ?>
             <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
                 <div class="container">
+				<input type="hidden" id="user_ids" value="<?php echo $this->session->userdata('Id'); ?>">
+				<input type="hidden" id="followed_id" value="<?php echo $this->uri->segment(4); ?>">
                     <div class="row">
                         <div class="col-md-4">
                             <div class="wrap-detail-content">
@@ -46,7 +48,9 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <button class="button-detail-content" data-toggle="tooltip" title="Follow">Follow</button>
+											<?php if($this->session->userdata('Id')!=$this->uri->segment(4)){ ?>
+                                                <button class="button-detail-content" data-toggle="tooltip" title="Follow" id="btnfollows"><div id="statusfollows"></div></button>
+											<?php } ?>
                                             </div>
                                             <div class="col-md-3">
                                                 <div id="show_data"></div>
@@ -279,6 +283,8 @@ function liveSearch() {
 }
 
 </script>
+
+<?php $this->load->view('users/profile/follow_module'); ?>
 
 <noscript>
     Sorry...JavaScript is needed to go ahead.
