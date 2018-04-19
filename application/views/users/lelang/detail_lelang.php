@@ -29,19 +29,54 @@
             </div>
             <div class="col-md-4">
                 <div class="wrap-detail-content text-center">
-                    <h4> Masukkan harga untuk melelang</h4>
-                    <div class="padding-form-lelang">
-                            <form action="#" method="POST">
-                                <div class="row wrap-input-lelang">
-                                    <div class="col-md-5">
-                                    <p>Masukkan Harga:</p>
+                    <div class="padding-form-harga-lelang">
+                        <h4> Masukkan harga untuk melelang</h4>
+                        <div class="padding-form-lelang">
+                                <form action="#" method="POST">
+                                    <div class="row wrap-input-lelang">
+                                        <div class="col-md-5">
+                                        <p>Masukkan Harga:</p>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input id="input-lelang" type="number" name="txtharga" placeholder="Harga">
+                                        </div>
                                     </div>
-                                    <div class="col-md-7">
-                                        <input id="input-lelang" type="number" name="txtharga" placeholder="Harga">
-                                    </div>
+                                <button type="submit" class="btn btn-default submit-edit-profil">Masukkan harga</button>
+                            </form>                
+                        </div>
+                    </div>
+                    <div class="wrap-riwayat-input-harga-lelang">
+                        <div class="colom-komentar">
+                            <div class="wrap-komentar">
+                                <div class="wrap-nama-orang-komentar">
+                                    <a href="#" class="nama-orang-komentar">
+                                        @namaorang
+                                    </a>
                                 </div>
-                            <button type="submit" class="btn btn-default submit-edit-profil">Masukkan harga</button>
-                        </form>                
+                                <div class="isi-komentar">
+                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="colom-komentar">
+                            <div class="wrap-komentar">
+                                <div class="wrap-nama-orang-komentar">
+                                    <a href="#" class="nama-orang-komentar">
+                                        @namaorang
+                                    </a>
+                                </div>
+                                <div class="isi-komentar">
+                                    ini isi nya ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                    ini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nyaini isi nya
+                                </div>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>

@@ -1525,6 +1525,16 @@ a:focus{
 	padding:5px;
 	width:100%;
 }
+.padding-form-harga-lelang{
+	padding-top:25px;
+	padding-bottom:10px;
+	border-bottom:2px solid #aaa;
+}
+
+.wrap-riwayat-input-harga-lelang{
+	overflow-y: auto;
+	height:280px;
+}
 
 .wrap-input-lelang{
 	margin:10px auto 10px auto;
