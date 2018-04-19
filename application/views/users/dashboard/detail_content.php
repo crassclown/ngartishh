@@ -48,7 +48,9 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
+											<?php if($this->session->userdata('Id')!=$this->uri->segment(4)){ ?>
                                                 <button class="button-detail-content" data-toggle="tooltip" title="Follow" id="btnfollows"><div id="statusfollows"></div></button>
+											<?php } ?>
                                             </div>
                                             <div class="col-md-3">
                                                 <div id="show_data"></div>
