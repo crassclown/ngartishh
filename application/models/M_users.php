@@ -43,6 +43,32 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	public function get_lelang($id)
+	{
+		$result = $this->db->where('owner_id', $id)->get('lelang')->result();
+		return $result;
+	}
+
+	public function get_userlelang($id)
+	{
+		$result = $this->db->select('lelang.content_id as idcontent, lelang.owner_id as ownerid , content.photos as photos, (end_date - date(now())) as durasi');
+		$result = $this->db->from('lelang');
+		$result = $this->db->join('content', 'content.Id = lelang.content_id');
+		$result = $this->db->join('users', 'users.Id = lelang.owner_id');
+		$result = $this->db->where('lelang.owner_id', $id);
+		$result = $this->db->get();
+
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
+
 	//Update User's Bio
 	public function UpdateUsers($id,$data){
 		$checkupdate = false;

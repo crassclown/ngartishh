@@ -10,9 +10,9 @@
   	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>"/>
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  type='text/css'/>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>">
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  type='text/css'>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
 
@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/js/fancybox/jquery.fancybox.css')?>" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/demo.css')?>" type="text/css"  />
 		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/icons.css')?>" type="text/css"  />
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>"/>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>">
 
     <!--===================================== Back end Pandhu ===================================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
     <!-- <link rel="stylesheet" href="<?=base_url('assets/css/checkbox-style.css');?>"> -->
 
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
     <!--===============================================================================================-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
 
@@ -37,62 +37,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
       <!--==================================== End Back end pandhu ===========================================-->
 
-<script>
-function magnify(imgID, zoom) {
-  var img, glass, w, h, bw;
-  img = document.getElementById(imgID);
-  /*create magnifier glass:*/
-  glass = document.createElement("DIV");
-  glass.setAttribute("class", "page-glass");
-  /*insert magnifier glass:*/
-  img.parentElement.insertBefore(glass, img);
-  /*set background properties for the magnifier glass:*/
-  glass.style.backgroundImage = "url('" + img.src + "')";
-  glass.style.backgroundRepeat = "no-repeat";
-  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
-  bw = 3;
-  w = glass.offsetWidth / 2;
-  h = glass.offsetHeight / 2;
-  /*execute a function when someone moves the magnifier glass over the image:*/
-  glass.addEventListener("mousemove", moveMagnifier);
-  img.addEventListener("mousemove", moveMagnifier);
-  /*and also for touch screens:*/
-  glass.addEventListener("touchmove", moveMagnifier);
-  img.addEventListener("touchmove", moveMagnifier);
-  function moveMagnifier(e) {
-    var pos, x, y;
-    /*prevent any other actions that may occur when moving over the image*/
-    e.preventDefault();
-    /*get the cursor's x and y positions:*/
-    pos = getCursorPos(e);
-    x = pos.x;
-    y = pos.y;
-    /*prevent the magnifier glass from being positioned outside the image:*/
-    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
-    if (x < w / zoom) {x = w / zoom;}
-    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
-    if (y < h / zoom) {y = h / zoom;}
-    /*set the position of the magnifier glass:*/
-    glass.style.left = (x - w) + "px";
-    glass.style.top = (y - h) + "px";
-    /*display what the magnifier glass "sees":*/
-    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
-  }
-  function getCursorPos(e) {
-    var a, x = 0, y = 0;
-    e = e || window.event;
-    /*get the x and y positions of the image:*/
-    a = img.getBoundingClientRect();
-    /*calculate the cursor's x and y coordinates, relative to the image:*/
-    x = e.pageX - a.left;
-    y = e.pageY - a.top;
-    /*consider any page scrolling:*/
-    x = x - window.pageXOffset;
-    y = y - window.pageYOffset;
-    return {x : x, y : y};
-  }
-}
-</script>
 <script>
   document.onreadystatechange = function () {
       if (document.readyState === "complete") {
@@ -107,8 +51,8 @@ function magnify(imgID, zoom) {
 <!-- <script type="text/javascript"> var SPklikkanan = 'TILANG';</script> <script type="text/javascript" src="<?php echo base_url('assets/js/sp-tilang.js');?>"> </script> -->
 
 <div class="progress" id="PreLoaderBar">
-  <div class="indeterminate"></div>
-</div>
+        <div class="indeterminate"></div>
+    </div>
   <header>
     <nav class="navbar ">
       <div class="main-menu ">
@@ -133,6 +77,8 @@ function magnify(imgID, zoom) {
             </div>
             <div class="col-md-6 col-md-6 col-xs-6">
             
+							<div class="col-md-2 col-xs-2">
+							</div>
               <ul class="nav navbar-nav row navbar-top">
                 <li class="col-xs-2 col-md-2 col-md-offset-1 col-xs-offset-0">
                   <a href="<?=base_url('c_lelang/');?>" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
@@ -160,7 +106,7 @@ function magnify(imgID, zoom) {
                     </ul>
                   </li>
                 </div>
-                <div class="col-md-2 col-xs-2">
+                <!-- <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i><div class="count text-center">4</div></a>
                     <ul class="dropdown-menu notifikasi">
@@ -196,7 +142,7 @@ function magnify(imgID, zoom) {
                       </a>
                     </ul>
                   </li>
-                </div>
+                </div> -->
                 <div class="col-md-3 col-xs-3">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
@@ -204,7 +150,7 @@ function magnify(imgID, zoom) {
 											<?php foreach($foto as $f){ ?>
 												<?php if(isset($f->fotoprofil)&&$f->fotoprofil!=''){ ?>
 												<div class="nav-icon-profile">
-													<img class="img-responsive" src="<?php echo base_url('assets/images/profilepicture/'.$f->fotoprofil.'')?>"/></img>
+													<img class="img-responsive img-border-radius-profil" src="<?php echo base_url('assets/images/profilepicture/'.$f->fotoprofil.'')?>"/></img>
 												</div>
 												<?php }else{ ?>
                         <div class="nav-icon-profile">
