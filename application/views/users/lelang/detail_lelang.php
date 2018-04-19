@@ -15,14 +15,14 @@
                         <h3>Harga Awal</h3>
                     </div>
                     <div class="harga-lelang-awal text-center">
-                        RP. 700.000
+                        RP. 10.000
                     </div>
 
                     <div class="text-center">
                         <h3>Harga Saat ini</h3>
                     </div>
                     <div class="harga-lelang-awal text-center">
-                        RP. 750.000
+                        RP. 750.000.000
                     </div>
 
                 </div>
