@@ -104,7 +104,7 @@
 <script type="text/javascript">
     $('#btnfollower').on('click',function () {
 		var button = $('#btnfollower') // Button that triggered the modal
-		var modal = $('#modal-followers');
+		var modal = $('#modal-follower');
         tampil_follower();   //pemanggilan fungsi tampil gambar.
         
         function tampil_follower(){
@@ -117,7 +117,6 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-						if(!$.trim(data)){
                         html += '<div class="content-modal-follow">' +
 									'<div class="foto-profil-modal-follow">' +
 										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/'+data[i].fotoprofil+'")?> />' +
@@ -128,7 +127,6 @@
 									'</p>' + data[i].phone +
 									'</span>' +
 								'</div>';
-						}
 					}
 					modal.find('#show_follower').html(html);
 				}
@@ -223,12 +221,14 @@
 	$(document).ready(function () {
 		isfollowing();
 		function isfollowing(){
+			var varUserid = $('#user_ids').val();
+			var varFollowedid = $('#followed_id').val();
 			$.ajax({
 				type  : 'post',
-				url   : '<?php echo base_url()?>c_profile/m_isfollowing/'+"C_profile/m_cekfollowing/"+"<?php echo $this->session->userdata('Id')?>/" + "<?php echo $this->uri->segment(4)?>",
+				url   : '<?php echo base_url()?>c_profile/m_isfollowing/'+varUserid+'/'+varFollowedid,
 				data:{
-					"userid": userid,
-					"followedid": followedid,
+					"userid": varUserid,
+					"followedid": varFollowedid,
 				},
 				success : function(html){
 					$('#statusfollows').html(html);

@@ -11,6 +11,7 @@ class C_loginusers extends CI_Controller {
         $this->load->helper('url');
 		$this->load->model('m_users');
         $this->load->database();		
+	
 	}
     
     //Index Login

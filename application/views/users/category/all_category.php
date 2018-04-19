@@ -56,7 +56,7 @@
                     ?>
                         <div class="col-12 col-md-3 col-lg-3">
                             <div class="single_catagory wow fadeInUp" data-wow-delay=".3s">
-                                <img src=<?php echo base_url("assets/images/catagory-img/4.jpg")?> alt="">
+                                <img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/catagory-img/4.jpg")?> alt="">
                                 <div class="catagory-title">
                                     <a href="<?=base_url('c_dashboard/m_searchcategory/'.$categmenu->Id);?>">
                                         <h5><?=$categmenu->name;?></h5>

@@ -42,13 +42,13 @@
                                             $indate=$tgl.' '.$namabulan[(int)$d[1]].' '.$thn;
                                             $time = strtotime($van->tgl_publish);
                                             ?>
-                                            <sub data-toggle="tooltip" title="<?php echo $indate.' . '.$explode[1];?>"><time class="timeago" datetime="<?php echo $indate.' . '.$explode[1];?>"></time></sub>
-                                            <h5><b class="judul"><?=$vau->title;?></b> - <small class="label label-info"><?=$van->namakat;?></small></h5>
+                                            <sub data-toggle="tooltip" title="<?php echo $indate.' . '.$explode[1];?>"><time class="timeago" datetime="<?php echo $indate.' . '.$explode[1];?>"></time></sub> | <small class="label label-info"><?=$van->namakat;?></small>
+                                            <h5><b class="judul"><?=$vau->title;?></b></h5>
                                             <p><?=$vau->desc;?></p>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <button class="button-detail-content" data-toggle="tooltip" title="Follow" id="btnfollow"><div id="statusfollows"></div></button>
+                                                <button class="button-detail-content" data-toggle="tooltip" title="Follow" id="btnfollows"><div id="statusfollows"></div></button>
                                             </div>
                                             <div class="col-md-3">
                                                 <div id="show_data"></div>
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-md-4">
                             <div class="wrap-detail-content page-content-perbesar content-zoom">
-                                    <img class="img-detail-content" id="perbesar" src="<?php echo base_url('assets/images/content/'.$vau->photos)?>" alt="<?=$vau->photos;?>"></img>
+                                    <img class="img-detail-content" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" id="perbesar" src="<?php echo base_url('assets/images/content/'.$vau->photos)?>" alt="<?=$vau->photos;?>"></img>
                                     <h4 class="text-center margin-top-judul"><b><?=$vau->title;?></b></h4>
                             </div>
                         </div>
@@ -253,6 +253,33 @@
     jQuery(document).ready(function() {
         jQuery("time.timeago").timeago();
     });
+</script>
+<script>
+
+function liveSearch() {
+
+    var input_data = $('#search_data').val();
+    if (input_data.length === 0) {
+        $('#suggestions').hide();
+    } else {
+
+
+        $.ajax({
+            type: "POST",
+            url: "<?php echo base_url(); ?>c_dashboard/search",
+            data: {'search_data': input_data},
+            success: function (data) {
+                // return success
+                if (data.length > 0) {
+                    $('#suggestions').show();
+                    $('#autoSuggestionsList').addClass('auto_list');
+                    $('#autoSuggestionsList').html(data);
+                }
+            }
+        });
+    }
+}
+
 </script>
 
 <?php $this->load->view('users/profile/follow_module'); ?>

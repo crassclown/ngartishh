@@ -7,8 +7,8 @@
 			<div class="col-md-3">
 				<p class="baris-foto-profil">
 					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
-					<div class="foto-profil" style="padding-top:0;">
-						<img class="img-responsive" src="<?php echo base_url('assets/images/profilepicture/'.$p->fotoprofil.'')?>"/></img>
+					<div class="foto-profil">
+						<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>/>
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
@@ -21,7 +21,7 @@
 				</p>
 			</div>
 			<div class="col-md-2 padding-button-follow">
-				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Notification" data-target="#modal-followers" id="btnfollower">
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Notification" data-target="#modal-follower" id="btnfollower">
 					<b>
 						<div id="followercounter">followers <?php echo $totalfollower ?></div>
 					</b>
@@ -81,7 +81,7 @@
 	</div>
 
 	<!-- modal followers -->
-	<div class="modal fade" id="modal-followers" role="dialog">
+	<div class="modal fade" id="modal-follower" role="dialog">
 		<div class="modal-dialog modal-body-follow">
 
 			<!-- Modal content-->
@@ -144,7 +144,7 @@
                             '<div class="space">'+
                                 '<div class="portfolio-item">'+
                                 '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
-                                    '<img class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
+                                    '<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '</a>'+
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
@@ -152,7 +152,7 @@
                                                 '<div class="col-md-4 col-lg-4">'+
                                                     '<ol class="grid">'+
                                                         '<li class="grid__item">'+
-                                                            '<a class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
+                                                            '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
                                                         '</li>'+
                                                     '</ol>'+
                                                 '</div>'+
