@@ -65,7 +65,7 @@
 						<div class="space">
 							<div class="portfolio-item">
 								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
-								title="New Post" data-target="#myModal">
+								title="New Post" data-target="#modal-upload-content-lelang">
 									<i class="material-icons " style="font-size:40px;">file_upload</i>
 								</button>
 							</div>
@@ -181,7 +181,7 @@
     });
   </script>
 
-<?php $this->load->view('users/dashboard/upload_content'); ?>
+<?php $this->load->view('users/lelang/upload_content_lelang'); ?>
 
 
 <!-- AddToAny BEGIN -->
