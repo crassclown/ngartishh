@@ -8,7 +8,7 @@
 				<p class="baris-foto-profil">
 					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
 					<div class="foto-profil" style="padding-top:0">
-						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>></img>
+						<img class="img-responsive img-border-radius-profil" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>></img>
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
