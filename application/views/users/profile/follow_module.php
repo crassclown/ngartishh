@@ -117,6 +117,18 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
+						if(!$.trim(data[i].fotoprofil)){
+						html += '<div class="content-modal-follow">' +
+									'<div class="foto-profil-modal-follow">' +
+										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/unknown.png")?> />' +
+									'</div>' +
+									'<span class="modal-nama" style="text-transform:capitalize">' +
+									'<p>' +
+										'<b><a href=<?=base_url("c_profile/m_users/'+data[i].userId+'")?>>' + data[i].fullname + '</a></b>' +
+									'</p>' + data[i].phone +
+									'</span>' +
+								'</div>';
+						}else{
                         html += '<div class="content-modal-follow">' +
 									'<div class="foto-profil-modal-follow">' +
 										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/'+data[i].fotoprofil+'")?> />' +
@@ -127,6 +139,7 @@
 									'</p>' + data[i].phone +
 									'</span>' +
 								'</div>';
+						}
 					}
 					modal.find('#show_follower').html(html);
 				}
@@ -153,6 +166,18 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
+                        if(!$.trim(data[i].fotoprofil)){
+						html += '<div class="content-modal-follow">' +
+									'<div class="foto-profil-modal-follow">' +
+										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/unknown.png")?> />' +
+									'</div>' +
+									'<span class="modal-nama" style="text-transform:capitalize">' +
+									'<p>' +
+										'<b><a href=<?=base_url("c_profile/m_users/'+data[i].userId+'")?>>' + data[i].fullname + '</a></b>' +
+									'</p>' + data[i].phone +
+									'</span>' +
+								'</div>';
+						}else{
                         html += '<div class="content-modal-follow">' +
 									'<div class="foto-profil-modal-follow">' +
 										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/'+data[i].fotoprofil+'")?> />' +
@@ -163,6 +188,7 @@
 									'</p>' + data[i].phone +
 									'</span>' +
 								'</div>';
+						}
 					}
 					modal.find('#show_following').html(html);
 				}

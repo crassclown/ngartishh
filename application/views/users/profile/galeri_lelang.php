@@ -54,9 +54,9 @@
 	<?php } ?>
 	<div class="container container-profil">
 
-		<a href="<?=base_url('c_profile/m_users/'.$this->session->userdata('Id'));?>" class="button-tab">Galeri Saya</a>
+		<a href="<?=base_url('c_profile/m_users/'.$this->uri->segment(3));?>" class="button-tab">Galeri Saya</a>
 		<a href="#" class="button-tab">Upvote</a>
-		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->session->userdata('Id'));?>" class="button-tab">Galeri Lelang</a>
+		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
 				<div class="row">
@@ -72,7 +72,7 @@
 						</div>
 					</article>
 
-					<div id="show_dataprofile"></div>
+					<div id="show_datalelang"></div>
 
 				</div>
 			</div>
@@ -126,13 +126,13 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        tampil_data_barang();   //pemanggilan fungsi tampil gambar.
+        tampil_data_lelang();   //pemanggilan fungsi tampil gambar.
         
-        function tampil_data_barang(){
+        function tampil_data_lelang(){
 			var varUser = $('#followed_id').val();
             $.ajax({
                 type  : 'ajax',
-                url   : '<?php echo base_url()?>c_profile/m_getContentsUser/'+varUser,
+                url   : '<?php echo base_url()?>c_profile/m_getLelangUser/'+varUser,
                 async : false,
                 dataType : 'json',
                 success : function(data){
@@ -143,14 +143,14 @@
                         '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                             '<div class="space">'+
                                 '<div class="portfolio-item">'+
-                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
+                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].ownerid+'>'+
                                     '<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '</a>'+
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
                                             '<div class="row">'+
 												'<span>'+
-												'sisa 5 hari '+
+												'sisa '+data[i].durasi+' hari '+
 												'</span>'+          
 		                                    '</div>'+
                                         '</div>'+
@@ -160,24 +160,11 @@
                             '</div>'+
                         '</article>';
                     }
-                    $('#show_dataprofile').html(html);
+                    $('#show_datalelang').html(html);
                 }
                                 
             });
         }
-        $(document).on("click",".like",function() {
-            var content_id = $(this).attr("data-contentid");
-            var user_id = $(this).attr("data-sessionuserid");
-            $.ajax({
-                url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-                type: 'post',
-                data: { "content_id": content_id, "user_id": user_id},
-                success: function(response) 
-                { 
-                    tampil_data_barang();
-                }
-            });
-        });
     });
   </script>
 

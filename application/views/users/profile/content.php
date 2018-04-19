@@ -54,9 +54,9 @@
 	<?php } ?>
 	<div class="container container-profil">
 
-		<a href="<?=base_url('c_profile/m_users/'.$this->session->userdata('Id'));?>" class="button-tab">Galeri Saya</a>
+		<a href="<?=base_url('c_profile/m_users/'.$this->uri->segment(3));?>" class="button-tab">Galeri Saya</a>
 		<a href="#" class="button-tab">Upvote</a>
-		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->session->userdata('Id'));?>" class="button-tab">Galeri Lelang</a>
+		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
 				<div class="row">
