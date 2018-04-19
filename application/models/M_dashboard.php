@@ -94,7 +94,7 @@ class M_dashboard extends CI_Model
 
     function m_searchbar($key){
         //Select content records
-        $q = $this->db->query("SELECT DISTINCT *, content.title as judulcontent, category.name as namakat, category.desc as desckat, users.fullname as namalengkap, users.Id as Iduser, content.desc as desccontent, content.Id as Idcontent FROM content LEFT JOIN users ON users.Id = content.user_id LEFT JOIN category ON content.category_id = category.Id WHERE content.title LIKE '%$key%' OR content.title LIKE '%$key' OR content.title LIKE '$key%' LIMIT 10");        
+        $q = $this->db->query("SELECT DISTINCT *, content.title as judulcontent, category.name as namakat, category.desc as desckat, users.fullname as namalengkap, users.Id as Iduser, content.desc as desccontent, content.Id as Idcontent FROM content LEFT JOIN users ON users.Id = content.user_id LEFT JOIN category ON content.category_id = category.Id WHERE content.title LIKE '%$key%' OR content.title LIKE '%$key' OR content.title LIKE '$key%' LIMIT 5");        
         
         if($q->num_rows() > 0)
         {
@@ -110,7 +110,7 @@ class M_dashboard extends CI_Model
 
     function m_searchbarusers($key){
         //Select content records
-        $q = $this->db->query("SELECT DISTINCT *, users.bio as biousers, users.fullname as namalengkap, users.Id as userId FROM users WHERE users.fullname LIKE '%$key%' OR users.fullname LIKE '$key%' OR users.fullname LIKE '%$key' LIMIT 10");        
+        $q = $this->db->query("SELECT DISTINCT *, users.bio as biousers, users.fullname as namalengkap, users.Id as userId FROM users WHERE users.fullname LIKE '%$key%' OR users.fullname LIKE '$key%' OR users.fullname LIKE '%$key' LIMIT 5");        
         
         if($q->num_rows() > 0)
         {
