@@ -37,7 +37,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
       <!--==================================== End Back end pandhu ===========================================-->
 
-
 <script>
   document.onreadystatechange = function () {
       if (document.readyState === "complete") {
@@ -82,7 +81,7 @@
 							</div>
               <ul class="nav navbar-nav row navbar-top">
                 <li class="col-xs-2 col-md-2 col-md-offset-1 col-xs-offset-0">
-                  <a href="#" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
+                  <a href="<?=base_url('c_lelang/');?>" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
                 </li>
                 <li class="col-md-2">
                   <a href="<?=base_url('c_profile/m_users/'.$this->session->userdata('Id'));?>" class="nav-icon-gambar" data-toggle="tooltip" data-placement="bottom" title="My Gallery"><i class="material-icons nav-icon-gambar">panorama</i></a>
