@@ -10,9 +10,9 @@
   	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  type='text/css'>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>"/>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  type='text/css'/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
 
@@ -22,14 +22,14 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/js/fancybox/jquery.fancybox.css')?>" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/demo.css')?>" type="text/css"  />
 		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/icons.css')?>" type="text/css"  />
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>"/>
 
     <!--===================================== Back end Pandhu ===================================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css"/>
     <!-- <link rel="stylesheet" href="<?=base_url('assets/css/checkbox-style.css');?>"> -->
 
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css"/>
     <!--===============================================================================================-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
 
@@ -37,27 +37,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
       <!--==================================== End Back end pandhu ===========================================-->
 
-    <style>
-        .img-content:hover {
-            -webkit-transform: scaleX(-1);
-            transform: scaleX(-1);
-        }
-    </style>
-    <style>
-* {box-sizing: border-box;}
-.page-content-perbesar {
-  position:relative;
-}
-.page-glass {
-  position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
-  width: 100px;
-  height: 100px;
-}
-</style>
 <script>
 function magnify(imgID, zoom) {
   var img, glass, w, h, bw;
@@ -128,8 +107,8 @@ function magnify(imgID, zoom) {
 <!-- <script type="text/javascript"> var SPklikkanan = 'TILANG';</script> <script type="text/javascript" src="<?php echo base_url('assets/js/sp-tilang.js');?>"> </script> -->
 
 <div class="progress" id="PreLoaderBar">
-        <div class="indeterminate"></div>
-    </div>
+  <div class="indeterminate"></div>
+</div>
   <header>
     <nav class="navbar ">
       <div class="main-menu ">
@@ -154,8 +133,6 @@ function magnify(imgID, zoom) {
             </div>
             <div class="col-md-6 col-md-6 col-xs-6">
             
-							<div class="col-md-2 col-xs-2">
-							</div>
               <ul class="nav navbar-nav row navbar-top">
                 <li class="col-xs-2 col-md-2 col-md-offset-1 col-xs-offset-0">
                   <a href="#" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
@@ -183,7 +160,7 @@ function magnify(imgID, zoom) {
                     </ul>
                   </li>
                 </div>
-                <!-- <div class="col-md-2 col-xs-2">
+                <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i><div class="count text-center">4</div></a>
                     <ul class="dropdown-menu notifikasi">
@@ -219,7 +196,7 @@ function magnify(imgID, zoom) {
                       </a>
                     </ul>
                   </li>
-                </div> -->
+                </div>
                 <div class="col-md-3 col-xs-3">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
