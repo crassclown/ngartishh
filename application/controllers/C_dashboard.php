@@ -56,15 +56,21 @@ class C_dashboard extends CI_Controller {
         $datas['pencarianuser'] = $this->m_dashboard->m_searchbarusers($key);
         $datauser = $datas['pencarianuser'];
         if(is_array($datacontent) || is_object($datacontent)){
+			$ids = $this->session->userdata('Id');
+			$data['foto'] = $this->m_users->get_users($ids);
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $data);
             $this->load->view('users/layout/footer');
         }else if(is_array($datauser) || is_object($datauser)){
+			$ids = $this->session->userdata('Id');
+			$data['foto'] = $this->m_users->get_users($ids);
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $datas);
             $this->load->view('users/layout/footer');
         }else{
-            $this->session->set_flashdata('no_data','The word you are looking for is not found');
+			$this->session->set_flashdata('no_data','The word you are looking for is not found');
+			$ids = $this->session->userdata('Id');
+			$data['foto'] = $this->m_users->get_users($ids);
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $datas);
             $this->load->view('users/layout/footer');
@@ -314,7 +320,6 @@ class C_dashboard extends CI_Controller {
 		$ids = $this->session->userdata('Id');
 		$data['foto'] = $this->m_users->get_users($ids);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
-        $data['categories'] = $this->m_users->m_categories();
         $this->load->view('users/layout/header', $data);
 		$this->load->view('users/category/all_category', $data);
 		$this->load->view('users/layout/footer');

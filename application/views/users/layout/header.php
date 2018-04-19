@@ -154,6 +154,8 @@ function magnify(imgID, zoom) {
             </div>
             <div class="col-md-6 col-md-6 col-xs-6">
             
+							<div class="col-md-2 col-xs-2">
+							</div>
               <ul class="nav navbar-nav row navbar-top">
                 <li class="col-xs-2 col-md-2 col-md-offset-1 col-xs-offset-0">
                   <a href="#" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
@@ -181,7 +183,7 @@ function magnify(imgID, zoom) {
                     </ul>
                   </li>
                 </div>
-                <div class="col-md-2 col-xs-2">
+                <!-- <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i><div class="count text-center">4</div></a>
                     <ul class="dropdown-menu notifikasi">
@@ -217,7 +219,7 @@ function magnify(imgID, zoom) {
                       </a>
                     </ul>
                   </li>
-                </div>
+                </div> -->
                 <div class="col-md-3 col-xs-3">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
