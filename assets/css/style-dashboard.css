@@ -1408,6 +1408,10 @@ a:focus{
 	width:480px;
 }
 
+.modal-content-upload-lelang{
+	width:400px;
+}
+
 .content-modal-follow{
 	padding:5px;
 	border: 1px solid #d5d5d5;
@@ -1532,6 +1536,19 @@ a:focus{
 	border:1px solid #fff;
 }
 
+.combo-box-lelang{
+	width:100%;
+	border-radius:5px;
+    display: inline-block;
+	background :transparent;
+	padding:5px;
+	margin-bottom:15px;
+	appearance: none;
+	border:1px solid #ddd;
+
+
+
+}
 .harga-lelang-awal{
 	color:#fff;
 	background:#55a;
