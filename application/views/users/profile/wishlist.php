@@ -1,5 +1,6 @@
+
 <section id="section-works-profil" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
-	<?php foreach($profile as $p){ ?>
+	<!-- <?php foreach($profile as $p){ ?>
 	<div class="head-profil">
 		<div class="row">
 			<div class="col-md-2">
@@ -49,31 +50,66 @@
 			</div>
 		</div>
 	</div>
-	<?php } ?>
+	<?php } ?> -->
 	<div class="container container-profil">
 
 		<a href="#" class="button-tab">Galeri Saya</a>
 		<a href="#" class="button-tab">Upvote</a>
 		<a href="#" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
-			<div class="portfolio-items isotopeWrapper clearfix ">
-				<div class="row">
+		<section class="gallery-block cards-gallery">
+	    <div class="container">
 
-					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
-						<div class="space">
-							<div class="portfolio-item">
-								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
-								title="New Post" data-target="#myModal">
-									<i class="material-icons " style="font-size:40px;">file_upload</i>
-								</button>
-							</div>
-						</div>
-					</article>
-
-					<div id="show_dataprofile"></div>
-
-				</div>
-			</div>
+	        <div class="row">
+	            <div class="col-md-6 col-lg-4">
+	                <div class="card border-0 transform-on-hover">
+	                	<a class="lightbox" href="<?php echo base_url('assets/images/image1.jpg')?>">
+	                		<img src="<?php echo base_url('assets/images/image1.jpg')?>" alt="Card Image" class="card-img-top">
+	                	</a>
+	                    <div class="card-body">
+	                        <h6><a href="#">Tersisa 1 Hari !</a></h6>
+	                       
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-6 col-lg-4">
+	                <div class="card border-0 transform-on-hover">
+						<a class="lightbox" href="<?php echo base_url('assets/images/image1.jpg')?>">
+						<img src="<?php echo base_url('assets/images/image1.jpg')?>" alt="Card Image" class="card-img-top">
+		                </a>
+	                    <div class="card-body">
+	                        <h6><a href="#">Tersisa 2 Hari !</a></h6>
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-6 col-lg-4">
+	                <div class="card border-0 transform-on-hover">
+	                	<a class="lightbox" href="<?php echo base_url('assets/images/image1.jpg')?>">
+	                	<img src="<?php echo base_url('assets/images/image1.jpg')?>" alt="Card Image" class="card-img-top">
+	                	</a>
+	                    <div class="card-body">
+	                        <h6><a href="#">Tersisa 3 Hari !</a></h6>
+	                        
+	                    </div>
+	                </div>
+	            </div>
+	            <div class="col-md-6 col-lg-4">
+	                <div class="card border-0 transform-on-hover">
+	                	<a class="lightbox" href="<?php echo base_url('assets/images/image1.jpg')?>">
+	                	<img src="<?php echo base_url('assets/images/image1.jpg')?>" alt="Card Image" class="card-img-top">
+	                	</a>
+	                    <div class="card-body">
+	                        <h6><a href="#">Tersisa 2 Hari !</a></h6>
+	                        
+	                    </div>
+	                </div>
+	            </div>
+				
+	        
+	        </div>
+	    </div>
+    </section>
 		</div>
 
 	</div>
@@ -383,5 +419,10 @@
 </div>
 <!-- end modal edit profile -->
 </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script>
+        baguetteBox.run('.cards-gallery', { animation: 'slideIn'});
+    </script>
 
 
