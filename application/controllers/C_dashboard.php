@@ -16,10 +16,10 @@ class C_dashboard extends CI_Controller {
     // Memanggil halaman index
 	public function index()
 	{
-		$id = $this->session->userdata('Id');
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
 		$data['categories'] = $this->m_users->m_categories();
-		$data['profile'] = $this->m_users->get_users($id);
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/index', $data);
 		$this->load->view('users/layout/footer');
@@ -60,7 +60,11 @@ class C_dashboard extends CI_Controller {
 		$data['profile'] = $this->m_users->get_users($id);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
-        $data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
+		$data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
+		
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
+
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/detail_content', $data);
 		$this->load->view('users/layout/footer');
@@ -252,8 +256,8 @@ class C_dashboard extends CI_Controller {
     public function m_searchcategory($id){
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['pencariankategori'] = $this->m_dashboard->m_searchCategory($id);
-		$id = $this->session->userdata('Id');
-		$data['profile'] = $this->m_users->get_users($id);
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/layout/result_search', $data);
 		$this->load->view('users/layout/footer');
@@ -261,8 +265,8 @@ class C_dashboard extends CI_Controller {
 
     // Lempar seluruh kategori ke halaman kategori
     public function m_searchallcategory(){
-		$id = $this->session->userdata('Id');
-		$data['profile'] = $this->m_users->get_users($id);
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['categories'] = $this->m_users->m_categories();
         $this->load->view('users/layout/header', $data);

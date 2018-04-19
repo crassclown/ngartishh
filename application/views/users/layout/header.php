@@ -216,10 +216,10 @@ function magnify(imgID, zoom) {
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
                       <div class="nav-label">
-											<?php foreach($profile as $p){ ?>
-												<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
+											<?php foreach($foto as $f){ ?>
+												<?php if(isset($f->fotoprofil)&&$f->fotoprofil!=''){ ?>
 												<div class="nav-icon-profile">
-													<img class="img-responsive" src="<?php echo base_url('assets/images/profilepicture/'.$p->fotoprofil.'')?>"/></img>
+													<img class="img-responsive" src="<?php echo base_url('assets/images/profilepicture/'.$f->fotoprofil.'')?>"/></img>
 												</div>
 												<?php }else{ ?>
                         <div class="nav-icon-profile">
