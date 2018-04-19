@@ -1408,7 +1408,7 @@ a:focus{
 	width:480px;
 }
 
-.modal-content-upload-lelang{
+#modal-content-upload-lelang{
 	width:400px;
 }
 
@@ -1543,7 +1543,6 @@ a:focus{
 	background :transparent;
 	padding:5px;
 	margin-bottom:15px;
-	appearance: none;
 	border:1px solid #ddd;
 
 
