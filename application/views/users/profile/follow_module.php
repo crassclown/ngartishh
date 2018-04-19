@@ -104,7 +104,7 @@
 <script type="text/javascript">
     $('#btnfollower').on('click',function () {
 		var button = $('#btnfollower') // Button that triggered the modal
-		var modal = $('#modal-followers');
+		var modal = $('#modal-follower');
         tampil_follower();   //pemanggilan fungsi tampil gambar.
         
         function tampil_follower(){
@@ -112,13 +112,11 @@
                 type  : 'ajax',
                 url   : '<?php echo base_url()?>c_profile/m_follower/' + '<?php echo $this->uri->segment(3) ?>',
                 async : false,
-				cache : false,
 				dataType : 'json',
                 success : function(data){
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-						if(!$.trim(data)){
                         html += '<div class="content-modal-follow">' +
 									'<div class="foto-profil-modal-follow">' +
 										'<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/'+data[i].fotoprofil+'")?> />' +
@@ -129,7 +127,6 @@
 									'</p>' + data[i].phone +
 									'</span>' +
 								'</div>';
-						}
 					}
 					modal.find('#show_follower').html(html);
 				}
@@ -174,3 +171,71 @@
 	});
 </script>
 <!-- Ajax tampil following -->
+
+<!-- ================================================================================== -->
+
+<!-- Follow Profile AJAX -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#btnfollows").click(function () {
+			var varUserid = $('#user_ids').val();
+			var varFollowedid = $('#followed_id').val();
+			follow();
+			isfollowing();
+			function follow(){
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url(); ?>" + "C_profile/m_follows",
+					data: {
+						"userid": varUserid,
+						"followedid": varFollowedid
+					}
+				});
+			}
+			function isfollowing(){
+				$.ajax({
+					type: "ajax",
+					url: "<?php echo base_url(); ?>" + "C_profile/m_cekfollowing/"+"<?php echo $this->session->userdata('Id')?>/" + "<?php echo $this->uri->segment(4)?>",
+					async : false,
+					dataType : 'json',
+					success : function(data){
+						var html = '';
+						if(!$.trim(data))
+						{
+							html += 'follow';
+						}else {
+							html += 'unfollow';
+						}
+						$('#statusfollows').html(html);
+					}
+				});
+			}
+		});
+	});
+
+</script>
+<!-- END Follow Profile AJAX -->
+
+<!-- Load status follow -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		isfollowing();
+		function isfollowing(){
+			var varUserid = $('#user_ids').val();
+			var varFollowedid = $('#followed_id').val();
+			$.ajax({
+				type  : 'post',
+				url   : '<?php echo base_url()?>c_profile/m_isfollowing/'+varUserid+'/'+varFollowedid,
+				data:{
+					"userid": varUserid,
+					"followedid": varFollowedid,
+				},
+				success : function(html){
+					$('#statusfollows').html(html);
+				}
+			});
+		}
+	});
+</script>
+<!-- ================================================================================== -->
+

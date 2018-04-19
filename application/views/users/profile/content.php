@@ -7,8 +7,8 @@
 			<div class="col-md-3">
 				<p class="baris-foto-profil">
 					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
-					<div class="foto-profil" style="padding-top:0;">
-						<img class="img-responsive" src="<?php echo base_url('assets/images/profilepicture/'.$p->fotoprofil.'')?>"/></img>
+					<div class="foto-profil" style="padding-top:0">
+						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>></img>
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
@@ -21,7 +21,7 @@
 				</p>
 			</div>
 			<div class="col-md-2 padding-button-follow">
-				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Notification" data-target="#modal-followers" id="btnfollower">
+				<button type="button" class="btn btn-info btn-sm" data-toggle="modal" title="Notification" data-target="#modal-follower" id="btnfollower">
 					<b>
 						<div id="followercounter">followers <?php echo $totalfollower ?></div>
 					</b>
@@ -54,9 +54,9 @@
 	<?php } ?>
 	<div class="container container-profil">
 
-		<a href="#" class="button-tab">Galeri Saya</a>
+		<a href="<?=base_url('c_profile/m_users/'.$this->session->userdata('Id'));?>" class="button-tab">Galeri Saya</a>
 		<a href="#" class="button-tab">Upvote</a>
-		<a href="#" class="button-tab">Galeri Lelang</a>
+		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->session->userdata('Id'));?>" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
 				<div class="row">
@@ -81,7 +81,7 @@
 	</div>
 
 	<!-- modal followers -->
-	<div class="modal fade" id="modal-followers" role="dialog">
+	<div class="modal fade" id="modal-follower" role="dialog">
 		<div class="modal-dialog modal-body-follow">
 
 			<!-- Modal content-->
@@ -92,10 +92,6 @@
 				</div>
 				<div class="modal-body">
 					<div id="show_follower">
-						<!-- <form action="<?=base_url('c_profile/m_follows')?>" method="post">
-							<input type="hidden" name="followedid" value="<?php echo $fer->Id ?>">
-							<input type="hidden" name="userid" value="<?php $this->session->userdata('Id') ?>">
-						<input type="submit" class="button-modal-follow btn-info" value="Follow"> -->
 					</div>
 				</div>
 			</div>
@@ -115,11 +111,6 @@
 				</div>
 				<div class="modal-body">
 					<div id="show_following">
-						<!-- <form action="<?=base_url('c_profile/m_follows')?>" method="post">
-							<input type="hidden" name="followedid" value="<?php echo $fing->Id ?>">
-							<input type="hidden" name="userid" value="<?php echo $this->session->userdata('Id') ?>">
-						<input type="submit" class="button-modal-follow btn-info" value="Follow">
-						</form> -->
 					</div>
 				</div>
 			</div>
@@ -153,7 +144,7 @@
                             '<div class="space">'+
                                 '<div class="portfolio-item">'+
                                 '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
-                                    '<img class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
+                                    '<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '</a>'+
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
@@ -161,7 +152,7 @@
                                                 '<div class="col-md-4 col-lg-4">'+
                                                     '<ol class="grid">'+
                                                         '<li class="grid__item">'+
-                                                            '<a class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
+                                                            '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
                                                         '</li>'+
                                                     '</ol>'+
                                                 '</div>'+
