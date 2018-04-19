@@ -1,62 +1,67 @@
-<body>
-<section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <div class="wrap-detail-content-foto">
-                    <h4 class="text-center margin-top-judul"><b>Judul Karya Seni</b></h4>
-                    <img class="img-detail-content" src="<?php echo base_url('assets/images/1.png')?>">
-                        <div class="wrap-pin-detail-content">
-                            <button type="button" class="pin-edit-content" data-toggle="modal" title="Edit Content" data-target="#modal-edit-detail-content">
-                                <img src="<?php echo base_url('assets/images/iconpng/edit.png')?>" class="img-detail-content"></img>                                        
-                            </button>
-                            <button type="button" class="pin-delete-content" data-toggle="modal" title="Delete Content" data-target="#modal-delete-detail-content">
-                                <img src="<?php echo base_url('assets/images/iconpng/x.png')?>" class="img-detail-content"></img>                    
-                            </button>
-                        </div>
-                    </img>
-                </div>            
-            </div>
-            <div class="col-md-4">
-                <div class="wrap-detail-content-lelang">
-                    <div class="text-center">
-                        <h3>Harga Awal</h3>
-                    </div>
-                    <div class="harga-lelang-awal text-center">
-                        RP. 700.000
-                    </div>
-
-                    <div class="text-center">
-                        <h3>Harga Saat ini</h3>
-                    </div>
-                    <div class="harga-lelang-awal text-center">
-                        RP. 750.000
-                    </div>
-
+<?php
+    foreach($varambilusers as $vau){
+?>
+    <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
+        <div class="container">
+        <input type="hidden" id="user_ids" value="<?php echo $this->session->userdata('Id'); ?>">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="wrap-detail-content-foto">
+                        <h4 class="text-center margin-top-judul"><b>Judul Karya Seni</b></h4>
+                        <img class="img-detail-content" src="<?php echo base_url('assets/images/1.png')?>">
+                            <div class="wrap-pin-detail-content">
+                                <button type="button" class="pin-edit-content" data-toggle="modal" title="Edit Content" data-target="#modal-edit-detail-content">
+                                    <img src="<?php echo base_url('assets/images/iconpng/edit.png')?>" class="img-detail-content"></img>                                        
+                                </button>
+                                <button type="button" class="pin-delete-content" data-toggle="modal" title="Delete Content" data-target="#modal-delete-detail-content">
+                                    <img src="<?php echo base_url('assets/images/iconpng/x.png')?>" class="img-detail-content"></img>                    
+                                </button>
+                            </div>
+                        </img>
+                    </div>            
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="wrap-detail-content text-center">
-                    <h4> Masukkan harga untuk melelang</h4>
-                    <div class="padding-form-lelang">
-                            <form action="#" method="POST">
-                                <div class="row wrap-input-lelang">
-                                    <div class="col-md-5">
-                                    <p>Masukkan Harga:</p>
+                <div class="col-md-4">
+                    <div class="wrap-detail-content-lelang">
+                        <div class="text-center">
+                            <h3>Harga Awal</h3>
+                        </div>
+                        <div class="harga-lelang-awal text-center">
+                            RP. 700.000
+                        </div>
+
+                        <div class="text-center">
+                            <h3>Harga Saat ini</h3>
+                        </div>
+                        <div class="harga-lelang-awal text-center">
+                            RP. 750.000
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="wrap-detail-content text-center">
+                        <h4> Masukkan harga untuk melelang</h4>
+                        <div class="padding-form-lelang">
+                                <form action="#" method="POST">
+                                    <div class="row wrap-input-lelang">
+                                        <div class="col-md-5">
+                                        <p>Masukkan Harga:</p>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <input id="input-lelang" type="number" name="txtharga" placeholder="Harga">
+                                        </div>
                                     </div>
-                                    <div class="col-md-7">
-                                        <input id="input-lelang" type="number" name="txtharga" placeholder="Harga">
-                                    </div>
-                                </div>
-                            <button type="submit" class="btn btn-default submit-edit-profil">Masukkan harga</button>
-                        </form>                
+                                <button type="submit" class="btn btn-default submit-edit-profil">Masukkan harga</button>
+                            </form>                
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </section>
-
+        </section>
+<?php
+    }
+?>
     <!-- modal delete content -->
         <div class="modal fade" id="modal-delete-detail-content" role="dialog">
             <div class="modal-dialog modal-body-follow modal-content-delete">
@@ -125,5 +130,3 @@
         </div>
     </div>        
     <!-- end modal edit content -->
-
-</body>

@@ -43,7 +43,7 @@ class C_dashboard extends CI_Controller {
                 echo "<div class='list-suggestion-search'><a href='".base_url('c_profile/m_users/'.$rowuser->userId)."'>" . ucwords(trim($rowuser->namalengkap)) . "</a></div>";    
             endforeach;
         }else{
-            echo "No Data Found";
+            echo "<div class='list-suggestion-search'>No Data Found</div>";
         }
     }
 
@@ -55,22 +55,18 @@ class C_dashboard extends CI_Controller {
         $datacontent = $data['pencariankategori'];
         $datas['pencarianuser'] = $this->m_dashboard->m_searchbarusers($key);
         $datauser = $datas['pencarianuser'];
+        $ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
         if(is_array($datacontent) || is_object($datacontent)){
-			$ids = $this->session->userdata('Id');
-			$data['foto'] = $this->m_users->get_users($ids);
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $data);
             $this->load->view('users/layout/footer');
         }else if(is_array($datauser) || is_object($datauser)){
-			$ids = $this->session->userdata('Id');
-			$data['foto'] = $this->m_users->get_users($ids);
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $datas);
             $this->load->view('users/layout/footer');
         }else{
-			$this->session->set_flashdata('no_data','The word you are looking for is not found');
-			$ids = $this->session->userdata('Id');
-			$data['foto'] = $this->m_users->get_users($ids);
+            $this->session->set_flashdata('no_data','The word you are looking for is not found');
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $datas);
             $this->load->view('users/layout/footer');
@@ -310,9 +306,17 @@ class C_dashboard extends CI_Controller {
         $data['pencariankategori'] = $this->m_dashboard->m_searchCategory($id);
 		$ids = $this->session->userdata('Id');
 		$data['foto'] = $this->m_users->get_users($ids);
-		$this->load->view('users/layout/header', $data);
-		$this->load->view('users/layout/result_search', $data);
-		$this->load->view('users/layout/footer');
+		$datak = $data['pencariankategori'];
+        if(is_array($datak) || is_object($datak)){
+            $this->load->view('users/layout/header', $data);
+            $this->load->view('users/layout/result_category', $data);
+            $this->load->view('users/layout/footer');
+        }else{
+            $this->session->set_flashdata('no_data','The word you are looking for is not found');
+            $this->load->view('users/layout/header', $data);
+            $this->load->view('users/layout/result_category', $datak);
+            $this->load->view('users/layout/footer');
+        }
     }
 
     // Lempar seluruh kategori ke halaman kategori
@@ -320,6 +324,7 @@ class C_dashboard extends CI_Controller {
 		$ids = $this->session->userdata('Id');
 		$data['foto'] = $this->m_users->get_users($ids);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
+        $data['categories'] = $this->m_users->m_categories();
         $this->load->view('users/layout/header', $data);
 		$this->load->view('users/category/all_category', $data);
 		$this->load->view('users/layout/footer');
