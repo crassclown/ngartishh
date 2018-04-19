@@ -112,7 +112,6 @@
                 type  : 'ajax',
                 url   : '<?php echo base_url()?>c_profile/m_follower/' + '<?php echo $this->uri->segment(3) ?>',
                 async : false,
-				cache : false,
 				dataType : 'json',
                 success : function(data){
                     var html = '';
@@ -174,3 +173,69 @@
 	});
 </script>
 <!-- Ajax tampil following -->
+
+<!-- ================================================================================== -->
+
+<!-- Follow Profile AJAX -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		$("#btnfollows").click(function () {
+			var varUserid = $('#user_ids').val();
+			var varFollowedid = $('#followed_id').val();
+			follow();
+			isfollowing();
+			function follow(){
+				$.ajax({
+					type: "POST",
+					url: "<?php echo base_url(); ?>" + "C_profile/m_follows",
+					data: {
+						"userid": varUserid,
+						"followedid": varFollowedid
+					}
+				});
+			}
+			function isfollowing(){
+				$.ajax({
+					type: "ajax",
+					url: "<?php echo base_url(); ?>" + "C_profile/m_cekfollowing/"+"<?php echo $this->session->userdata('Id')?>/" + "<?php echo $this->uri->segment(4)?>",
+					async : false,
+					dataType : 'json',
+					success : function(data){
+						var html = '';
+						if(!$.trim(data))
+						{
+							html += 'follow';
+						}else {
+							html += 'unfollow';
+						}
+						$('#statusfollows').html(html);
+					}
+				});
+			}
+		});
+	});
+
+</script>
+<!-- END Follow Profile AJAX -->
+
+<!-- Load status follow -->
+<script type="text/javascript">
+	$(document).ready(function () {
+		isfollowing();
+		function isfollowing(){
+			$.ajax({
+				type  : 'post',
+				url   : '<?php echo base_url()?>c_profile/m_isfollowing/'+"C_profile/m_cekfollowing/"+"<?php echo $this->session->userdata('Id')?>/" + "<?php echo $this->uri->segment(4)?>",
+				data:{
+					"userid": userid,
+					"followedid": followedid,
+				},
+				success : function(html){
+					$('#statusfollows').html(html);
+				}
+			});
+		}
+	});
+</script>
+<!-- ================================================================================== -->
+

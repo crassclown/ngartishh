@@ -92,10 +92,6 @@
 				</div>
 				<div class="modal-body">
 					<div id="show_follower">
-						<!-- <form action="<?=base_url('c_profile/m_follows')?>" method="post">
-							<input type="hidden" name="followedid" value="<?php echo $fer->Id ?>">
-							<input type="hidden" name="userid" value="<?php $this->session->userdata('Id') ?>">
-						<input type="submit" class="button-modal-follow btn-info" value="Follow"> -->
 					</div>
 				</div>
 			</div>
@@ -115,11 +111,6 @@
 				</div>
 				<div class="modal-body">
 					<div id="show_following">
-						<!-- <form action="<?=base_url('c_profile/m_follows')?>" method="post">
-							<input type="hidden" name="followedid" value="<?php echo $fing->Id ?>">
-							<input type="hidden" name="userid" value="<?php echo $this->session->userdata('Id') ?>">
-						<input type="submit" class="button-modal-follow btn-info" value="Follow">
-						</form> -->
 					</div>
 				</div>
 			</div>
