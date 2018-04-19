@@ -52,9 +52,7 @@
                         </div>
                     </div>
                     <div class="wrap-riwayat-input-harga-lelang">
-                        
                         <div id="list_status"></div>
-
                     </div>
                 </div>
             </div>
