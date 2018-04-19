@@ -6,14 +6,6 @@
                 <div class="wrap-detail-content-foto">
                     <h4 class="text-center margin-top-judul"><b>Judul Karya Seni</b></h4>
                     <img class="img-detail-content" src="<?php echo base_url('assets/images/1.png')?>">
-                        <div class="wrap-pin-detail-content">
-                            <button type="button" class="pin-edit-content" data-toggle="modal" title="Edit Content" data-target="#modal-edit-detail-content">
-                                <img src="<?php echo base_url('assets/images/iconpng/edit.png')?>" class="img-detail-content"></img>                                        
-                            </button>
-                            <button type="button" class="pin-delete-content" data-toggle="modal" title="Delete Content" data-target="#modal-delete-detail-content">
-                                <img src="<?php echo base_url('assets/images/iconpng/x.png')?>" class="img-detail-content"></img>                    
-                            </button>
-                        </div>
                     </img>
                 </div>            
             </div>
