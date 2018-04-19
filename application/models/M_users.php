@@ -43,6 +43,24 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	public function cekLelang($varOwner, $varContent)
+	{
+		$result = $this->db->where('owner_id', $varOwner)->where('content_id',$varContent)->limit(1)->get('lelang');
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+            return $data;
+        }
+	}
+
+	public function post_lelang($data)
+	{
+		$this->db->insert('lelang', $data);
+	}
+
 	public function get_lelang($id)
 	{
 		$result = $this->db->where('owner_id', $id)->get('lelang')->result();
@@ -134,7 +152,7 @@ class M_users extends CI_Model
 	//Delete Users on Profile Page
 	public function get_userfollowing($id)
 	{
-		$result = $this->db->select('users.Id as userId, fullname, phone');
+		$result = $this->db->select('users.Id as userId, fullname, phone, fotoprofil');
 		$result = $this->db->from('users');
 		$result = $this->db->join('following', 'following.followed_id = users.Id');
 		$result = $this->db->where('following.user_id', $id);

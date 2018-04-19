@@ -60,7 +60,7 @@
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
 				<div class="row">
-
+					<?php if($this->uri->segment(3)==$this->session->userdata('Id')){ ?>
 					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
 						<div class="space">
 							<div class="portfolio-item">
@@ -71,7 +71,7 @@
 							</div>
 						</div>
 					</article>
-
+					<?php } ?>
 					<div id="show_dataprofile"></div>
 
 				</div>

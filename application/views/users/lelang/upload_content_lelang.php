@@ -9,22 +9,21 @@
                     </div>
                     <div class="modal-body ">
                         <div class="padding-modal-body">
-                            <form method="POST" enctype="multipart/form-data" id="form-upload" autocomplete="off" action="<?php echo site_url('c_dashboard/do_upload');?>">
+                            <form method="POST" enctype="multipart/form-data" id="form-upload" autocomplete="off" action="<?php echo site_url('c_profile/m_uploadlelang');?>">
                                 <table>
                                     <tr>                                      
                                         <div class="wrap-input100">
-                                        <select name="txtcategories" class="combo-box-lelang" required title="The category is required" oninvalid="this.setCustomValidity('Sorry, The Category cannot be empty')" oninput="setCustomValidity('')" />
-                                                <option value="volvo">Postingan</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="mercedes">Mercedes</option>
-                                                <option value="audi">Audi</option>
-                                            </select> 
+											<select name="txttitle" class="combo-box-lelang" required title="The category is required" oninvalid="this.setCustomValidity('Sorry, The Category cannot be empty')" oninput="setCustomValidity('')" />
+												<?php foreach($content as $c){ ?>
+												<option value="<?php echo $c->Id ?>"><?php echo $c->title ?></option>
+												<?php } ?>
+											</select> 
                                             <span class="focus-input100"></span>
                                         </div>
                                     </tr>
                                     <tr>                                      
                                         <div class="wrap-input100">
-                                            <input class="input100 form-control" type="text" autofocus name="txttitle" placeholder="Harga Min" required title="The title is required" oninvalid="this.setCustomValidity('Sorry, The title cannot be empty')" oninput="setCustomValidity('')" />
+                                            <input class="input100 form-control" type="number" autofocus name="txthargaawal" placeholder="Harga Min" required title="The title is required" oninvalid="this.setCustomValidity('Sorry, The title cannot be empty')" oninput="setCustomValidity('')" />
                                             <span class="focus-input100"></span>
                                         </div>
                                     </tr>
@@ -47,9 +46,7 @@
 			$('#btnpost').on('submit',function() {
 				var formData = new FormData($(this)[0]);
                 var varTitle    = $('#txttitle').val();
-                var varDesc     = $('#txtdesc').val();
-                var varCat      = $('#txtcategories').val();
-                var varPic      = $('#fileElem').val();
+                var varStartingprice     = $('#txthargaawal').val();
                 if(varTitle == ''){
                     swal({
                         type: 'error',
@@ -57,24 +54,10 @@
                         animation: true,
                         customClass: 'animated tada'
                     })
-                }else if(varDesc == ''){
-                swal({
+                }else if(varStartingprice == ''){
+                	swal({
                     type: 'error',
                     title: 'The description is required',
-                    animation: true,
-                    customClass: 'animated tada'
-                })
-                }else if(varCat == ''){
-                swal({
-                    type: 'error',
-                    title: 'The category is required',
-                    animation: true,
-                    customClass: 'animated tada'
-                })
-                }else if(varPic == ''){
-                    swal({
-                    type: 'error',
-                    title: 'Picture is required',
                     animation: true,
                     customClass: 'animated tada'
                 })
@@ -84,7 +67,6 @@
                     $.ajax({
                         url: $(this).attr("action"),
                         type: 'POST',
-                        dataType: 'json',
                         data: formData,
                         async: true,
                         beforeSend: function() {
