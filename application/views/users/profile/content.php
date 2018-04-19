@@ -8,7 +8,7 @@
 				<p class="baris-foto-profil">
 					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
 					<div class="foto-profil" style="padding-top:0">
-						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>></img>
+						<img class="img-responsive img-border-radius-profil" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>></img>
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
@@ -55,7 +55,7 @@
 	<div class="container container-profil">
 
 		<a href="<?=base_url('c_profile/m_users/'.$this->uri->segment(3));?>" class="button-tab">Galeri Saya</a>
-		<a href="#" class="button-tab">Upvote</a>
+		<a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Upvote</a>
 		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
