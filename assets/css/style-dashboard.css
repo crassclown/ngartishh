@@ -1566,22 +1566,19 @@ a:focus{
 	margin-bottom:15px;
 	border:1px solid #ddd;
 
-
-
 }
 .harga-lelang-awal{
 	color:#fff;
 	background:#55a;
-	width : 80%;
-	margin:0 50px 50px 50px;
-	font-size: 40px;
+	min-width: 50%;
+	margin:0 auto 50px auto;
+	font-size: 35px;
 	padding :35px 35px;
 	border-radius:20px;
 }
 
 .wrap-detail-content-lelang{
 	padding:0px 0 35px 0;
-	width:100%;
 	height:500px;
 	margin :18px;
 	margin-bottom:60px;
