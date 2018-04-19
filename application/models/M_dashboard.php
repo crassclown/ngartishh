@@ -123,4 +123,23 @@ class M_dashboard extends CI_Model
             return $data;
         }
     }
+
+    function m_getlelang(){
+        //Select content records
+        $result = $this->db->select('users.Id as userId, lelang.Id as idlela, lelang.content_id as idcontent, fullname, phone, photos, fotoprofil');
+		$result = $this->db->from('lelang');
+        $result = $this->db->join('content', 'content.Id = lelang.content_id');
+        $result = $this->db->join('users', 'users.Id = lelang.owner_id');
+		$result = $this->db->get();
+		
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+    }
 }

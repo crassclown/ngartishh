@@ -9,7 +9,10 @@ class C_lelang extends CI_Controller {
         $this->load->helper('url');
 		$this->load->model('m_users');
    
-		// $this->load->model('m_lelang');
+		$this->load->model('m_dashboard');
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("c_loginusers/"));
+		}
     }
 	
 	public function index()
@@ -22,6 +25,14 @@ class C_lelang extends CI_Controller {
 		$this->load->view('users/lelang/index', $data);
 		$this->load->view('users/layout/footer');
 	}
+
+	// Memanggil semua content yang ada di table lelang
+	public function m_getlelang(){
+		// get data
+        $data = $this->m_dashboard->m_getlelang();
+
+        echo json_encode($data);
+    }
 
 	public function m_detail_lelang()
 	{
