@@ -46,7 +46,7 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-md-3">
-                                                <button class="button-detail-content" data-toggle="tooltip" title="Follow">Follow</button>
+                                                <button class="button-detail-content" data-toggle="tooltip" title="Follow" id="btnfollow"><div id="statusfollow"></div></button>
                                             </div>
                                             <div class="col-md-3">
                                                 <div id="show_data"></div>
@@ -252,6 +252,8 @@
         jQuery("time.timeago").timeago();
     });
 </script>
+
+<?php $this->load->view('users/profile/follow_module'); ?>
 
 <noscript>
     Sorry...JavaScript is needed to go ahead.

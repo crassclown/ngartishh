@@ -10,14 +10,16 @@ class C_dashboard extends CI_Controller {
         $this->load->model('m_users');
         if($this->session->userdata('status') != "login"){
 			redirect(base_url("c_loginusers/"));
-        }
+		}
 	}
     
     // Memanggil halaman index
 	public function index()
 	{
+		$id = $this->session->userdata('Id');
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
-        $data['categories'] = $this->m_users->m_categories();
+		$data['categories'] = $this->m_users->m_categories();
+		$data['profile'] = $this->m_users->get_users($id);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/index', $data);
 		$this->load->view('users/layout/footer');
@@ -53,7 +55,9 @@ class C_dashboard extends CI_Controller {
 		$where = array(
             'Id' => $content_id,
             'user_id' => $user_id
-        );
+		);
+		$id = $this->session->userdata('Id');
+		$data['profile'] = $this->m_users->get_users($id);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
         $data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
@@ -248,6 +252,8 @@ class C_dashboard extends CI_Controller {
     public function m_searchcategory($id){
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['pencariankategori'] = $this->m_dashboard->m_searchCategory($id);
+		$id = $this->session->userdata('Id');
+		$data['profile'] = $this->m_users->get_users($id);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/layout/result_search', $data);
 		$this->load->view('users/layout/footer');
@@ -255,6 +261,8 @@ class C_dashboard extends CI_Controller {
 
     // Lempar seluruh kategori ke halaman kategori
     public function m_searchallcategory(){
+		$id = $this->session->userdata('Id');
+		$data['profile'] = $this->m_users->get_users($id);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['categories'] = $this->m_users->m_categories();
         $this->load->view('users/layout/header', $data);
