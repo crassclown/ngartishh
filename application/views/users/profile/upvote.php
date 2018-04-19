@@ -8,7 +8,7 @@
 				<p class="baris-foto-profil">
 					<?php if(isset($p->fotoprofil)&&$p->fotoprofil!=''){ ?>
 					<div class="foto-profil" style="padding-top:0">
-						<img class="img-responsive" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>></img>
+						<img class="img-responsive img-border-radius-profil" src=<?php echo base_url("assets/images/profilepicture/".$p->fotoprofil."")?>></img>
 					</div>
 					<?php }else{ ?>
 					<div class="foto-profil">
@@ -55,24 +55,13 @@
 	<div class="container container-profil">
 
 		<a href="<?=base_url('c_profile/m_users/'.$this->uri->segment(3));?>" class="button-tab">Galeri Saya</a>
-		<a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Upvote</a>
-		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
+        <a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Upvote</a>
+        <a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
 				<div class="row">
 
-					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
-						<div class="space">
-							<div class="portfolio-item">
-								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
-								title="New Post" data-target="#modal-upload-content-lelang">
-									<i class="material-icons " style="font-size:40px;">file_upload</i>
-								</button>
-							</div>
-						</div>
-					</article>
-
-					<div id="show_datalelang"></div>
+					<div id="show_dataprofile"></div>
 
 				</div>
 			</div>
@@ -126,13 +115,13 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        tampil_data_lelang();   //pemanggilan fungsi tampil gambar.
+        tampil_data_barang();   //pemanggilan fungsi tampil gambar.
         
-        function tampil_data_lelang(){
+        function tampil_data_barang(){
 			var varUser = $('#followed_id').val();
             $.ajax({
                 type  : 'ajax',
-                url   : '<?php echo base_url()?>c_profile/m_getLelangUser/'+varUser,
+                url   : '<?php echo base_url()?>c_profile/m_getContentsUser/'+varUser,
                 async : false,
                 dataType : 'json',
                 success : function(data){
@@ -143,16 +132,26 @@
                         '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                             '<div class="space">'+
                                 '<div class="portfolio-item">'+
-                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].ownerid+'>'+
+                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
                                     '<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '</a>'+
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
-                                            '<div class="row">'+
-												'<span>'+
-												'sisa '+data[i].durasi+' hari '+
-												'</span>'+          
-		                                    '</div>'+
+                                            '<div class="row image-icons">'+
+                                                '<div class="col-md-4 col-lg-4">'+
+                                                    '<ol class="grid">'+
+                                                        '<li class="grid__item">'+
+                                                            '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
+                                                        '</li>'+
+                                                    '</ol>'+
+                                                '</div>'+
+                                                '<div class="col-md-4 col-lg-4">'+
+                                                    '<a><i class="fa fa-comment"></i><sup class="badge">'+data[i].total_comment+'</sup></a>'+
+                                                '</div>'+
+                                                '<div class="col-md-4 col-lg-4">'+
+                                                    '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
+                                                '</div>'+
+                                            '</div>'+
                                         '</div>'+
                                     '</div>'+  
                                 '</div>'+
@@ -160,15 +159,28 @@
                             '</div>'+
                         '</article>';
                     }
-                    $('#show_datalelang').html(html);
+                    $('#show_dataprofile').html(html);
                 }
                                 
             });
         }
+        $(document).on("click",".like",function() {
+            var content_id = $(this).attr("data-contentid");
+            var user_id = $(this).attr("data-sessionuserid");
+            $.ajax({
+                url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+                type: 'post',
+                data: { "content_id": content_id, "user_id": user_id},
+                success: function(response) 
+                { 
+                    tampil_data_barang();
+                }
+            });
+        });
     });
   </script>
 
-<?php $this->load->view('users/lelang/upload_content_lelang'); ?>
+<?php $this->load->view('users/dashboard/upload_content'); ?>
 
 
 <!-- AddToAny BEGIN -->
@@ -216,7 +228,7 @@
 <!-- END Edit Profile AJAX -->
 
 <!-- Follow Module -->
-<?php $this->load->view('users/profile/follow_module'); ?>
+<!-- <?php $this->load->view('users/profile/follow_module'); ?> -->
 <!-- Follow Module -->
 
 </section>
