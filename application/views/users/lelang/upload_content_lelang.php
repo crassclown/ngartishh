@@ -1,5 +1,5 @@
 <div class="modal fade" id="modal-upload-content-lelang" role="dialog">
-            <div class="modal-dialog modal-content-upload-lelang">
+            <div class="modal-dialog" id="modal-content-upload-lelang">
             
             <!-- Modal content-->
                 <div class="modal-content ">
