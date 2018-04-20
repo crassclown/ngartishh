@@ -203,14 +203,6 @@
 </script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
 
-<script>
-	$(document).ready(function () {
-		$("#txtcategories").select2({
-			placeholder: "Please select the category"
-		});
-	});
-
-</script>
 
 <!-- Edit Profile AJAX -->
 <!-- <script type="text/javascript">

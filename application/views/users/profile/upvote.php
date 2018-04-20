@@ -121,7 +121,7 @@
 			var varUser = $('#followed_id').val();
             $.ajax({
                 type  : 'ajax',
-                url   : '<?php echo base_url()?>c_profile/m_getContentsUser/'+varUser,
+                url   : '<?php echo base_url()?>c_profile/m_getLikedContentsUser/'+varUser,
                 async : false,
                 dataType : 'json',
                 success : function(data){

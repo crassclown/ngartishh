@@ -87,6 +87,26 @@ class M_users extends CI_Model
         }
 	}
 
+	public function get_likedcontent($id)
+	{
+		$result = $this->db->select('content.id as idcontent, content.user_id as iduser , content.photos as photos, total_like, total_comment');
+		$result = $this->db->from('likes');
+		$result = $this->db->join('content', 'content.Id = likes.content_id');
+		$result = $this->db->join('users', 'users.Id = likes.user_id');
+		$result = $this->db->where('likes.user_id', $id);
+		$result = $this->db->get();
+
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
+
 	//Update User's Bio
 	public function UpdateUsers($id,$data){
 		$checkupdate = false;

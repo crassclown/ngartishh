@@ -65,7 +65,14 @@ class C_profile extends CI_Controller {
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}
-	
+
+	public function m_getLikedContentsUser($id)
+	{
+		$data = $this->m_users->get_likedcontent($id);
+
+        echo json_encode($data);
+	}
+
 	public function m_upvote($id)
 	{
 		$data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
