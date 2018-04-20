@@ -37,7 +37,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
       <!--==================================== End Back end pandhu ===========================================-->
 
-
 <script>
   document.onreadystatechange = function () {
       if (document.readyState === "complete") {

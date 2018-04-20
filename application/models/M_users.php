@@ -271,7 +271,7 @@ class M_users extends CI_Model
 
 	//Menambahkan Comments on Detail Page
 	public function m_added_comments($data){
-		$this->db->insert('comments',$data);
+		$this->db->update('comments',$data);
 	}
 
 	//Load Comments on Detail Page

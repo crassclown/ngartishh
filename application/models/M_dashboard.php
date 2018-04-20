@@ -149,7 +149,7 @@ class M_dashboard extends CI_Model
 
     function m_nameOnContentlela($content_id,$user_id,$lela_id){
         //Select content records
-        $q = $this->db->query("SELECT *, lelang.Id as lelaid, lelang.content_id as contentid, users.fullname as namalengkap, users.Id as Iduser,  lelang.start_date as tgl_lelang, lelang.end_date as tgl_selesai FROM lelang LEFT JOIN users ON users.Id = lelang.owner_id LEFT JOIN content ON lelang.content_id = content.Id WHERE lelang.content_id='$content_id' AND lelang.owner_id='$user_id' AND lelang.Id='$lela_id'");
+        $q = $this->db->query("SELECT *,starting_price, winner_price, content.photos as photocontent, lelang.Id as lelaid, lelang.content_id as contentid, users.fullname as namalengkap, users.Id as Iduser,  lelang.start_date as tgl_lelang, lelang.end_date as tgl_selesai, content.title as judulcontent FROM lelang LEFT JOIN users ON users.Id = lelang.owner_id LEFT JOIN content ON lelang.content_id = content.Id WHERE lelang.content_id='$content_id' AND lelang.owner_id='$user_id' AND lelang.Id='$lela_id'");
         
         
         if($q->num_rows() > 0)
@@ -163,4 +163,28 @@ class M_dashboard extends CI_Model
             return $data;
         }
     }
+
+    function m_added_lelang($winner_price,$winner_id,$Idlela){
+        //Select content records
+		$q = $this->db->query("UPDATE lelang SET winner_id = '$winner_id', winner_price='$winner_price' WHERE Id='$Idlela'");
+    }
+
+    // function update_data($where,$data,$table){
+	// 	$this->db->where($where);
+	// 	$this->db->update($table,$data);
+	// }
+    function m_load_lelang($kode){
+        //Select content records
+		$q = $this->db->query("SELECT DISTINCT users.fullname as namaygcomment, winner_lelang.winner_price as hargatawar FROM lelang, winner_lelang, users WHERE lelang.Id = winner_lelang.lelang_id AND users.Id = winner_lelang.winner_id AND lelang.Id='$kode'");
+       
+        if($q->num_rows() > 0)
+        {
+            foreach ($q->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
 }
