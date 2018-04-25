@@ -59,7 +59,17 @@ class C_lelang extends CI_Controller {
 		$winner_id 		= $this->input->post('winner_id');
 		$Idlela			= $this->input->post('lela_id');	 
 
-		$this->m_dashboard->m_added_lelang($winner_price,$winner_id,$Idlela);
+		$varVerPrice = $this->m_users->m_harga_lelang($Idlela);
+		// echo var_dump($varVerPrice);
+		if($winner_price > $varVerPrice){
+			$this->m_dashboard->m_added_lelang($winner_price,$winner_id,$Idlela);
+		}else{
+			return FALSE;
+		}
+
+		// else{
+		// 	$this->m_dashboard->m_added_lelang($winner_price,$winner_id,$Idlela);
+		// }
 	}
 
 	// Memanggil comment berdasarkan content_id
@@ -79,7 +89,7 @@ class C_lelang extends CI_Controller {
 								</a>
 							</div>
 							<div class="isi-komentar">
-								'.$records->hargatawar.'
+								Rp.'.number_format($records->hargatawar).'
 							</div>
 						</div>
 					</div>
