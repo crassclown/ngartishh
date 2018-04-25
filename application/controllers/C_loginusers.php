@@ -26,7 +26,8 @@ class C_loginusers extends CI_Controller {
         $password 	= $this->input->post('txtpassword');
         $where      = array(
             'email'     => $email,
-            'password'  => md5(trim($password))
+			'password'  => md5(trim($password)),
+			'status' => '1'
         );
         $cek        = $this->m_users->cek_login("users",$where)->num_rows();
         

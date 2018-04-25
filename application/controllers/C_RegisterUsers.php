@@ -22,7 +22,8 @@ class C_registerusers extends CI_Controller {
             'fullname'  => ucwords(trim($this->input->post('txtfullname'))),
             'password'  => md5(trim($this->input->post('txtpassword'))),
             'phone'     => $this->input->post('txtphone'),
-            'created_at'=> date('Y-m-d H:i:s')
+			'created_at'=> date('Y-m-d H:i:s'),
+			'status' 	=> '0'
         );
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $this->session->set_flashdata('email_err','The email format was wrong');
