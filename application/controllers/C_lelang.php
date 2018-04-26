@@ -59,7 +59,7 @@ class C_lelang extends CI_Controller {
 		$winner_id 		= $this->input->post('winner_id');
 		$Idlela			= $this->input->post('lela_id');	 
 
-		// $varVerPrice = $this->m_users->m_harga_lelang($Idlela);
+		// $varVerPrice = $this->m_dashboard->m_lelang_harga($Idlela);
 		// if($winner_price > $varVerPrice){
 			$this->m_dashboard->m_added_lelang($winner_price,$winner_id,$Idlela);
 		// }else{
@@ -84,12 +84,22 @@ class C_lelang extends CI_Controller {
 								</a>
 							</div>
 							<div class="isi-komentar">
-								Rp.'.number_format($records->hargatawar).'
+								Rp.'.number_format($records->hargatawar,2,",",".").'
 							</div>
 						</div>
 					</div>
 				';
             }
         }
-    }
+	}
+	
+	public function m_harga_lelang(){
+		$kode=$this->input->post('lelang_id');
+		$data = $this->m_dashboard->m_lelang_harga($kode);
+		if(is_array($data) || is_object($data)){
+			foreach($data as $datahargalelang){
+				echo 'Rp.'.number_format($datahargalelang->winner_price,2,",",".");
+			}
+		}
+	}
 }

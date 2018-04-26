@@ -1,10 +1,11 @@
 <?php
     foreach($varambilnama as $vau){
 ?>
+<input type="hidden" name="lelang_id" id="lelang_id" value="<?=$vau->lelaid;?>" />
 <section id="section-works" class="section appear clearfix" style="background-image:url('<?php echo base_url('assets/images/bright_squares.png')?>');">
     <div class="container">
     <input type="hidden" id="user_ids" value="<?php echo $this->session->userdata('Id'); ?>">
-
+    
         <div class="row">
             <div class="col-md-4">
                 <div class="wrap-detail-content-foto">
@@ -19,15 +20,18 @@
                         <h3>Harga Awal</h3>
                     </div>
                     <div class="harga-lelang-awal text-center">
-                        Rp.<?=number_format($vau->starting_price);?>
+                        Rp.<?=number_format($vau->starting_price,2,",",".");?>
                     </div>
 
                         <div class="text-center">
                             <h3>Harga Saat ini</h3>
                         </div>
-                        <div class="harga-lelang-awal text-center">
-                            Rp.<?=number_format($vau->winner_price);?>
+                        <div class="harga-lelang-awal text-center" id="loadprice">
+                            <!-- Di dalam sini isi harga sekarang -->
                         </div>
+                        <!-- <div class="harga-lelang-awal text-center">
+                            Rp.<?=number_format($vau->winner_price);?>
+                        </div> -->
                 </div>
             </div>
             <div class="col-md-4">
@@ -85,6 +89,7 @@
                     success:function(html){
                         $('#input-lelang').val('');
                         m_load_lelang();
+                        m_harga_lelang();
                     }
                 });
             }else{
@@ -109,6 +114,22 @@
             },
             success:function(html){
                 $('#list_status').html(html);
+            }
+        });
+        return false;
+    }
+
+    m_harga_lelang();
+    function m_harga_lelang(){
+        var lela_id = $('#lelang_id').val();
+        $.ajax({
+            type:"POST",
+            url :"<?php echo base_url(); ?>" + "c_lelang/m_harga_lelang",
+            data:{
+                "lelang_id":lela_id
+            },
+            success:function(html){
+                $('#loadprice').html(html);
             }
         });
         return false;

@@ -186,5 +186,20 @@ class M_dashboard extends CI_Model
 			
             return $data;
         }
+    }
+    
+    function m_lelang_harga($kode){
+        //Select content records
+		$q = $this->db->query("SELECT DISTINCT winner_price FROM lelang WHERE lelang.Id='$kode'");
+       
+        if($q->num_rows() > 0)
+        {
+            foreach ($q->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
 	}
 }

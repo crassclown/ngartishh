@@ -338,19 +338,4 @@ class M_users extends CI_Model
 
     	return $this->db->insert_id();
 	}
-	
-	//Checking costs from detail lelang
-	public function m_harga_lelang($Idlela){
-		$q = $this->db->query("SELECT winner_price FROM lelang WHERE Id = '$Idlela'");
-		if($q->num_rows() > 0)
-        {
-            foreach ($q->result() as $row)
-            {
-            	$data[] = $row;
-			}
-			
-            return $data;
-        }
-	}
-
 }
