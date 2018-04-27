@@ -39,18 +39,32 @@
                     <div class="padding-form-harga-lelang">
                         <h4> Masukkan harga untuk melelang</h4>
                         <div class="padding-form-lelang">
-                                <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
-                                    <div class="row wrap-input-lelang">
-                                        <div class="col-md-5">
-                                        <p>Masukkan Harga:</p>
+                            <?php 
+                                if($vau->durasi < 0){
+                                    ?>      
+                                        <div class="alert alert-danger">
+                                            <strong>Oops!</strong> The Auction has been finished
                                         </div>
-                                        <div class="col-md-7">
-                                            <input id="input-lelang" class="comment form-control" autocomplete="off" type="number" name="txtharga" placeholder="Harga">
-                                        </div>
-                                    </div>
-                                <button id="comments" type="button" data-toggle="tooltip" title="Comments" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">Masukkan harga</button>
-                                <input type="hidden" name="lela_id" id="lela_id" value="<?=$vau->lelaid;?>">
-                            </form>                
+                                        <input type="hidden" name="lela_id" id="lela_id" value="<?=$vau->lelaid;?>">
+                                    <?php
+                                }else{
+                                    ?>
+                                        <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
+                                            <div class="row wrap-input-lelang">
+                                                <div class="col-md-5">
+                                                <p>Masukkan Harga:</p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input id="input-lelang" class="comment form-control" autocomplete="off" type="number" name="txtharga" placeholder="Harga">
+                                                </div>
+                                            </div>
+                                        <button id="comments" type="button" data-toggle="tooltip" title="Comments" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">Masukkan harga</button>
+                                        <input type="hidden" name="lela_id" id="lela_id" value="<?=$vau->lelaid;?>">
+                                    </form>         
+                                    <?php
+                                }
+                            ?>
+                                       
                         </div>
                     </div>
                     <div class="wrap-riwayat-input-harga-lelang">

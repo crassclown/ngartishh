@@ -33,7 +33,33 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-                        html +=
+                        if(data[i].durasi < 0){
+                            html +=
+                            '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
+                                '<div class="space">'+
+                                    '<div class="gantungan">'+
+                                        '<div class="pin text-center">'+
+                                        '<b>'+data[i].fullname.trim().substr(0,1).toUpperCase()+'</b>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '<div class="portfolio-item">'+
+                                '<a data-toggle="tooltip" title="Oops, The content cannot clicked" href="javascript: void(0)">'+
+                                        '<img class="img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" alt="gambar" />'+                              
+                                        '</a>'+
+                                        '<div class="portfolio-desc align-center">'+
+                                            '<div class="folio-info">'+
+                                                '<div class="row info-sisa-hari-lelang">'+
+                                                    '<span>'+
+                                                        '<div class="label label-danger">The Auction has been finished</div>'+                                        
+                                                    '</span>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+  
+                                    '</div>'+
+                                '</div>'+
+                            '</article>';
+                        }else{
+                            html +=
                             '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                                 '<div class="space">'+
                                     '<div class="gantungan">'+
@@ -49,7 +75,7 @@
                                             '<div class="folio-info">'+
                                                 '<div class="row info-sisa-hari-lelang">'+
                                                     '<span>'+
-                                                        'sisa '+data[i].durasi+' hari lagi'+
+                                                        data[i].durasi+' day left'+                                              
                                                     '</span>'+
                                                 '</div>'+
                                             '</div>'+
@@ -57,10 +83,12 @@
                                     '</div>'+
                                 '</div>'+
                             '</article>';
+                        }
+                        
                     }
                     $('#show_data').html(html);
                 }
-                
+                // 'sisa '+data[i].durasi+' hari lagi'+
                 
             });
         }

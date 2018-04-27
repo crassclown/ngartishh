@@ -79,7 +79,7 @@ class C_lelang extends CI_Controller {
 					<div class="colom-komentar">
 						<div class="wrap-komentar">
 							<div class="wrap-nama-orang-komentar">
-								<a href="#" class="nama-orang-komentar">
+								<a href="'.base_url('c_profile/m_users/'.$records->userid).'" class="nama-orang-komentar">
 									'.$records->namaygcomment.'
 								</a>
 							</div>
