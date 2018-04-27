@@ -18,6 +18,16 @@ class C_loginusers extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('users/login/v_login');
+    }
+    
+    public function m_lupapassword()
+	{
+		$this->load->view('users/login/v_lupapassword');
+    }
+    
+    public function m_lupapassword_gantipassword()
+	{
+		$this->load->view('users/login/v_lupapassword_gantipassword');
 	}
 
     //Proses Login

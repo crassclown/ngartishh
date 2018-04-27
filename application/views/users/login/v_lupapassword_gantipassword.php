@@ -38,11 +38,11 @@
           </div>
 
           <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s" method="post" autocomplete="off" action="<?=base_url('c_loginusers/m_auth');?>">
-            <span class="login100-form-title">
-              Member Login
+            <span class="login100-form-title text-center">
+              Lupa Password
             </span>
-            <span class="login100-form-description">
-              Bergabung bersama kami, bersiap untuk explorasi dan sharing berbagai macam karya seni!
+            <span class="login100-form-description text-center">
+              Masukkan Password Baru
             </span>
             <?php 
             if ($this->session->flashdata('error')): ?>
@@ -56,15 +56,17 @@
                 });
               </script>
             <?php endif; ?>
-            <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-              <input class="input100" type="email" name="txtemail" id="txtemail" placeholder="Email" autofocus>
+            <div class="wrap-input100 validate-input" data-validate = "Password is required">
+              <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Password Baru" maxlength="20" pattern=".{8,20}" title="8 to 20 characters">
               <span class="focus-input100"></span>
             </div>
 
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
-              <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Password" maxlength="20" pattern=".{8,20}" title="8 to 20 characters">
+              <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Masukkan Ulang Password" maxlength="20" pattern=".{8,20}" title="8 to 20 characters">
               <span class="focus-input100"></span>
             </div>
+
+
             <div class="container-login100-form-btn">
             
               <button class="login100-form-btn" name="btnlogin" id="btnlogin">
@@ -85,16 +87,16 @@
               <a class="txt2" href="<?=base_url('c_loginusers/m_moveregister');?>">
                 Create your Account
                 <i class="m-l-5" aria-hidden="true"></i>
-              </a>
-            </div>
 
             <div class="text-center p-t-12">
-              <a class="txt2" href="<?=base_url('c_loginusers/m_lupapassword');?>">
-                Lupa Password
+              <a class="txt2" href="<?=base_url('c_loginusers/');?>">
+                Already have account
                 <i class="m-l-5" aria-hidden="true"></i>
               </a>
             </div>
- 
+
+              </a>
+            </div>
           </form>
         </div>
       </div>
