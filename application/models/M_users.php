@@ -43,6 +43,24 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	public function cekLelang($varOwner, $varContent)
+	{
+		$result = $this->db->where('owner_id', $varOwner)->where('content_id',$varContent)->limit(1)->get('lelang');
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+            return $data;
+        }
+	}
+
+	public function post_lelang($data)
+	{
+		$this->db->insert('lelang', $data);
+	}
+
 	public function get_lelang($id)
 	{
 		$result = $this->db->where('owner_id', $id)->get('lelang')->result();
@@ -56,6 +74,26 @@ class M_users extends CI_Model
 		$result = $this->db->join('content', 'content.Id = lelang.content_id');
 		$result = $this->db->join('users', 'users.Id = lelang.owner_id');
 		$result = $this->db->where('lelang.owner_id', $id);
+		$result = $this->db->get();
+
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
+
+	public function get_likedcontent($id)
+	{
+		$result = $this->db->select('content.id as idcontent, content.user_id as iduser , content.photos as photos, total_like, total_comment');
+		$result = $this->db->from('likes');
+		$result = $this->db->join('content', 'content.Id = likes.content_id');
+		$result = $this->db->join('users', 'users.Id = likes.user_id');
+		$result = $this->db->where('likes.user_id', $id);
 		$result = $this->db->get();
 
 		if($result->num_rows() > 0)
@@ -134,7 +172,7 @@ class M_users extends CI_Model
 	//Delete Users on Profile Page
 	public function get_userfollowing($id)
 	{
-		$result = $this->db->select('users.Id as userId, fullname, phone');
+		$result = $this->db->select('users.Id as userId, fullname, phone, fotoprofil');
 		$result = $this->db->from('users');
 		$result = $this->db->join('following', 'following.followed_id = users.Id');
 		$result = $this->db->where('following.user_id', $id);
@@ -299,6 +337,5 @@ class M_users extends CI_Model
 
 
     	return $this->db->insert_id();
-    }
-
+	}
 }

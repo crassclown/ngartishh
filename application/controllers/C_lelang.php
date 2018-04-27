@@ -53,4 +53,53 @@ class C_lelang extends CI_Controller {
 		$this->load->view('users/lelang/detail_lelang', $data);
 		$this->load->view('users/layout/footer');
 	}
+
+	public function m_added_lelang(){
+		$winner_price 	= $this->input->post('winner_price');
+		$winner_id 		= $this->input->post('winner_id');
+		$Idlela			= $this->input->post('lela_id');	 
+
+		// $varVerPrice = $this->m_dashboard->m_lelang_harga($Idlela);
+		// if($winner_price > $varVerPrice){
+			$this->m_dashboard->m_added_lelang($winner_price,$winner_id,$Idlela);
+		// }else{
+		// 	return FALSE;
+		// }
+	}
+
+	// Memanggil comment berdasarkan content_id
+    public function m_load_lelang(){
+        $kode=$this->input->post('lela_id');
+        
+        $data = $this->m_dashboard->m_load_lelang($kode);
+        if(is_array($data)){
+            foreach ($data as $records) {
+                
+				echo '
+					<div class="colom-komentar">
+						<div class="wrap-komentar">
+							<div class="wrap-nama-orang-komentar">
+								<a href="#" class="nama-orang-komentar">
+									'.$records->namaygcomment.'
+								</a>
+							</div>
+							<div class="isi-komentar">
+								Rp.'.number_format($records->hargatawar,2,",",".").'
+							</div>
+						</div>
+					</div>
+				';
+            }
+        }
+	}
+	
+	public function m_harga_lelang(){
+		$kode=$this->input->post('lelang_id');
+		$data = $this->m_dashboard->m_lelang_harga($kode);
+		if(is_array($data) || is_object($data)){
+			foreach($data as $datahargalelang){
+				echo 'Rp.'.number_format($datahargalelang->winner_price,2,",",".");
+			}
+		}
+	}
 }

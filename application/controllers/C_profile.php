@@ -27,7 +27,7 @@ class C_profile extends CI_Controller {
 	{
 		$data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
 		$data['profile'] = $this->m_users->get_users($id);
-		$data['content'] = $this->m_users->get_lelang($id);
+		$data['content'] = $this->m_users->get_usercontent($id);
 		$data['totalfollowing'] = count($this->m_users->get_userfollowing($id));
 		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
 		$data['categories'] = $this->m_users->m_categories();
@@ -38,6 +38,39 @@ class C_profile extends CI_Controller {
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/profile/galeri_lelang', $data);
 		$this->load->view('users/layout/footer');
+	}
+
+	public function m_uploadlelang()
+	{
+		$now = date('Y-m-d');
+
+		$varContent = $this->input->post('txttitle');
+		$varStartingprice = $this->input->post('txthargaawal');
+		$varOwner = $this->session->userdata('Id');
+		$varStartingdate = $now;
+		$varEnddate = date('Y-m-d', strtotime($now. ' + 7 days'));
+
+		$data = array(
+			'owner_id'=>$varOwner,
+			'content_id'=>$varContent,
+			'starting_price'=>$varStartingprice,
+			'start_date'=>$varStartingdate,
+			'end_date'=>$varEnddate
+		);
+
+		$result = $this->m_users->cekLelang($varOwner, $varContent);
+		if(!isset($result))
+		{
+			$this->m_users->post_lelang($data);
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+	}
+
+	public function m_getLikedContentsUser($id)
+	{
+		$data = $this->m_users->get_likedcontent($id);
+
+        echo json_encode($data);
 	}
 
 	public function m_upvote($id)

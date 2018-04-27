@@ -49,7 +49,7 @@
                                             '<div class="folio-info">'+
                                                 '<div class="row info-sisa-hari-lelang">'+
                                                     '<span>'+
-                                                        'sisa 5 hari lagi'+
+                                                        'sisa '+data[i].durasi+' hari lagi'+
                                                     '</span>'+
                                                 '</div>'+
                                             '</div>'+
