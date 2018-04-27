@@ -64,4 +64,14 @@ class C_loginusers extends CI_Controller {
 		$this->load->view('users/register/v_register');
 	}
 
+	public function m_lupapassword()
+	{
+		$this->load->view('users/login/v_lupapassword');
+    }
+    
+    public function m_lupapassword_gantipassword()
+	{
+		$this->load->view('users/login/v_lupapassword_gantipassword');
+	}
+
 }

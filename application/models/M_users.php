@@ -43,6 +43,25 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	//check registered email
+	public function m_getregistered($email)
+	{
+		$result = $this->db->where('email', $email)->get('users')->result();
+		return $result;
+	}
+
+	//send email verification to reset password
+	public function get_verifpassword($email)
+	{
+
+	}
+
+	//Function to reset password
+	public function do_resetpassword($email, $newpassword)
+	{
+
+	}
+
 	public function cekLelang($varOwner, $varContent)
 	{
 		$result = $this->db->where('owner_id', $varOwner)->where('content_id',$varContent)->limit(1)->get('lelang');
@@ -337,6 +356,5 @@ class M_users extends CI_Model
 
 
     	return $this->db->insert_id();
-    }
-
+	}
 }

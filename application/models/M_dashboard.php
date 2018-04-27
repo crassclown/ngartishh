@@ -175,7 +175,22 @@ class M_dashboard extends CI_Model
 	// }
     function m_load_lelang($kode){
         //Select content records
-		$q = $this->db->query("SELECT DISTINCT users.fullname as namaygcomment, winner_lelang.winner_price as hargatawar FROM lelang, winner_lelang, users WHERE lelang.Id = winner_lelang.lelang_id AND users.Id = winner_lelang.winner_id AND lelang.Id='$kode'");
+		$q = $this->db->query("SELECT DISTINCT users.fullname as namaygcomment, winner_lelang.winner_price as hargatawar FROM lelang, winner_lelang, users WHERE lelang.Id = winner_lelang.lelang_id AND users.Id = winner_lelang.winner_id AND lelang.Id='$kode' ORDER BY winner_lelang.winner_price DESC ");
+       
+        if($q->num_rows() > 0)
+        {
+            foreach ($q->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+    }
+    
+    function m_lelang_harga($kode){
+        //Select content records
+		$q = $this->db->query("SELECT DISTINCT winner_price FROM lelang WHERE lelang.Id='$kode'");
        
         if($q->num_rows() > 0)
         {
