@@ -70,7 +70,7 @@
             <div class="container-login100-form-btn">
             
               <button class="login100-form-btn" name="btnlogin" id="btnlogin">
-                Login
+                Reset Password
               </button>
             </div>
 
