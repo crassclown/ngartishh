@@ -28,7 +28,13 @@ class C_loginusers extends CI_Controller {
     public function m_lupapassword_gantipassword()
 	{
 		$this->load->view('users/login/v_lupapassword_gantipassword');
+    }
+    
+    public function congratulation()
+	{
+		$this->load->view('users/layout/congratulation');
 	}
+
 
     //Proses Login
 	public function m_auth(){

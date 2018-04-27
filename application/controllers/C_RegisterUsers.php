@@ -13,6 +13,11 @@ class C_registerusers extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('users/register/v_register');
+    }
+    
+    public function congratulation()
+	{
+		$this->load->view('users/layout/congratulation');
 	}
 
 	public function m_register(){
