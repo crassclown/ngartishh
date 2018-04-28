@@ -44,22 +44,29 @@ class M_users extends CI_Model
 	}
 
 	//check registered email
-	public function m_getregistered($email)
+	public function m_getregistered($varEmail)
 	{
-		$result = $this->db->where('email', $email)->get('users')->result();
+		$result = $this->db->where('email', $varEmail)->get('users')->result();
 		return $result;
 	}
 
-	//send email verification to reset password
-	public function get_verifpassword($email)
-	{
-
-	}
-
 	//Function to reset password
-	public function do_resetpassword($email, $newpassword)
+	public function do_resetpassword($varEmail, $varNewpassword)
 	{
+		$checkupdate = false;
+		$data = array(
+			'password' => $varNewpassword
+		);
 
+		try{
+			$this->db->where('md5(email)',$varEmail);
+			$this->db->update('users',$data);
+			$checkupdate = true;
+		}catch (Exception $ex) {
+			
+			$checkupdate = false;
+		}
+		return $checkupdate; 
 	}
 
 	public function cekLelang($varOwner, $varContent)

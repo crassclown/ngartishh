@@ -37,39 +37,22 @@
             <img src="<?php echo base_url('assets/images/1.png')?>" alt="IMG">
           </div>
 
-          <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s" method="post" autocomplete="off" action="<?=base_url('c_loginusers/m_auth');?>">
+          <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s">
+					<input type="hidden" name="txtemail" id="txtemail" value="<?php echo $this->uri->segment(3) ?>">
             <span class="login100-form-title text-center">
               Lupa Password
             </span>
             <span class="login100-form-description text-center">
               Masukkan Password Baru
             </span>
-            <?php 
-            if ($this->session->flashdata('error')): ?>
-              <script>
-                swal({
-                  title: "Failed",
-                  text: "<?php echo $this->session->flashdata('error'); ?>",
-                  timer: 2000,
-                  showConfirmButton: false,
-                  type: 'error'
-                });
-              </script>
-            <?php endif; ?>
             <div class="wrap-input100 validate-input" data-validate = "Password is required">
               <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Password Baru" maxlength="20" pattern=".{8,20}" title="8 to 20 characters">
               <span class="focus-input100"></span>
             </div>
 
-            <div class="wrap-input100 validate-input" data-validate = "Password is required">
-              <input class="input100" type="password" name="txtpassword" id="txtpassword" placeholder="Masukkan Ulang Password" maxlength="20" pattern=".{8,20}" title="8 to 20 characters">
-              <span class="focus-input100"></span>
-            </div>
-
-
             <div class="container-login100-form-btn">
             
-              <button class="login100-form-btn" name="btnlogin" id="btnlogin">
+              <button type="button" class="login100-form-btn" name="btnreset" id="btnreset">
                 Reset Password
               </button>
             </div>
@@ -126,26 +109,39 @@
 	<script src="<?php echo base_url('assets/js/main.js')?>"></script>
   <script>
     $(document).ready(function(){
-        $('#btnlogin').click(function(){
+        $('#btnreset').click(function(){
             var txtemail      = $('#txtemail').val();
             // var txtfullname   = $('#txtfullname').val();
             var txtpassword   = $('#txtpassword').val();
             // var quantity     = $('#' + produk_id).val();
-            if(txtemail == ''){
-              swal({
-                type: 'error',
-                title: 'Email is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }else if(txtpassword == ''){
+            if(txtpassword == ''){
               swal({
                 type: 'error',
                 title: 'Password is required',
                 animation: true,
                 customClass: 'animated tada'
               })
-            }
+            }else{
+							$.ajax({
+								type: "POST",
+								url: "<?php echo base_url(); ?>" + "C_loginusers/m_resetpassword",
+								data: {
+									"email": txtemail,
+									"password": txtpassword
+								},
+								complete: function(){
+									swal({
+										type: 'success',
+										title: 'Berhasil',
+										text: 'Password Anda Berhasil Diubah! Silahkan Login!',
+										timer: 3000,
+										showConfirmButton: false
+									},function() {
+											window.location = "<?=base_url('C_loginusers/index')?>";
+									})
+								}
+							});
+						}
         });
     });
   </script>

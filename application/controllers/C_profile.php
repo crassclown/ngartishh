@@ -23,48 +23,6 @@ class C_profile extends CI_Controller {
 
 	}
 
-	public function m_resetverification()
-	{
-		$varEmail = $this->input->post('email');
-		$varRegisteredEmail = $this->m_users->m_getregistered($varEmail);
-
-		// $data = array(
-		// 	'email' => $varEmail
-		// );
-		$encrypted_email = md5($varEmail);
-
-		if($varEmail == $varRegisteredEmail){
-			$config = array();
-			$config['charset'] = 'utf-8';
-			$config['useragent'] = 'Codeigniter';
-			$config['protocol']= "smtp";
-			$config['mailtype']= "html";
-			$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
-			$config['smtp_port']= "465";
-			$config['smtp_timeout']= "400";
-			$config['smtp_user']= "adm.ngartish@gmail.com"; // isi dengan email kamu
-			$config['smtp_pass']= "ngartish3220"; // isi dengan password kamu
-			$config['crlf']="\r\n"; 
-			$config['newline']="\r\n"; 
-			$config['wordwrap'] = TRUE;
-			//memanggil library email dan set konfigurasi untuk pengiriman email
-		
-			$this->email->initialize($config);
-			//konfigurasi pengiriman
-			$this->email->from($config['smtp_user']);
-			$this->email->to($varEmail);
-			$this->email->subject("Reset Password");
-			$this->email->send();
-
-			$this->email->message(
-					"terimakasih telah melakuan registrasi, untuk memverifikasi silahkan klik tautan dibawah ini<br><br>".
-		site_url("register/verification/$encrypted_id")
-		);
-		}else{
-			return false;
-		}
-	}
-
 	public function m_galeri_lelang($id)
 	{
 		$data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
