@@ -230,7 +230,18 @@
               $.ajax({
                 url : "<?php echo base_url();?>C_RegisterUsers/m_register",
                 method : "POST",
-                data : {txtemail: txtemail, txtfullname: txtfullname, txtpassword: txtpassword, txtphone:txtphone}
+                data : {txtemail: txtemail, txtfullname: txtfullname, txtpassword: txtpassword, txtphone:txtphone},
+								complete: function(){
+									swal({
+										type: 'success',
+										title: 'Berhasil',
+										text: 'Silahkan periksa email anda untuk konfirmasi!',
+										timer: 3000,
+										showConfirmButton: false
+									},function() {
+											window.location = "<?=base_url('C_loginusers/index')?>";
+									})
+								}
               });
             }
         });
