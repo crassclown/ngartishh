@@ -35,14 +35,34 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="wrap-detail-content text-center">
+                <div class="wrap-detail-content-lelang text-center">
                     <div class="padding-form-harga-lelang">
                         <h4> Masukkan harga untuk melelang</h4>
                         <div class="padding-form-lelang">
+                        Kelipatan harga berdasarkan harga saat ini 
+                            <div class="row wrap-input-lelang">
+                                <div class="col-md-3">
+                                <button class="btn btn-default submit-edit-profil">2x</button>
+                                </div>
+                                <div class="col-md-3">
+                                <button class="btn btn-default submit-edit-profil">3x</button>
+                                </div>
+                                <div class="col-md-3">
+                                <button class="btn btn-default submit-edit-profil">7x</button>
+                                </div>
+                                <div class="col-md-3">
+                                <button class="btn btn-default submit-edit-profil">10x</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="padding-form-lelang or">
+                            <h4> Atau </h4>
                                 <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
+                                    Masukkan Kelipatan yang anda inginkan
                                     <div class="row wrap-input-lelang">
                                         <div class="col-md-5">
-                                        <p>Masukkan Harga:</p>
+                                        <p>Masukkan Kelipatan:</p>
                                         </div>
                                         <div class="col-md-7">
                                             <input id="input-lelang" class="comment form-control" autocomplete="off" type="number" name="txtharga" placeholder="Harga">
