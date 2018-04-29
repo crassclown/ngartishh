@@ -13,11 +13,6 @@ class C_registerusers extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('users/register/v_register');
-    }
-    
-    public function congratulation()
-	{
-		$this->load->view('users/layout/congratulation');
 	}
 
 	public function m_register(){
@@ -27,8 +22,11 @@ class C_registerusers extends CI_Controller {
             'fullname'  => ucwords(trim($this->input->post('txtfullname'))),
             'password'  => md5(trim($this->input->post('txtpassword'))),
             'phone'     => $this->input->post('txtphone'),
-            'created_at'=> date('Y-m-d H:i:s')
-        );
+			'created_at'=> date('Y-m-d H:i:s'),
+			'status' 	=> '0'
+		);
+		
+		$encrypted_email = md5($email);
         if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
             $this->session->set_flashdata('email_err','The email format was wrong');
         }else{
@@ -43,8 +41,49 @@ class C_registerusers extends CI_Controller {
                     echo "Failed insert into database";
                 }
             }
-        }
+		}
+		
+		$config = array();
+		$config['charset'] = 'utf-8';
+		$config['useragent'] = 'Codeigniter';
+		$config['protocol']= "smtp";
+		$config['mailtype']= "html";
+		$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+		$config['smtp_port']= "465";
+		$config['smtp_timeout']= "400";
+		$config['smtp_user']= "adm.ngartish@gmail.com"; // isi dengan email kamu
+		$config['smtp_pass']= "ngartish3220"; // isi dengan password kamu
+		$config['crlf']="\r\n"; 
+		$config['newline']="\r\n"; 
+		$config['wordwrap'] = TRUE;
+		//memanggil library email dan set konfigurasi untuk pengiriman email
+		
+		$this->email->initialize($config);
+		//konfigurasi pengiriman
+		$this->email->from($config['smtp_user']);
+		$this->email->to($email);
+		$this->email->subject("Aktivasi Akun");
+
+		$this->email->message(
+			"untuk mengaktifkan akun anda, silahkan klik tautan dibawah ini<br><br>".
+			base_url("c_registerusers/m_activation/$encrypted_email")
+		);
+
+		if($this->email->send())
+		{	
+			$this->session->set_flashdata('success','Silahkan periksa email anda untuk aktivasi akun');
+		}else
+		{
+			echo "Email tidak terkirim";
+		}
         
+	}
+
+	public function m_activation($key)
+	{
+		$this->m_users->m_activateusers($key);
+		$this->session->set_flashdata('success','Aktivasi akun berhasil');
+		redirect('C_loginusers/index');
 	}
 
 }

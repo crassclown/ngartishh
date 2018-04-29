@@ -43,6 +43,51 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	//check registered email
+	public function m_getregistered($varEmail)
+	{
+		$result = $this->db->where('email', $varEmail)->get('users')->result();
+		return $result;
+	}
+
+	//activate user account
+	public function m_activateusers($email)
+	{
+		$checkupdate = false;
+		$data = array(
+			'status' => '1'
+		);
+
+		try{
+			$this->db->where('md5(email)',$email);
+			$this->db->update('users',$data);
+			$checkupdate = true;
+		}catch (Exception $ex) {
+			
+			$checkupdate = false;
+		}
+		return $checkupdate; 
+	}
+
+	//Function to reset password
+	public function do_resetpassword($varEmail, $varNewpassword)
+	{
+		$checkupdate = false;
+		$data = array(
+			'password' => $varNewpassword
+		);
+
+		try{
+			$this->db->where('md5(email)',$varEmail);
+			$this->db->update('users',$data);
+			$checkupdate = true;
+		}catch (Exception $ex) {
+			
+			$checkupdate = false;
+		}
+		return $checkupdate; 
+	}
+
 	public function cekLelang($varOwner, $varContent)
 	{
 		$result = $this->db->where('owner_id', $varOwner)->where('content_id',$varContent)->limit(1)->get('lelang');

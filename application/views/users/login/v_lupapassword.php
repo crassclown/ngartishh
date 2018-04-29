@@ -37,25 +37,13 @@
             <img src="<?php echo base_url('assets/images/1.png')?>" alt="IMG">
           </div>
 
-          <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s" method="post" autocomplete="off" action="<?=base_url('c_loginusers/m_auth');?>">
+          <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s">
             <span class="login100-form-title text-center">
               Lupa Password
             </span>
             <span class="login100-form-description text-center">
               Masukkan Alamat Email
             </span>
-            <?php 
-            if ($this->session->flashdata('error')): ?>
-              <script>
-                swal({
-                  title: "Failed",
-                  text: "<?php echo $this->session->flashdata('error'); ?>",
-                  timer: 2000,
-                  showConfirmButton: false,
-                  type: 'error'
-                });
-              </script>
-            <?php endif; ?>
             <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
               <input class="input100" type="email" name="txtemail" id="txtemail" placeholder="Email" autofocus>
               <span class="focus-input100"></span>
@@ -63,7 +51,7 @@
 
             <div class="container-login100-form-btn">
             
-              <button class="login100-form-btn" name="btnlogin" id="btnlogin">
+              <button type="button" class="login100-form-btn" name="btnsend" id="btnsend">
                 Send Verification
               </button>
             </div>
@@ -120,11 +108,9 @@
 	<script src="<?php echo base_url('assets/js/main.js')?>"></script>
   <script>
     $(document).ready(function(){
-        $('#btnlogin').click(function(){
+        $('#btnsend').click(function(){
             var txtemail      = $('#txtemail').val();
             // var txtfullname   = $('#txtfullname').val();
-            var txtpassword   = $('#txtpassword').val();
-            // var quantity     = $('#' + produk_id).val();
             if(txtemail == ''){
               swal({
                 type: 'error',
@@ -132,14 +118,25 @@
                 animation: true,
                 customClass: 'animated tada'
               })
-            }else if(txtpassword == ''){
-              swal({
-                type: 'error',
-                title: 'Password is required',
-                animation: true,
-                customClass: 'animated tada'
-              })
-            }
+            }else{
+							$.ajax({
+								type: "POST",
+								url: "<?php echo base_url(); ?>" + "C_loginusers/m_resetverification",
+								data: {
+									"email": txtemail
+								},
+								complete: function(){
+									swal({
+										title: 'Berhasil',
+										text: 'Periksa email anda untuk ganti password',
+										timer: 5000,
+										onOpen: () => {
+											swal.showLoading()
+										}
+									})
+								}
+							});
+						}
         });
     });
   </script>
