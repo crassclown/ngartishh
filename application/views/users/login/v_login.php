@@ -72,14 +72,14 @@
               </button>
             </div>
 
-            <div class="text-center p-t-12">
+            <!-- <div class="text-center p-t-12">
               <span class="txt1">
                 Forgot
               </span>
               <a class="txt2" href="#">
                 Username / Password?
               </a>
-            </div>
+            </div> -->
 
             <div class="text-center p-t-12">
               <a class="txt2" href="<?=base_url('c_loginusers/m_moveregister');?>">
@@ -87,6 +87,14 @@
                 <i class="m-l-5" aria-hidden="true"></i>
               </a>
             </div>
+
+            <div class="text-center p-t-12">
+              <a class="txt2" href="<?=base_url('c_loginusers/m_lupapassword');?>">
+                Lupa Password
+                <i class="m-l-5" aria-hidden="true"></i>
+              </a>
+            </div>
+ 
           </form>
         </div>
       </div>

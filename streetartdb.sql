@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.7
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 22, 2018 at 08:25 AM
--- Server version: 10.1.30-MariaDB
--- PHP Version: 7.2.1
+-- Host: 127.0.0.1
+-- Generation Time: Apr 30, 2018 at 03:33 AM
+-- Server version: 10.1.26-MariaDB
+-- PHP Version: 7.1.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -40,18 +40,6 @@ CREATE TABLE `admin` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bookmark`
---
-
-CREATE TABLE `bookmark` (
-  `Id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `content_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `category`
 --
 
@@ -60,6 +48,17 @@ CREATE TABLE `category` (
   `name` varchar(255) DEFAULT NULL,
   `desc` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `category`
+--
+
+INSERT INTO `category` (`Id`, `name`, `desc`) VALUES
+(1, 'Ilustrasi', 'Ilustrasi'),
+(2, 'Surealism', 'Surealism'),
+(3, 'Impresionisme', 'Impresionisme'),
+(4, 'Mural', 'Mural'),
+(5, 'Neo-Impresionisme', 'Neo-Impresionisme');
 
 -- --------------------------------------------------------
 
@@ -77,6 +76,32 @@ CREATE TABLE `comments` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`Id`, `desc`, `user_id`, `content_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
+(1, 'asdasd', 35, 123177, '2018-04-19 22:47:58', NULL, NULL),
+(2, 'asdasd', 35, 123177, '2018-04-19 22:48:12', NULL, NULL),
+(3, 'TES', 35, 123178, '2018-04-19 22:57:43', NULL, NULL),
+(4, 'asdas', 35, 123177, '2018-04-19 23:10:42', NULL, NULL);
+
+--
+-- Triggers `comments`
+--
+DELIMITER $$
+CREATE TRIGGER `count_comments` AFTER INSERT ON `comments` FOR EACH ROW BEGIN
+	UPDATE content SET total_comment = total_comment + 1 WHERE Id = NEW.content_id;
+	END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `delete_comment` AFTER DELETE ON `comments` FOR EACH ROW BEGIN
+	UPDATE content SET total_comment = total_comment - 1 WHERE Id = OLD.content_id;
+	END
+$$
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -93,28 +118,20 @@ CREATE TABLE `content` (
   `user_id` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  `category_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `content`
 --
 
-INSERT INTO `content` (`Id`, `title`, `photos`, `desc`, `total_like`, `total_comment`, `user_id`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(111, 'sdfdf', 'asdad.jpg', 'dfasdfasdf', 5, 6, 32, NULL, NULL, NULL),
-(123123, 'adfasdfasdf', 'asdfa.png', 'sadfasdf', 5, 6, NULL, NULL, NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `content_cat_detail`
---
-
-CREATE TABLE `content_cat_detail` (
-  `Id` int(11) NOT NULL,
-  `content_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `content` (`Id`, `title`, `photos`, `desc`, `total_like`, `total_comment`, `user_id`, `created_at`, `updated_at`, `deleted_at`, `category_id`) VALUES
+(123174, 'tes3', 'lqd.jpg', 'tes3', 1, 0, 32, '2018-04-19 16:38:15', NULL, NULL, 5),
+(123175, 'tes4', 'pa.jpg', 'tes4', 1, 0, 32, '2018-04-19 16:38:56', NULL, NULL, 1),
+(123176, 'Game1', 'bm1.jpg', 'Game1', 0, 0, 35, '2018-04-19 17:18:11', NULL, NULL, 2),
+(123177, 'Game2', 'art-city-light-night-Favim_com-30786291.jpg', 'Game2', 1, 3, 35, '2018-04-19 17:19:08', NULL, NULL, 4),
+(123178, 'Pic1', 'bipul2.jpg', 'Test', 0, 1, 32, '2018-04-19 22:34:08', NULL, NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -142,6 +159,13 @@ CREATE TABLE `following` (
   `followed_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `following`
+--
+
+INSERT INTO `following` (`Id`, `user_id`, `followed_id`) VALUES
+(14, 35, 32);
+
 -- --------------------------------------------------------
 
 --
@@ -157,6 +181,40 @@ CREATE TABLE `interest_detail` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `lelang`
+--
+
+CREATE TABLE `lelang` (
+  `Id` int(11) NOT NULL,
+  `owner_id` int(11) DEFAULT NULL,
+  `content_id` int(11) DEFAULT NULL,
+  `starting_price` varchar(255) DEFAULT NULL,
+  `winner_price` varchar(255) DEFAULT NULL,
+  `winner_id` int(11) DEFAULT NULL,
+  `start_date` date DEFAULT NULL,
+  `end_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+--
+-- Dumping data for table `lelang`
+--
+
+INSERT INTO `lelang` (`Id`, `owner_id`, `content_id`, `starting_price`, `winner_price`, `winner_id`, `start_date`, `end_date`) VALUES
+(6, 35, 123177, '300000', '400000', 35, '2018-04-20', '2018-04-27'),
+(7, 32, 123178, '500000', '600000', 35, '2018-04-20', '2018-04-27');
+
+--
+-- Triggers `lelang`
+--
+DELIMITER $$
+CREATE TRIGGER `winner_trigger` AFTER UPDATE ON `lelang` FOR EACH ROW insert into winner_lelang(winner_id, lelang_id, winner_price)
+    values(new.winner_id, new.Id, new.winner_price)
+$$
+DELIMITER ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `likes`
 --
 
@@ -165,6 +223,31 @@ CREATE TABLE `likes` (
   `user_id` int(11) DEFAULT NULL,
   `content_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `likes`
+--
+
+INSERT INTO `likes` (`Id`, `user_id`, `content_id`) VALUES
+(118, 35, 123175),
+(119, 35, 123174),
+(120, 32, 123177);
+
+--
+-- Triggers `likes`
+--
+DELIMITER $$
+CREATE TRIGGER `count_likes` AFTER INSERT ON `likes` FOR EACH ROW BEGIN
+	UPDATE content SET total_like = total_like + 1 WHERE Id = NEW.content_id;
+	END
+$$
+DELIMITER ;
+DELIMITER $$
+CREATE TRIGGER `delete_likes` AFTER DELETE ON `likes` FOR EACH ROW BEGIN
+	UPDATE content SET total_like = total_like - 1 WHERE Id = OLD.content_id;
+	END
+$$
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -175,22 +258,27 @@ CREATE TABLE `likes` (
 CREATE TABLE `users` (
   `Id` int(11) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
+  `fotoprofil` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL,
   `fullname` varchar(255) DEFAULT NULL,
   `bio` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
-  `total_following` int(11) DEFAULT NULL,
-  `total_follower` int(11) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(225) DEFAULT NULL
+  `password` varchar(225) DEFAULT NULL,
+  `status` enum('0','1') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`Id`, `email`, `fullname`, `bio`, `phone`, `total_following`, `total_follower`, `created_at`, `updated_at`, `password`) VALUES
-(32, 'pandhuw58@gmail.com', 'Pandhu Wibowo', NULL, NULL, NULL, NULL, NULL, NULL, 'ff1aa6063e833331b51f3b5957b106cc');
+INSERT INTO `users` (`Id`, `email`, `fotoprofil`, `username`, `fullname`, `bio`, `phone`, `created_at`, `updated_at`, `password`, `status`) VALUES
+(32, 'pandhuw58@gmail.com', NULL, NULL, 'Pandhu Wibowo', NULL, '081296807905', NULL, NULL, 'fe0fe29a0d6c4327bbf5f0ab0db972bb', '0'),
+(34, 'pandhuw@gmail.com', NULL, NULL, 'Pandhu', NULL, '081296807905', '2018-04-13 22:11:05', NULL, 'fe0fe29a0d6c4327bbf5f0ab0db972bb', '1'),
+(35, 'hendryrpl@gmail.com', 'tc.jpg', 'hendryhnyss', 'Hendry Nugroho', 'asdasdasd', '089673751885', '2018-04-14 11:02:07', NULL, 'ae71018760a8730a6f652baa6a222a13', '1'),
+(36, 'fakhri@gmail.com', NULL, NULL, 'Fakhry Ammarizky', NULL, '0812967584903', '2018-04-19 22:25:18', NULL, '00f5cd2d711b65895204a793e888b481', '0'),
+(38, 'madness.game322@gmail.com', NULL, NULL, 'Madness', NULL, '083284123', '2018-04-29 04:16:02', NULL, 'a954ca77f4ff62ce4033cf709793167c', '1');
 
 -- --------------------------------------------------------
 
@@ -208,6 +296,29 @@ CREATE TABLE `user_review` (
   `deleted_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `winner_lelang`
+--
+
+CREATE TABLE `winner_lelang` (
+  `Id` int(11) NOT NULL,
+  `winner_id` int(11) DEFAULT NULL,
+  `lelang_id` int(11) DEFAULT NULL,
+  `winner_price` int(8) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `winner_lelang`
+--
+
+INSERT INTO `winner_lelang` (`Id`, `winner_id`, `lelang_id`, `winner_price`) VALUES
+(1, 35, 7, 550000),
+(3, 35, 7, 550000),
+(4, 35, 6, 400000),
+(5, 35, 7, 600000);
+
 --
 -- Indexes for dumped tables
 --
@@ -217,14 +328,6 @@ CREATE TABLE `user_review` (
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `bookmark`
---
-ALTER TABLE `bookmark`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `content_id` (`content_id`);
 
 --
 -- Indexes for table `category`
@@ -245,14 +348,7 @@ ALTER TABLE `comments`
 --
 ALTER TABLE `content`
   ADD PRIMARY KEY (`Id`),
-  ADD KEY `user_id` (`user_id`);
-
---
--- Indexes for table `content_cat_detail`
---
-ALTER TABLE `content_cat_detail`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `content_id` (`content_id`),
+  ADD KEY `user_id` (`user_id`),
   ADD KEY `category_id` (`category_id`);
 
 --
@@ -279,6 +375,14 @@ ALTER TABLE `interest_detail`
   ADD KEY `category_id` (`category_id`);
 
 --
+-- Indexes for table `lelang`
+--
+ALTER TABLE `lelang`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `content_id` (`content_id`),
+  ADD KEY `winner_id` (`winner_id`);
+
+--
 -- Indexes for table `likes`
 --
 ALTER TABLE `likes`
@@ -301,6 +405,12 @@ ALTER TABLE `user_review`
   ADD KEY `reviewed_by` (`reviewed_by`);
 
 --
+-- Indexes for table `winner_lelang`
+--
+ALTER TABLE `winner_lelang`
+  ADD PRIMARY KEY (`Id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -311,34 +421,22 @@ ALTER TABLE `admin`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `bookmark`
---
-ALTER TABLE `bookmark`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `content`
 --
 ALTER TABLE `content`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123124;
-
---
--- AUTO_INCREMENT for table `content_cat_detail`
---
-ALTER TABLE `content_cat_detail`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=123179;
 
 --
 -- AUTO_INCREMENT for table `featured`
@@ -350,7 +448,7 @@ ALTER TABLE `featured`
 -- AUTO_INCREMENT for table `following`
 --
 ALTER TABLE `following`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `interest_detail`
@@ -359,16 +457,22 @@ ALTER TABLE `interest_detail`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `lelang`
+--
+ALTER TABLE `lelang`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `likes`
 --
 ALTER TABLE `likes`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `user_review`
@@ -377,15 +481,14 @@ ALTER TABLE `user_review`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
+-- AUTO_INCREMENT for table `winner_lelang`
 --
+ALTER TABLE `winner_lelang`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- Constraints for table `bookmark`
+-- Constraints for dumped tables
 --
-ALTER TABLE `bookmark`
-  ADD CONSTRAINT `bookmark_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `bookmark_ibfk_2` FOREIGN KEY (`content_id`) REFERENCES `content` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comments`
@@ -398,14 +501,8 @@ ALTER TABLE `comments`
 -- Constraints for table `content`
 --
 ALTER TABLE `content`
-  ADD CONSTRAINT `content_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `content_cat_detail`
---
-ALTER TABLE `content_cat_detail`
-  ADD CONSTRAINT `content_cat_detail_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `content` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `content_cat_detail_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `content_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `content_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `featured`
@@ -426,6 +523,13 @@ ALTER TABLE `following`
 ALTER TABLE `interest_detail`
   ADD CONSTRAINT `interest_detail_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `interest_detail_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `lelang`
+--
+ALTER TABLE `lelang`
+  ADD CONSTRAINT `lelang_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `content` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `lelang_ibfk_2` FOREIGN KEY (`winner_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `likes`

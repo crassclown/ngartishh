@@ -1,5 +1,5 @@
 <?php $this->session->userdata("Id"); ?>
-    <section  class="section appear clearfix" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>')">
+    <section  class="section appear clearfix" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>');min-height:600PX;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 border-content">
