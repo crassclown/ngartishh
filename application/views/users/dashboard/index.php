@@ -98,7 +98,7 @@
   <!-- AddToAny BEGIN -->
   <script>
     var a2a_config = a2a_config || {};
-    a2a_config.linkurl = "http://[::1]/Kuliah/PBF/Ngartish/ngartish/c_dashboard/";
+    a2a_config.linkurl = "<?=base_url('c_dashboard/');?>";
     a2a_config.onclick = 1;
   </script>
   <script async src="https://static.addtoany.com/menu/page.js"></script>

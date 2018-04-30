@@ -226,7 +226,7 @@
 <!-- AddToAny BEGIN -->
 <script>
     var a2a_config = a2a_config || {};
-    a2a_config.linkurl = "http://[::1]/Kuliah/PBF/Ngartish/ngartish/c_dashboard/<?=$vau->Id;?>/<?=$vau->user_id;?>";
+    a2a_config.linkurl = "<?=base_url();?>"+"c_dashboard/m_detailContent/<?=$vau->Id;?>/<?=$vau->user_id;?>";
     a2a_config.onclick = 1;
 </script>
 <script async src="https://static.addtoany.com/menu/page.js"></script>
