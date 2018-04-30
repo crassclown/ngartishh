@@ -63,6 +63,8 @@ class C_profile extends CI_Controller {
 		{
 			$this->m_users->post_lelang($data);
 			redirect($_SERVER['HTTP_REFERER']);
+		}else{
+			redirect($_SERVER['HTTP_REFERER']);
 		}
 	}
 

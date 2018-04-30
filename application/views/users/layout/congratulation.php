@@ -34,7 +34,7 @@
 		<div class="login100-form-title text-center">
 			Selamat Aktivasi Akun Anda Sudah Berhasil
 		</div>
-		<button class="login100-form-btn wow fadeIn delay-1s">Login nya Disini</button>
+		<a class="login100-form-btn wow fadeIn delay-1s" href="<?=base_url('c_loginusers/index')?>">Login nya Disini</a>
 		</div>
 	</div>
 	

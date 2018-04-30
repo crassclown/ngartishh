@@ -83,7 +83,7 @@ class C_registerusers extends CI_Controller {
 	{
 		$this->m_users->m_activateusers($key);
 		$this->session->set_flashdata('success','Aktivasi akun berhasil');
-		redirect('C_loginusers/index');
+		$this->load->view('users/layout/congratulation');
 	}
 
 }
