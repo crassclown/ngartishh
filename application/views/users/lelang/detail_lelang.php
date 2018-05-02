@@ -15,7 +15,7 @@
                 </div>            
             </div>
             <div class="col-md-4">
-                <div class="wrap-detail-content-lelang">
+                <div class="wrap-detail-content-lelang-harga">
                     <div class="text-center">
                         <h3>Harga Awal</h3>
                     </div>
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="wrap-detail-content-lelang text-center">
+                <div class="wrap-detail-content-lelang-input-harga text-center">
                     <div class="padding-form-harga-lelang">
                         <h4> Masukkan harga untuk melelang</h4>
                         <div class="padding-form-lelang">
@@ -61,17 +61,16 @@
                                 <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
                                     Masukkan Kelipatan yang anda inginkan
                                     <div class="row wrap-input-lelang">
-                                        <div class="col-md-5">
                                         <p>Masukkan Kelipatan:</p>
-                            <?php 
-                                if($vau->durasi < 0){
+                                    <?php 
+                                        if($vau->durasi < 0){
                                     ?>      
                                         <div class="alert alert-danger">
                                             <strong>Oops!</strong> The Auction has been finished
                                         </div>
                                         <input type="hidden" name="lela_id" id="lela_id" value="<?=$vau->lelaid;?>">
                                     <?php
-                                }else{
+                                        }else{
                                     ?>
                                         <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
                                             <div class="row wrap-input-lelang">
