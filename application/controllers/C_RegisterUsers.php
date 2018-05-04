@@ -63,6 +63,7 @@ class C_registerusers extends CI_Controller {
 		$this->email->from($config['smtp_user']);
 		$this->email->to($email);
 		$this->email->subject("Aktivasi Akun");
+		$this->email->set_header('Aktivasi Akun', ''.$encrypted_email.'');
 
 		$this->email->message(
 			"untuk mengaktifkan akun anda, silahkan klik tautan dibawah ini<br><br>".
