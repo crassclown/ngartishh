@@ -51,14 +51,22 @@
                                         <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
                                             <div class="row wrap-input-lelang">
                                                 <div class="col-md-5">
-                                                <p>Tambahan harga yang telah disediakan</p>
+                                                <p>Tambahan harga yang telah disediakan sebesar</p>
                                                 </div>
                                                 <div class="col-md-7">
                                                     <?php
                                                         $tambahanharga      = $vau->starting_price;
                                                         $hargafinal         = ($tambahanharga * 1) / 100;        
                                                     ?>
-                                                    <input id="tambahanharga" class="tambahanharga form-control" readonly type="text" name="tambahanharga" value="<?php echo $hargafinal;?>">
+                                                    <input id="tambahanharga" class="tambahanharga form-control" readonly type="text" name="tambahanharga" value="<?php echo $hargafinal;?>" style="width:50%;"/>
+                                                </div>
+                                            </div>
+                                            <div class="row wrap-input-lelang">
+                                                <div class="col-md-5">
+                                                <p>Anda berapa kali lipat dari harga sekarang?</p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input id="kaliharga" class="kaliharga form-control" type="text" min="0" max="10" maxlength="2" name="kaliharga" style="width:50%;" placeholder="max 10x" />
                                                 </div>
                                             </div>
                                             <div class="row wrap-input-lelang">
@@ -66,7 +74,7 @@
                                                 <p>Harga yang telah disediakan</p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    <input id="totalhargapasang" class="comment totalhargapasang form-control" onload="m_hargatambah_lelang()" autocomplete="off" type="number" name="txtharga">
+                                                    <input id="totalhargapasang" class="comment totalhargapasang form-control" onload="m_hargatambah_lelang()" autocomplete="off" type="number" name="txtharga" readonly />
                                                 </div>
                                             </div>
                                         <button id="comments" type="button" data-toggle="tooltip" title="Comments" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">Masukkan harga</button>
@@ -177,5 +185,12 @@
         });
         return false;
     }
+</script>
+<script>
+    $(document).ready(function(){
+        $('#kaliharga').on('keypress', function(key) {
+            if(key.charCode < 48 || key.charCode > 57) return false;
+        });
+    });
 </script>
 
