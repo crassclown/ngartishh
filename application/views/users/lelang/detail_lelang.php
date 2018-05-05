@@ -42,16 +42,16 @@
                         Kelipatan harga berdasarkan harga saat ini 
                             <div class="row wrap-input-lelang">
                                 <div class="col-md-3">
-                                <button class="btn btn-default submit-edit-profil">2x</button>
+                                    <button id="btn-kelipatan" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>" data-value="2">2x</button>
                                 </div>
                                 <div class="col-md-3">
-                                <button class="btn btn-default submit-edit-profil">3x</button>
+                                    <button id="btn-kelipatan" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>" data-value="3">3x</button>
                                 </div>
                                 <div class="col-md-3">
-                                <button class="btn btn-default submit-edit-profil">7x</button>
+                                    <button id="btn-kelipatan" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>" data-value="7">7x</button>
                                 </div>
                                 <div class="col-md-3">
-                                <button class="btn btn-default submit-edit-profil">10x</button>
+                                    <button id="btn-kelipatan" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>" data-value="10">10x</button>
                                 </div>
                             </div>
                         </div>
@@ -101,6 +101,7 @@
     }
 ?>
 <script type="text/javascript">
+    // Untuk button comment harga
     $(document).ready(function(){
         $('.comment').keypress(function(e) {
             if (e.which == 13) {
@@ -110,6 +111,74 @@
         });
         $("#comments").click(function(){
             var psharga     = $('#input-lelang').val();
+            var winner_id   = $(this).attr("data-winner_id");
+            var lelaid      = $(this).attr("data-lelaid");
+                        
+            if(psharga != ''){
+
+                $.ajax({
+                    type:"POST",
+                    url :"<?php echo base_url(); ?>" + "c_lelang/m_added_lelang",
+                    data:{
+                        "winner_price":psharga,
+                        "winner_id":winner_id,
+                        "lela_id":lelaid
+                    },
+                    success:function(html){
+                        $('#input-lelang').val('');
+                        m_load_lelang();
+                        m_harga_lelang();
+                    }
+                });
+            }else{
+                $('#comments').bind('keypress', function(e)
+                {
+                    if(e.keyCode == 13)
+                    {
+                        return false;
+                    }
+                });
+            }
+        });
+    });
+    m_load_lelang();
+    function m_load_lelang(){
+        var lela_id = $('#lela_id').val();
+        $.ajax({
+            type:"POST",
+            url :"<?php echo base_url(); ?>" + "c_lelang/m_load_lelang",
+            data:{
+                "lela_id":lela_id
+            },
+            success:function(html){
+                $('#list_status').html(html);
+            }
+        });
+        return false;
+    }
+
+    m_harga_lelang();
+    function m_harga_lelang(){
+        var lela_id = $('#lelang_id').val();
+        $.ajax({
+            type:"POST",
+            url :"<?php echo base_url(); ?>" + "c_lelang/m_harga_lelang",
+            data:{
+                "lelang_id":lela_id
+            },
+            success:function(html){
+                $('#loadprice').html(html);
+            }
+        });
+        return false;
+    }
+</script>
+
+<script type="text/javascript">
+    // Untuk button comment harga
+    $(document).ready(function(){
+        $("#btn-kelipatan").click(function(){
+            var value       = $(this).attr("data-value");
             var winner_id   = $(this).attr("data-winner_id");
             var lelaid      = $(this).attr("data-lelaid");
                         

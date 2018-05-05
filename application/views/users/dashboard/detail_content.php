@@ -148,26 +148,7 @@
         });
     });
     </script>
-    <script type="text/javascript">  
-            	//insert book 
-            // $("#bookmark").click(function(){
-                
-            //         var content_id = $("#content_id").val();
-            //         var user_id = $("#user_id").val();
-            //         // var txtpassword = $("#txtpassword").val();
-                
-            //         $.ajax({
-            //             url: "<?php echo base_url(); ?>" + "c_dashboard/m_bookmarked/",
-            //             type: 'post',
-            //             data: { "content_id": content_id, "user_id": user_id},
-            //             success: function(response) 
-            //             { 
-            //                 console.log("Bookmark");
-            //             }
-                
-            //         });
-            // });
-    </script>
+    
     <script type="text/javascript">
     $(document).ready(function(){
         $('.comment').keypress(function(e) {
@@ -192,7 +173,8 @@
                         "desc":desc
                     },
                     success:function(html){
-                        $('#desc').val('');
+                        // $(desc).val('');
+                        document.getElementById('txtcomment').value = "";
                         m_load_comments();
                     }
                 });

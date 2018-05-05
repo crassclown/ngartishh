@@ -257,8 +257,8 @@ class C_dashboard extends CI_Controller {
         $config['upload_path']   = './assets/images/content/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']      = 20000;
-        $config['max_width']     = 2000;
-        $config['max_height']    = 2000;
+        $config['max_width']     = 20000;
+        $config['max_height']    = 20000;
 
         $this->load->library('upload', $config);
 
@@ -267,7 +267,7 @@ class C_dashboard extends CI_Controller {
             // echo json_encode(array('status' => false));
             // redirect(base_url("c_dashboard/"));
             echo "<script>window.history.go(-1);</script>";
-            $this->session->set_flashdata('bigger_file','Your image is so large, maximum is just 2 MB');
+            $this->session->set_flashdata('bigger_file','Your file image is empty');
         } else {
             if($this->input->post('txttitle') == NULL || $this->input->post('txttitle') == ''){
                 redirect(base_url("c_dashboard/"));

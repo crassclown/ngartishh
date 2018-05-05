@@ -160,7 +160,7 @@
                 })
                 }else{
                     //reset error messsage
-                    // $('.error').html('');
+                    $('.error').html('');
                     $.ajax({
                         url: $(this).attr("action"),
                         type: 'POST',
