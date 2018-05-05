@@ -128,4 +128,19 @@ class C_lelang extends CI_Controller {
 			}
 		}
 	}
+
+	public function m_harga_normal(){
+		$kode=$this->input->post('lelang_id');
+		$data = $this->m_dashboard->m_lelang_harga($kode);
+		if(is_array($data) || is_object($data)){
+			foreach($data as $tambahhargalelang){
+				// $hargaawal 		= $tambahhargalelang->starting_price;
+				// $finalharga 	= ($hargaawal * 1) / 100;
+				$hargasekarang	= $tambahhargalelang->winner_price;
+				// $totalharga 	= $finalharga + $hargasekarang;
+					// echo number_format($totalharga,2,",",".");
+				echo $hargasekarang;
+			}
+		}
+	}
 }

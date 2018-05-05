@@ -58,7 +58,7 @@
                                                         $tambahanharga      = $vau->starting_price;
                                                         $hargafinal         = ($tambahanharga * 1) / 100;        
                                                     ?>
-                                                    <input id="tambahanharga" class="tambahanharga form-control" readonly type="text" name="tambahanharga" value="<?php echo $hargafinal;?>" style="width:50%;"/>
+                                                    <input id="tambahanharga" class="tambahanharga form-control" readonly type="text" name="tambahanharga" value="<?php echo $hargafinal;?>" style="width:50%;" onkeyup="sum();" />
                                                 </div>
                                             </div>
                                             <div class="row wrap-input-lelang">
@@ -66,7 +66,12 @@
                                                 <p>Anda berapa kali lipat dari harga sekarang?</p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    <input id="kaliharga" class="kaliharga form-control" type="text" min="0" max="10" maxlength="2" name="kaliharga" style="width:50%;" placeholder="max 10x" />
+                                                    <input id="kaliharga" class="kaliharga form-control" type="text" min="0" max="10" maxlength="2" name="kaliharga" style="width:50%;" placeholder="max 10x" onkeyup="sum();" />
+                                                </div>
+                                            </div>
+                                            <div class="row wrap-input-lelang">
+                                                <div class="col-md-7">
+                                                    <input id="harganormal" class="harganormal form-control" onload="m_harga_normal()" autocomplete="off" type="hidden" name="harganormal" readonly onkeyup="sum();" />
                                                 </div>
                                             </div>
                                             <div class="row wrap-input-lelang">
@@ -121,10 +126,11 @@
                         "lela_id":lelaid
                     },
                     success:function(html){
-                        // $('#input-lelang').val('');
+                        $('#kaliharga').val('');
                         m_load_lelang();
                         m_harga_lelang();
                         m_hargatambah_lelang();
+                        m_harga_normal();
                     }
                 });
             }else{
@@ -185,12 +191,59 @@
         });
         return false;
     }
+    m_harga_normal();
+    function m_harga_normal(){
+        var lela_id = $('#lelang_id').val();
+        $.ajax({
+            type:"POST",
+            url :"<?php echo base_url(); ?>" + "c_lelang/m_harga_normal",
+            data:{
+                "lelang_id":lela_id
+            },
+            success:function(html){
+                $('#harganormal').val(html);
+            }
+        });
+        return false;
+    }
+    function sum(event) {
+        var txtFirstNumberValue = document.getElementById('tambahanharga').value;
+        var txtSecondNumberValue = document.getElementById('kaliharga').value;
+        var txtThirdNumberValue = document.getElementById('harganormal').value;
+        var result = (parseInt(txtFirstNumberValue) * parseInt(txtSecondNumberValue)) + parseInt(txtThirdNumberValue);
+        if(txtSecondNumberValue <= 10 || txtSecondNumberValue == ''){
+            if (!isNaN(result)) {
+                document.getElementById('totalhargapasang').value = result;
+            }
+        }else{
+            swal({
+                title: 'Oops, tidak lebih dari 10',
+                animation: false,
+                customClass: 'animated tada'
+            });
+        }
+    }
 </script>
 <script>
     $(document).ready(function(){
-        $('#kaliharga').on('keypress', function(key) {
-            if(key.charCode < 48 || key.charCode > 57) return false;
+        var $kaliharga = $('#kaliharga');
+        $kaliharga.on('keydown', function(key) {
+            if(key.which != 8 && key.which != 0 && (key.which < 48 || key.which > 57)){
+                key.stopImmediatePropagation();
+                return validateQty(key);
+            }
         });
     });
-</script>
 
+    function validateQty(event) {
+    var key = window.event ? event.keyCode : event.which;
+if (event.keyCode == 8 || event.keyCode == 46
+ || event.keyCode == 37 || event.keyCode == 39) {
+    return true;
+}
+else if ( key < 48 || key > 57 ) {
+    return false;
+}
+else return true;
+};
+</script>
