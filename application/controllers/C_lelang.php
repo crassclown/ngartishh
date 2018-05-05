@@ -8,7 +8,6 @@ class C_lelang extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
 		$this->load->model('m_users');
-   
 		$this->load->model('m_dashboard');
 		if($this->session->userdata('status') != "login"){
 			redirect(base_url("c_loginusers/"));
@@ -59,13 +58,31 @@ class C_lelang extends CI_Controller {
 		$winner_id 		= $this->input->post('winner_id');
 		$Idlela			= $this->input->post('lela_id');	 
 
-		// $varVerPrice = $this->m_dashboard->m_lelang_harga($Idlela);
+		$varVerPrice = $this->m_dashboard->m_lelang_harga($Idlela);
+		foreach($varVerPrice as $daftarharga){
+			$hargadb 	= $daftarharga->winner_price;
+			if($winner_price > $hargadb){
+				$this->m_dashboard->m_added_lelang($winner_price,$winner_id,$Idlela);
+			}
+		}
 		// if($winner_price > $varVerPrice){
-			$this->m_dashboard->m_added_lelang($winner_price,$winner_id,$Idlela);
+			// $this->m_dashboard->m_added_lelang($winner_price,$winner_id,$Idlela);
 		// }else{
 		// 	return FALSE;
 		// }
 	}
+
+	// public function m_added_btn_lelang(){
+	// 	$kelipatan 		= $this->input->post('kelipatan');
+	// 	$winner_id 		= $this->input->post('winner_id');
+	// 	$Idlela			= $this->input->post('lela_id');	 
+	// 	echo json_encode($kelipatan);
+	// 	// $hargaskg		= $this->m_dashboard->m_lelang_harga($Idlela);
+		
+	// 	// $hargafinal		= $kelipatan * $hargaskg;
+		
+	// 	// $this->m_dashboard->m_added_lelang($hargafinal,$winner_id,$Idlela);
+	// }
 
 	// Memanggil comment berdasarkan content_id
     public function m_load_lelang(){
@@ -98,7 +115,13 @@ class C_lelang extends CI_Controller {
 		$data = $this->m_dashboard->m_lelang_harga($kode);
 		if(is_array($data) || is_object($data)){
 			foreach($data as $datahargalelang){
-				echo 'Rp.'.number_format($datahargalelang->winner_price,2,",",".");
+				$hargasekarang	=	$datahargalelang->winner_price;
+				if($hargasekarang == NULL){
+					echo 'Rp.'.number_format($datahargalelang->starting_price,2,",",".");
+				}else{
+					echo 'Rp.'.number_format($datahargalelang->winner_price,2,",",".");
+				}
+				
 			}
 		}
 	}

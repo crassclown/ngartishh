@@ -38,30 +38,10 @@
                 <div class="wrap-detail-content-lelang-input-harga text-center">
                     <div class="padding-form-harga-lelang">
                         <h4> Masukkan harga untuk melelang</h4>
-                        <div class="padding-form-lelang">
-                        Kelipatan harga berdasarkan harga saat ini 
-                            <div class="row wrap-input-lelang">
-                                <div class="col-md-3">
-                                    <button id="btn-kelipatan" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>" data-value="2">2x</button>
-                                </div>
-                                <div class="col-md-3">
-                                    <button id="btn-kelipatan" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>" data-value="3">3x</button>
-                                </div>
-                                <div class="col-md-3">
-                                    <button id="btn-kelipatan" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>" data-value="7">7x</button>
-                                </div>
-                                <div class="col-md-3">
-                                    <button id="btn-kelipatan" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>" data-value="10">10x</button>
-                                </div>
-                            </div>
-                        </div>
-
+                        
                         <div class="padding-form-lelang or">
-                            <h4> Atau </h4>
                                 <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
-                                    Masukkan Kelipatan yang anda inginkan
                                     <div class="row wrap-input-lelang">
-                                        <p>Masukkan Kelipatan:</p>
                                     <?php 
                                         if($vau->durasi < 0){
                                     ?>      
@@ -73,9 +53,21 @@
                                         }else{
                                     ?>
                                         <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
+                                            <?php
+                                                $hargaawal      = $vau->starting_price;
+                                                $lipatharga     = ($hargaawal * 1) / 100;
+                                            ?>
                                             <div class="row wrap-input-lelang">
                                                 <div class="col-md-5">
-                                                <p>Masukkan Harga:</p>
+                                                    <p>Harga tambahan yang telah Kami sediakan</p>
+                                                </div>
+                                                <div class="col-md-7">
+                                                    <input id="input-lelang" class="hargakelipatan form-control" autocomplete="off" type="text" name="hargakelipatan" value="<?=$lipatharga;?>" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="row wrap-input-lelang">
+                                                <div class="col-md-5">
+                                                    <p>Masukkan Harga:</p>
                                                 </div>
                                                 <div class="col-md-7">
                                                     <input id="input-lelang" class="comment form-control" autocomplete="off" type="number" name="txtharga" placeholder="Harga">
@@ -111,74 +103,6 @@
         });
         $("#comments").click(function(){
             var psharga     = $('#input-lelang').val();
-            var winner_id   = $(this).attr("data-winner_id");
-            var lelaid      = $(this).attr("data-lelaid");
-                        
-            if(psharga != ''){
-
-                $.ajax({
-                    type:"POST",
-                    url :"<?php echo base_url(); ?>" + "c_lelang/m_added_lelang",
-                    data:{
-                        "winner_price":psharga,
-                        "winner_id":winner_id,
-                        "lela_id":lelaid
-                    },
-                    success:function(html){
-                        $('#input-lelang').val('');
-                        m_load_lelang();
-                        m_harga_lelang();
-                    }
-                });
-            }else{
-                $('#comments').bind('keypress', function(e)
-                {
-                    if(e.keyCode == 13)
-                    {
-                        return false;
-                    }
-                });
-            }
-        });
-    });
-    m_load_lelang();
-    function m_load_lelang(){
-        var lela_id = $('#lela_id').val();
-        $.ajax({
-            type:"POST",
-            url :"<?php echo base_url(); ?>" + "c_lelang/m_load_lelang",
-            data:{
-                "lela_id":lela_id
-            },
-            success:function(html){
-                $('#list_status').html(html);
-            }
-        });
-        return false;
-    }
-
-    m_harga_lelang();
-    function m_harga_lelang(){
-        var lela_id = $('#lelang_id').val();
-        $.ajax({
-            type:"POST",
-            url :"<?php echo base_url(); ?>" + "c_lelang/m_harga_lelang",
-            data:{
-                "lelang_id":lela_id
-            },
-            success:function(html){
-                $('#loadprice').html(html);
-            }
-        });
-        return false;
-    }
-</script>
-
-<script type="text/javascript">
-    // Untuk button comment harga
-    $(document).ready(function(){
-        $("#btn-kelipatan").click(function(){
-            var value       = $(this).attr("data-value");
             var winner_id   = $(this).attr("data-winner_id");
             var lelaid      = $(this).attr("data-lelaid");
                         
