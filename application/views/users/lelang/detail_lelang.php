@@ -29,16 +29,12 @@
                         <div class="harga-lelang-awal text-center" id="loadprice">
                             <!-- Di dalam sini isi harga sekarang -->
                         </div>
-                        <!-- <div class="harga-lelang-awal text-center">
-                            Rp.<?=number_format($vau->winner_price);?>
-                        </div> -->
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="wrap-detail-content-lelang-input-harga text-center">
                     <div class="padding-form-harga-lelang">
                         <h4> Masukkan harga untuk melelang</h4>
-                        
                         <div class="padding-form-lelang or">
                                 <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
                                     <div class="row wrap-input-lelang">
@@ -53,24 +49,24 @@
                                         }else{
                                     ?>
                                         <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
-                                            <?php
-                                                $hargaawal      = $vau->starting_price;
-                                                $lipatharga     = ($hargaawal * 1) / 100;
-                                            ?>
                                             <div class="row wrap-input-lelang">
                                                 <div class="col-md-5">
-                                                    <p>Harga tambahan yang telah Kami sediakan</p>
+                                                <p>Tambahan harga yang telah disediakan</p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    <input id="input-lelang" class="hargakelipatan form-control" autocomplete="off" type="text" name="hargakelipatan" value="<?=$lipatharga;?>" readonly>
+                                                    <?php
+                                                        $tambahanharga      = $vau->starting_price;
+                                                        $hargafinal         = ($tambahanharga * 1) / 100;        
+                                                    ?>
+                                                    <input id="tambahanharga" class="tambahanharga form-control" readonly type="text" name="tambahanharga" value="<?php echo $hargafinal;?>">
                                                 </div>
                                             </div>
                                             <div class="row wrap-input-lelang">
                                                 <div class="col-md-5">
-                                                    <p>Masukkan Harga:</p>
+                                                <p>Harga yang telah disediakan</p>
                                                 </div>
                                                 <div class="col-md-7">
-                                                    <input id="input-lelang" class="comment form-control" autocomplete="off" type="number" name="txtharga" placeholder="Harga">
+                                                    <input id="totalhargapasang" class="comment totalhargapasang form-control" onload="m_hargatambah_lelang()" autocomplete="off" type="number" name="txtharga">
                                                 </div>
                                             </div>
                                         <button id="comments" type="button" data-toggle="tooltip" title="Comments" class="btn btn-default submit-edit-profil" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">Masukkan harga</button>
@@ -102,7 +98,7 @@
             }
         });
         $("#comments").click(function(){
-            var psharga     = $('#input-lelang').val();
+            var psharga     = $('#totalhargapasang').val();
             var winner_id   = $(this).attr("data-winner_id");
             var lelaid      = $(this).attr("data-lelaid");
                         
@@ -117,9 +113,10 @@
                         "lela_id":lelaid
                     },
                     success:function(html){
-                        $('#input-lelang').val('');
+                        // $('#input-lelang').val('');
                         m_load_lelang();
                         m_harga_lelang();
+                        m_hargatambah_lelang();
                     }
                 });
             }else{
@@ -164,4 +161,21 @@
         });
         return false;
     }
+
+    m_hargatambah_lelang();
+    function m_hargatambah_lelang(){
+        var lela_id = $('#lelang_id').val();
+        $.ajax({
+            type:"POST",
+            url :"<?php echo base_url(); ?>" + "c_lelang/m_harga_tambah",
+            data:{
+                "lelang_id":lela_id
+            },
+            success:function(html){
+                $('#totalhargapasang').val(html);
+            }
+        });
+        return false;
+    }
 </script>
+

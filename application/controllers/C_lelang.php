@@ -72,18 +72,6 @@ class C_lelang extends CI_Controller {
 		// }
 	}
 
-	// public function m_added_btn_lelang(){
-	// 	$kelipatan 		= $this->input->post('kelipatan');
-	// 	$winner_id 		= $this->input->post('winner_id');
-	// 	$Idlela			= $this->input->post('lela_id');	 
-	// 	echo json_encode($kelipatan);
-	// 	// $hargaskg		= $this->m_dashboard->m_lelang_harga($Idlela);
-		
-	// 	// $hargafinal		= $kelipatan * $hargaskg;
-		
-	// 	// $this->m_dashboard->m_added_lelang($hargafinal,$winner_id,$Idlela);
-	// }
-
 	// Memanggil comment berdasarkan content_id
     public function m_load_lelang(){
         $kode=$this->input->post('lela_id');
@@ -122,6 +110,21 @@ class C_lelang extends CI_Controller {
 					echo 'Rp.'.number_format($datahargalelang->winner_price,2,",",".");
 				}
 				
+			}
+		}
+	}
+
+	public function m_harga_tambah(){
+		$kode=$this->input->post('lelang_id');
+		$data = $this->m_dashboard->m_lelang_harga($kode);
+		if(is_array($data) || is_object($data)){
+			foreach($data as $tambahhargalelang){
+				$hargaawal 		= $tambahhargalelang->starting_price;
+				$finalharga 	= ($hargaawal * 1) / 100;
+				$hargasekarang	= $tambahhargalelang->winner_price;
+				$totalharga 	= $finalharga + $hargasekarang;
+					// echo number_format($totalharga,2,",",".");
+				echo $totalharga;
 			}
 		}
 	}
