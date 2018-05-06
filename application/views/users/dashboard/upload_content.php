@@ -124,7 +124,7 @@
     <script>
 		$(document).ready(function(){
 
-			$('#btnpost').on('click',function() {
+			$('#btnpost').on('submit',function() {
 				var formData = new FormData($(this)[0]);
                 var varTitle    = $('#txttitle').val();
                 var varDesc     = $('#txtdesc').val();
