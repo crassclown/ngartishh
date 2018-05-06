@@ -231,7 +231,7 @@
 <script>
     /* Initiate Magnify Function
     with the id of the image, and the strength of the magnifier glass:*/
-    magnify("perbesar", 5);
+    // magnify("perbesar", 5);
 </script>
 <script>
     jQuery(document).ready(function() {

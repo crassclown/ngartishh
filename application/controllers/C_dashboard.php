@@ -267,7 +267,7 @@ class C_dashboard extends CI_Controller {
             // echo json_encode(array('status' => false));
             // redirect(base_url("c_dashboard/"));
             echo "<script>window.history.go(-1);</script>";
-            $this->session->set_flashdata('bigger_file','Your file image is empty');
+            $this->session->set_flashdata('bigger_file','Your file image is empty or size your image is so big');
         } else {
             if($this->input->post('txttitle') == NULL || $this->input->post('txttitle') == ''){
                 redirect(base_url("c_dashboard/"));

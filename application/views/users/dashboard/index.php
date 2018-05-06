@@ -18,8 +18,8 @@
         </a>
         <!-- Button Scroll Up -->
  
-        <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard " data-backdrop="static" data-keyboard="false" data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons " style="font-size:40px;">file_upload</i></button>
- 
+        <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard" data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons" style="font-size:40px;">file_upload</i></button>
+        <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
         <?php $this->load->view('users/dashboard/upload_content'); ?>
         <script type="text/javascript">
         $(document).ready(function(){
