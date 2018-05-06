@@ -18,9 +18,9 @@
     new WOW().init();
   </script>
   <script>
-  $(document).ready(function(){
-      $('[data-toggle="tooltip"]').tooltip();   
-  });
+//   $(document).ready(function(){
+//       $('[data-toggle="tooltip"]').tooltip();   
+//   });
   </script>
   
   <!-- put image after selected in edit -->
@@ -36,20 +36,15 @@
               };
 
               reader.readAsDataURL(input.files[0]);
-
           }
       }
   </script>
   <script>
-
     function liveSearch() {
-
         var input_data = $('#search_data').val();
         if (input_data.length === 0) {
             $('#suggestions').hide();
         } else {
-
-
             $.ajax({
                 type: "POST",
                 url: "<?php echo base_url(); ?>c_dashboard/m_searchbox",
@@ -65,7 +60,6 @@
             });
         }
     }
-
 </script>
 
 </html>

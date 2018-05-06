@@ -20,106 +20,104 @@
  
         <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard " data-backdrop="static" data-keyboard="false" data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons " style="font-size:40px;">file_upload</i></button>
  
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        tampil_data_barang();   //pemanggilan fungsi tampil gambar.
-        
-        function tampil_data_barang(){
-            $.ajax({
-                type  : 'ajax',
-                url   : '<?php echo base_url()?>c_dashboard/m_getContents',
-                async : false,
-                dataType : 'json',
-                success : function(data){
-                    var html = '';
-                    var i;
-                    for(i=0; i<data.length; i++){
-                        html +=                         
-                        '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
-                            '<div class="space">'+
-                                '<div class="gantungan">'+
-                                    '<div class="pin text-center">'+
-                                    '<b>'+data[i].namalengkap.trim().substr(0,1).toUpperCase()+'</b>'+
-                                    '</div>'+
-                                '</div> '+
-                                '<div class="portfolio-item">'+
-                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
-                                    '<img class="img-content img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
-                                    '</a>'+
-                                    '<div class="portfolio-desc align-center">'+
-                                        '<div class="folio-info">'+
-                                            '<div class="row image-icons">'+
-                                                '<div class="col-md-4 col-lg-4">'+
-                                                    '<ol class="grid">'+
-                                                        '<li class="grid__item">'+
-                                                            '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
-                                                        '</li>'+
-                                                    '</ol>'+
-                                                '</div>'+
-                                                '<div class="col-md-4 col-lg-4">'+
-                                                    '<a style="cursor: pointer;"><i class="fa fa-comment"></i><sup class="badge">'+data[i].total_comment+'</sup></a>'+
-                                                '</div>'+
-                                                '<div class="col-md-4 col-lg-4">'+
-                                                    '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
+        <?php $this->load->view('users/dashboard/upload_content'); ?>
+        <script type="text/javascript">
+        $(document).ready(function(){
+            tampil_data_barang();   //pemanggilan fungsi tampil gambar.
+            
+            function tampil_data_barang(){
+                $.ajax({
+                    type  : 'ajax',
+                    url   : '<?php echo base_url()?>c_dashboard/m_getContents',
+                    async : false,
+                    dataType : 'json',
+                    success : function(data){
+                        var html = '';
+                        var i;
+                        for(i=0; i<data.length; i++){
+                            html +=                         
+                            '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
+                                '<div class="space">'+
+                                    '<div class="gantungan">'+
+                                        '<div class="pin text-center">'+
+                                        '<b>'+data[i].namalengkap.trim().substr(0,1).toUpperCase()+'</b>'+
+                                        '</div>'+
+                                    '</div> '+
+                                    '<div class="portfolio-item">'+
+                                    '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
+                                        '<img class="img-content img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
+                                        '</a>'+
+                                        '<div class="portfolio-desc align-center">'+
+                                            '<div class="folio-info">'+
+                                                '<div class="row image-icons">'+
+                                                    '<div class="col-md-4 col-lg-4">'+
+                                                        '<ol class="grid">'+
+                                                            '<li class="grid__item">'+
+                                                                '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
+                                                            '</li>'+
+                                                        '</ol>'+
+                                                    '</div>'+
+                                                    '<div class="col-md-4 col-lg-4">'+
+                                                        '<a style="cursor: pointer;"><i class="fa fa-comment"></i><sup class="badge">'+data[i].total_comment+'</sup></a>'+
+                                                    '</div>'+
+                                                    '<div class="col-md-4 col-lg-4">'+
+                                                        '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
+                                                    '</div>'+
                                                 '</div>'+
                                             '</div>'+
-                                        '</div>'+
-                                    '</div>'+  
+                                        '</div>'+  
+                                    '</div>'+
+                                    
                                 '</div>'+
-                                
-                            '</div>'+
-                        '</article>';
+                            '</article>';
+                        }
+                        $('#show_data').html(html);
                     }
-                    $('#show_data').html(html);
-                }
-                
-                
-            });
-        }
-        $(document).on("click",".like",function() {
-            var content_id = $(this).attr("data-contentid");
-            var user_id = $(this).attr("data-sessionuserid");
-            $.ajax({
-                url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
-                type: 'post',
-                data: { "content_id": content_id, "user_id": user_id},
-                success: function(response) 
-                { 
-                    tampil_data_barang();
-                }
+                    
+                    
+                });
+            }
+            $(document).on("click",".like",function() {
+                var content_id = $(this).attr("data-contentid");
+                var user_id = $(this).attr("data-sessionuserid");
+                $.ajax({
+                    url: "<?php echo base_url(); ?>" + "c_dashboard/m_like/",
+                    type: 'post',
+                    data: { "content_id": content_id, "user_id": user_id},
+                    success: function(response) 
+                    { 
+                        tampil_data_barang();
+                    }
+                });
             });
         });
-    });
-  </script>
-  <?php $this->load->view('users/dashboard/upload_content'); ?>
+        </script>
 
+        <!-- AddToAny BEGIN -->
+        <script>
+            var a2a_config = a2a_config || {};
+            a2a_config.linkurl = "<?=base_url('c_dashboard/');?>";
+            a2a_config.onclick = 1;
+        </script>
+        <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <!-- AddToAny END -->
 
-  <!-- AddToAny BEGIN -->
-  <script>
-    var a2a_config = a2a_config || {};
-    a2a_config.linkurl = "<?=base_url('c_dashboard/');?>";
-    a2a_config.onclick = 1;
-  </script>
-  <script async src="https://static.addtoany.com/menu/page.js"></script>
-  <!-- AddToAny END -->
+        <script>
+            $(document).ready(function () {
+                $("#txtcategories").select2({
+                    placeholder: "Please select the category"
+                });
+            });
+        </script>
+        <script>
+            $('#txttitle').keyup(function() {
+                $(this).val($(this).val().substr(0, 1).toUpperCase() + $(this).val().substr(1).toLowerCase());
+            });
 
-<script>
-    $(document).ready(function () {
-        $("#txtcategories").select2({
-            placeholder: "Please select the category"
-        });
-    });
-</script>
-<script>
-    $('#txttitle').keyup(function() {
-        $(this).val($(this).val().substr(0, 1).toUpperCase() + $(this).val().substr(1).toLowerCase());
-    });
-
-    $('#txtdesc').keyup(function() {
-        $(this).val($(this).val().substr(0, 1).toUpperCase() + $(this).val().substr(1).toLowerCase());
-    });
-</script>
-<noscript>
-Sorry...JavaScript is needed to go ahead.
-</noscript>
+            $('#txtdesc').keyup(function() {
+                $(this).val($(this).val().substr(0, 1).toUpperCase() + $(this).val().substr(1).toLowerCase());
+            });
+        </script>
+        <noscript>
+        Sorry...JavaScript is needed to go ahead.
+        </noscript>
