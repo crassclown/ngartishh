@@ -17,7 +17,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
 
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/default.css')?>"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/js/fancybox/jquery.fancybox.css')?>" type="text/css" media="screen" />
@@ -146,12 +145,12 @@
                 </div> -->
                 <div class="col-md-3 col-xs-3">
                   <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" style="cursor: pointer;">
                       <div class="nav-label">
 											<?php foreach($foto as $f){ ?>
 												<?php if(isset($f->fotoprofil)&&$f->fotoprofil!=''){ ?>
 												<div class="nav-icon-profile">
-													<img class="img-responsive img-border-radius-profil" src="<?php echo base_url('assets/images/profilepicture/'.$f->fotoprofil.'')?>"/></img>
+													<img class="img-responsive img-border-radius-profil" src="<?php echo base_url('assets/images/profilepicture/'.$f->fotoprofil.'')?>" />
 												</div>
 												<?php }else{ ?>
                         <div class="nav-icon-profile">
@@ -176,7 +175,7 @@
                         </script>
                       </li>
                       <a class="text-center" href="<?php echo base_url('c_profile/m_users/'.$this->session->userdata('Id').'') ?>"><li class="option">Pengaturan Akun</li></a>
-                      <a class="text-center" href="#"><li class="option">Feedback</li></a>
+                      <!-- <a class="text-center" href="#"><li class="option">Feedback</li></a> -->
                       <a class="text-center" href="<?php echo base_url('c_loginusers/m_logout'); ?>"><li class="option">Log Out</li></a>
                     </ul>
                   </li>
