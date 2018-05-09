@@ -34,8 +34,10 @@ class C_lelang extends CI_Controller {
 
 		if(is_array($datas) || is_object($datas)){
 			foreach($datas as $sendEmail){
-				$email = $sendEmail->email;
-				if($sendEmail->durasi == 0){
+				$email 			= $sendEmail->email;
+				$email_status 	= $sendEmail->email_status;
+				$pemilikid		= $sendEmail->pemilikkaryaid;
+				if($sendEmail->durasi == 0 && $email_status == '0'){
 					$config = array();
 					$config['charset'] = 'utf-8';
 					$config['useragent'] = 'Codeigniter';
@@ -58,15 +60,16 @@ class C_lelang extends CI_Controller {
 					$this->email->subject("Pengumuman waktu berakhirnya Lelang yang telah selesai Anda adakan");
 
 					$this->email->message(
-						"<h3>Selamat waktu Lelang Anda sudah berakhir, ayo silahkan check disini untuk melihat karya Anda siapa yang miliki</h3>"
+						"<h3>Selamat waktu Lelang Anda sudah berakhir, lengkapi dokumen di bawah ini untuk melengkapi bukti proses karya Anda.</h3><br />
+						<span>Berikan ini kepada pemenang</span>
+						<br />
+						<br />
+							<a href='https://drive.google.com/file/d/1kACMDcWm9SfavdfsaEPvt_7s0gm4YIG9/view?usp=sharing'>Klik Tautan ini untuk memenuhi syarat terakhir</a>
+						"
 					);
-					// force_download('assets/images/iconpng/edit.png');
-					// $path=$_SERVER["DOCUMENT_ROOT"];
-					// $file=$path."/assets/images/iconpng/edit.png";
 
-					// $this->email->attach($file);
-
-					$this->email->send();
+						$this->m_users->sendemailstatus($pemilikid);
+						$this->email->send();
 				}
 			}
 		}

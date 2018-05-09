@@ -386,7 +386,7 @@ class M_users extends CI_Model
 
 	public function m_send_email(){
 		//Select content records
-		$q = $this->db->query("SELECT email, fullname, users.Id as iduser, lelang.owner_id, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id");
+		$q = $this->db->query("SELECT email_status, email, fullname, users.Id as iduser, lelang.owner_id as pemilikkaryaid, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id AND (end_date - date(now())) = 0 AND email_status = '0'");
        
         if($q->num_rows() > 0)
         {
@@ -397,5 +397,9 @@ class M_users extends CI_Model
 			
             return $data;
         }
+	}
+
+	function sendemailstatus($pemilikid){
+		$this->db->query("UPDATE lelang SET email_status = '1' WHERE owner_id = '$pemilikid'");
 	}
 }
