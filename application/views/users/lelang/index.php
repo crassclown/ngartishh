@@ -43,7 +43,7 @@
                                         '</div>'+
                                     '</div>'+
                                 '<div class="portfolio-item">'+
-                                '<a data-toggle="tooltip" title="Oops, The content cannot clicked" href="javascript: void(0)">'+
+                                '<a data-toggle="tooltip" title="Oops, The content cannot be clicked" href="javascript: void(0)">'+
                                         '<img class="img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" alt="gambar" />'+                              
                                         '</a>'+
                                         '<div class="portfolio-desc align-center">'+

@@ -217,7 +217,7 @@
             }
         }else{
             swal({
-                title: 'Oops, tidak lebih dari 10',
+                title: 'Oops, tidak lebih dari 10 kelipatannya',
                 animation: false,
                 customClass: 'animated tada'
             });

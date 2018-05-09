@@ -130,6 +130,7 @@ class M_dashboard extends CI_Model
 		$result = $this->db->from('lelang');
         $result = $this->db->join('content', 'content.Id = lelang.content_id');
         $result = $this->db->join('users', 'users.Id = lelang.owner_id');
+        $result = $this->db->order_by('lelang.Id','desc');
 		$result = $this->db->get();
 		
 		if($result->num_rows() > 0)

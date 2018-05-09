@@ -163,12 +163,17 @@ class C_lelang extends CI_Controller {
 		$data = $this->m_dashboard->m_lelang_harga($kode);
 		if(is_array($data) || is_object($data)){
 			foreach($data as $tambahhargalelang){
-				$hargaawal 		= $tambahhargalelang->starting_price;
-				$finalharga 	= ($hargaawal * 1) / 100;
-				$hargasekarang	= $tambahhargalelang->winner_price;
-				$totalharga 	= $finalharga + $hargasekarang;
+				$hargaawal 			= $tambahhargalelang->starting_price;
+				$finalharga 		= ($hargaawal * 1) / 100;
+				$hargasekarang		= $tambahhargalelang->winner_price;
+				$totalharga 		= $finalharga + $hargaawal;
+				$totalhargasekarang	= $hargasekarang + $finalharga;
 					// echo number_format($totalharga,2,",",".");
-				echo $totalharga;
+					if($hargasekarang == 0 || $hargasekarang == ''){
+						echo $totalharga;
+					}else{
+						echo $totalhargasekarang;
+					}
 			}
 		}
 	}
