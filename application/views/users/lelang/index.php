@@ -33,7 +33,7 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-                        if(data[i].durasi < 0){
+                        if(data[i].durasi < 1){
                             html +=
                             '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                                 '<div class="space">'+

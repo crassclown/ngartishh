@@ -9,6 +9,7 @@ class C_lelang extends CI_Controller {
         $this->load->helper('url');
 		$this->load->model('m_users');
 		$this->load->model('m_dashboard');
+		$this->load->helper('download');
 		if($this->session->userdata('status') != "login"){
 			redirect(base_url("c_loginusers/"));
 		}
@@ -28,7 +29,47 @@ class C_lelang extends CI_Controller {
 	// Memanggil semua content yang ada di table lelang
 	public function m_getlelang(){
 		// get data
-        $data = $this->m_dashboard->m_getlelang();
+		$data = $this->m_dashboard->m_getlelang();
+		$datas = $this->m_users->m_send_email();
+
+		if(is_array($datas) || is_object($datas)){
+			foreach($datas as $sendEmail){
+				$email = $sendEmail->email;
+				if($sendEmail->durasi == 0){
+					$config = array();
+					$config['charset'] = 'utf-8';
+					$config['useragent'] = 'Codeigniter';
+					$config['protocol']= "smtp";
+					$config['mailtype']= "html";
+					$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+					$config['smtp_port']= "465";
+					$config['smtp_timeout']= "400";
+					$config['smtp_user']= "adm.ngartish@gmail.com"; // isi dengan email kamu
+					$config['smtp_pass']= "ngartish3220"; // isi dengan password kamu
+					$config['crlf']="\r\n"; 
+					$config['newline']="\r\n"; 
+					$config['wordwrap'] = TRUE;
+					//memanggil library email dan set konfigurasi untuk pengiriman email
+
+					$this->email->initialize($config);
+					//konfigurasi pengiriman
+					$this->email->from($config['smtp_user']);
+					$this->email->to($email);
+					$this->email->subject("Pengumuman waktu berakhirnya Lelang yang telah selesai Anda adakan");
+
+					$this->email->message(
+						"<h3>Selamat waktu Lelang Anda sudah berakhir, ayo silahkan check disini untuk melihat karya Anda siapa yang miliki</h3>"
+					);
+					// force_download('assets/images/iconpng/edit.png');
+					// $path=$_SERVER["DOCUMENT_ROOT"];
+					// $file=$path."/assets/images/iconpng/edit.png";
+
+					// $this->email->attach($file);
+
+					$this->email->send();
+				}
+			}
+		}
 
         echo json_encode($data);
     }

@@ -10,7 +10,7 @@ class C_dashboard extends CI_Controller {
         $this->load->model('m_users');
         if($this->session->userdata('status') != "login"){
 			redirect(base_url("c_loginusers/"));
-		}
+        }
 	}
     
     // Memanggil halaman index

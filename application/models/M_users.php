@@ -383,4 +383,19 @@ class M_users extends CI_Model
 
     	return $this->db->insert_id();
 	}
+
+	public function m_send_email(){
+		//Select content records
+		$q = $this->db->query("SELECT email, fullname, users.Id as iduser, lelang.owner_id, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id");
+       
+        if($q->num_rows() > 0)
+        {
+            foreach ($q->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
 }

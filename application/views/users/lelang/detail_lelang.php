@@ -39,7 +39,7 @@
                                 <form action="#" method="POST" data-lelaid="<?=$vau->lelaid;?>" data-winner_id="<?php echo $this->session->userdata("Id");?>">
                                     <div class="row wrap-input-lelang">
                                     <?php 
-                                        if($vau->durasi < 0){
+                                        if($vau->durasi < 1){
                                     ?>      
                                         <div class="alert alert-danger">
                                             <strong>Oops!</strong> The Auction has been finished
