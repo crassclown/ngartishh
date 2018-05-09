@@ -105,7 +105,7 @@ class C_loginusers extends CI_Controller {
 			$this->email->from($config['smtp_user']);
 			$this->email->to($varEmail);
 			$this->email->subject("Reset Password");
-			$this->email->set_header('Reset Password', ''.$encrypted_email.'');
+			$this->email->set_header('Reset Password', '$encrypted_email');
 
 			$this->email->message(
 					"untuk mengganti password anda, silahkan klik tautan dibawah ini<br><br>".
