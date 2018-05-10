@@ -55,7 +55,7 @@
                                             <tr>                                      
                                                 <div class="wrap-input100">
                                                     <div class="input-group stylish-input-group">
-                                                        <input class="input100 form-control" type="hidden" name="txtsession" id="txtsession" value="<?=$this->session->userdata('Id');?>" style="width:30em;" readOnly />
+                                                        <input class="input100 mouse_click form-control" type="hidden" name="txtsession" id="txtsession" value="<?=$this->session->userdata('Id');?>" style="width:30em;" readOnly />
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </div>
@@ -120,6 +120,10 @@
                 
             </div>
         </div>
+<<<<<<< HEAD
+=======
+    </section>
+>>>>>>> eede16c1d14fca7d6191bb2056db36d2c42160c5
     <script>
 		$(document).ready(function(){
 
@@ -179,4 +183,4 @@
                 }
 			});
 		});
-	</script>
+    </script>

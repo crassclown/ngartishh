@@ -71,9 +71,7 @@
                            '</article>';
                         }
                         $('#show_data').html(html);
-                    }
-                    
-                    
+                    }  
                 });
             }
             $(document).on("click",".like",function() {
