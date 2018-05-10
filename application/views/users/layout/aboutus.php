@@ -60,9 +60,9 @@
 				<div class="follow_us_contents">
 					<h1>Follow Us</h1>
 					<div class="social">
-					<a href="https://facebook.com/ondrej.p.barta" class="link facebook" target="_parent"><span><i class="fa fa-facebook"></i></span></a>
-					<a href="https://twitter.com/PageOnlineXS" class="link twitter" target="_parent"><span><i class="fa fa-twitter"></i></span></a>
-					<a href="https://plus.google.com/+OndřejBárta-Otaku" class="link google-plus" target="_parent"><span><i class="fa fa-google-plus-square"></i></span></a>
+					<a href="https://facebook.com/ondrej.p.barta" class="link facebook" target="_parent"><span><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
+					<a href="https://twitter.com/PageOnlineXS" class="link twitter" target="_parent"><span><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
+					<a href="https://plus.google.com/+OndřejBárta-Otaku" class="link google-plus" target="_parent"><span><i class="fa fa-google-plus-square" aria-hidden="true"></i></span></a>
 					</div>
 				</div>
 			</div>
