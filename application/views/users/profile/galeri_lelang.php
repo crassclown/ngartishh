@@ -179,47 +179,15 @@
                                             '<div class="folio-info">'+
                                                 '<div class="row info-sisa-hari-lelang">'+
                                                     '<span>'+
-                                                        '<div class="label label-danger">The Auction has been finished</div>'+                                        
+                                                        data[i].durasi+' day left'+                                       
                                                     '</span>'+
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+  
                                     '</div>'+
                                 '</div>'+
-                            '</article>';
-                        }else{
-                            html +=
-                            '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
-                                '<div class="space">'+
-                                    '<div class="gantungan">'+
-                                        '<div class="pin text-center">'+
-                                        '<b>'+data[i].fullname.trim().substr(0,1).toUpperCase()+'</b>'+
-                                        '</div>'+
-                                    '</div>'+
-                                '<div class="portfolio-item">'+
-                                '<a href=<?=base_url('c_lelang/m_detail_lelang/');?>'+data[i].idcontent+'/'+data[i].ownerid+'/'+data[i].idlela+'>'+
-                                        '<img class="img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" alt="gambar" />'+                              
-                                        '</a>'+
-                                        '<div class="portfolio-desc align-center">'+
-                                            '<div class="folio-info">'+
-                                                '<div class="row info-sisa-hari-lelang">'+
-                                                    '<span>'+
-                                                        data[i].durasi+' day left'+                                              
-                                                    '</span>'+
-                                                '</div>'+
-                                            '</div>'+
-                                        '</div>'+  
-                                    '</div>'+
-                                '</div>'+
-<<<<<<< HEAD
                             '</article>';
                         }
-=======
-                                
-                            '</div>'+
-                        '</article>';
-						}
->>>>>>> hendry
                     }
                     $('#show_datalelang').html(html);
                 }
