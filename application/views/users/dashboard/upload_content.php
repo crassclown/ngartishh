@@ -120,10 +120,7 @@
                 
             </div>
         </div>
-<<<<<<< HEAD
-=======
     </section>
->>>>>>> eede16c1d14fca7d6191bb2056db36d2c42160c5
     <script>
 		$(document).ready(function(){
 
