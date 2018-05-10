@@ -2,58 +2,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118768464-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-118768464-1');
+    </script>
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+    
   	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css" />
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>">
-    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"  type='text/css'>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/baguetteBox.min.css')?>" />
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>"/>
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="<?php echo base_url('assets/js/bootstrap.min.js')?>"></script>
 
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css')?>"  />
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/default.css')?>"  />
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/default.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/animate.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/js/fancybox/jquery.fancybox.css')?>" type="text/css" media="screen" />
     <link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/demo.css')?>" type="text/css"  />
 		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/icons.css')?>" type="text/css"  />
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>"/>
 
     <!--===================================== Back end Pandhu ===================================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css">
-    <!-- <link rel="stylesheet" href="<?=base_url('assets/css/checkbox-style.css');?>"> -->
-
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/select2.min.css')?>"/>
+ 
     <!--===============================================================================================-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/sweetalert.min.css')?>"/>
     <!--===============================================================================================-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.min.js"></script>
+    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
       <!--==================================== End Back end pandhu ===========================================-->
 
-<script>
+<!-- <script>
   document.onreadystatechange = function () {
       if (document.readyState === "complete") {
           console.log(document.readyState);
           document.getElementById("PreLoaderBar").style.display = "none";
       }
   }
-</script>
+</script> -->
     <title>Home</title>
   </head>
 <body>
 <!-- <script type="text/javascript"> var SPklikkanan = 'TILANG';</script> <script type="text/javascript" src="<?php echo base_url('assets/js/sp-tilang.js');?>"> </script> -->
 
-<div class="progress" id="PreLoaderBar">
+<!-- <div class="progress" id="PreLoaderBar">
         <div class="indeterminate"></div>
-    </div>
+    </div> -->
   <header>
     <nav class="navbar ">
       <div class="main-menu ">
@@ -146,12 +151,12 @@
                 </div> -->
                 <div class="col-md-3 col-xs-3">
                   <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" href="#">
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" style="cursor: pointer;">
                       <div class="nav-label">
 											<?php foreach($foto as $f){ ?>
 												<?php if(isset($f->fotoprofil)&&$f->fotoprofil!=''){ ?>
 												<div class="nav-icon-profile">
-													<img class="img-responsive img-border-radius-profil" src="<?php echo base_url('assets/images/profilepicture/'.$f->fotoprofil.'')?>"/></img>
+													<img class="img-responsive img-border-radius-profil" src="<?php echo base_url('assets/images/profilepicture/'.$f->fotoprofil.'')?>" />
 												</div>
 												<?php }else{ ?>
                         <div class="nav-icon-profile">
@@ -176,7 +181,7 @@
                         </script>
                       </li>
                       <a class="text-center" href="<?php echo base_url('c_profile/m_users/'.$this->session->userdata('Id').'') ?>"><li class="option">Pengaturan Akun</li></a>
-                      <a class="text-center" href="#"><li class="option">Feedback</li></a>
+                      <!-- <a class="text-center" href="#"><li class="option">Feedback</li></a> -->
                       <a class="text-center" href="<?php echo base_url('c_loginusers/m_logout'); ?>"><li class="option">Log Out</li></a>
                     </ul>
                   </li>

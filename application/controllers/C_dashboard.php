@@ -10,7 +10,7 @@ class C_dashboard extends CI_Controller {
         $this->load->model('m_users');
         if($this->session->userdata('status') != "login"){
 			redirect(base_url("c_loginusers/"));
-		}
+        }
 	}
     
     // Memanggil halaman index
@@ -257,8 +257,8 @@ class C_dashboard extends CI_Controller {
         $config['upload_path']   = './assets/images/content/';
         $config['allowed_types'] = 'gif|jpg|png';
         $config['max_size']      = 20000;
-        $config['max_width']     = 2000;
-        $config['max_height']    = 2000;
+        $config['max_width']     = 20000;
+        $config['max_height']    = 20000;
 
         $this->load->library('upload', $config);
 
@@ -267,7 +267,7 @@ class C_dashboard extends CI_Controller {
             // echo json_encode(array('status' => false));
             // redirect(base_url("c_dashboard/"));
             echo "<script>window.history.go(-1);</script>";
-            $this->session->set_flashdata('bigger_file','Your image is so large, maximum is just 2 MB');
+            $this->session->set_flashdata('bigger_file','Your file image is empty or size your image is so big');
         } else {
             if($this->input->post('txttitle') == NULL || $this->input->post('txttitle') == ''){
                 redirect(base_url("c_dashboard/"));
@@ -331,6 +331,16 @@ class C_dashboard extends CI_Controller {
         $data['categories'] = $this->m_users->m_categories();
         $this->load->view('users/layout/header', $data);
 		$this->load->view('users/category/all_category', $data);
+		$this->load->view('users/layout/footer');
+    }
+
+    public function aboutus(){
+        $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
+		$data['categories'] = $this->m_users->m_categories();
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
+        $this->load->view('users/layout/header', $data);
+		$this->load->view('users/layout/aboutus');
 		$this->load->view('users/layout/footer');
     }
 }

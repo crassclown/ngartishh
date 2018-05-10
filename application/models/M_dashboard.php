@@ -130,6 +130,7 @@ class M_dashboard extends CI_Model
 		$result = $this->db->from('lelang');
         $result = $this->db->join('content', 'content.Id = lelang.content_id');
         $result = $this->db->join('users', 'users.Id = lelang.owner_id');
+        $result = $this->db->order_by('lelang.Id','desc');
 		$result = $this->db->get();
 		
 		if($result->num_rows() > 0)
@@ -169,10 +170,6 @@ class M_dashboard extends CI_Model
 		$q = $this->db->query("UPDATE lelang SET winner_id = '$winner_id', winner_price='$winner_price' WHERE Id='$Idlela'");
     }
 
-    // function update_data($where,$data,$table){
-	// 	$this->db->where($where);
-	// 	$this->db->update($table,$data);
-	// }
     function m_load_lelang($kode){
         //Select content records
 		$q = $this->db->query("SELECT DISTINCT users.fullname as namaygcomment, winner_lelang.winner_price as hargatawar, users.Id as userid FROM lelang, winner_lelang, users WHERE lelang.Id = winner_lelang.lelang_id AND users.Id = winner_lelang.winner_id AND lelang.Id='$kode' ORDER BY winner_lelang.winner_price DESC ");
@@ -190,7 +187,7 @@ class M_dashboard extends CI_Model
     
     function m_lelang_harga($kode){
         //Select content records
-		$q = $this->db->query("SELECT DISTINCT winner_price FROM lelang WHERE lelang.Id='$kode'");
+		$q = $this->db->query("SELECT DISTINCT winner_price, starting_price FROM lelang WHERE lelang.Id='$kode'");
        
         if($q->num_rows() > 0)
         {

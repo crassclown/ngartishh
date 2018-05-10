@@ -33,7 +33,7 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-                        if(data[i].durasi < 0){
+                        if(data[i].durasi < 1){
                             html +=
                             '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                                 '<div class="space">'+
@@ -43,7 +43,7 @@
                                         '</div>'+
                                     '</div>'+
                                 '<div class="portfolio-item">'+
-                                '<a data-toggle="tooltip" title="Oops, The content cannot clicked" href="javascript: void(0)">'+
+                                '<a data-toggle="tooltip" title="Oops, The content cannot be clicked" href="javascript: void(0)">'+
                                         '<img class="img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" alt="gambar" />'+                              
                                         '</a>'+
                                         '<div class="portfolio-desc align-center">'+

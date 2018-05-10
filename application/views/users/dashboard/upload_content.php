@@ -55,7 +55,7 @@
                                             <tr>                                      
                                                 <div class="wrap-input100">
                                                     <div class="input-group stylish-input-group">
-                                                        <input class="input100 form-control" type="hidden" name="txtsession" id="txtsession" value="<?=$this->session->userdata('Id');?>" style="width:30em;" readOnly />
+                                                        <input class="input100 mouse_click form-control" type="hidden" name="txtsession" id="txtsession" value="<?=$this->session->userdata('Id');?>" style="width:30em;" readOnly />
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </div>
@@ -121,7 +121,7 @@
             </div>
         </div>
     </section>
-<script>
+    <script>
 		$(document).ready(function(){
 
 			$('#btnpost').on('submit',function() {
@@ -160,7 +160,7 @@
                 })
                 }else{
                     //reset error messsage
-                    // $('.error').html('');
+                    $('.error').html('');
                     $.ajax({
                         url: $(this).attr("action"),
                         type: 'POST',
@@ -180,4 +180,4 @@
                 }
 			});
 		});
-	</script>
+    </script>
