@@ -55,7 +55,7 @@
 	<div class="container container-profil">
 
 		<a href="<?=base_url('c_profile/m_users/'.$this->uri->segment(3));?>" class="button-tab">Galeri Saya</a>
-		<a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Upvote</a>
+		<a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Liked</a>
 		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
@@ -64,16 +64,24 @@
 					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
 						<div class="space">
 							<div class="portfolio-item">
+								<?php if($onlelang==0){ ?>
+								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
+								title="New Post" data-target="#modal-restrict-lelang">
+									<i class="material-icons " style="font-size:40px;">file_upload</i>
+								</button>
+								<?php }else{ ?>
 								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
 								title="New Post" data-target="#modal-upload-content-lelang">
 									<i class="material-icons " style="font-size:40px;">file_upload</i>
 								</button>
+								<?php } ?>
 							</div>
 						</div>
 					</article>
 					<?php } ?>
-					<div id="show_datalelang"></div>
-
+					<div id="show_datalelang">
+					
+					</div>
 				</div>
 			</div>
 		</div>
@@ -139,6 +147,27 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
+						if(data[i].durasi < 1){
+                        html +=     
+						'<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
+                            '<div class="space">'+
+                                '<div class="portfolio-item">'+
+                                    '<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
+                                    '</a>'+
+                                    '<div class="portfolio-desc align-center">'+
+                                        '<div class="folio-info">'+
+                                            '<div class="row">'+
+												'<span>'+
+												'<div class="label label-danger">The Auction has been finished</div>'+
+												'</span>'+          
+		                                    '</div>'+
+                                        '</div>'+
+                                    '</div>'+  
+                                '</div>'+
+                                
+                            '</div>'+
+                        '</article>';
+						}else{
                         html +=                         
                         '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                             '<div class="space">'+
@@ -159,6 +188,7 @@
                                 
                             '</div>'+
                         '</article>';
+						}
                     }
                     $('#show_datalelang').html(html);
                 }

@@ -36,6 +36,17 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	//Get flag lelang
+	public function get_onlelang($id)
+	{
+		$now = date('Y-m-d');
+		$result = $this->db->where('owner_id', $id);
+		$result = $this->db->where('end_date <', $now);
+		$result = $this->db->get('lelang')->result();
+
+		return $result;
+	}
+
 	//User Content on Profile Page
 	public function get_usercontent($id)
 	{
