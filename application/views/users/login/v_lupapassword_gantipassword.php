@@ -34,7 +34,7 @@
 			<div class="wrap-login100 wow fadeIn delay-1s">
         <div class="row"> 
           <div class="login100-pic js-tilt col-lg-6 wow fadeIn delay-1s" data-tilt>
-            <img src="<?php echo base_url('assets/images/velizar-ivanov-502066-unsplash.jpg')?>" alt="IMG">
+            <img src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" alt="IMG">
           </div>
 
           <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s">

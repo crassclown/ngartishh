@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 border-content">
-                    <div class="portfolio-items isotopeWrapper clearfix ">
+                    <div class="portfolio-items isotopeWrapper clearfix">
                         <div class="row">
                             <div id="show_data"></div>
                         </div>
@@ -21,6 +21,7 @@
         <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard" data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons" style="font-size:40px;">file_upload</i></button>
         <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
         <?php $this->load->view('users/dashboard/upload_content'); ?>
+
         <script type="text/javascript">
         $(document).ready(function(){
             tampil_data_barang();   //pemanggilan fungsi tampil gambar.
@@ -45,31 +46,29 @@
                                     '</div> '+
                                     '<div class="portfolio-item">'+
                                     '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].iduser+'>'+
-                                        '<img class="img-content img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
-                                        '</a>'+
-                                        '<div class="portfolio-desc align-center">'+
-                                            '<div class="folio-info">'+
-                                                '<div class="row image-icons">'+
-                                                    '<div class="col-md-4 col-lg-4">'+
-                                                        '<ol class="grid">'+
-                                                            '<li class="grid__item">'+
-                                                                '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
-                                                            '</li>'+
-                                                        '</ol>'+
-                                                    '</div>'+
-                                                    '<div class="col-md-4 col-lg-4">'+
-                                                        '<a style="cursor: pointer;"><i class="fa fa-comment"></i><sup class="badge">'+data[i].total_comment+'</sup></a>'+
-                                                    '</div>'+
-                                                    '<div class="col-md-4 col-lg-4">'+
-                                                        '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
-                                                    '</div>'+
+                                        '<img class="img-content img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'">'+'</img>'+                              
+                                    '</a>'+
+                                    '<div class="portfolio-desc align-center">'+
+                                        '<div class="folio-info">'+
+                                            '<div class="row image-icons">'+
+                                                '<div class="col-md-4 col-lg-4">'+
+                                                    '<ol class="grid">'+
+                                                        '<li class="grid__item">'+
+                                                            '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
+                                                        '</li>'+
+                                                    '</ol>'+
+                                                '</div>'+
+                                                '<div class="col-md-4 col-lg-4">'+
+                                                    '<a style="cursor: pointer;"><i class="fa fa-comment"></i><sup class="badge">'+data[i].total_comment+'</sup></a>'+
+                                                '</div>'+
+                                                '<div class="col-md-4 col-lg-4">'+
+                                                    '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
                                                 '</div>'+
                                             '</div>'+
-                                        '</div>'+  
-                                    '</div>'+
-                                    
-                                '</div>'+
-                            '</article>';
+                                        '</div>'+
+                                    '</div>'+  
+                                '</div>'+                                
+                           '</article>';
                         }
                         $('#show_data').html(html);
                     }
@@ -121,3 +120,4 @@
         <noscript>
         Sorry...JavaScript is needed to go ahead.
         </noscript>
+</section>
