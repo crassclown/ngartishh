@@ -32,7 +32,9 @@ class C_profile extends CI_Controller {
 		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
 		$data['categories'] = $this->m_users->m_categories();
 
+
 		$ids = $this->session->userdata('Id');
+		$data['onlelang'] = count($this->m_users->get_onlelang($ids));
 		$data['foto'] = $this->m_users->get_users($ids);
 		
 		$this->load->view('users/layout/header', $data);
