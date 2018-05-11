@@ -121,6 +121,49 @@
                 animation: true,
                 customClass: 'animated tada'
               })
+            }else if(txtpassword.length < 8){
+              swal({
+                type: 'error',
+                title: 'Too Short : min. 8 character',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("too_short");
+            }
+            else if(txtpassword.length > 20){
+              swal({
+                type: 'error',
+                title: 'Too Long',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("too_long");
+            }else if(txtpassword.search(/\d/) == -1){
+              swal({
+                type: 'error',
+                title: 'No Num',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("no_num");
+            }
+            else if(txtpassword.search(/[a-zA-Z]/) == -1){
+              swal({
+                type: 'error',
+                title: 'No Letter',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("no_letter");
+            }
+            else if(txtpassword.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:]/) != -1){
+              swal({
+                type: 'error',
+                title: 'Bad Char',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("bad_char");
             }else{
 							$.ajax({
 								type: "POST",
@@ -137,8 +180,8 @@
 										timer: 3000,
 										showConfirmButton: false
 									},function() {
-											window.location = "<?=base_url('C_loginusers/index')?>";
-									})
+											window.location = "<?=base_url('C_loginusers/m_lupapassword')?>";
+								})
 								}
 							});
 						}
