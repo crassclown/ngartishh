@@ -180,8 +180,8 @@
 										timer: 3000,
 										showConfirmButton: false
 									},function() {
-											window.location = "<?=base_url('C_loginusers/m_lupapassword')?>";
-								})
+											window.location = "<?=base_url('C_loginusers/index')?>";
+									})
 								}
 							});
 						}
