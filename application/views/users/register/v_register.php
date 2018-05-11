@@ -236,7 +236,7 @@
 										type: 'success',
 										title: 'Berhasil',
 										text: 'Silahkan periksa email anda untuk konfirmasi!',
-										timer: 3000,
+										timer: 5000,
 										showConfirmButton: false
 									},function() {
 											window.location = "<?=base_url('C_loginusers/index')?>";
