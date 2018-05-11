@@ -235,7 +235,6 @@
 									swal({
 										type: 'success',
 										title: 'Berhasil',
-										text: 'Silahkan periksa email anda untuk konfirmasi!',
 										timer: 5000,
 										showConfirmButton: false
 									},function() {
