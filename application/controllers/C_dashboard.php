@@ -23,7 +23,7 @@ class C_dashboard extends CI_Controller {
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/index', $data);
 		$this->load->view('users/layout/footer');
-    }
+	}
     
     //Search Box by User and Content
     public function m_searchbox() {
@@ -296,8 +296,8 @@ class C_dashboard extends CI_Controller {
                     'created_at'    => date("Y-m-d H:i:s"),
                     'category_id'   => $this->input->post('txtcategories'),
                 );
-
-                $id = $this->m_users->insert($data);
+				
+				$id = $this->m_users->insert($data);
                 // $datacategory = $this->m_users->insert($datas);
                 redirect(base_url("c_dashboard/"));
             }
