@@ -117,7 +117,7 @@
                     </ul>
                   </li>
                 </div>
-                <!-- <div class="col-md-2 col-xs-2">
+                <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i><div class="count text-center">4</div></a>
                     <ul class="dropdown-menu notifikasi">
@@ -153,7 +153,7 @@
                       </a>
                     </ul>
                   </li>
-                </div> -->
+                </div>
                 <div class="col-md-3 col-xs-3">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" style="cursor: pointer;">
