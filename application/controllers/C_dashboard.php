@@ -343,4 +343,14 @@ class C_dashboard extends CI_Controller {
 		$this->load->view('users/layout/aboutus');
 		$this->load->view('users/layout/footer');
     }
+
+    public function postcontent(){
+        $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
+		$data['categories'] = $this->m_users->m_categories();
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
+        $this->load->view('users/layout/header', $data);
+		$this->load->view('users/dashboard/post-content');
+		$this->load->view('users/layout/footer');
+    }
 }
