@@ -397,7 +397,7 @@ class M_users extends CI_Model
 
 	public function m_send_email(){
 		//Select content records
-		$q = $this->db->query("SELECT email_status, email, fullname, users.Id as iduser, lelang.owner_id as pemilikkaryaid, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id AND (end_date - date(now())) = 0 AND email_status = '0'");
+		$q = $this->db->query("SELECT winner_id, lelang.Id as idlelang, winner_price, email_status, email, fullname, users.Id as iduser, lelang.owner_id as pemilikkaryaid, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id AND (end_date - date(now())) = 0 AND email_status = '0'");
        
         if($q->num_rows() > 0)
         {
@@ -410,7 +410,22 @@ class M_users extends CI_Model
         }
 	}
 
-	function sendemailstatus($pemilikid){
-		$this->db->query("UPDATE lelang SET email_status = '1' WHERE owner_id = '$pemilikid'");
+	function sendemailstatus($pemilikid,$idlelang){
+		$this->db->query("UPDATE lelang SET email_status = '1' WHERE owner_id = '$pemilikid' AND Id = '$idlelang'");
+	}
+
+	public function m_email_pemenang($idlelang,$winner_id){
+		//Select content records
+		$q = $this->db->query("SELECT fullname as namapemenang, users.Id as useridpemenang, email as emailpemenang, phone as notlppemenang FROM users, lelang WHERE users.Id = lelang.winner_id AND lelang.Id = '$idlelang' AND winner_id = '$winner_id'");
+       
+        if($q->num_rows() > 0)
+        {
+            foreach ($q->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
 	}
 }

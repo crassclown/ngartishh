@@ -31,12 +31,22 @@ class C_lelang extends CI_Controller {
 		// get data
 		$data = $this->m_dashboard->m_getlelang();
 		$datas = $this->m_users->m_send_email();
-
+		
 		if(is_array($datas) || is_object($datas)){
 			foreach($datas as $sendEmail){
 				$email 			= $sendEmail->email;
 				$email_status 	= $sendEmail->email_status;
 				$pemilikid		= $sendEmail->pemilikkaryaid;
+				$idlelang		= $sendEmail->idlelang;
+				$fullname		= $sendEmail->fullname;
+				$winner_price	= $sendEmail->winner_price;
+				$winner_id		= $sendEmail->winner_id;
+				$data_pemenang	= $this->m_users->m_email_pemenang($idlelang,$winner_id);
+				if(is_array($data_pemenang) || is_object($data_pemenang)){
+					foreach($data_pemenang as $dp){
+						$email_pemenang	= $dp->emailpemenang;
+					}
+				}
 				if($sendEmail->durasi == 0 && $email_status == '0'){
 					$config = array();
 					$config['charset'] = 'utf-8';
@@ -60,15 +70,19 @@ class C_lelang extends CI_Controller {
 					$this->email->subject("Pengumuman waktu berakhirnya Lelang yang telah selesai Anda adakan");
 
 					$this->email->message(
-						"<h3>Selamat waktu Lelang Anda sudah berakhir, lengkapi dokumen di bawah ini untuk melengkapi bukti proses karya Anda.</h3><br />
-						<span>Berikan ini kepada pemenang</span>
+						"<h2>Hai, ".$fullname."</h2>
+						<p>Selamat, karya Anda berhasil terjual sebesar : Rp.".number_format($winner_price,2,",",".")."</p>
+						<span>Ayo selesaikan segera persyaratan proses pengiriman Anda kepada Pemenang. Alternatif Anda untuk bisa menghubungi pemenang Lelang Anda bisa dengan menghubungi melalui email sebagai berikut : ".$email_pemenang."</span>
 						<br />
 						<br />
 							<a href='https://drive.google.com/file/d/1kACMDcWm9SfavdfsaEPvt_7s0gm4YIG9/view?usp=sharing'>Klik Tautan ini untuk memenuhi syarat terakhir</a>
+						<br /><br /><br />
+						<label>Regards,</label><br />
+						<label>Ngartish</label>
 						"
 					);
 
-						$this->m_users->sendemailstatus($pemilikid);
+						$this->m_users->sendemailstatus($pemilikid,$idlelang);
 						$this->email->send();
 				}
 			}
