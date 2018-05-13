@@ -124,30 +124,49 @@
                       <div class="border-45">
                       </div>
                       <li class="option"><div class="text-center">Notifikasi</div></li>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
+                      <?php
+                        
+                            
+
+                        if(is_array($notifikasilikes) || is_object($notifikasilikes)){
+                          foreach($notifikasilikes as $notiflikes){
+                            if(is_array($notifikasifollower) || is_object($notifikasifollower)){
+                              foreach($notifikasifollower as $notiffollower){
+                                if(substr($notiflikes->likeId, 0, 1) == 'L'){
+                                  ?>
+                                    <a class="" href="#">
+                                      <li class="option">
+                                          <span><b><?=$notiflikes->fullname;?></b></span></br>
+                                          <div><?=$notiflikes->title;?></div>
+                                          <small>Menyukai karya Anda</small>
+                                      </li>
+                                    </a>
+                                  <?php
+                                }
+                                if(substr($notiffollower->followId, 0, 1) == 'F'){
+                                  ?>
+                                    <a class="" href="#">
+                                      <li class="option">
+                                          <span><b><?=$notiffollower->fullname;?></b></span></br>
+                                          <!-- <div><?=$notiffollower->title;?></div> -->
+                                          <small>Telah mengikuti Anda</small>
+                                      </li>
+                                    </a>
+                                  <?php
+                                }else{
+                                  ?>
+                                    <a class="" href="#">
+                                      <li class="option">
+                                          <small>Tidak ada notifikasi baru untuk Anda</small>
+                                      </li>
+                                    </a>
+                                  <?php
+                                }
+                              }  
+                            }
+                          }  
+                        }
+                      ?>                      
                       <a class="" href="#">
                         <li class="text-center"> Read More</li>
                       </a>
