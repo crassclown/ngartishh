@@ -41,6 +41,7 @@ class C_lelang extends CI_Controller {
 				$pemilikid		= $sendEmail->pemilikkaryaid;
 				$idlelang		= $sendEmail->idlelang;
 				$fullname		= $sendEmail->fullname;
+				$phone			= $sendEmail->phone;
 				$winner_price	= $sendEmail->winner_price;
 				$winner_id		= $sendEmail->winner_id;
 				$data_pemenang	= $this->m_users->m_email_pemenang($idlelang,$winner_id);
@@ -85,6 +86,49 @@ class C_lelang extends CI_Controller {
 					);
 
 						$this->m_users->sendemailstatus($pemilikid,$idlelang);
+						$this->email->send();
+				}
+				if($sendEmail->durasi == 0 && $email_status == '0'){
+					$config = array();
+					$config['charset'] = 'utf-8';
+					$config['useragent'] = 'Codeigniter';
+					$config['protocol']= "smtp";
+					$config['mailtype']= "html";
+					$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+					$config['smtp_port']= "465";
+					$config['smtp_timeout']= "400";
+					$config['smtp_user']= "adm.ngartish@gmail.com"; // isi dengan email kamu
+					$config['smtp_pass']= "ngartish3220"; // isi dengan password kamu
+					$config['crlf']="\r\n"; 
+					$config['newline']="\r\n"; 
+					$config['wordwrap'] = TRUE;
+					//memanggil library email dan set konfigurasi untuk pengiriman email
+
+					$this->email->initialize($config);
+					//konfigurasi pengiriman
+					$this->email->from($config['smtp_user']);
+					$this->email->to($email_pemenang);
+					$this->email->subject("Pengumuman waktu berakhirnya Lelang yang telah selesai Anda adakan");
+
+					$this->email->message(
+						"<h2>Hai, ".$fullname."</h2>
+						<p>Selamat, Anda berhasil membeli hasil Lelang dengan harga sebesar : Rp.".number_format($winner_price,2,",",".")."</p>
+						<span>Ayo selesaikan segera persyaratan proses pengiriman Anda kepada Penjual. Alternatif Anda untuk bisa menghubungi penjual Lelang dengan menghubungi melalui email sebagai berikut : </span>
+						<div>
+							<small>".$email."</small><br />
+							<small>".$fullname."</small><br />
+							<small>".$phone."</small><br />
+						</div>
+						<br />
+						<br />
+							<a href='https://drive.google.com/file/d/1kACMDcWm9SfavdfsaEPvt_7s0gm4YIG9/view?usp=sharing'>Klik Tautan ini untuk memenuhi syarat terakhir</a>
+						<br /><br /><br />
+						<label>Regards,</label><br />
+						<label>Ngartish</label>
+						"
+					);
+
+						// $this->m_users->sendemailstatus($pemilikid,$idlelang);
 						$this->email->send();
 				}
 			}
