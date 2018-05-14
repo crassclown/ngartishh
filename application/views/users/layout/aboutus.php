@@ -42,10 +42,7 @@
 					<p>Ngartish - galeri online pertama</p>
 					<div>
 						<p>(+62) 8781924155 </p>
-						<p>admin_ngartish@gmail.com</p>
-					</div>
-					<div>
-						<p>hehe</p>
+						<p>adm.ngartish@gmail.com</p>
 					</div>
 					<div>
 						<p>Jam kerja : 08:00 s/d 21:00</p>
