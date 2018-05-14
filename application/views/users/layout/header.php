@@ -112,43 +112,62 @@
                     </ul>
                   </li>
                 </div>
-                <!-- <div class="col-md-2 col-xs-2">
+                <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i><div class="count text-center">4</div></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i></a>
                     <ul class="dropdown-menu notifikasi">
                       <div class="border-45">
                       </div>
                       <li class="option"><div class="text-center">Notifikasi</div></li>
                       <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
+                        <li class="text-center">Likes Content</li>
                       </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
+                      <hr />
+                      <?php
+                        if(is_array($notifikasilikes) || is_object($notifikasilikes)){
+                          foreach($notifikasilikes as $notiflikes){
+                            if(substr($notiflikes->likeId, 0, 1) == 'L'){
+                              ?>
+                                <a class="" href="<?=base_url('c_dashboard/m_detailContent/'.$notiflikes->contentId.'/'.$notiflikes->yglike);?>">
+                                  <li class="option">
+                                      <span><b><?=$notiflikes->fullname;?></b></span></br>
+                                      <div><?=$notiflikes->title;?></div>
+                                      <small>Menyukai karya Anda</small>
+                                  </li>
+                                </a>
+                              <?php
+                            }
+                          }  
+                        }
+                        ?>
+                        <a class="" href="#">
+                          <li class="text-center"> Follow User</li>
+                        </a>
+                        <hr />
+                        <?php
+                        if(is_array($notifikasifollower) || is_object($notifikasifollower)){
+                          foreach($notifikasifollower as $notiffollower){
+                            
+                            if(substr($notiffollower->followId, 0, 1) == 'F'){
+                              ?>
+                                <a class="" href="<?=base_url('c_profile/m_users/'.$notiffollower->ygfollow);?>">
+                                  <li class="option">
+                                      <span><b><?=$notiffollower->fullname;?></b></span></br>
+                                      <!-- <div><?=$notiffollower->title;?></div> -->
+                                      <small>Telah mengikuti Anda</small>
+                                  </li>
+                                </a>
+                              <?php
+                            }
+                          }  
+                        }
+                      ?>                      
                       <a class="" href="#">
                         <li class="text-center"> Read More</li>
                       </a>
                     </ul>
                   </li>
-                </div> -->
+                </div>
                 <div class="col-md-3 col-xs-3">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="right" title="Profil" style="cursor: pointer;">

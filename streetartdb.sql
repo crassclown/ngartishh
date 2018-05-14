@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 30, 2018 at 03:33 AM
+-- Generation Time: May 10, 2018 at 04:37 AM
 -- Server version: 10.1.26-MariaDB
 -- PHP Version: 7.1.9
 
@@ -164,7 +164,7 @@ CREATE TABLE `following` (
 --
 
 INSERT INTO `following` (`Id`, `user_id`, `followed_id`) VALUES
-(14, 35, 32);
+(15, 35, 32);
 
 -- --------------------------------------------------------
 
@@ -191,6 +191,7 @@ CREATE TABLE `lelang` (
   `starting_price` varchar(255) DEFAULT NULL,
   `winner_price` varchar(255) DEFAULT NULL,
   `winner_id` int(11) DEFAULT NULL,
+  `email_status` enum('0','1') DEFAULT NULL,
   `start_date` date DEFAULT NULL,
   `end_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
@@ -199,9 +200,8 @@ CREATE TABLE `lelang` (
 -- Dumping data for table `lelang`
 --
 
-INSERT INTO `lelang` (`Id`, `owner_id`, `content_id`, `starting_price`, `winner_price`, `winner_id`, `start_date`, `end_date`) VALUES
-(6, 35, 123177, '300000', '400000', 35, '2018-04-20', '2018-04-27'),
-(7, 32, 123178, '500000', '600000', 35, '2018-04-20', '2018-04-27');
+INSERT INTO `lelang` (`Id`, `owner_id`, `content_id`, `starting_price`, `winner_price`, `winner_id`, `email_status`, `start_date`, `end_date`) VALUES
+(2, 35, 123176, '400000', '500000', 32, NULL, '2018-05-10', '2018-05-17');
 
 --
 -- Triggers `lelang`
@@ -252,6 +252,19 @@ DELIMITER ;
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notifications`
+--
+
+CREATE TABLE `notifications` (
+  `Id` int(11) NOT NULL,
+  `notif_id` varchar(15) DEFAULT NULL,
+  `notified_id` int(11) DEFAULT NULL,
+  `notifier_id` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -274,27 +287,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`Id`, `email`, `fotoprofil`, `username`, `fullname`, `bio`, `phone`, `created_at`, `updated_at`, `password`, `status`) VALUES
-(32, 'pandhuw58@gmail.com', NULL, NULL, 'Pandhu Wibowo', NULL, '081296807905', NULL, NULL, 'fe0fe29a0d6c4327bbf5f0ab0db972bb', '0'),
+(32, 'pandhuw58@gmail.com', NULL, NULL, 'Pandhu Wibowo', NULL, '081296807905', NULL, NULL, 'fe0fe29a0d6c4327bbf5f0ab0db972bb', '1'),
 (34, 'pandhuw@gmail.com', NULL, NULL, 'Pandhu', NULL, '081296807905', '2018-04-13 22:11:05', NULL, 'fe0fe29a0d6c4327bbf5f0ab0db972bb', '1'),
-(35, 'hendryrpl@gmail.com', 'tc.jpg', 'hendryhnyss', 'Hendry Nugroho', 'asdasdasd', '089673751885', '2018-04-14 11:02:07', NULL, 'ae71018760a8730a6f652baa6a222a13', '1'),
+(35, 'hendryrpl@gmail.com', 'tc1.jpg', 'hendryhnyss', 'Hendry Nugroho', 'asdasdasd', '089673751885', '2018-04-14 11:02:07', NULL, 'ae71018760a8730a6f652baa6a222a13', '1'),
 (36, 'fakhri@gmail.com', NULL, NULL, 'Fakhry Ammarizky', NULL, '0812967584903', '2018-04-19 22:25:18', NULL, '00f5cd2d711b65895204a793e888b481', '0'),
-(38, 'madness.game322@gmail.com', NULL, NULL, 'Madness', NULL, '083284123', '2018-04-29 04:16:02', NULL, 'a954ca77f4ff62ce4033cf709793167c', '1');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_review`
---
-
-CREATE TABLE `user_review` (
-  `Id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `reviewed_by` int(11) DEFAULT NULL,
-  `desc` varchar(255) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+(38, 'madness.game322@gmail.com', NULL, NULL, 'Madness', NULL, '0823921314123', '2018-05-06 23:56:40', NULL, 'ae71018760a8730a6f652baa6a222a13', '1');
 
 -- --------------------------------------------------------
 
@@ -308,16 +305,6 @@ CREATE TABLE `winner_lelang` (
   `lelang_id` int(11) DEFAULT NULL,
   `winner_price` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `winner_lelang`
---
-
-INSERT INTO `winner_lelang` (`Id`, `winner_id`, `lelang_id`, `winner_price`) VALUES
-(1, 35, 7, 550000),
-(3, 35, 7, 550000),
-(4, 35, 6, 400000),
-(5, 35, 7, 600000);
 
 --
 -- Indexes for dumped tables
@@ -391,18 +378,18 @@ ALTER TABLE `likes`
   ADD KEY `content_id` (`content_id`);
 
 --
+-- Indexes for table `notifications`
+--
+ALTER TABLE `notifications`
+  ADD PRIMARY KEY (`Id`),
+  ADD KEY `notified_id` (`notified_id`),
+  ADD KEY `notifier_id` (`notifier_id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`Id`);
-
---
--- Indexes for table `user_review`
---
-ALTER TABLE `user_review`
-  ADD PRIMARY KEY (`Id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `reviewed_by` (`reviewed_by`);
 
 --
 -- Indexes for table `winner_lelang`
@@ -448,7 +435,7 @@ ALTER TABLE `featured`
 -- AUTO_INCREMENT for table `following`
 --
 ALTER TABLE `following`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `interest_detail`
@@ -460,7 +447,7 @@ ALTER TABLE `interest_detail`
 -- AUTO_INCREMENT for table `lelang`
 --
 ALTER TABLE `lelang`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `likes`
@@ -469,22 +456,22 @@ ALTER TABLE `likes`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
+-- AUTO_INCREMENT for table `notifications`
+--
+ALTER TABLE `notifications`
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
--- AUTO_INCREMENT for table `user_review`
---
-ALTER TABLE `user_review`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `winner_lelang`
 --
 ALTER TABLE `winner_lelang`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Constraints for dumped tables
@@ -539,11 +526,11 @@ ALTER TABLE `likes`
   ADD CONSTRAINT `likes_ibfk_2` FOREIGN KEY (`content_id`) REFERENCES `content` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `user_review`
+-- Constraints for table `notifications`
 --
-ALTER TABLE `user_review`
-  ADD CONSTRAINT `user_review_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `user_review_ibfk_2` FOREIGN KEY (`reviewed_by`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `notifications`
+  ADD CONSTRAINT `notifications_ibfk_1` FOREIGN KEY (`notified_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `notifications_ibfk_2` FOREIGN KEY (`notifier_id`) REFERENCES `users` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

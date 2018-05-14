@@ -65,10 +65,10 @@
                                                     '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
                                                 '</div>'+
                                             '</div>'+
-                                        '</div>'+
-                                    '</div>'+  
-                                '</div>'+                                
-                           '</article>';
+                                        '</div>'+  
+                                    '</div>'+
+                                '</div>'+
+                            '</article>';
                         }
                         $('#show_data').html(html);
                     }  
