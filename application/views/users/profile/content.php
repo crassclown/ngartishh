@@ -64,10 +64,10 @@
 					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
 						<div class="space">
 							<div class="portfolio-item">
-								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
-								title="New Post" data-target="#myModal">
+								<a href="<?=base_url('C_dashboard/postcontent')?>" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false"
+								title="New Post">
 									<i class="material-icons " style="font-size:40px;">file_upload</i>
-								</button>
+								</a>
 							</div>
 						</div>
 					</article>

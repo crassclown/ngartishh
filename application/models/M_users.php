@@ -56,6 +56,11 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	// public function notifFollow($data)
+	// {
+	// 	$this->db->insert('notifications', $data);
+	// }
+
 	//check registered email
 	public function m_getregistered($varEmail)
 	{

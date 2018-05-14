@@ -1,5 +1,5 @@
 <?php $this->session->userdata("Id"); ?>
-    <section  class="section appear clearfix" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>');min-height:600PX;">
+    <section  class="section appear clearfix" onmousedown="return false" oncontexmenu="return false"  style="background:url('<?php echo base_url('assets/images/bright_squares.png')?>');min-height:600PX;">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 border-content">
@@ -18,7 +18,7 @@
         </a>
         <!-- Button Scroll Up -->
  
-        <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard" data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons" style="font-size:40px;">file_upload</i></button>
+        <a href="<?=base_url('C_dashboard/postcontent')?>" class="btn btn-info btn-lg modal-new-post-dashboard" title="New Post"><i class="material-icons" style="font-size:40px;">file_upload</i></a>
         <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
         <?php $this->load->view('users/dashboard/upload_content'); ?>
 
