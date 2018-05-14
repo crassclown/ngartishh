@@ -20,6 +20,8 @@ class C_lelang extends CI_Controller {
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
 		$data['categories'] = $this->m_users->m_categories();
 		$ids = $this->session->userdata('Id');
+		$data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$data['foto'] = $this->m_users->get_users($ids);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/lelang/index', $data);
@@ -104,6 +106,9 @@ class C_lelang extends CI_Controller {
 		$data['categories'] = $this->m_users->m_categories();
 		
 		$ids = $this->session->userdata('Id');
+
+		$data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$data['foto'] = $this->m_users->get_users($ids);
 
 		$this->load->view('users/layout/header', $data);
