@@ -37,7 +37,7 @@
 			<div class="wrap-login100 wow fadeIn delay-1s">
         <div class="row"> 
           <div class="login100-pic js-tilt col-lg-6 wow fadeIn delay-1s" data-tilt>
-            <img src="<?php echo base_url('assets/images/1.png')?>" alt="IMG">
+            <img src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" alt="IMG">
           </div>
 
           <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s" method="post" autocomplete="off">
@@ -99,7 +99,7 @@
               </div>
 
               <div class="wrap-input100 validate-input" data-validate = "Phone is requires">
-                <input class="input100" type="text" name="txtphone" maxlength="13" id="txtphone" placeholder="Phone Number">
+                <input class="input100" type="text" name="txtphone" maxlength="13" id="txtphone" placeholder="Phone Number" onkeypress='validate(event)'>
                 <span class="focus-input100"></span>
               </div>
 
@@ -235,8 +235,7 @@
 									swal({
 										type: 'success',
 										title: 'Berhasil',
-										text: 'Silahkan periksa email anda untuk konfirmasi!',
-										timer: 3000,
+										timer: 5000,
 										showConfirmButton: false
 									},function() {
 											window.location = "<?=base_url('C_loginusers/index')?>";
@@ -246,6 +245,19 @@
             }
         });
     });
+  </script>
+
+  <script>
+    function validate(evt) {
+      var theEvent = evt || window.event;
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode( key );
+      var regex = /[0-9]|\./;
+      if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+      }
+    }
   </script>
 </body>
 </html>

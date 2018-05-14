@@ -172,23 +172,22 @@
                         '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                             '<div class="space">'+
                                 '<div class="portfolio-item">'+
-                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].ownerid+'>'+
-                                    '<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
-                                    '</a>'+
-                                    '<div class="portfolio-desc align-center">'+
-                                        '<div class="folio-info">'+
-                                            '<div class="row">'+
-												'<span>'+
-												'sisa '+data[i].durasi+' hari '+
-												'</span>'+          
-		                                    '</div>'+
-                                        '</div>'+
-                                    '</div>'+  
+                                '<a data-toggle="tooltip" title="Oops, The content cannot clicked" href="javascript: void(0)">'+
+                                        '<img class="img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" alt="gambar" />'+                              
+                                        '</a>'+
+                                        '<div class="portfolio-desc align-center">'+
+                                            '<div class="folio-info">'+
+                                                '<div class="row info-sisa-hari-lelang">'+
+                                                    '<span>'+
+                                                        data[i].durasi+' day left'+                                       
+                                                    '</span>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+  
+                                    '</div>'+
                                 '</div>'+
-                                
-                            '</div>'+
-                        '</article>';
-						}
+                            '</article>';
+                        }
                     }
                     $('#show_datalelang').html(html);
                 }

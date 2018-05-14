@@ -50,7 +50,9 @@ class M_users extends CI_Model
 	//User Content on Profile Page
 	public function get_usercontent($id)
 	{
-		$result = $this->db->where('user_id', $id)->get('content')->result();
+		$result = $this->db->where('user_id', $id);
+		$result = $this->db->order_by('created_at', 'DESC');
+		$result = $this->db->get('content')->result();
 		return $result;
 	}
 
@@ -125,7 +127,7 @@ class M_users extends CI_Model
 
 	public function get_userlelang($id)
 	{
-		$result = $this->db->select('lelang.content_id as idcontent, lelang.owner_id as ownerid , content.photos as photos, (end_date - date(now())) as durasi');
+		$result = $this->db->select('lelang.Id as idlela, users.fullname as fullname, lelang.content_id as idcontent, lelang.owner_id as ownerid , content.photos as photos, (end_date - date(now())) as durasi');
 		$result = $this->db->from('lelang');
 		$result = $this->db->join('content', 'content.Id = lelang.content_id');
 		$result = $this->db->join('users', 'users.Id = lelang.owner_id');

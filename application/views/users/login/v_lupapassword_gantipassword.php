@@ -34,7 +34,7 @@
 			<div class="wrap-login100 wow fadeIn delay-1s">
         <div class="row"> 
           <div class="login100-pic js-tilt col-lg-6 wow fadeIn delay-1s" data-tilt>
-            <img src="<?php echo base_url('assets/images/1.png')?>" alt="IMG">
+            <img src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" alt="IMG">
           </div>
 
           <form class="login100-form validate-form col-lg-6 wow fadeIn delay-1s">
@@ -121,6 +121,49 @@
                 animation: true,
                 customClass: 'animated tada'
               })
+            }else if(txtpassword.length < 8){
+              swal({
+                type: 'error',
+                title: 'Too Short : min. 8 character',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("too_short");
+            }
+            else if(txtpassword.length > 20){
+              swal({
+                type: 'error',
+                title: 'Too Long',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("too_long");
+            }else if(txtpassword.search(/\d/) == -1){
+              swal({
+                type: 'error',
+                title: 'No Num',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("no_num");
+            }
+            else if(txtpassword.search(/[a-zA-Z]/) == -1){
+              swal({
+                type: 'error',
+                title: 'No Letter',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("no_letter");
+            }
+            else if(txtpassword.search(/[^a-zA-Z0-9\!\@\#\$\%\^\&\*\(\)\_\+\.\,\;\:]/) != -1){
+              swal({
+                type: 'error',
+                title: 'Bad Char',
+                animation: true,
+                customClass: 'animated tada'
+              });
+              return ("bad_char");
             }else{
 							$.ajax({
 								type: "POST",
