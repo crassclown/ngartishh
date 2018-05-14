@@ -16,14 +16,17 @@ class C_dashboard extends CI_Controller {
     // Memanggil halaman index
 	public function index()
 	{   
-        $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
-		$data['categories'] = $this->m_users->m_categories();
-		$ids = $this->session->userdata('Id');
-		$data['foto'] = $this->m_users->get_users($ids);
+        $data['categoriesmenu']     = $this->m_users->m_categoriesmenu();
+		$data['categories']         = $this->m_users->m_categories();
+		$ids                        = $this->session->userdata('Id');
+        $data['foto']               = $this->m_users->get_users($ids);
+        $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
+        // $data['notifikasicomments'] = $this->m_users->m_notifikasicomments($ids);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/index', $data);
 		$this->load->view('users/layout/footer');
-    }
+	}
     
     //Search Box by User and Content
     public function m_searchbox() {
@@ -296,8 +299,8 @@ class C_dashboard extends CI_Controller {
                     'created_at'    => date("Y-m-d H:i:s"),
                     'category_id'   => $this->input->post('txtcategories'),
                 );
-
-                $id = $this->m_users->insert($data);
+				
+				$id = $this->m_users->insert($data);
                 // $datacategory = $this->m_users->insert($datas);
                 redirect(base_url("c_dashboard/"));
             }
@@ -341,6 +344,16 @@ class C_dashboard extends CI_Controller {
 		$data['foto'] = $this->m_users->get_users($ids);
         $this->load->view('users/layout/header', $data);
 		$this->load->view('users/layout/aboutus');
+		$this->load->view('users/layout/footer');
+    }
+
+    public function postcontent(){
+        $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
+		$data['categories'] = $this->m_users->m_categories();
+		$ids = $this->session->userdata('Id');
+		$data['foto'] = $this->m_users->get_users($ids);
+        $this->load->view('users/layout/header', $data);
+		$this->load->view('users/dashboard/post-content');
 		$this->load->view('users/layout/footer');
     }
 }

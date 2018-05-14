@@ -64,17 +64,11 @@
 					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
 						<div class="space">
 							<div class="portfolio-item">
-								<?php if($onlelang==0){ ?>
-								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
-								title="New Post" data-target="#modal-restrict-lelang">
-									<i class="material-icons " style="font-size:40px;">file_upload</i>
-								</button>
-								<?php }else{ ?>
+								
 								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
 								title="New Post" data-target="#modal-upload-content-lelang">
 									<i class="material-icons " style="font-size:40px;">file_upload</i>
 								</button>
-								<?php } ?>
 							</div>
 						</div>
 					</article>
