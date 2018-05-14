@@ -304,6 +304,7 @@ class M_users extends CI_Model
 			'user_id' => $userid,
 			'content_id' => $contentid
 		);
+
 		$this->db->insert('likes', $data);
 	}
 
@@ -419,7 +420,7 @@ class M_users extends CI_Model
 	}
 
 	public function m_notifikasilikes($ids){
-		$result = $this->db->query("select content.Id as contentId, fullname, title, users.Id as usersId, concat('L',likes.Id) as likeId FROM notifications, likes, users, content WHERE notifications.notif_id = likes.Id AND notifications.notifier_id = users.Id AND content.Id = likes.content_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC LIMIT 1");
+		$result = $this->db->query("select notifications.notified_id as yglike, content.Id as contentId, fullname, title, users.Id as usersId, concat('L',likes.Id) as likeId FROM notifications, likes, users, content WHERE notifications.notif_id = likes.Id AND notifications.notifier_id = users.Id AND content.Id = likes.content_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC");
 		
 		if($result->num_rows() > 0)
         {
@@ -433,7 +434,7 @@ class M_users extends CI_Model
 	}
 
 	public function m_notifikasifollower($ids){
-		$result = $this->db->query("select fullname, users.Id as usersId, concat('F',following.Id) as followId FROM notifications, following, users WHERE notifications.notif_id = following.Id AND notifications.notifier_id = users.Id AND notifications.notified_id = following.followed_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC LIMIT 1");
+		$result = $this->db->query("select notifications.notifier_id as ygfollow, fullname, users.Id as usersId, concat('F',following.Id) as followId FROM notifications, following, users WHERE notifications.notif_id = following.Id AND notifications.notifier_id = users.Id AND notifications.notified_id = following.followed_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC");
 		
 		if($result->num_rows() > 0)
         {
@@ -445,4 +446,18 @@ class M_users extends CI_Model
             return $data;
         }
 	}
+
+	// public function m_notifikasicomments($ids){
+	// 	$result = $this->db->query("select fullname, users.Id as usersId, concat('F',following.Id) as followId FROM notifications, following, users WHERE notifications.notif_id = following.Id AND notifications.notifier_id = users.Id AND notifications.notified_id = following.followed_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC LIMIT 1");
+		
+	// 	if($result->num_rows() > 0)
+    //     {
+    //         foreach ($result->result() as $row)
+    //         {
+    //         	$data[] = $row;
+	// 		}
+			
+    //         return $data;
+    //     }
+	// }
 }
