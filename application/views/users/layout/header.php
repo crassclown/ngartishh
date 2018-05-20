@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
   	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/baguetteBox.min.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>"/>
@@ -33,16 +33,22 @@
 		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/icons.css')?>" type="text/css"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>"/>
 
+    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
+    
+      <!--==================================== End Back end pandhu ===========================================-->
+
+    <!--===============================================================================================-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <!--===============================================================================================-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <!--===============================================================================================-->
+
     <!--===================================== Back end Pandhu ===================================================-->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/select2.min.css')?>"/>
- 
+    
     <!--===============================================================================================-->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sweetalert.min.css')?>"/>
     <!--===============================================================================================-->
-
-    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
-      <!--==================================== End Back end pandhu ===========================================-->
-
 <!-- <script>
   document.onreadystatechange = function () {
       if (document.readyState === "complete") {

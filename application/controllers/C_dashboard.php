@@ -370,4 +370,49 @@ class C_dashboard extends CI_Controller {
 		$this->load->view('users/dashboard/post-content');
 		$this->load->view('users/layout/footer');
     }
+
+    public function send_email_from_users(){
+        $email  = strtolower(trim($this->input->post('email')));
+        $pesan  = $this->input->post('message');
+        $to_email = 'adm.ngartish@gmail.com';
+        
+        $config = array();
+		$config['charset'] = 'utf-8';
+		$config['useragent'] = 'Codeigniter';
+		$config['protocol']= "smtp";
+		$config['mailtype']= "html";
+		$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+		$config['smtp_port']= "465";
+		$config['smtp_timeout']= "400";
+		$config['smtp_user']= "adm.ngartish@gmail.com"; // isi dengan email kamu
+		$config['smtp_pass']= "ngartish3220"; // isi dengan password kamu
+		$config['crlf']="\r\n"; 
+		$config['newline']="\r\n"; 
+		$config['wordwrap'] = TRUE;
+        //memanggil library email dan set konfigurasi untuk pengiriman email
+        
+        $this->email->initialize($config);
+
+        //send mail
+        $this->email->from($email);
+        $this->email->to($to_email);
+        $this->email->subject("Kritik, Saran, dan Informasi tambahan lainnya");
+        $this->email->message($pesan);
+
+        if($this->email->send()){
+            echo "<script type='text/javascript'>
+            history.back();
+            </script>";
+            $this->session->set_flashdata('success','Kontribusi dari saran Anda akan kami proses');
+        }else{
+            echo "Maaf, coba kembali nanti";
+            echo "<button onclick='goBack()'>Kembali</button>
+
+            <script>
+            function goBack() {
+                window.history.back();
+            }
+            </script>";
+        }
+    }
 }

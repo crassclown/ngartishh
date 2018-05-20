@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="col-md-4 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="<?php echo base_url('assets/images/icons/Ngartish.png')?>" alt="IMG-ABOUT" class="img-about">
+						<img src="<?php echo base_url('assets/images/icons/Ngartish.png')?>" alt="IMG-ABOUT" class="img-about img-responsive">
 					</div>
 				</div>
 
@@ -55,7 +55,22 @@
 				<div class="get_in_touch_contents">
 					<h1>Hubungi Kami</h1>
 					<p>Lengkapi data form dan dapatkan info terbaru atau beri kami kritik atau saran.</p>
-					<form action="post">
+					<form action="<?=base_url('c_dashboard/send_email_from_users');?>" method="POST">
+					<?php
+					if($this->session->flashdata('success')){
+						?>
+						<script>
+							swal({
+							title: "Terima kasih",
+							text: "<?php echo $this->session->flashdata('success'); ?>",
+							timer: 3000,
+							showConfirmButton: false,
+							type: 'success'
+							});
+						</script>
+						<?php
+					}
+					?>
 						<?php
 							foreach($panggisession as $session){
 								$fullname 	= $session->fullname;
@@ -68,7 +83,7 @@
 							<textarea id="input_message" class="input_ph input_message" name="message"  placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
 						</div>
 						<div>
-							<button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Kirim">Kirim</button>
+							<button id="review_submit" name="critic" type="submit" class="red_button message_submit_btn trans_300" value="Kirim">Kirim</button>
 						</div>
 					</form>
 				</div>

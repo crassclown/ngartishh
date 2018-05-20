@@ -48,6 +48,7 @@ class C_lelang extends CI_Controller {
 				if(is_array($data_pemenang) || is_object($data_pemenang)){
 					foreach($data_pemenang as $dp){
 						$email_pemenang	= $dp->emailpemenang;
+						$nama_pemenang	= $dp->namapemenang;
 					}
 				}
 				if($sendEmail->durasi == 0 && $email_status == '0'){
@@ -111,7 +112,7 @@ class C_lelang extends CI_Controller {
 					$this->email->subject("Pengumuman waktu berakhirnya Lelang yang telah selesai Anda adakan");
 
 					$this->email->message(
-						"<h2>Hai, ".$fullname."</h2>
+						"<h2>Hai, ".$nama_pemenang."</h2>
 						<p>Selamat, Anda berhasil membeli hasil Lelang dengan harga sebesar : Rp.".number_format($winner_price,2,",",".")."</p>
 						<span>Ayo selesaikan segera persyaratan proses pengiriman Anda kepada Penjual. Alternatif Anda untuk bisa menghubungi penjual Lelang dengan menghubungi melalui email sebagai berikut : </span>
 						<div>
