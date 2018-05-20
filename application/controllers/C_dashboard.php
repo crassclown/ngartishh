@@ -352,6 +352,7 @@ class C_dashboard extends CI_Controller {
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
 		$data['categories'] = $this->m_users->m_categories();
         $ids = $this->session->userdata('Id');
+        $data['panggisession']      = $this->m_users->get_users($ids);
         $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
         $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$data['foto'] = $this->m_users->get_users($ids);

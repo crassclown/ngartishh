@@ -49,17 +49,6 @@
 						<p>Libur: Minggu dan hari libur nasional</p>
 					</div>
 				</div>
-
-				<!-- Follow Us -->
-
-				<div class="follow_us_contents">
-					<h1>Follow Us</h1>
-					<div class="social">
-					<a href="https://facebook.com/ondrej.p.barta" class="link facebook" target="_parent"><span><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
-					<a href="https://twitter.com/PageOnlineXS" class="link twitter" target="_parent"><span><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
-					<a href="https://plus.google.com/+OndřejBárta-Otaku" class="link google-plus" target="_parent"><span><i class="fa fa-google-plus-square" aria-hidden="true"></i></span></a>
-					</div>
-				</div>
 			</div>
 
 			<div class="col-lg-6 get_in_touch_col">
@@ -67,14 +56,19 @@
 					<h1>Hubungi Kami</h1>
 					<p>Lengkapi data form dan dapatkan info terbaru atau beri kami kritik atau saran.</p>
 					<form action="post">
+						<?php
+							foreach($panggisession as $session){
+								$fullname 	= $session->fullname;
+								$email		= $session->email; 	
+							}
+						?>
 						<div>
-							<input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required.">
-							<input id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required.">
-							<input id="input_website" class="form_input input_website input_ph" type="url" name="name" placeholder="Website" required="required" data-error="Name is required.">
+							<input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required." value="<?php echo $fullname;?>" readonly>
+							<input id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required." value="<?php echo $email;?>" readonly>
 							<textarea id="input_message" class="input_ph input_message" name="message"  placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
 						</div>
 						<div>
-							<button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">Kirim !</button>
+							<button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Kirim">Kirim</button>
 						</div>
 					</form>
 				</div>
