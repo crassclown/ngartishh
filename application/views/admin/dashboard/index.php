@@ -207,132 +207,139 @@
 		<div class="row" id="card-masonry">
 		 
 		 
-		 <!--Statistics-->
-		 <div class="col-xs-12 col-sm-12 col-md-6">
-			<div class="pmd-card pmd-z-depth statistics-content">      
-				<div class="pmd-card-title">
-					<div class="media-left set-svg">
-						<span class="service-icon img-circle bg-fill-green">
-							<svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="26.25px" viewBox="279.765 332.782 36 26.25" enable-background="new 279.765 332.782 36 26.25" xml:space="preserve">
-								<g>
-									<path fill="#FFFFFF" d="M312.318,332.782c-1.928,0-3.485,1.558-3.485,3.485c0,0.89,0.334,1.706,0.89,2.336l-6.117,8.898
-										c-0.371-0.112-0.742-0.186-1.148-0.186c-0.557,0-1.077,0.111-1.521,0.334l-4.82-4.932c0.296-0.519,0.445-1.075,0.445-1.706
-										c0-1.927-1.557-3.485-3.485-3.485c-1.928,0-3.485,1.558-3.485,3.485c0,0.853,0.296,1.595,0.779,2.225l-6.155,8.972
-										c-0.296-0.074-0.63-0.148-0.964-0.148c-1.928,0-3.485,1.558-3.485,3.486c0,1.927,1.557,3.485,3.485,3.485
-										c1.928,0,3.485-1.558,3.485-3.485c0-0.89-0.333-1.706-0.889-2.336l6.118-8.935c0.333,0.111,0.742,0.185,1.112,0.185
-										c0.593,0,1.187-0.148,1.669-0.445l4.782,4.931c-0.334,0.556-0.556,1.187-0.556,1.854c0,1.927,1.556,3.485,3.485,3.485
-										c1.927,0,3.484-1.558,3.484-3.485c0-0.816-0.297-1.595-0.78-2.188l6.155-9.009c0.296,0.074,0.63,0.148,0.964,0.148
-										c1.93,0,3.485-1.558,3.485-3.486C315.765,334.339,314.244,332.782,312.318,332.782z"/>
-								</g>
-							</svg>
-						</span>
-					</div>
-					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Based on Categories</h2>
-					</div>
-				</div>
-				<div id="chart_div"></div>
-			</div>
-		 </div><!-- end statistics-->
-		 
-		 <!--Statistics-->
-		 <div class="col-xs-12 col-sm-12 col-md-6">
-			<div class="pmd-card pmd-z-depth statistics-content">      
-				<div class="pmd-card-title">
-					<div class="media-left set-svg">
-						<span class="service-icon img-circle bg-fill-green">
-							<svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="26.25px" viewBox="279.765 332.782 36 26.25" enable-background="new 279.765 332.782 36 26.25" xml:space="preserve">
-								<g>
-									<path fill="#FFFFFF" d="M312.318,332.782c-1.928,0-3.485,1.558-3.485,3.485c0,0.89,0.334,1.706,0.89,2.336l-6.117,8.898
-										c-0.371-0.112-0.742-0.186-1.148-0.186c-0.557,0-1.077,0.111-1.521,0.334l-4.82-4.932c0.296-0.519,0.445-1.075,0.445-1.706
-										c0-1.927-1.557-3.485-3.485-3.485c-1.928,0-3.485,1.558-3.485,3.485c0,0.853,0.296,1.595,0.779,2.225l-6.155,8.972
-										c-0.296-0.074-0.63-0.148-0.964-0.148c-1.928,0-3.485,1.558-3.485,3.486c0,1.927,1.557,3.485,3.485,3.485
-										c1.928,0,3.485-1.558,3.485-3.485c0-0.89-0.333-1.706-0.889-2.336l6.118-8.935c0.333,0.111,0.742,0.185,1.112,0.185
-										c0.593,0,1.187-0.148,1.669-0.445l4.782,4.931c-0.334,0.556-0.556,1.187-0.556,1.854c0,1.927,1.556,3.485,3.485,3.485
-										c1.927,0,3.484-1.558,3.484-3.485c0-0.816-0.297-1.595-0.78-2.188l6.155-9.009c0.296,0.074,0.63,0.148,0.964,0.148
-										c1.93,0,3.485-1.558,3.485-3.486C315.765,334.339,314.244,332.782,312.318,332.782z"/>
-								</g>
-							</svg>
-						</span>
-					</div>
-					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Based on users who frequently post</h2>
-					</div>
-				</div>
-				<div id="chart_users"></div>
-			</div>
-		 </div><!-- end statistics-->
-		  
-		<!--Statistics-->
-		<div class="col-xs-12 col-sm-12 col-md-6">
-			<div class="pmd-card pmd-z-depth statistics-content">      
-				<div class="pmd-card-title">
-					<div class="media-left set-svg">
-						<span class="service-icon img-circle bg-fill-green">
-							<svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="26.25px" viewBox="279.765 332.782 36 26.25" enable-background="new 279.765 332.782 36 26.25" xml:space="preserve">
-								<g>
-									<path fill="#FFFFFF" d="M312.318,332.782c-1.928,0-3.485,1.558-3.485,3.485c0,0.89,0.334,1.706,0.89,2.336l-6.117,8.898
-										c-0.371-0.112-0.742-0.186-1.148-0.186c-0.557,0-1.077,0.111-1.521,0.334l-4.82-4.932c0.296-0.519,0.445-1.075,0.445-1.706
-										c0-1.927-1.557-3.485-3.485-3.485c-1.928,0-3.485,1.558-3.485,3.485c0,0.853,0.296,1.595,0.779,2.225l-6.155,8.972
-										c-0.296-0.074-0.63-0.148-0.964-0.148c-1.928,0-3.485,1.558-3.485,3.486c0,1.927,1.557,3.485,3.485,3.485
-										c1.928,0,3.485-1.558,3.485-3.485c0-0.89-0.333-1.706-0.889-2.336l6.118-8.935c0.333,0.111,0.742,0.185,1.112,0.185
-										c0.593,0,1.187-0.148,1.669-0.445l4.782,4.931c-0.334,0.556-0.556,1.187-0.556,1.854c0,1.927,1.556,3.485,3.485,3.485
-										c1.927,0,3.484-1.558,3.484-3.485c0-0.816-0.297-1.595-0.78-2.188l6.155-9.009c0.296,0.074,0.63,0.148,0.964,0.148
-										c1.93,0,3.485-1.558,3.485-3.486C315.765,334.339,314.244,332.782,312.318,332.782z"/>
-								</g>
-							</svg>
-						</span>
-					</div>
-					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Based on most likes</h2>
-					</div>
-				</div>
-				<div id="chart_likes"></div>
-			</div>
-		 </div><!-- end statistics-->
-
-		 <!--Statistics-->
-		<div class="col-xs-12 col-sm-12 col-md-6">
-			<div class="pmd-card pmd-z-depth statistics-content">      
-				<div class="pmd-card-title">
-					<div class="media-left set-svg">
-						<span class="service-icon img-circle bg-fill-green">
-							<svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="26.25px" viewBox="279.765 332.782 36 26.25" enable-background="new 279.765 332.782 36 26.25" xml:space="preserve">
-								<g>
-									<path fill="#FFFFFF" d="M312.318,332.782c-1.928,0-3.485,1.558-3.485,3.485c0,0.89,0.334,1.706,0.89,2.336l-6.117,8.898
-										c-0.371-0.112-0.742-0.186-1.148-0.186c-0.557,0-1.077,0.111-1.521,0.334l-4.82-4.932c0.296-0.519,0.445-1.075,0.445-1.706
-										c0-1.927-1.557-3.485-3.485-3.485c-1.928,0-3.485,1.558-3.485,3.485c0,0.853,0.296,1.595,0.779,2.225l-6.155,8.972
-										c-0.296-0.074-0.63-0.148-0.964-0.148c-1.928,0-3.485,1.558-3.485,3.486c0,1.927,1.557,3.485,3.485,3.485
-										c1.928,0,3.485-1.558,3.485-3.485c0-0.89-0.333-1.706-0.889-2.336l6.118-8.935c0.333,0.111,0.742,0.185,1.112,0.185
-										c0.593,0,1.187-0.148,1.669-0.445l4.782,4.931c-0.334,0.556-0.556,1.187-0.556,1.854c0,1.927,1.556,3.485,3.485,3.485
-										c1.927,0,3.484-1.558,3.484-3.485c0-0.816-0.297-1.595-0.78-2.188l6.155-9.009c0.296,0.074,0.63,0.148,0.964,0.148
-										c1.93,0,3.485-1.558,3.485-3.486C315.765,334.339,314.244,332.782,312.318,332.782z"/>
-								</g>
-							</svg>
-						</span>
-					</div>
-					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Based on most end date</h2>
-					</div>
-				</div>
-				<br />
-				<form>
-					<div class="container">
-						<div class="row">
-							<div class="form-group">
-								<label>End Date</label>
-								<input type="date" name="status" class="form-control" style="width:45%;" onchange="drawChart_open_all(this.value)">
-								<br />
-								<div id="open_new"></div>
-							</div>
+			<!--Statistics-->
+			<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="pmd-card pmd-z-depth statistics-content">      
+					<div class="pmd-card-title">
+						<div class="media-left set-svg">
+							<span class="service-icon img-circle bg-fill-green">
+								<svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="26.25px" viewBox="279.765 332.782 36 26.25" enable-background="new 279.765 332.782 36 26.25" xml:space="preserve">
+									<g>
+										<path fill="#FFFFFF" d="M312.318,332.782c-1.928,0-3.485,1.558-3.485,3.485c0,0.89,0.334,1.706,0.89,2.336l-6.117,8.898
+											c-0.371-0.112-0.742-0.186-1.148-0.186c-0.557,0-1.077,0.111-1.521,0.334l-4.82-4.932c0.296-0.519,0.445-1.075,0.445-1.706
+											c0-1.927-1.557-3.485-3.485-3.485c-1.928,0-3.485,1.558-3.485,3.485c0,0.853,0.296,1.595,0.779,2.225l-6.155,8.972
+											c-0.296-0.074-0.63-0.148-0.964-0.148c-1.928,0-3.485,1.558-3.485,3.486c0,1.927,1.557,3.485,3.485,3.485
+											c1.928,0,3.485-1.558,3.485-3.485c0-0.89-0.333-1.706-0.889-2.336l6.118-8.935c0.333,0.111,0.742,0.185,1.112,0.185
+											c0.593,0,1.187-0.148,1.669-0.445l4.782,4.931c-0.334,0.556-0.556,1.187-0.556,1.854c0,1.927,1.556,3.485,3.485,3.485
+											c1.927,0,3.484-1.558,3.484-3.485c0-0.816-0.297-1.595-0.78-2.188l6.155-9.009c0.296,0.074,0.63,0.148,0.964,0.148
+											c1.93,0,3.485-1.558,3.485-3.486C315.765,334.339,314.244,332.782,312.318,332.782z"/>
+									</g>
+								</svg>
+							</span>
+						</div>
+						<div class="media-body media-middle">
+							<h2 class="pmd-card-title-text typo-fill-secondary">Based on Categories</h2>
 						</div>
 					</div>
-				</form>
-				
+					<div id="chart_div"></div>
+				</div>
 			</div>
-		 </div><!-- end statistics-->
+			<!-- end statistics-->
+		 
+			<!--Statistics-->
+			<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="pmd-card pmd-z-depth statistics-content">      
+					<div class="pmd-card-title">
+						<div class="media-left set-svg">
+							<span class="service-icon img-circle bg-fill-green">
+								<svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="26.25px" viewBox="279.765 332.782 36 26.25" enable-background="new 279.765 332.782 36 26.25" xml:space="preserve">
+									<g>
+										<path fill="#FFFFFF" d="M312.318,332.782c-1.928,0-3.485,1.558-3.485,3.485c0,0.89,0.334,1.706,0.89,2.336l-6.117,8.898
+											c-0.371-0.112-0.742-0.186-1.148-0.186c-0.557,0-1.077,0.111-1.521,0.334l-4.82-4.932c0.296-0.519,0.445-1.075,0.445-1.706
+											c0-1.927-1.557-3.485-3.485-3.485c-1.928,0-3.485,1.558-3.485,3.485c0,0.853,0.296,1.595,0.779,2.225l-6.155,8.972
+											c-0.296-0.074-0.63-0.148-0.964-0.148c-1.928,0-3.485,1.558-3.485,3.486c0,1.927,1.557,3.485,3.485,3.485
+											c1.928,0,3.485-1.558,3.485-3.485c0-0.89-0.333-1.706-0.889-2.336l6.118-8.935c0.333,0.111,0.742,0.185,1.112,0.185
+											c0.593,0,1.187-0.148,1.669-0.445l4.782,4.931c-0.334,0.556-0.556,1.187-0.556,1.854c0,1.927,1.556,3.485,3.485,3.485
+											c1.927,0,3.484-1.558,3.484-3.485c0-0.816-0.297-1.595-0.78-2.188l6.155-9.009c0.296,0.074,0.63,0.148,0.964,0.148
+											c1.93,0,3.485-1.558,3.485-3.486C315.765,334.339,314.244,332.782,312.318,332.782z"/>
+									</g>
+								</svg>
+							</span>
+						</div>
+						<div class="media-body media-middle">
+							<h2 class="pmd-card-title-text typo-fill-secondary">Based on users who frequently post</h2>
+						</div>
+					</div>
+					<div id="chart_users"></div>
+				</div>
+			</div>
+			<!-- end statistics-->
+		</div>
+
+		<div class="row" id="card-masonry">
+  
+			<!--Statistics-->
+			<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="pmd-card pmd-z-depth statistics-content">      
+					<div class="pmd-card-title">
+						<div class="media-left set-svg">
+							<span class="service-icon img-circle bg-fill-green">
+								<svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="26.25px" viewBox="279.765 332.782 36 26.25" enable-background="new 279.765 332.782 36 26.25" xml:space="preserve">
+									<g>
+										<path fill="#FFFFFF" d="M312.318,332.782c-1.928,0-3.485,1.558-3.485,3.485c0,0.89,0.334,1.706,0.89,2.336l-6.117,8.898
+											c-0.371-0.112-0.742-0.186-1.148-0.186c-0.557,0-1.077,0.111-1.521,0.334l-4.82-4.932c0.296-0.519,0.445-1.075,0.445-1.706
+											c0-1.927-1.557-3.485-3.485-3.485c-1.928,0-3.485,1.558-3.485,3.485c0,0.853,0.296,1.595,0.779,2.225l-6.155,8.972
+											c-0.296-0.074-0.63-0.148-0.964-0.148c-1.928,0-3.485,1.558-3.485,3.486c0,1.927,1.557,3.485,3.485,3.485
+											c1.928,0,3.485-1.558,3.485-3.485c0-0.89-0.333-1.706-0.889-2.336l6.118-8.935c0.333,0.111,0.742,0.185,1.112,0.185
+											c0.593,0,1.187-0.148,1.669-0.445l4.782,4.931c-0.334,0.556-0.556,1.187-0.556,1.854c0,1.927,1.556,3.485,3.485,3.485
+											c1.927,0,3.484-1.558,3.484-3.485c0-0.816-0.297-1.595-0.78-2.188l6.155-9.009c0.296,0.074,0.63,0.148,0.964,0.148
+											c1.93,0,3.485-1.558,3.485-3.486C315.765,334.339,314.244,332.782,312.318,332.782z"/>
+									</g>
+								</svg>
+							</span>
+						</div>
+						<div class="media-body media-middle">
+							<h2 class="pmd-card-title-text typo-fill-secondary">Based on most likes</h2>
+						</div>
+					</div>
+					<div id="chart_likes"></div>
+				</div>
+			</div>
+			<!-- end statistics-->
+
+			<!--Statistics-->
+			<div class="col-xs-12 col-sm-12 col-md-6">
+				<div class="pmd-card pmd-z-depth statistics-content">      
+					<div class="pmd-card-title">
+						<div class="media-left set-svg">
+							<span class="service-icon img-circle bg-fill-green">
+								<svg version="1.1" id="Layer_1" x="0px" y="0px" width="36px" height="26.25px" viewBox="279.765 332.782 36 26.25" enable-background="new 279.765 332.782 36 26.25" xml:space="preserve">
+									<g>
+										<path fill="#FFFFFF" d="M312.318,332.782c-1.928,0-3.485,1.558-3.485,3.485c0,0.89,0.334,1.706,0.89,2.336l-6.117,8.898
+											c-0.371-0.112-0.742-0.186-1.148-0.186c-0.557,0-1.077,0.111-1.521,0.334l-4.82-4.932c0.296-0.519,0.445-1.075,0.445-1.706
+											c0-1.927-1.557-3.485-3.485-3.485c-1.928,0-3.485,1.558-3.485,3.485c0,0.853,0.296,1.595,0.779,2.225l-6.155,8.972
+											c-0.296-0.074-0.63-0.148-0.964-0.148c-1.928,0-3.485,1.558-3.485,3.486c0,1.927,1.557,3.485,3.485,3.485
+											c1.928,0,3.485-1.558,3.485-3.485c0-0.89-0.333-1.706-0.889-2.336l6.118-8.935c0.333,0.111,0.742,0.185,1.112,0.185
+											c0.593,0,1.187-0.148,1.669-0.445l4.782,4.931c-0.334,0.556-0.556,1.187-0.556,1.854c0,1.927,1.556,3.485,3.485,3.485
+											c1.927,0,3.484-1.558,3.484-3.485c0-0.816-0.297-1.595-0.78-2.188l6.155-9.009c0.296,0.074,0.63,0.148,0.964,0.148
+											c1.93,0,3.485-1.558,3.485-3.486C315.765,334.339,314.244,332.782,312.318,332.782z"/>
+									</g>
+								</svg>
+							</span>
+						</div>
+						<div class="media-body media-middle">
+							<h2 class="pmd-card-title-text typo-fill-secondary">Based on most end date</h2>
+						</div>
+					</div>
+					<br />
+					<form>
+						<div class="input-date">
+							<div class="row">
+								<div class="form-group">
+									<label>End Date</label>
+									<input type="date" name="status" class="form-control" style="width:45%;" onchange="drawChart_open_all(this.value)">
+									<br />
+									<div id="open_new"></div>
+								</div>
+							</div>
+						</div>
+					</form>
+					
+				</div>
+			</div>
+			<!-- end statistics-->
+		</div>
 	</div>
-</div>
 
 </div><!--end content area-->
 
