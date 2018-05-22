@@ -192,9 +192,7 @@
 			</a> 
 			<ul class="dropdown-menu">
 				<li><a href="<?php echo base_url('c_admin/indexreport');?>">Per Period</a></li>
-				<li><a href="#">Per Day</a></li>
-				<li><a href="#">Per Month</a></li>
-				<li><a href="#">Per Categories</a></li>
+				<li><a href="<?php echo base_url('c_admin/categoryreport');?>">Per Categories</a></li>
 			</ul>
 		</li>
 		
@@ -314,7 +312,7 @@
 						</span>
 					</div>
 					<div class="media-body media-middle">
-						<h2 class="pmd-card-title-text typo-fill-secondary">Based on most likes</h2>
+						<h2 class="pmd-card-title-text typo-fill-secondary">Based on most end date</h2>
 					</div>
 				</div>
 				<br />

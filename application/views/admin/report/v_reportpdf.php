@@ -5,12 +5,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="Form Elements | Propeller - Admin Dashboard">
 <meta content="width=device-width, initial-scale=1, user-scalable=no" name="viewport">
-<title>Form Elements | Propeller - Admin Dashboard</title>
+<title>Ngartish | Report Administrator</title>
 <link rel="shortcut icon" type="image/x-icon" href="themes/images/favicon.ico">
 
 <!-- Google icon -->
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
 <!-- Bootstrap css -->
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/dashboardadmin/assets/css/bootstrap.min.css');?>">
 
@@ -69,7 +69,8 @@
 	<path fill="#C9C8C8" d="M307.555,407.535h-9.108v10.264h9.108V407.535z M287.725,407.535v6.232h9.109v-6.232H287.725z
 		 M296.834,415.271h-9.109v10.264h9.109V415.271z M307.555,419.303h-9.108v6.232h9.108V419.303z"/>
 </g>
-</svg></i>
+</svg>
+        </i>
 				<span class="media-body">Dashboard</span>
 			</a> 
 		</li>
@@ -82,9 +83,7 @@
 			</a> 
 			<ul class="dropdown-menu">
 				<li><a href="<?php echo base_url('c_admin/indexreport');?>">Per Period</a></li>
-				<li><a href="#">Per Day</a></li>
-				<li><a href="#">Per Month</a></li>
-				<li><a href="#">Per Categories</a></li>
+				<li><a href="<?php echo base_url('c_admin/categoryreport');?>">Per Categories</a></li>
 			</ul>
 		</li>
 		
@@ -99,7 +98,7 @@
 	
 		<!-- Title -->
 		<h1 class="section-title" id="services">
-			<span>Form Report Period</span>
+			<span>Form Report of Period</span>
 		</h1><!-- End Title -->
 			
 		<!--breadcrum start-->
@@ -123,16 +122,19 @@
 						<div class="col-md-6">
 							<div class="pmd-card pmd-z-depth pmd-card-custom-form">
 								<div class="pmd-card-body"> 
-									<!-- Regular Input -->
-									<div class="form-group pmd-textfield">
-										<label for="start_date" class="control-label">Start Date</label>
-										<input type="date" id="start_date" class="form-control" name="start_date">
-                                    </div>
-									<!-- Password Input -->
-									<div class="form-group pmd-textfield">
-										<label for="end_date" class="control-label">End Date</label>
-										<input id="end_date" class="form-control" type="date" name="end_date">
-                                    </div>									
+									<form action="<?php echo base_url('c_admin/get_period_report');?>" method="POST">
+										<!-- Regular Input -->
+										<div class="form-group pmd-textfield">
+											<label for="start_date" class="control-label">Start Date</label>
+											<input type="date" id="start_date" class="form-control" name="start_date">
+										</div>
+										<!-- Password Input -->
+										<div class="form-group pmd-textfield">
+											<label for="end_date" class="control-label">End Date</label>
+											<input id="end_date" class="form-control" type="date" name="end_date">
+										</div>
+										<button id="cek" name="cek" type="submit" class="form-control" value="Cek">Cek</button>
+                                    </form>									
 								</div>
 							</div>
 							

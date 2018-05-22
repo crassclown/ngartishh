@@ -62,4 +62,56 @@ class M_admin extends CI_Model
 		}
 	}
 	
+	function m_get_date($start_date,$end_date){
+		$q  = $this->db->query("SELECT * FROM content, users, category WHERE category.id = content.category_id AND users.Id = content.user_id AND (content.created_at BETWEEN '$start_date' AND '$end_date')");
+		if($q->num_rows() > 0)
+		{
+				foreach ($q->result() as $row)
+				{
+						$data[] = $row;
+				}
+				return $data;
+		}
+	}
+
+	function m_category_tampil(){
+		return $this->db->get('category');
+	}
+
+	function m_get_category($category){
+		$q  = $this->db->query("SELECT *, content.desc as deskripsi FROM content, category WHERE category.id = content.category_id AND content.category_id='$category'");
+		if($q->num_rows() > 0)
+		{
+				foreach ($q->result() as $row)
+				{
+						$data[] = $row;
+				}
+				return $data;
+		}
+	}
+
+	
+	function cek_category($category){
+		$q  = $this->db->query("SELECT * FROM category WHERE Id = '$category'");
+		if($q->num_rows() > 0)
+		{
+				foreach ($q->result() as $row)
+				{
+						$data[] = $row;
+				}
+				return $data;
+		}
+	}
+
+	function m_get_auction($status){
+		$q  = $this->db->query("SELECT *, content.desc as deskripsi FROM category, users, content, lelang WHERE category.Id = content.category_id AND users.Id = lelang.owner_id AND content.Id = lelang.content_id AND lelang.email_status='$status'");
+		if($q->num_rows() > 0)
+		{
+				foreach ($q->result() as $row)
+				{
+						$data[] = $row;
+				}
+				return $data;
+		}
+	}
 }
