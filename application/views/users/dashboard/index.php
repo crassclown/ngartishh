@@ -37,7 +37,7 @@
                         var i;
                         for(i=0; i<data.length; i++){
                             html +=                         
-                            '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
+                            '<article class="col-xs-12 col-sm-6 col-md-4 col-lg-3 isotopeItem webdesign">'+
                                 '<div class="space">'+
                                     '<div class="gantungan">'+
                                         '<div class="pin text-center">'+
@@ -51,17 +51,17 @@
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
                                             '<div class="row image-icons">'+
-                                                '<div class="col-md-4 col-lg-4">'+
+                                                '<div class="col-xs-4 col-md-4 col-lg-4">'+
                                                     '<ol class="grid">'+
                                                         '<li class="grid__item">'+
                                                             '<a style="cursor: pointer;" class="like icobutton icobutton--thumbs-up" data-contentid="'+data[i].idcontent+'" data-sessionuserid="<?php echo $this->session->userdata("Id");?>"><span class="fa fa-thumbs-up"></span></a><sup class="badge">'+data[i].total_like+'</sup>'+
                                                         '</li>'+
                                                     '</ol>'+
                                                 '</div>'+
-                                                '<div class="col-md-4 col-lg-4">'+
+                                                '<div class="col-xs-4 col-md-4 col-lg-4">'+
                                                     '<a style="cursor: pointer;"><i class="fa fa-comment"></i><sup class="badge">'+data[i].total_comment+'</sup></a>'+
                                                 '</div>'+
-                                                '<div class="col-md-4 col-lg-4">'+
+                                                '<div class="col-xs-4 col-md-4 col-lg-4">'+
                                                     '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
                                                 '</div>'+
                                             '</div>'+

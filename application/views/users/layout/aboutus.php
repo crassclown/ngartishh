@@ -13,17 +13,15 @@
 					</h3>
 
 					<p class="p-b-28">
-						Phasellus egestas nisi nisi, lobortis ultricies risus semper nec. Vestibulum pharetra ac ante ut pellentesque. Curabitur fringilla dolor quis lorem accumsan, vitae molestie urna dapibus. Pellentesque porta est ac neque bibendum viverra. Vivamus lobortis magna ut interdum laoreet. Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula. Vivamus tristique vulputate ultricies. Sed vitae ultrices orci.
+							Ngartish adalah website untuk para seniman yang ingin mempublikasikan hasil karyanya dan berbagi melalui galeri online.
+							Kerya yang diposting dapat juga di jual melalui layanan lelang yang kami sediakan.
 					</p>
 
 					<div class="bo13 p-l-29 m-l-9 p-b-10">
 						<p class="p-b-11">
-							Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
+							Melalui ngartish kami berharap para seniman jalanan atau yang tidak bisa memamerkan karyanya secara luas bisa lebih dikenal dan memiliki
+							kesempatan untuk mendapatkan keuntungan dari website dan layanan yang kami berikan.	
 						</p>
-
-						<span class="s-text7">
-							- Steve Job’s
-						</span>
 					</div>
 				</div>
 			</div>
