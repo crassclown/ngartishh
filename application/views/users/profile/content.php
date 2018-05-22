@@ -55,7 +55,7 @@
 	<div class="container container-profil">
 
 		<a href="<?=base_url('c_profile/m_users/'.$this->uri->segment(3));?>" class="button-tab">Galeri Saya</a>
-		<a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Upvote</a>
+		<a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Liked</a>
 		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
@@ -64,10 +64,10 @@
 					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
 						<div class="space">
 							<div class="portfolio-item">
-								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
-								title="New Post" data-target="#myModal">
+								<a href="<?=base_url('C_dashboard/postcontent')?>" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false"
+								title="New Post">
 									<i class="material-icons " style="font-size:40px;">file_upload</i>
-								</button>
+								</a>
 							</div>
 						</div>
 					</article>

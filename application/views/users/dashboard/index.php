@@ -18,7 +18,7 @@
         </a>
         <!-- Button Scroll Up -->
  
-        <button type="button" class="btn btn-info btn-lg modal-new-post-dashboard" data-toggle="modal" title="New Post" data-target="#myModal"><i class="material-icons" style="font-size:40px;">file_upload</i></button>
+        <a href="<?=base_url('C_dashboard/postcontent')?>" class="btn btn-info btn-lg modal-new-post-dashboard" title="New Post"><i class="material-icons" style="font-size:40px;">file_upload</i></a>
         <!-- <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button> -->
         <?php $this->load->view('users/dashboard/upload_content'); ?>
 
@@ -65,10 +65,10 @@
                                                     '<a class="a2a_dd" href="https://www.addtoany.com/share"><i class="fa fa-share-alt"></i></a>'+
                                                 '</div>'+
                                             '</div>'+
-                                        '</div>'+
-                                    '</div>'+  
-                                '</div>'+                                
-                           '</article>';
+                                        '</div>'+  
+                                    '</div>'+
+                                '</div>'+
+                            '</article>';
                         }
                         $('#show_data').html(html);
                     }  

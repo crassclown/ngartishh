@@ -55,10 +55,10 @@
 	<div class="container container-profil">
 
 		<a href="<?=base_url('c_profile/m_users/'.$this->uri->segment(3));?>" class="button-tab">Galeri Saya</a>
-        <a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Upvote</a>
+        <a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Liked</a>
         <a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
-		<div class="col-md-12 border-content-profil">
-			<div class="portfolio-items isotopeWrapper clearfix ">
+		<div class="col-md-12 border-content-profil" style="min-height:300px;">
+			<div class="portfolio-items isotopeWrapper clearfix">
 				<div class="row">
 
 					<div id="show_dataprofile"></div>

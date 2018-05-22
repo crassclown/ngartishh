@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="col-md-4 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="<?php echo base_url('assets/images/icons/Ngartish.png')?>" alt="IMG-ABOUT" class="img-about">
+						<img src="<?php echo base_url('assets/images/icons/Ngartish.png')?>" alt="IMG-ABOUT" class="img-about img-responsive">
 					</div>
 				</div>
 
@@ -13,6 +13,7 @@
 					</h3>
 
 					<p class="p-b-28">
+<<<<<<< HEAD
 							Ngartish adalah website untuk para seniman yang ingin mempublikasikan hasil karyanya dan berbagi melalui galeri online.
 							Kerya yang diposting dapat juga di jual melalui layanan lelang yang kami sediakan.
 					</p>
@@ -23,6 +24,18 @@
 							kesempatan untuk mendapatkan keuntungan dari website dan layanan yang kami berikan.	
 						</p>
 					</div>
+=======
+                            Ngartish adalah website untuk para seniman yang ingin mempublikasikan hasil karyanya dan berbagi melalui galeri online.
+                            Kerya yang diposting dapat juga di jual melalui layanan lelang yang kami sediakan.
+                    </p>
+
+                    <div class="bo13 p-l-29 m-l-9 p-b-10">
+                        <p class="p-b-11">
+                            Melalui ngartish kami berharap para seniman jalanan atau yang tidak bisa memamerkan karyanya secara luas bisa lebih dikenal dan memiliki
+                            kesempatan untuk mendapatkan keuntungan dari website dan layanan yang kami berikan. 
+                        </p>
+                    </div>
+>>>>>>> pandhu
 				</div>
 			</div>
 		</div>
@@ -42,25 +55,11 @@
 					<p>Ngartish - galeri online pertama</p>
 					<div>
 						<p>(+62) 8781924155 </p>
-						<p>admin_ngartish@gmail.com</p>
-					</div>
-					<div>
-						<p>hehe</p>
+						<p>adm.ngartish@gmail.com</p>
 					</div>
 					<div>
 						<p>Jam kerja : 08:00 s/d 21:00</p>
 						<p>Libur: Minggu dan hari libur nasional</p>
-					</div>
-				</div>
-
-				<!-- Follow Us -->
-
-				<div class="follow_us_contents">
-					<h1>Follow Us</h1>
-					<div class="social">
-					<a href="https://facebook.com/ondrej.p.barta" class="link facebook" target="_parent"><span><i class="fa fa-facebook" aria-hidden="true"></i></span></a>
-					<a href="https://twitter.com/PageOnlineXS" class="link twitter" target="_parent"><span><i class="fa fa-twitter" aria-hidden="true"></i></span></a>
-					<a href="https://plus.google.com/+OndřejBárta-Otaku" class="link google-plus" target="_parent"><span><i class="fa fa-google-plus-square" aria-hidden="true"></i></span></a>
 					</div>
 				</div>
 			</div>
@@ -69,15 +68,35 @@
 				<div class="get_in_touch_contents">
 					<h1>Hubungi Kami</h1>
 					<p>Lengkapi data form dan dapatkan info terbaru atau beri kami kritik atau saran.</p>
-					<form action="post">
+					<form action="<?=base_url('c_dashboard/send_email_from_users');?>" method="POST">
+					<?php
+					if($this->session->flashdata('success')){
+						?>
+						<script>
+							swal({
+							title: "Terima kasih",
+							text: "<?php echo $this->session->flashdata('success'); ?>",
+							timer: 3000,
+							showConfirmButton: false,
+							type: 'success'
+							});
+						</script>
+						<?php
+					}
+					?>
+						<?php
+							foreach($panggisession as $session){
+								$fullname 	= $session->fullname;
+								$email		= $session->email; 	
+							}
+						?>
 						<div>
-							<input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required.">
-							<input id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required.">
-							<input id="input_website" class="form_input input_website input_ph" type="url" name="name" placeholder="Website" required="required" data-error="Name is required.">
+							<input id="input_name" class="form_input input_name input_ph" type="text" name="name" placeholder="Name" required="required" data-error="Name is required." value="<?php echo $fullname;?>" readonly>
+							<input id="input_email" class="form_input input_email input_ph" type="email" name="email" placeholder="Email" required="required" data-error="Valid email is required." value="<?php echo $email;?>" readonly>
 							<textarea id="input_message" class="input_ph input_message" name="message"  placeholder="Message" rows="3" required data-error="Please, write us a message."></textarea>
 						</div>
 						<div>
-							<button id="review_submit" type="submit" class="red_button message_submit_btn trans_300" value="Submit">Kirim !</button>
+							<button id="review_submit" name="critic" type="submit" class="red_button message_submit_btn trans_300" value="Kirim">Kirim</button>
 						</div>
 					</form>
 				</div>

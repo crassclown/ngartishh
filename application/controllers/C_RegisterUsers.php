@@ -65,8 +65,8 @@ class C_registerusers extends CI_Controller {
 		$this->email->subject("Aktivasi Akun");
 
 		$this->email->message(
-			"untuk mengaktifkan akun anda, silahkan klik tautan dibawah ini<br><br>".
-			base_url("c_registerusers/m_activation/$encrypted_email")
+			"<h3>Hai, ".ucwords(trim($this->input->post('txtfullname')))."</h3><br /><br /><p>Selangkah lagi untuk bergabung dengan Kami, untuk mengaktifkan akun anda, silahkan klik tautan dibawah ini</p><br><br>".
+			"<a href='".base_url("C_RegisterUsers/m_activation/$encrypted_email")."'>".base_url("C_RegisterUsers/m_activation/$encrypted_email")."</a>"
 		);
 
 		if($this->email->send())

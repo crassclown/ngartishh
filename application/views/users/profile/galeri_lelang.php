@@ -55,7 +55,7 @@
 	<div class="container container-profil">
 
 		<a href="<?=base_url('c_profile/m_users/'.$this->uri->segment(3));?>" class="button-tab">Galeri Saya</a>
-		<a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Upvote</a>
+		<a href="<?=base_url('c_profile/m_upvote/'.$this->uri->segment(3));?>" class="button-tab">Liked</a>
 		<a href="<?=base_url('c_profile/m_galeri_lelang/'.$this->uri->segment(3));?>" class="button-tab">Galeri Lelang</a>
 		<div class="col-md-12 border-content-profil">
 			<div class="portfolio-items isotopeWrapper clearfix ">
@@ -64,6 +64,7 @@
 					<article class="col-md-4 col-lg-3 isotopeItem webdesign">
 						<div class="space">
 							<div class="portfolio-item">
+								
 								<button type="button" class="btn btn-info btn-lg modal-right " data-backdrop="static" data-keyboard="false" data-toggle="modal"
 								title="New Post" data-target="#modal-upload-content-lelang">
 									<i class="material-icons " style="font-size:40px;">file_upload</i>
@@ -72,8 +73,9 @@
 						</div>
 					</article>
 					<?php } ?>
-					<div id="show_datalelang"></div>
-
+					<div id="show_datalelang">
+					
+					</div>
 				</div>
 			</div>
 		</div>
@@ -139,18 +141,18 @@
                     var html = '';
                     var i;
                     for(i=0; i<data.length; i++){
-                        html +=                         
-                        '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
+						if(data[i].durasi < 1){
+                        html +=     
+						'<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
                             '<div class="space">'+
                                 '<div class="portfolio-item">'+
-                                '<a href=<?=base_url('c_dashboard/m_detailContent/');?>'+data[i].idcontent+'/'+data[i].ownerid+'>'+
                                     '<img onmousedown="return false" oncontexmenu="return false" onselectstart="return false" class="img-content img-responsive" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" />'+                              
                                     '</a>'+
                                     '<div class="portfolio-desc align-center">'+
                                         '<div class="folio-info">'+
                                             '<div class="row">'+
 												'<span>'+
-												'sisa '+data[i].durasi+' hari '+
+												'<div class="label label-danger">The Auction has been finished</div>'+
 												'</span>'+          
 		                                    '</div>'+
                                         '</div>'+
@@ -159,6 +161,27 @@
                                 
                             '</div>'+
                         '</article>';
+						}else{
+                        html +=                         
+                        '<article class="col-md-4 col-lg-3 isotopeItem webdesign">'+
+                            '<div class="space">'+
+                                '<div class="portfolio-item">'+
+                                '<a data-toggle="tooltip" title="Oops, The content cannot clicked" href="javascript: void(0)">'+
+                                        '<img class="img-responsive" onmousedown="return false" oncontexmenu="return false" onselectstart="return false" src=<?php echo base_url("assets/images/content/'+data[i].photos+'")?> alt="'+data[i].photos+'" alt="gambar" />'+                              
+                                        '</a>'+
+                                        '<div class="portfolio-desc align-center">'+
+                                            '<div class="folio-info">'+
+                                                '<div class="row info-sisa-hari-lelang">'+
+                                                    '<span>'+
+                                                        data[i].durasi+' day left'+                                       
+                                                    '</span>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+  
+                                    '</div>'+
+                                '</div>'+
+                            '</article>';
+                        }
                     }
                     $('#show_datalelang').html(html);
                 }

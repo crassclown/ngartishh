@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
   	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/baguetteBox.min.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>"/>
@@ -33,16 +33,22 @@
 		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/icons.css')?>" type="text/css"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>"/>
 
+    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
+    
+      <!--==================================== End Back end pandhu ===========================================-->
+
+    <!--===============================================================================================-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <!--===============================================================================================-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <!--===============================================================================================-->
+
     <!--===================================== Back end Pandhu ===================================================-->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/select2.min.css')?>"/>
- 
+    
     <!--===============================================================================================-->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sweetalert.min.css')?>"/>
     <!--===============================================================================================-->
-
-    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
-      <!--==================================== End Back end pandhu ===========================================-->
-
 <!-- <script>
   document.onreadystatechange = function () {
       if (document.readyState === "complete") {
@@ -115,35 +121,54 @@
                 </div>
                 <div class="col-md-2 col-xs-2">
                   <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i><div class="count text-center">4</div></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Notification" href="#"><i class="fas fa-bell nav-icon"></i></a>
                     <ul class="dropdown-menu notifikasi">
                       <div class="border-45">
                       </div>
                       <li class="option"><div class="text-center">Notifikasi</div></li>
                       <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
+                        <li class="text-center">Likes Content</li>
                       </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
-                      <a class="" href="#">
-                        <li class="option">
-                            <span><b>Hilmi</b></span></br>
-                            <div>isiiiiiiiiiiiiii</div>
-                        </li>
-                      </a>
+                      <hr />
+                      <?php
+                        if(is_array($notifikasilikes) || is_object($notifikasilikes)){
+                          foreach($notifikasilikes as $notiflikes){
+                            if(substr($notiflikes->likeId, 0, 1) == 'L'){
+                              ?>
+                                <a class="" href="<?=base_url('c_dashboard/m_detailContent/'.$notiflikes->contentId.'/'.$notiflikes->yglike);?>">
+                                  <li class="option">
+                                      <span><b><?=$notiflikes->fullname;?></b></span></br>
+                                      <div><?=$notiflikes->title;?></div>
+                                      <small>Menyukai karya Anda</small>
+                                  </li>
+                                </a>
+                              <?php
+                            }
+                          }  
+                        }
+                        ?>
+                        <a class="" href="#">
+                          <li class="text-center"> Follow User</li>
+                        </a>
+                        <hr />
+                        <?php
+                        if(is_array($notifikasifollower) || is_object($notifikasifollower)){
+                          foreach($notifikasifollower as $notiffollower){
+                            
+                            if(substr($notiffollower->followId, 0, 1) == 'F'){
+                              ?>
+                                <a class="" href="<?=base_url('c_profile/m_users/'.$notiffollower->ygfollow);?>">
+                                  <li class="option">
+                                      <span><b><?=$notiffollower->fullname;?></b></span></br>
+                                      <!-- <div><?=$notiffollower->title;?></div> -->
+                                      <small>Telah mengikuti Anda</small>
+                                  </li>
+                                </a>
+                              <?php
+                            }
+                          }  
+                        }
+                      ?>                      
                       <a class="" href="#">
                         <li class="text-center"> Read More</li>
                       </a>

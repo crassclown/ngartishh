@@ -133,6 +133,8 @@
 										onOpen: () => {
 											swal.showLoading()
 										}
+									},function() {
+											window.location = "<?=base_url('C_loginusers/m_lupapassword')?>";
 									})
 								}
 							});

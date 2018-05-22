@@ -16,7 +16,9 @@ class C_profile extends CI_Controller {
 	public function index()
 	{
 		$data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
-        $data['categories'] = $this->m_users->m_categories();
+		$data['categories'] = $this->m_users->m_categories();
+		$data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/profile/content', $data);
 		$this->load->view('users/layout/footer');
@@ -32,7 +34,11 @@ class C_profile extends CI_Controller {
 		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
 		$data['categories'] = $this->m_users->m_categories();
 
+
 		$ids = $this->session->userdata('Id');
+		$data['onlelang'] = count($this->m_users->get_onlelang($ids));
+		$data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$data['foto'] = $this->m_users->get_users($ids);
 		
 		$this->load->view('users/layout/header', $data);
@@ -86,6 +92,9 @@ class C_profile extends CI_Controller {
 
 		$ids = $this->session->userdata('Id');
 		$data['foto'] = $this->m_users->get_users($ids);
+
+		$data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/profile/upvote', $data);
@@ -103,6 +112,9 @@ class C_profile extends CI_Controller {
 
 		$ids = $this->session->userdata('Id');
 		$data['foto'] = $this->m_users->get_users($ids);
+
+		$data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/profile/content', $data);
@@ -200,11 +212,20 @@ class C_profile extends CI_Controller {
 		$varUserid = $this->input->post('userid');
 		$varFollowedid = $this->input->post('followedid');
 
+		// while($notif_id=1){
+		// 	$data = array(
+		// 		'notif_id'=>'F'.$notif_id++,
+		// 		'notifier_id'=>$varUserid,
+		// 		'notified_id'=>$varFollowedid,
+		// 		'status'=>'0'
+		// 	);
+		// }
+
 		$result = $this->m_users->cekFollowing($varUserid, $varFollowedid);
 		if(!isset($result))
 		{
 			$this->m_users->userFollow($varUserid, $varFollowedid);
-			
+			// $this->m_users->notifFollow($data);
 		}else {
 			$this->m_users->userUnfollow($varUserid, $varFollowedid);	
 		}

@@ -36,12 +36,30 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	//Get flag lelang
+	public function get_onlelang($id)
+	{
+		$now = date('Y-m-d');
+		$result = $this->db->where('owner_id', $id);
+		$result = $this->db->where('end_date <', $now);
+		$result = $this->db->get('lelang')->result();
+
+		return $result;
+	}
+
 	//User Content on Profile Page
 	public function get_usercontent($id)
 	{
-		$result = $this->db->where('user_id', $id)->get('content')->result();
+		$result = $this->db->where('user_id', $id);
+		$result = $this->db->order_by('created_at', 'DESC');
+		$result = $this->db->get('content')->result();
 		return $result;
 	}
+
+	// public function notifFollow($data)
+	// {
+	// 	$this->db->insert('notifications', $data);
+	// }
 
 	//check registered email
 	public function m_getregistered($varEmail)
@@ -114,7 +132,7 @@ class M_users extends CI_Model
 
 	public function get_userlelang($id)
 	{
-		$result = $this->db->select('lelang.content_id as idcontent, lelang.owner_id as ownerid , content.photos as photos, (end_date - date(now())) as durasi');
+		$result = $this->db->select('lelang.Id as idlela, users.fullname as fullname, lelang.content_id as idcontent, lelang.owner_id as ownerid , content.photos as photos, (end_date - date(now())) as durasi');
 		$result = $this->db->from('lelang');
 		$result = $this->db->join('content', 'content.Id = lelang.content_id');
 		$result = $this->db->join('users', 'users.Id = lelang.owner_id');
@@ -304,6 +322,7 @@ class M_users extends CI_Model
 			'user_id' => $userid,
 			'content_id' => $contentid
 		);
+
 		$this->db->insert('likes', $data);
 	}
 
@@ -386,7 +405,7 @@ class M_users extends CI_Model
 
 	public function m_send_email(){
 		//Select content records
-		$q = $this->db->query("SELECT winner_id, lelang.Id as idlelang, winner_price, email_status, email, fullname, users.Id as iduser, lelang.owner_id as pemilikkaryaid, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id AND (end_date - date(now())) = 0 AND email_status = '0'");
+		$q = $this->db->query("SELECT winner_id, lelang.Id as idlelang, winner_price, email_status, email, fullname, phone, users.Id as iduser, lelang.owner_id as pemilikkaryaid, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id AND (end_date - date(now())) = 0 AND email_status = '0'");
        
         if($q->num_rows() > 0)
         {
@@ -417,4 +436,60 @@ class M_users extends CI_Model
             return $data;
         }
 	}
+
+	public function m_notifikasilikes($ids){
+		$result = $this->db->query("select notifications.notified_id as yglike, content.Id as contentId, fullname, title, users.Id as usersId, concat('L',likes.Id) as likeId FROM notifications, likes, users, content WHERE notifications.notif_id = likes.Id AND notifications.notifier_id = users.Id AND content.Id = likes.content_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC");
+		
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
+
+	public function m_notifikasifollower($ids){
+		$result = $this->db->query("select notifications.notifier_id as ygfollow, fullname, users.Id as usersId, concat('F',following.Id) as followId FROM notifications, following, users WHERE notifications.notif_id = following.Id AND notifications.notifier_id = users.Id AND notifications.notified_id = following.followed_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC");
+		
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
+
+	public function m_selectlikes($ids){
+		$result = $this->db->query("SELECT *, content.user_id as usercontent FROM users, likes, content WHERE users.Id = content.user_id AND likes.content_id = content.Id AND likes.user_id = users.Id AND content.Id = '$ids'");
+		
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
+
+	// public function m_notifikasicomments($ids){
+	// 	$result = $this->db->query("select fullname, users.Id as usersId, concat('F',following.Id) as followId FROM notifications, following, users WHERE notifications.notif_id = following.Id AND notifications.notifier_id = users.Id AND notifications.notified_id = following.followed_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC LIMIT 1");
+		
+	// 	if($result->num_rows() > 0)
+    //     {
+    //         foreach ($result->result() as $row)
+    //         {
+    //         	$data[] = $row;
+	// 		}
+			
+    //         return $data;
+    //     }
+	// }
 }
