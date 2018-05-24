@@ -47,6 +47,17 @@ class M_users extends CI_Model
 		return $result;
 	}
 
+	public function get_topfive()
+	{
+		$result = $this->db->select('Id, title, photos, total_like, user_id');
+		$result = $this->db->from('content');
+		$result = $this->db->order_by('total_like','DESC');
+		$result = $this->db->limit(5);
+		$result = $this->db->get();
+
+		return $result->result();
+	}
+
 	//User Content on Profile Page
 	public function get_usercontent($id)
 	{

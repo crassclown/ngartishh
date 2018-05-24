@@ -21,7 +21,8 @@ class C_dashboard extends CI_Controller {
 		$ids                        = $this->session->userdata('Id');
         $data['foto']               = $this->m_users->get_users($ids);
         $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
-        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
+		$data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
+		$data['topfive'] 			= $this->m_users->get_topfive();
         // $data['notifikasicomments'] = $this->m_users->m_notifikasicomments($ids);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/index', $data);

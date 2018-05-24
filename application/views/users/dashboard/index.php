@@ -11,21 +11,13 @@
                                     <img style="margin-top:-19px;position:relative;top:50%;width:38px;height:38px;" src="img/spin.svg" />
                                 </div>
                                 <div data-u="slides" style="cursor:default;position:relative;top:0px;left:0px;width:980px;height:250px;overflow:hidden;">
+								<?php foreach($topfive as $tv){ ?>
+									<a href="<?php echo base_url('c_dashboard/m_detailContent/'.$tv->Id.''.'/'.''.$tv->user_id.'')?>">
                                     <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
+                                        <img data-u="image" src="<?php echo base_url('assets/images/content/'.$tv->photos.'')?>" />
                                     </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
+									</a>
+								<?php } ?>
                                 </div>
                                 <!-- Bullet Navigator -->
                                 <div data-u="navigator" class="jssorb057" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
