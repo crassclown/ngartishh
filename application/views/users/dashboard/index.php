@@ -26,30 +26,6 @@
                                     <div data-p="43.75">
                                         <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
                                     </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
-                                    <div data-p="43.75">
-                                        <img data-u="image" src="<?php echo base_url('assets/images/toa-heftiba-526250-unsplash.jpg')?>" />
-                                    </div>
                                 </div>
                                 <!-- Bullet Navigator -->
                                 <div data-u="navigator" class="jssorb057" style="position:absolute;bottom:12px;right:12px;" data-autocenter="1" data-scale="0.5" data-scale-bottom="0.75">
