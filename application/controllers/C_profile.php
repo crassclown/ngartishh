@@ -33,10 +33,10 @@ class C_profile extends CI_Controller {
 		$data['totalfollowing'] = count($this->m_users->get_userfollowing($id));
 		$data['totalfollower'] = count($this->m_users->get_userfollower($id));
 		$data['categories'] = $this->m_users->m_categories();
+		$data['onlelang'] = $this->m_users->get_onlelang($id);
 
 
 		$ids = $this->session->userdata('Id');
-		$data['onlelang'] = count($this->m_users->get_onlelang($ids));
 		$data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
         $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$data['foto'] = $this->m_users->get_users($ids);

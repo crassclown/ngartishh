@@ -55,7 +55,7 @@
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-default" id="btnpost" data-dismiss="modal"> Close</button>
-                        </form>
+                        
                     	</div>
 					</div>
 				</div>
