@@ -13,18 +13,6 @@
 					</h3>
 
 					<p class="p-b-28">
-<<<<<<< HEAD
-							Ngartish adalah website untuk para seniman yang ingin mempublikasikan hasil karyanya dan berbagi melalui galeri online.
-							Kerya yang diposting dapat juga di jual melalui layanan lelang yang kami sediakan.
-					</p>
-
-					<div class="bo13 p-l-29 m-l-9 p-b-10">
-						<p class="p-b-11">
-							Melalui ngartish kami berharap para seniman jalanan atau yang tidak bisa memamerkan karyanya secara luas bisa lebih dikenal dan memiliki
-							kesempatan untuk mendapatkan keuntungan dari website dan layanan yang kami berikan.	
-						</p>
-					</div>
-=======
                             Ngartish adalah website untuk para seniman yang ingin mempublikasikan hasil karyanya dan berbagi melalui galeri online.
                             Kerya yang diposting dapat juga di jual melalui layanan lelang yang kami sediakan.
                     </p>
@@ -35,7 +23,6 @@
                             kesempatan untuk mendapatkan keuntungan dari website dan layanan yang kami berikan. 
                         </p>
                     </div>
->>>>>>> pandhu
 				</div>
 			</div>
 		</div>

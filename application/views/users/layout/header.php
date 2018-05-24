@@ -34,6 +34,10 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>"/>
 
     <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
+
+    <script src="<?php echo base_url('assets/js/jssor.slider-27.1.0.min.js')?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/js/jsor.js')?>" type="text/javascript"></script>
+
     
       <!--==================================== End Back end pandhu ===========================================-->
 
@@ -73,9 +77,7 @@
             <div class="col-xs-6 col-md-3 respon-sm-nav">
               <a href="<?=base_url('c_dashboard/index')?>"><img class="navbar-brand" src="<?php echo base_url('assets/images/icons/Ngartish.png') ?>"></img></a>
             </div>
-            <div class="col-xs-3 col-md-3 respon-sm-nav">
-            <button data-toggle="collapse" data-target="#collapse" class="colap">Collapsible</button>
-	
+            <div class="col-xs-3 col-md-3 respon-sm-nav">	
               <div class="widget">
                 <div class="form-search">
                 <form action="<?=base_url('c_dashboard/m_searcboxtype/');?>" method="POST">
