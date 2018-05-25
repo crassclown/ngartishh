@@ -23,7 +23,7 @@ class C_registerusers extends CI_Controller {
             'password'  => md5(trim($this->input->post('txtpassword'))),
             'phone'     => $this->input->post('txtphone'),
 			'created_at'=> date('Y-m-d H:i:s'),
-			'status' 	=> '0'
+			'status' 	=> '1'
 		);
 		
 		$encrypted_email = md5($email);
@@ -43,39 +43,39 @@ class C_registerusers extends CI_Controller {
             }
 		}
 		
-		$config = array();
-		$config['charset'] = 'utf-8';
-		$config['useragent'] = 'Codeigniter';
-		$config['protocol']= "smtp";
-		$config['mailtype']= "html";
-		$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
-		$config['smtp_port']= "465";
-		$config['smtp_timeout']= "400";
-		$config['smtp_user']= "adm.ngartish@gmail.com"; // isi dengan email kamu
-		$config['smtp_pass']= "ngartish3220"; // isi dengan password kamu
-		$config['crlf']="\r\n"; 
-		$config['newline']="\r\n"; 
-		$config['wordwrap'] = TRUE;
-		//memanggil library email dan set konfigurasi untuk pengiriman email
+		// $config = array();
+		// $config['charset'] = 'utf-8';
+		// $config['useragent'] = 'Codeigniter';
+		// $config['protocol']= "smtp";
+		// $config['mailtype']= "html";
+		// $config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+		// $config['smtp_port']= "465";
+		// $config['smtp_timeout']= "400";
+		// $config['smtp_user']= "adm.ngartish@gmail.com"; // isi dengan email kamu
+		// $config['smtp_pass']= "ngartish3220"; // isi dengan password kamu
+		// $config['crlf']="\r\n"; 
+		// $config['newline']="\r\n"; 
+		// $config['wordwrap'] = TRUE;
+		// //memanggil library email dan set konfigurasi untuk pengiriman email
 		
-		$this->email->initialize($config);
-		//konfigurasi pengiriman
-		$this->email->from($config['smtp_user']);
-		$this->email->to($email);
-		$this->email->subject("Aktivasi Akun");
+		// $this->email->initialize($config);
+		// //konfigurasi pengiriman
+		// $this->email->from($config['smtp_user']);
+		// $this->email->to($email);
+		// $this->email->subject("Aktivasi Akun");
 
-		$this->email->message(
-			"<h3>Hai, ".ucwords(trim($this->input->post('txtfullname')))."</h3><br /><br /><p>Selangkah lagi untuk bergabung dengan Kami, untuk mengaktifkan akun anda, silahkan klik tautan dibawah ini</p><br><br>".
-			"<a href='".base_url("C_RegisterUsers/m_activation/$encrypted_email")."'>".base_url("C_RegisterUsers/m_activation/$encrypted_email")."</a>"
-		);
+		// $this->email->message(
+		// 	"<h3>Hai, ".ucwords(trim($this->input->post('txtfullname')))."</h3><br /><br /><p>Selangkah lagi untuk bergabung dengan Kami, untuk mengaktifkan akun anda, silahkan klik tautan dibawah ini</p><br><br>".
+		// 	"<a href='".base_url("C_RegisterUsers/m_activation/$encrypted_email")."'>".base_url("C_RegisterUsers/m_activation/$encrypted_email")."</a>"
+		// );
 
-		if($this->email->send())
-		{	
-			$this->session->set_flashdata('success','Silahkan periksa email anda untuk aktivasi akun');
-		}else
-		{
-			echo "Email tidak terkirim";
-		}
+		// if($this->email->send())
+		// {	
+		// 	$this->session->set_flashdata('success','Silahkan periksa email anda untuk aktivasi akun');
+		// }else
+		// {
+		// 	echo "Email tidak terkirim";
+		// }
         
 	}
 
