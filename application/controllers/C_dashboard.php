@@ -21,7 +21,8 @@ class C_dashboard extends CI_Controller {
 		$ids                        = $this->session->userdata('Id');
         $data['foto']               = $this->m_users->get_users($ids);
         $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
-        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
+		$data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
+		$data['topfive'] 			= $this->m_users->get_topfive();
         // $data['notifikasicomments'] = $this->m_users->m_notifikasicomments($ids);
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/index', $data);
@@ -30,9 +31,7 @@ class C_dashboard extends CI_Controller {
     
     //Search Box by User and Content
     public function m_searchbox() {
-
         $search_data    = $_POST['search_data'];
-
         $query          = $this->m_dashboard->m_searchbar($search_data);
         $datausers      = $this->m_dashboard->m_searchbarusers($search_data);
         
@@ -59,20 +58,26 @@ class C_dashboard extends CI_Controller {
         $datas['pencarianuser'] = $this->m_dashboard->m_searchbarusers($key);
         $datauser = $datas['pencarianuser'];
         if(is_array($datacontent) || is_object($datacontent)){
-			$ids = $this->session->userdata('Id');
+            $ids = $this->session->userdata('Id');
+            $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+            $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 			$data['foto'] = $this->m_users->get_users($ids);
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $data);
             $this->load->view('users/layout/footer');
         }else if(is_array($datauser) || is_object($datauser)){
-			$ids = $this->session->userdata('Id');
+            $ids = $this->session->userdata('Id');
+            $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+            $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 			$data['foto'] = $this->m_users->get_users($ids);
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $datas);
             $this->load->view('users/layout/footer');
         }else{
 			$this->session->set_flashdata('no_data','The word you are looking for is not found');
-			$ids = $this->session->userdata('Id');
+            $ids = $this->session->userdata('Id');
+            $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+            $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 			$data['foto'] = $this->m_users->get_users($ids);
             $this->load->view('users/layout/header', $data);
             $this->load->view('users/layout/result_search', $datas);
@@ -111,14 +116,17 @@ class C_dashboard extends CI_Controller {
             'Id' => $content_id,
             'user_id' => $user_id
 		);
-		$id = $this->session->userdata('Id');
+        $id = $this->session->userdata('Id');
+
 		$data['profile'] = $this->m_users->get_users($id);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['varambilusers'] = $this->m_dashboard->m_detailcontent($where,'content')->result();
 		$data['varambilnama'] = $this->m_dashboard->m_nameOnContent($content_id,$user_id);
 		
 		$ids = $this->session->userdata('Id');
-		$data['foto'] = $this->m_users->get_users($ids);
+        $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
+        $data['foto'] = $this->m_users->get_users($ids);
 
 		$this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/detail_content', $data);
@@ -311,7 +319,9 @@ class C_dashboard extends CI_Controller {
     public function m_searchcategory($id){
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['pencariankategori'] = $this->m_dashboard->m_searchCategory($id);
-		$ids = $this->session->userdata('Id');
+        $ids = $this->session->userdata('Id');
+        $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$data['foto'] = $this->m_users->get_users($ids);
 		$datak = $data['pencariankategori'];
         if(is_array($datak) || is_object($datak)){
@@ -328,7 +338,9 @@ class C_dashboard extends CI_Controller {
 
     // Lempar seluruh kategori ke halaman kategori
     public function m_searchallcategory(){
-		$ids = $this->session->userdata('Id');
+        $ids = $this->session->userdata('Id');
+        $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$data['foto'] = $this->m_users->get_users($ids);
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
         $data['categories'] = $this->m_users->m_categories();
@@ -340,7 +352,10 @@ class C_dashboard extends CI_Controller {
     public function aboutus(){
         $data['categoriesmenu'] = $this->m_users->m_categoriesmenu();
 		$data['categories'] = $this->m_users->m_categories();
-		$ids = $this->session->userdata('Id');
+        $ids = $this->session->userdata('Id');
+        $data['panggisession']      = $this->m_users->get_users($ids);
+        $data['notifikasilikes']    = $this->m_users->m_notifikasilikes($ids);
+        $data['notifikasifollower'] = $this->m_users->m_notifikasifollower($ids);
 		$data['foto'] = $this->m_users->get_users($ids);
         $this->load->view('users/layout/header', $data);
 		$this->load->view('users/layout/aboutus');
@@ -355,5 +370,50 @@ class C_dashboard extends CI_Controller {
         $this->load->view('users/layout/header', $data);
 		$this->load->view('users/dashboard/post-content');
 		$this->load->view('users/layout/footer');
+    }
+
+    public function send_email_from_users(){
+        $email  = strtolower(trim($this->input->post('email')));
+        $pesan  = $this->input->post('message');
+        $to_email = 'adm.ngartish@gmail.com';
+        
+        $config = array();
+		$config['charset'] = 'utf-8';
+		$config['useragent'] = 'Codeigniter';
+		$config['protocol']= "smtp";
+		$config['mailtype']= "html";
+		$config['smtp_host']= "ssl://smtp.gmail.com";//pengaturan smtp
+		$config['smtp_port']= "465";
+		$config['smtp_timeout']= "400";
+		$config['smtp_user']= "adm.ngartish@gmail.com"; // isi dengan email kamu
+		$config['smtp_pass']= "ngartish3220"; // isi dengan password kamu
+		$config['crlf']="\r\n"; 
+		$config['newline']="\r\n"; 
+		$config['wordwrap'] = TRUE;
+        //memanggil library email dan set konfigurasi untuk pengiriman email
+        
+        $this->email->initialize($config);
+
+        //send mail
+        $this->email->from($email);
+        $this->email->to($to_email);
+        $this->email->subject("Kritik, Saran, dan Informasi tambahan lainnya");
+        $this->email->message($pesan);
+
+        if($this->email->send()){
+            echo "<script type='text/javascript'>
+            history.back();
+            </script>";
+            $this->session->set_flashdata('success','Kontribusi dari saran Anda akan kami proses');
+        }else{
+            echo "Maaf, coba kembali nanti";
+            echo "<button onclick='goBack()'>Kembali</button>
+
+            <script>
+            function goBack() {
+                window.history.back();
+            }
+            </script>";
+        }
     }
 }

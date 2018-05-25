@@ -45,6 +45,17 @@ class M_users extends CI_Model
 		return $result->result();
 	}
 
+	public function get_topfive()
+	{
+		$result = $this->db->select('Id, title, photos, total_like, user_id');
+		$result = $this->db->from('content');
+		$result = $this->db->order_by('total_like','DESC');
+		$result = $this->db->limit(5);
+		$result = $this->db->get();
+
+		return $result->result();
+	}
+
 	//User Content on Profile Page
 	public function get_usercontent($id)
 	{
@@ -403,7 +414,7 @@ class M_users extends CI_Model
 
 	public function m_send_email(){
 		//Select content records
-		$q = $this->db->query("SELECT winner_id, lelang.Id as idlelang, winner_price, email_status, email, fullname, users.Id as iduser, lelang.owner_id as pemilikkaryaid, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id AND (end_date - date(now())) = 0 AND email_status = '0'");
+		$q = $this->db->query("SELECT winner_id, lelang.Id as idlelang, winner_price, email_status, email, fullname, phone, users.Id as iduser, lelang.owner_id as pemilikkaryaid, (end_date - date(now())) as durasi FROM users, lelang WHERE users.Id = lelang.owner_id AND (end_date - date(now())) = 0 AND email_status = '0'");
        
         if($q->num_rows() > 0)
         {
@@ -451,6 +462,20 @@ class M_users extends CI_Model
 
 	public function m_notifikasifollower($ids){
 		$result = $this->db->query("select notifications.notifier_id as ygfollow, fullname, users.Id as usersId, concat('F',following.Id) as followId FROM notifications, following, users WHERE notifications.notif_id = following.Id AND notifications.notifier_id = users.Id AND notifications.notified_id = following.followed_id AND notifications.notified_id = '$ids' AND notifications.status = '0' ORDER BY notifications.Id DESC");
+		
+		if($result->num_rows() > 0)
+        {
+            foreach ($result->result() as $row)
+            {
+            	$data[] = $row;
+			}
+			
+            return $data;
+        }
+	}
+
+	public function m_selectlikes($ids){
+		$result = $this->db->query("SELECT *, content.user_id as usercontent FROM users, likes, content WHERE users.Id = content.user_id AND likes.content_id = content.Id AND likes.user_id = users.Id AND content.Id = '$ids'");
 		
 		if($result->num_rows() > 0)
         {

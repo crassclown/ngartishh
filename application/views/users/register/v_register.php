@@ -99,7 +99,7 @@
               </div>
 
               <div class="wrap-input100 validate-input" data-validate = "Phone is requires">
-                <input class="input100" type="text" name="txtphone" maxlength="13" id="txtphone" placeholder="Phone Number">
+                <input class="input100" type="text" name="txtphone" maxlength="13" id="txtphone" placeholder="Phone Number" onkeypress='validate(event)'>
                 <span class="focus-input100"></span>
               </div>
 
@@ -245,6 +245,19 @@
             }
         });
     });
+  </script>
+
+  <script>
+    function validate(evt) {
+      var theEvent = evt || window.event;
+      var key = theEvent.keyCode || theEvent.which;
+      key = String.fromCharCode( key );
+      var regex = /[0-9]|\./;
+      if( !regex.test(key) ) {
+        theEvent.returnValue = false;
+        if(theEvent.preventDefault) theEvent.preventDefault();
+      }
+    }
   </script>
 </body>
 </html>

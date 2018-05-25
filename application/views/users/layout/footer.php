@@ -22,6 +22,7 @@
   <script src="<?php echo base_url('assets/js/custom.js')?>"></script>
   <script src="<?php echo base_url('assets/js/font-awesome.js')?>"></script>
 
+  <script type="text/javascript">jssor_1_slider_init();</script>
   
   <script type="text/javascript">
     new WOW().init();

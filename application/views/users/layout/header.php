@@ -19,7 +19,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     
   	<link rel="icon" type="image/png" href="<?php echo base_url('assets/images/icons/Kuas.png')?>"/>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/baguetteBox.min.css')?>" />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css')?>"/>
@@ -33,16 +33,26 @@
 		<link rel="stylesheet" href="<?php echo base_url('assets/vendor/Animocons/css/icons.css')?>" type="text/css"  />
     <link rel="stylesheet" href="<?php echo base_url('assets/css/style-dashboard.css')?>"/>
 
+    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
+
+    <script src="<?php echo base_url('assets/js/jssor.slider-27.1.0.min.js')?>" type="text/javascript"></script>
+    <script src="<?php echo base_url('assets/js/jsor.js')?>" type="text/javascript"></script>
+
+    
+      <!--==================================== End Back end pandhu ===========================================-->
+
+    <!--===============================================================================================-->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
+    <!--===============================================================================================-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.js"></script>
+    <!--===============================================================================================-->
+
     <!--===================================== Back end Pandhu ===================================================-->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/select2.min.css')?>"/>
- 
+    
     <!--===============================================================================================-->
     <link rel="stylesheet" href="<?php echo base_url('assets/css/sweetalert.min.css')?>"/>
     <!--===============================================================================================-->
-
-    <script src="<?php echo base_url('assets/js/jquery.min.js')?>"></script>
-      <!--==================================== End Back end pandhu ===========================================-->
-
 <!-- <script>
   document.onreadystatechange = function () {
       if (document.readyState === "complete") {
@@ -64,10 +74,10 @@
       <div class="main-menu ">
         <div class="container">
           <div class="row ">
-            <div class="col-md-3 respon-sm-nav">
+            <div class="col-xs-6 col-md-3 respon-sm-nav">
               <a href="<?=base_url('c_dashboard/index')?>"><img class="navbar-brand" src="<?php echo base_url('assets/images/icons/Ngartish.png') ?>"></img></a>
             </div>
-            <div class="col-md-3 respon-sm-nav">
+            <div class="col-xs-3 col-md-3 respon-sm-nav">	
               <div class="widget">
                 <div class="form-search">
                 <form action="<?=base_url('c_dashboard/m_searcboxtype/');?>" method="POST">
@@ -81,18 +91,17 @@
               </div>
               </div>
             </div>
-            <div class="col-md-6 col-md-6 col-xs-6">
-            
-							<div class="col-md-2 col-xs-2">
+            <div class="col-xs-6 col-md-6 col-md-6 col-xs-6 right-button">
+  						<div class="col-xs-2 col-md-2 col-xs-2">
 							</div>
               <ul class="nav navbar-nav row navbar-top">
                 <li class="col-xs-2 col-md-2 col-md-offset-1 col-xs-offset-0">
                   <a href="<?=base_url('c_lelang/index');?>" data-toggle="tooltip" data-placement="bottom" title="Auction"><i class="fa fa-balance-scale nav-icon"></i></a>
                 </li>
-                <li class="col-md-2">
+                <li class="col-xs-2 col-md-2">
                   <a href="<?=base_url('c_profile/m_users/'.$this->session->userdata('Id'));?>" class="nav-icon-gambar" data-toggle="tooltip" data-placement="bottom" title="My Gallery"><i class="material-icons nav-icon-gambar">panorama</i></a>
                 </li>
-                <div class="col-md-2 col-xs-2">
+                <div class="col-xs-2 col-md-2 col-xs-2">
                   <li class="dropdown">
                     <a class="dropdown-toggle" data-toggle="dropdown" data-toggle="tooltip" data-placement="bottom" title="Category" href="#"><i class="fas fa-th nav-icon"></i></a>
                     <ul class="dropdown-menu">
@@ -206,9 +215,18 @@
                   </li>
                 </div>
               </ul>
+              
             </div>
-          </div>
         </div>
+        
       </div>
+      <div id="collapse" class="panel-collapse collapse">
+              <ul class="list-group">
+                <li class="list-group-item">One</li>
+                <li class="list-group-item">Two</li>
+                <li class="list-group-item">Three</li>
+              </ul>
+          </div>
+
     </nav>
   </header>
